@@ -1,0 +1,50 @@
+# === macOS / OS ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Éditeurs / IDE ===
+.idea/
+.vscode/
+*.swp
+
+# === Dépendances (installées via Composer — voir README) ===
+vendor/
+composer.phar
+
+# === Environnement & secrets ===
+.env
+.env.*
+
+# === Données runtime (SQLite, logs, uploads, documents générés) ===
+fedpawa_light/storage/**
+!fedpawa_light/storage/.htaccess
+!fedpawa_light/storage/documents/
+!fedpawa_light/storage/documents/.gitkeep
+!fedpawa_light/storage/uploads/
+!fedpawa_light/storage/uploads/.gitkeep
+!fedpawa_light/storage/logs/
+!fedpawa_light/storage/logs/.gitkeep
+*.sqlite
+*.log
+
+# === Sources de référence / duplicates internes (hors périmètre application) ===
+fedpawa_light/source_frontend/
+
+# === Débris racine (anciens prototypes, historique sur branche legacy) ===
+/*.html
+/*.txt
+/*.jpg
+/*.md
+/backend/
+/fedpawa-corporate/
+/osioffices-clone/
+/osi-washington-source-code/
+/from_docx/
+/markdowns/
+/assets/
+/vendor/
+/*.cjs
+/package.json
+/composer.json
+/composer.lock

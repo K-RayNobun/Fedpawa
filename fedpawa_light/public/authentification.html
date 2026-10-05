@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="bordeaux" data-mode="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Espace Client | FEDPAWA CORPORATE SOLUTIONS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/dashboard.css">
+<style>
+@keyframes spin { to { transform: rotate(360deg); } }
+.global-loader {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 99999;
+  justify-content: center;
+  align-items: center;
+}
+.global-loader.active {
+  display: flex;
+}
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #fff;
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+.pwd-input-wrapper {
+  position: relative;
+}
+</style>
+</head>
+<body>
+
+<!-- Global Loader Overlay -->
+<div id="globalLoader" class="global-loader">
+  <div class="spinner"></div>
+</div>
+
+<div class="auth-wrapper">
+  <aside class="auth-visual">
+    <a href="index.php" class="auth-brand">
+      <span class="brand-mark">F</span>
+      <span>
+        <strong>FEDPAWA</strong>
+        <small>Corporate Solutions</small>
+      </span>
+    </a>
+    <div class="auth-content">
+      <h1 data-i18n="hero_title">Gérez votre entreprise en <span>toute sérénité</span>.</h1>
+      <p data-i18n="hero_desc">Accédez à votre tableau de bord pour suivre vos abonnements, téléverser vos documents KYC, consulter vos courriers scannés et gérer votre fiscalité.</p>
+      <ul class="auth-features">
+        <li class="auth-feature" data-i18n="feat_1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg> Suivi des démarches en temps réel</li>
+        <li class="auth-feature" data-i18n="feat_2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg> Archivage cloud sécurisé (Contrats & Courriers)</li>
+        <li class="auth-feature" data-i18n="feat_3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg> Factures et attestations fiscales à portée de clic</li>
+      </ul>
+    </div>
+    <div class="auth-footer-info">
+      Immeuble Pharmacie de Logpom, Douala · Cameroun<br>
+      © FEDPAWA Corporate Solutions
+    </div>
+  </aside>
+
+  <section class="auth-forms">
+    <div class="form-container">
+      <div class="form-header">
+        <h2 data-i18n="auth_header">Espace Client</h2>
+        <p data-i18n="auth_subheader">Connectez-vous ou créez un compte pour continuer.</p>
+      </div>
+      <div class="auth-tabs">
+        <div class="auth-tab active" data-tab="login" data-i18n="tab_login">Connexion</div>
+        <div class="auth-tab" data-tab="signup" data-i18n="tab_signup">Inscription</div>
+      </div>
+
+      <!-- Login Form -->
+      <div class="form-wrapper active" id="loginForm">
+        <form>
+          <div class="form-group">
+            <label for="login_email" data-i18n="lbl_email">Adresse e-mail</label>
+            <input type="email" id="login_email" class="form-control" placeholder="vous@entreprise.com" required>
+          </div>
+          <div class="form-group">
+            <label for="login_password" data-i18n="lbl_password">Mot de passe</label>
+            <div class="pwd-input-wrapper">
+              <input type="password" id="login_password" class="form-control" placeholder="••••••••" required>
+              <button type="button" class="pwd-toggle" onclick="togglePwd('login_password')" aria-label="Afficher le mot de passe">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="form-options">
+            <label class="checkbox-label"><input type="checkbox"> <span data-i18n="remember">Se souvenir de moi</span></label>
+            <a href="mot_de_passe_oublie.html" class="forgot-link" data-i18n="forgot">Mot de passe oublié ?</a>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" data-i18n="btn_login">Se connecter</button>
+        </form>
+        <p class="form-switch"><span data-i18n="no_account">Pas encore de compte ?</span> <a href="#" class="switch-link" data-target="signup" data-i18n="goto_signup">Créer un compte</a></p>
+      </div>
+
+      <!-- Signup Form -->
+      <div class="form-wrapper" id="signupForm">
+        <form>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="civility" data-i18n="lbl_civility">Civilité</label>
+              <select id="civility" class="form-control" required>
+                <option value="" data-i18n="sel_select">Sélectionner</option>
+                <option value="m" data-i18n="sel_mr">Monsieur</option>
+                <option value="mme" data-i18n="sel_mme">Madame</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="fullname" data-i18n="lbl_fullname">Nom complet</label>
+              <input type="text" id="fullname" class="form-control" placeholder="Jean Dupont" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="company" data-i18n="lbl_company">Nom de l'entreprise</label>
+              <input type="text" id="company" class="form-control" placeholder="Mon Entreprise SARL">
+            </div>
+            <div class="form-group">
+              <label for="legal-form" data-i18n="lbl_legal">Forme juridique</label>
+              <select id="legal-form" class="form-control">
+                <option value="" data-i18n="sel_select">Sélectionner</option>
+                <option>SARL</option><option>SAS</option><option>EI</option><option>SA</option><option>Autre</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="signup_email" data-i18n="lbl_email">Adresse e-mail</label>
+            <input type="email" id="signup_email" class="form-control" placeholder="vous@entreprise.com" required>
+          </div>
+          <div class="form-group">
+            <label for="phone" data-i18n="lbl_phone">Téléphone</label>
+            <input type="tel" id="phone" class="form-control" placeholder="+237 6XX XX XX XX" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="signup_password" data-i18n="lbl_password">Mot de passe</label>
+              <div class="pwd-input-wrapper">
+                <input type="password" id="signup_password" class="form-control" placeholder="••••••••" required>
+                <button type="button" class="pwd-toggle" onclick="togglePwd('signup_password')" aria-label="Afficher le mot de passe">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+              <span class="pwd-hint" data-i18n="pwd_hint">Min. 8 caractères, 1 majuscule, 1 chiffre.</span>
+            </div>
+            <div class="form-group">
+              <label for="confirm_password" data-i18n="lbl_confirm">Confirmer</label>
+              <div class="pwd-input-wrapper">
+                <input type="password" id="confirm_password" class="form-control" placeholder="••••••••" required>
+                <button type="button" class="pwd-toggle" onclick="togglePwd('confirm_password')" aria-label="Afficher le mot de passe">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="form-disclaimer">
+            <input type="checkbox" id="cgu" required>
+            <label for="cgu" data-i18n="cgu_label">J'accepte les Conditions Générales d'Utilisation (CGU) et la politique de confidentialité de FEDPAWA.</label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" data-i18n="btn_signup">Créer mon compte</button>
+        </form>
+        <p class="form-switch"><span data-i18n="has_account">Déjà un compte ?</span> <a href="#" class="switch-link" data-target="login" data-i18n="goto_login">Se connecter</a></p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Switcher / Language / Theme / Mode -->
+<div class="switcher-container">
+  <div class="theme-pill" style="display: flex; gap: 4px; padding: 4px;">
+    <button class="theme-btn active" id="langFrBtn" onclick="setLanguage('fr')" style="padding: 4px 8px; font-size: 0.75rem; font-weight: 700; border: none; background: transparent; cursor: pointer;">FR</button>
+    <button class="theme-btn" id="langEnBtn" onclick="setLanguage('en')" style="padding: 4px 8px; font-size: 0.75rem; font-weight: 700; border: none; background: transparent; cursor: pointer;">EN</button>
+  </div>
+  <div class="switcher-divider"></div>
+  <div class="theme-pill">
+    <button class="theme-btn active" data-theme="bordeaux"><span class="theme-dot" style="background: #7A1C1C;"></span><span>Bordeaux</span></button>
+    <button class="theme-btn" data-theme="navy"><span class="theme-dot" style="background: #15294D; border-color: #D4AF37;"></span><span>Nuit & Or</span></button>
+  </div>
+  <div class="switcher-divider"></div>
+  <button class="mode-toggle" id="modeToggle" aria-label="Basculer en mode sombre/clair">
+    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1-12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+</div>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+FORMULAIRE DE SOUSCRIPTION EN LIGNE
+Service de Domiciliation d'Entreprises et Mise à Disposition d'Infrastructures
+SECTION 1 – SITUATION DE L'ENTREPRISE
+Statut de la structure : [Boutons radio – obligatoire]
+⚪ Entreprise déjà immatriculée (Existante)
+⚪ Entreprise en cours de constitution / création
+Dénomination sociale / Nom commercial : [Champ texte – obligatoire] Exemple : FEDPAWA CORPORATE SOLUTIONS SARL
+Forme juridique : [Menu déroulant – obligatoire]
+SARL / SARLU
+SAS / SASU
+SA
+Établissement (Nom propre / EI)
+GIE (Groupement d'Intérêt Économique)
+Succursale / Filiale
+Autre (précisez)
+Numéro RCCM (Registre du Commerce) : [Champ texte – conditionnel : obligatoire si entreprise existante] Si votre entreprise est en cours de création, indiquez "En cours".
+Numéro NIU (Numéro d'Identifiant Unique) : [Champ texte – conditionnel : obligatoire si entreprise existante] Si votre entreprise est en cours de création, indiquez "En cours".
+Secteur d'activité principal : [Menu déroulant – obligatoire]
+Commerce et distribution
+Services aux entreprises / Conseil
+Bâtiment et travaux publics (BTP)
+Agroalimentaire & Agriculture
+Technologie, Numérique & E-commerce
+Santé, Pharmacie & Bien-être
+Éducation, Formation & Coaching
+Transport, Logistique & Import-Export
+Finance, Assurance & Immobilier
+Autre (précisez)
+Description synthétique des activités : [Zone de texte – obligatoire] Décrivez brièvement l'objet social de votre entreprise.
+SECTION 2 – REPRÉSENTANT LÉGAL & DIRIGEANT
+Civilité : [Menu déroulant – obligatoire]
+Monsieur
+Madame
+Nom complet (Nom et Prénoms) : [Champ texte – obligatoire]
+Fonction / Qualité : [Menu déroulant – obligatoire]
+Gérant / Co-gérant
+Président / Director
+Directeur Général
+Fondateur / Promoteur
+Mandataire / Fondé de pouvoir
+Nationalité : [Champ texte – obligatoire]
+Type de pièce d'identité officielle : [Menu déroulant – obligatoire]
+Carte Nationale d'Identité (CNI)
+Passeport
+Carte de Séjour / Tître de Résidence
+Numéro de la pièce d'identité : [Champ texte – obligatoire]
+SECTION 3 – COORDONNÉES DE CONTACT & NOTIFICATION
+Ces coordonnées seront utilisées pour la transmission de vos courriers et l'accès à votre espace client.
+Adresse e-mail professionnelle : [Champ email – obligatoire]
+Téléphone principal (WhatsApp) : [Champ téléphone – obligatoire avec indicatif pays] Format : +237 6XX XXX XXX
+Adresse de résidence / Siège actuel : [Champ texte – obligatoire]
+Ville et Pays de résidence : [Champs texte – obligatoire]
+SECTION 4 – CHOIX DE LA FORMULE &ENGAGEMENT
+Gamme sélectionnée : [Sélecteur visuel – obligatoire]
+🇨🇲 Gamme Nationale (Essential 25k | Business 45k | Premium 70k)
+🌍 Gamme Internationale & Diaspora (Essential Digital $88 | Business Virtual $180 | Premium Executive $290)
+Pack choisi : [Menu déroulant dynamique selon la gamme choisie]
+Periodicité et Mode de Règlement : [Menu déroulant – obligatoire]
+Mensuel (Paiement chaque mois)
+Semestriel (6 mois)
+Annuel (12 mois – Bénéficiez de remises exclusives)
+Options complémentaires souhaitées : [Cases à cocher – facultatif]
+☐ Heures de bureau privé supplémentaires
+☐ Attribution de ligne téléphonique / Standard dédié
+☐ Réservation de salle de réunion / Conférence
+☐ Assistance à la création / Immatriculation d'entreprise
+SECTION 5 – CONFORMITÉ & DISPOSITIF KYC (Know Your Customer)
+Conformément aux normes juridiques et anti-blanchiment, veuillez télécharger les justificatifs requis.
+Pièce d'identité du représentant légal (CNI ou Passeport) : [Champ téléchargement – Obligatoire] (Format PDF, JPG, PNG)
+Statuts certifiés ou Projet de statuts : [Champ téléchargement – Obligatoire] (Format PDF)
+Justificatif de domicile du dirigeant : (Facture ENEO, Camwater, Bail ou Attestation) [Champ téléchargement – Facultatif à la souscription, requis avant validation finale]
+SECTION 6 – VALIDATION ET SÉCURITÉ JURIDIQUE
+[Cases à cocher – Toutes obligatoires]
+☐ Conditions Générales : J'accepte expressément les Conditions Générales de Vente, la Politique de Confidentialité et la Charte KYC de FEDPAWA CORPORATE SOLUTIONS SARL.
+☐ Cadre Contractuel : Je reconnais que la prestation de domiciliation est régie par une Convention de mise à disposition d'infrastructures et de services, excluant expressément le statut des baux commerciaux au sens du Droit Uniforme OHADA.
+☐ Exactitude des informations : Je certifie sur l'honneur que les informations et documents fournis sont exacts, authentiques et sincères.
+[Bouton d'Action Principal] 👉 VALIDER ET GÉNÉRER MON CONTRAT DE DOMICILIATION

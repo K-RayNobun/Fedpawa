@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="bordeaux" data-mode="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Administration | FEDPAWA CORPORATE SOLUTIONS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+
+<header class="db-header">
+  <a href="index.php" class="brand">
+    <span class="brand-mark">F</span>
+    <span class="brand-copy"><strong>FEDPAWA <span class="admin-badge">Admin</span></strong><small>Back-Office</small></span>
+  </a>
+  <div class="db-user-area">
+    <span class="user-name">Super Administrateur</span>
+    <div class="user-avatar">SA</div>
+    <a href="authentification.html" class="logout-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      <span>Déconnexion</span>
+    </a>
+  </div>
+</header>
+
+<div class="db-layout">
+  <aside class="db-sidebar">
+    <nav class="db-nav">
+      <div class="db-nav-item active" data-tab="dashboard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> Vue d'ensemble</div>
+      <div class="db-nav-item" data-tab="clients"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Gestion Clients</div>
+      <div class="db-nav-item" data-tab="abonnements"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Abonnements</div>
+      <div class="db-nav-item" data-tab="paiements"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg> Paiements</div>
+      <div class="db-nav-item" data-tab="courriers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Courriers</div>
+      <div class="db-nav-item" data-tab="contrats"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Contrats</div>
+      <div class="db-nav-item" data-tab="kyc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg> Validation KYC <span class="nav-count">4</span></div>
+      <div class="db-nav-item" data-tab="stats"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Stats & Paramètres</div>
+    </nav>
+  </aside>
+
+  <main class="db-main">
+
+    <div class="db-tab-content active" id="tab-dashboard">
+      <div class="db-welcome"><div><h1>Vue d'ensemble</h1><p>Bienvenue. Voici la synthétique de l'activité de FEDPAWA Corporate Solutions.</p></div></div>
+      <div class="kpi-grid">
+        <div class="kpi-card"><div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div class="kpi-info"><h3>Membres Actifs</h3><div class="kpi-value">152</div><div class="kpi-sub">+12 ce mois</div></div></div>
+        <div class="kpi-card"><div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="kpi-info"><h3>CA Mensuel</h3><div class="kpi-value">7,5M FCFA</div><div class="kpi-sub">~12 500 USD</div></div></div>
+        <div class="kpi-card"><div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div class="kpi-info"><h3>Abonnements</h3><div class="kpi-value">142</div><div class="kpi-sub">95% Rétention</div></div></div>
+        <div class="kpi-card"><div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div><div class="kpi-info"><h3>KYC en attente</h3><div class="kpi-value">4</div><div class="kpi-sub">Action requise</div></div></div>
+      </div>
+      <h2 style="font-size: 1.4rem; margin-bottom: 20px;">Actions Requises</h2>
+      <div class="alerts-grid">
+        <div class="alert-card danger"><div class="alert-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><div class="alert-content"><h4>4 dossiers KYC à valider</h4><p>Des clients ont téléversé leurs documents d'identité récemment.</p><a href="#" class="alert-action" onclick="switchTab('kyc'); return false;">Examiner les dossiers →</a></div></div>
+        <div class="alert-card info"><div class="alert-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div class="alert-content"><h4>2 courriers reçus ce matin</h4><p>Pour Alpha SARL et Beta SARL. À scanner et attribuer.</p><a href="#" class="alert-action" onclick="switchTab('courriers'); return false;">Traiter les courriers →</a></div></div>
+        <div class="alert-card"><div class="alert-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="alert-content"><h4>5 abonnements expirent demain</h4><p>Packs Premium et Business. Envoyer un rappel de paiement.</p><a href="#" class="alert-action" onclick="switchTab('abonnements'); return false;">Voir la liste →</a></div></div>
+      </div>
+    </div>
+
+    <div class="db-tab-content" id="tab-clients">
+      <div class="db-welcome"><div><h1>Gestion des Clients</h1><p>Liste complète des utilisateurs enregistrés sur la plateforme.</p></div></div>
+      <div class="db-section">
+        <div class="db-section-header">
+          <h2>Annuaire des Clients</h2>
+          <div class="search-bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" placeholder="Rechercher un client..."></div>
+        </div>
+        <div class="db-table-wrap">
+          <table class="db-table">
+            <thead><tr><th>ID</th><th>Nom / Représentant</th><th>Raison Sociale</th><th>Email</th><th>Statut</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td>CL-001</td><td>Jean Dupont</td><td>Alpha SARL</td><td>j.dupont@email.com</td><td><span class="badge badge-success">Actif</span></td><td><div class="action-group"><a href="#" class="action-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></a><a href="#" class="action-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></a><a href="#" class="action-btn" style="border-color: var(--color-danger); color: var(--color-danger);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg></a></div></td></tr>
+              <tr><td>CL-002</td><td>Marie Curie</td><td>Beta Sciences</td><td>m.curie@email.com</td><td><span class="badge badge-warning">Suspendu</span></td><td><div class="action-group"><a href="#" class="action-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></a><a href="#" class="action-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></a><a href="#" class="action-btn" style="border-color: var(--color-danger); color: var(--color-danger);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg></a></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="db-tab-content" id="tab-abonnements">
+      <div class="db-welcome"><div><h1>Gestion des Abonnements</h1><p>Suivi des contrats actifs, résiliés et en attente de renouvellement.</p></div></div>
+      <div class="db-section">
+        <div class="db-table-wrap">
+          <table class="db-table">
+            <thead><tr><th>ID Abonn.</th><th>Client</th><th>Pack</th><th>Date Expiration</th><th>Statut</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td>AB-2026-12</td><td>Alpha SARL</td><td>Pack Premium</td><td>15/09/2027</td><td><span class="badge badge-success">Actif</span></td><td><div class="action-group"><a href="#" class="action-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></a></div></td></tr>
+              <tr><td>AB-2026-13</td><td>Beta Sciences</td><td>Pack Business</td><td>20/10/2026</td><td><span class="badge badge-warning">Expire bientôt</span></td><td><div class="action-group"><a href="#" class="action-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></a></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="db-tab-content" id="tab-paiements">
+      <div class="db-welcome"><div><h1>Paiements & Factures</h1><p>Historique financier et génération de factures.</p></div></div>
+      <div class="db-section">
+        <div class="db-table-wrap">
+          <table class="db-table">
+            <thead><tr><th>Réf. Paiement</th><th>Client</th><th>Montant</th><th>Mode</th><th>Date</th><th>Statut</th><th>Facture</th></tr></thead>
+            <tbody>
+              <tr><td>PAY-8842</td><td>Alpha SARL</td><td>50 000 FCFA</td><td>Orange Money</td><td>15/09/2026</td><td><span class="badge badge-success">Validé</span></td><td><a href="#" class="action-link">Télécharger PDF</a></td></tr>
+              <tr><td>PAY-8843</td><td>Beta Sciences</td><td>35 000 FCFA</td><td>MTN MoMo</td><td>20/09/2026</td><td><span class="badge badge-warning">En attente</span></td><td><a href="#" class="action-link">Générer</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="db-tab-content" id="tab-courriers">
+      <div class="db-welcome"><div><h1>Gestion des Courriers</h1><p>Réception, numérisation et attribution du courrier physique.</p></div></div>
+      <div class="db-section">
+        <div class="db-section-header"><h2>Nouveau Courrier</h2></div>
+        <form onsubmit="event.preventDefault(); alert('Courrier enregistré.');">
+          <div class="form-grid">
+            <div class="form-group"><label>Client destinataire</label><select class="form-control" required><option value="">Sélectionner un client...</option><option>Alpha SARL (CL-001)</option><option>Beta Sciences (CL-002)</option></select></div>
+            <div class="form-group"><label>Date de réception</label><input type="date" class="form-control" required></div>
+            <div class="form-group full"><label>Téléverser le scan</label><div style="border: 2px dashed var(--color-border-strong); padding: 20px; text-align: center; color: var(--color-text-muted); cursor: pointer;">Cliquez pour parcourir ou glissez-déposez le fichier ici</div></div>
+            <div class="form-group full"><label style="display: flex; align-items: center; gap: 8px; text-transform: none; letter-spacing: 0;"><input type="checkbox" checked> Notifier le client (Email & WhatsApp)</label></div>
+          </div>
+          <button type="submit" class="btn btn-primary">Enregistrer et Notifier</button>
+        </form>
+      </div>
+      <div class="db-section">
+        <div class="db-section-header"><h2>Historique des Courriers</h2></div>
+        <div class="db-table-wrap">
+          <table class="db-table">
+            <thead><tr><th>Date</th><th>Client</th><th>Expéditeur / Type</th><th>Statut</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td>20/09/2026</td><td>Alpha SARL</td><td>Lettre recommandée / Admin</td><td><span class="badge badge-success">Scanné & Archivé</span></td><td><a href="#" class="action-link">Consulter</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="db-tab-content" id="tab-contrats">
+      <div class="db-welcome"><div><h1>Contrats & Signatures</h1><p>Registre centralisé des actes générés et signés électroniquement.</p></div></div>
+      <div class="db-section">
+        <div class="db-table-wrap">
+          <table class="db-table">
+            <thead><tr><th>ID Contrat</th><th>Client</th><th>Type de Service</th><th>État Signature</th><th>Fichier</th></tr></thead>
+            <tbody>
+              <tr><td>CT-2026-05</td><td>Alpha SARL</td><td>Domiciliation Premium</td><td><span class="badge badge-success">Signé (Doc@uthANTIC)</span></td><td><a href="#" class="action-link">Consulter PDF</a></td></tr>
+              <tr><td>CT-2026-06</td><td>Beta Sciences</td><td>Domiciliation Business</td><td><span class="badge badge-warning">En attente de OTP</span></td><td><a href="#" class="action-link">Relancer client</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="db-tab-content" id="tab-kyc">
+      <div class="db-welcome"><div><h1>Validation KYC (Conformité)</h1><p>Examinez et validez les pièces d'identité soumises par les clients.</p></div></div>
+      <div class="kyc-review-card">
+        <div class="kyc-review-header">
+          <div><h3 style="margin-bottom: 4px;">Alpha SARL (CL-001)</h3><p style="font-size: 0.85rem; color: var(--color-text-muted);">Soumis le 19/09/2026 à 14:30</p></div>
+          <span class="badge badge-warning">En attente de validation</span>
+        </div>
+        <div class="kyc-docs-grid">
+          <div class="kyc-doc"><img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=400&q=80" alt="CNI Recto"><p>CNI Recto</p></div>
+          <div class="kyc-doc"><img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=400&q=80&sat=-30" alt="CNI Verso"><p>CNI Verso</p></div>
+          <div class="kyc-doc"><img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&w=400&q=80" alt="Statuts"><p>Statuts de l'entreprise</p></div>
+          <div class="kyc-doc"><img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=400&q=80" alt="Justificatif"><p>Justificatif de domicile</p></div>
+        </div>
+        <div class="kyc-actions">
+          <button class="btn btn-outline" style="border-color: var(--color-danger); color: var(--color-danger);" onclick="alert('Dossier rejeté. Client notifié.');">Rejeter (avec motif)</button>
+          <button class="btn btn-primary" style="background-color: var(--color-success); border-color: var(--color-success);" onclick="alert('Dossier approuvé ! Client notifié.');">Approuver le dossier</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="db-tab-content" id="tab-stats">
+      <div class="db-welcome"><div><h1>Statistiques & Paramètres</h1><p>Configuration du système et analyse des performances.</p></div></div>
+      <div class="db-section">
+        <div class="db-section-header"><h2>Configuration Système</h2></div>
+        <div class="settings-list">
+          <div class="setting-item"><div class="setting-info"><h4>Passerelle Orange Money</h4><p>API officielle pour la réception des paiements.</p></div><div class="status-toggle active" onclick="this.classList.toggle('active')"></div></div>
+          <div class="setting-item"><div class="setting-info"><h4>Passerelle MTN MoMo</h4><p>API officielle pour la réception des paiements.</p></div><div class="status-toggle active" onclick="this.classList.toggle('active')"></div></div>
+          <div class="setting-item"><div class="setting-info"><h4>Notifications WhatsApp Automatiques</h4><p>Envoi d'alertes aux clients pour courriers et factures.</p></div><div class="status-toggle" onclick="this.classList.toggle('active')"></div></div>
+          <div class="setting-item"><div class="setting-info"><h4>Mode Maintenance</h4><p>Bloquer l'accès au tunnel de souscription pour maintenance.</p></div><div class="status-toggle" onclick="this.classList.toggle('active')"></div></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<div class="switcher-container">
+  <div class="theme-pill">
+    <button class="theme-btn active" data-theme="bordeaux"><span class="theme-dot" style="background: #7A1C1C;"></span><span>Bordeaux</span></button>
+    <button class="theme-btn" data-theme="navy"><span class="theme-dot" style="background: #15294D; border-color: #D4AF37;"></span><span>Nuit & Or</span></button>
+  </div>
+  <div class="switcher-divider"></div>
+  <button class="mode-toggle" id="modeToggle">
+    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+</div>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/dashboard.js"></script>
+</body>
+</html>

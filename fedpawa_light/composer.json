@@ -1,0 +1,14 @@
+{
+    "name": "fedpawa/light",
+    "description": "FEDPAWA Corporate Solutions - Version légère",
+    "require": {
+        "php": ">=8.1",
+        "dompdf/dompdf": "^3.0",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}

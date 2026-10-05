@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="bordeaux" data-mode="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Espace Client | FEDPAWA CORPORATE SOLUTIONS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+
+<header class="db-header">
+  <a href="index.php" class="brand">
+    <span class="brand-mark">F</span>
+    <span class="brand-copy"><strong>FEDPAWA</strong><small>Espace Client</small></span>
+  </a>
+  <div class="db-user-area">
+    <span class="user-name">Jean Dupont</span>
+    <div class="user-avatar">JD</div>
+    <a href="authentification.html" class="logout-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      <span>Déconnexion</span>
+    </a>
+  </div>
+</header>
+
+<div class="db-layout">
+  <aside class="db-sidebar">
+    <nav class="db-nav">
+      <div class="db-nav-item active" data-tab="dashboard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> Tableau de bord</div>
+      <div class="db-nav-item" data-tab="abonnement"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Mon abonnement</div>
+      <div class="db-nav-item" data-tab="factures"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Mes factures</div>
+      <div class="db-nav-item" data-tab="contrats"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M12 18v-6"/><path d="M9 15h6"/></svg> Mes contrats</div>
+      <div class="db-nav-item" data-tab="documents"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> Mes documents (KYC)</div>
+      <div class="db-nav-item" data-tab="courriers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Mes courriers</div>
+      <div class="db-nav-item" data-tab="profil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Mon profil</div>
+      <div class="db-nav-item" data-tab="support"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Support</div>
+    </nav>
+  </aside>
+
+  <main class="db-main">
+    <div class="db-tab-content active" id="tab-dashboard">
+      <div class="db-welcome">
+        <div><h1>Bonjour, Jean Dupont</h1><p>Bienvenue dans votre espace client. Voici un résumé de votre compte.</p></div>
+      </div>
+      <div class="overview-grid">
+        <div class="overview-card"><h3>Abonnement Actif</h3><div class="value">Pack Premium</div><div class="sub-value">Prochaine échéance : 15/10/2026</div><span class="badge badge-success">Actif</span></div>
+        <div class="overview-card"><h3>Conformité (KYC)</h3><div class="value">Dossier en attente</div><div class="sub-value">2 documents manquants</div><span class="badge badge-warning">Action requise</span></div>
+        <div class="overview-card"><h3>Dernier Courrier Reçu</h3><div class="value">20/09/2026</div><div class="sub-value">Lettre recommandée (Administration)</div><span class="badge badge-success">Scanné & Archivé</span></div>
+      </div>
+    </div>
+
+    <div class="db-tab-content" id="tab-abonnement">
+      <div class="db-welcome"><div><h1>Mon Abonnement</h1><p>Gérez votre offre et vos options supplémentaires.</p></div></div>
+      <div class="db-section">
+        <div class="db-section-header"><div><h2>Détails de l'offre</h2><p>Pack Premium - Gamme Nationale</p></div><span class="badge badge-success">Actif</span></div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+          <div><strong>Tarif mensuel :</strong> 50 000 FCFA</div><div><strong>Date de début :</strong> 15/09/2026</div>
+          <div><strong>Date de fin :</strong> 15/10/2026</div><div><strong>Heures de bureau restantes :</strong> 15h / 15h</div>
+        </div>
+        <button class="btn btn-outline">Changer de pack / Ajouter des options</button>
+      </div>
+    </div>
+
+    <div class="db-tab-content" id="tab-factures">
+      <div class="db-welcome"><div><h1>Mes Factures</h1><p>Historique de vos paiements et téléchargement de documents comptables.</p></div></div>
+      <div class="db-section">
+        <div class="db-table-wrap">
+          <table class="db-table">
+            <thead><tr><th>Numéro</th><th>Date</th><th>Montant</th><th>Statut</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td>FAC-2026-001</td><td>15/09/2026</td><td>50 000 FCFA</td><td><span class="badge badge-success">Payée</span></td><td><a href="#" class="action-link">Télécharger (PDF)</a></td></tr>
+              <tr><td>FAC-2026-002</td><td>15/10/2026</td><td>50 000 FCFA</td><td><span class="badge badge-warning">En attente</span></td><td><a href="#" class="action-link">Payer maintenant</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="db-tab-content" id="tab-contrats">
+      <div class="db-welcome"><div><h1>Mes Contrats</h1><p>Téléchargez vos actes juridiques signés électroniquement.</p></div></div>
+      <div class="db-section">
+        <div class="db-table-wrap">
+          <table class="db-table">
+            <thead><tr><th>Type de Contrat</th><th>Date de Signature</th><th>Méthode de validation</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td>Convention d'Hébergement / Pack Premium</td><td>15/09/2026</td><td>Signature électronique certifiée (Doc@uthANTIC)</td><td><a href="#" class="action-link">Télécharger (PDF)</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="db-tab-content" id="tab-documents">
+      <div class="db-welcome"><div><h1>Mes Documents (Conformité KYC)</h1><p>Soumettez vos pièces pour valider votre compte.</p></div></div>
+      <div class="kyc-alert"><p>Merci de compléter votre dossier en téléchargeant les documents ci-dessous afin d'assurer la conformité légale de votre compte.</p></div>
+      <div class="db-section">
+        <div class="upload-area" id="uploadArea">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <h4>Glissez-déposez vos fichiers ici</h4>
+          <p>ou cliquez pour parcourir. Formats acceptés : PDF, PNG, JPG (Max 5Mo)</p>
+          <input type="file" id="fileInput" multiple hidden accept=".pdf,.png,.jpg,.jpeg">
+        </div>
+        <div class="required-docs">
+          <div class="doc-item"><div class="doc-status pending"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div class="doc-info"><h5>CNI / Passeport</h5><p>En attente de téléversement</p></div></div>
+          <div class="doc-item"><div class="doc-status pending"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div class="doc-info"><h5>Statuts de l'entreprise</h5><p>En attente de téléversement</p></div></div>
+          <div class="doc-item"><div class="doc-status valid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="doc-info"><h5>Justificatif de domicile</h5><p>Validé par l'administration</p></div></div>
+          <div class="doc-item"><div class="doc-status valid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="doc-info"><h5>Description d'activité</h5><p>Validé par l'administration</p></div></div>
+        </div>
+        <div style="margin-top: 24px;"><button class="btn btn-primary">Soumettre mon dossier</button></div>
+      </div>
+    </div>
+
+    <div class="db-tab-content" id="tab-courriers">
+      <div class="db-welcome"><div><h1>Mes Courriers</h1><p>Suivi et archivage numérique du courrier reçu à votre adresse de domiciliation.</p></div></div>
+      <div class="db-section">
+        <div class="db-table-wrap">
+          <table class="db-table">
+            <thead><tr><th>Date de Réception</th><th>Expéditeur / Type</th><th>Statut</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td>20/09/2026</td><td>Lettre recommandée / Administration</td><td><span class="badge badge-success">Scanné & Archivé</span></td><td><a href="#" class="action-link">Consulter le scan</a></td></tr>
+              <tr><td>28/09/2026</td><td>Facture fournisseur</td><td><span class="badge badge-warning">En cours de numérisation</span></td><td><a href="#" class="action-link">Bientôt disponible</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="db-tab-content" id="tab-profil">
+      <div class="db-welcome"><div><h1>Mon Profil</h1><p>Mettez à jour vos informations personnelles et d'entreprise.</p></div></div>
+      <div class="db-section">
+        <form onsubmit="event.preventDefault(); alert('Profil mis à jour !');">
+          <div class="form-grid">
+            <div class="form-group"><label>Nom complet du dirigeant</label><input type="text" class="form-control" value="Jean Dupont"></div>
+            <div class="form-group"><label>Raison sociale</label><input type="text" class="form-control" value="Mon Entreprise SARL"></div>
+            <div class="form-group"><label>Adresse e-mail</label><input type="email" class="form-control" value="contact@entreprise.com"></div>
+            <div class="form-group"><label>Numéro de téléphone</label><input type="tel" class="form-control" value="+237 6XX XX XX XX"></div>
+            <div class="form-group full"><label>Adresse physique</label><input type="text" class="form-control" value="Rue, quartier, ville"></div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Enregistrer les modifications</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="db-tab-content" id="tab-support">
+      <div class="db-welcome"><div><h1>Support</h1><p>Une question ? Notre équipe est là pour vous aider.</p></div></div>
+      <div class="db-section">
+        <form onsubmit="event.preventDefault(); alert('Message envoyé au support.'); this.reset();">
+          <div class="form-group"><label>Sujet de la demande</label><input type="text" class="form-control" placeholder="Ex: Question sur ma dernière facture" required></div>
+          <div class="form-group"><label>Message</label><textarea class="form-control" rows="5" placeholder="Décrivez votre problème ou question..." required></textarea></div>
+          <button type="submit" class="btn btn-primary">Envoyer</button>
+        </form>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<div class="switcher-container">
+  <div class="theme-pill">
+    <button class="theme-btn active" data-theme="bordeaux"><span class="theme-dot" style="background: #7A1C1C;"></span><span>Bordeaux</span></button>
+    <button class="theme-btn" data-theme="navy"><span class="theme-dot" style="background: #15294D; border-color: #D4AF37;"></span><span>Nuit & Or</span></button>
+  </div>
+  <div class="switcher-divider"></div>
+  <button class="mode-toggle" id="modeToggle">
+    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+</div>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/dashboard.js"></script>
+</body>
+</html>

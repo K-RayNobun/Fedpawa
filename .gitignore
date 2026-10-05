@@ -48,3 +48,6 @@ fedpawa_light/source_frontend/
 /package.json
 /composer.json
 /composer.lock
+
+# === Export statique GitHub Pages (généré par build_static.php) ===
+fedpawa_light/dist/

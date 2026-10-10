@@ -51,3 +51,7 @@ fedpawa_light/source_frontend/
 
 # === Export statique GitHub Pages (généré par build_static.php) ===
 fedpawa_light/dist/
+
+# === Documentation des fonctionnalités ===
+fonctionnalites.md
+

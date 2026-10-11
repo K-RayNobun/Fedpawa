@@ -1,5 +1,5 @@
 <?php
-$title = "Domiciliation des Entreprises à Douala Logpom | FEDPAWA Corporate Solutions";
+$title = "Domiciliation des Personnes Morales et d'Entreprises | FEDPAWA Corporate Solutions";
 $description = "Domiciliation d'entreprise à Douala Logpom - FEDPAWA Corporate Solutions. Siège social, gestion de courrier et espace de travail professionnel pour entrepreneurs.";
 $active = 'domiciliation';
 $extraCss = ['assets/css/pages.css'];
@@ -11,8 +11,8 @@ include __DIR__ . '/../templates/partials/site-header.php';
     <div class="container">
       <div class="hero-content">
         <div class="hero-badge">Locaux certifiés à Logpom</div>
-        <h1>Domiciliation des Entreprises</h1>
-        <p class="subtitle">Votre infrastructure d'affaires à Douala, Logpom</p>
+        <h1>Domiciliation des Personnes Morales et des Entreprises</h1>
+        <p class="subtitle">Votre Infrastructure d'Affaires & Hub Opérationnel à Douala (Logpom)</p>
         <p>Que vous soyez un entrepreneur local, une PME ou une multinationale, l'immobilier classique ne doit plus être un frein à vos ambitions. Évitez les coûts d'un bail commercial traditionnel, les cautions pluriannuelles et la gestion quotidienne des infrastructures. FEDPAWA CORPORATE SOLUTIONS met à votre disposition une infrastructure d'affaires de premier ordre.</p>
         <div style="display: flex; gap: 16px; flex-wrap: wrap;">
           <a href="#packs-nationaux" class="btn btn-primary">Découvrir nos packs</a>

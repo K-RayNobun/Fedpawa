@@ -81,8 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeButtons = document.querySelectorAll('.theme-btn');
     const modeToggle = document.getElementById('modeToggle');
 
-    const savedTheme = localStorage.getItem('fedpawa-theme') || 'bordeaux';
-    const savedMode = localStorage.getItem('fedpawa-mode') || 'light';
+    const savedTheme = localStorage.getItem('fedpawa-theme') || 'navy';
+    const savedMode = localStorage.getItem('fedpawa-mode') || 'dark';
     
     setTheme(savedTheme);
     setMode(savedMode);
@@ -100,5 +100,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     themeButtons.forEach(btn => btn.addEventListener('click', () => setTheme(btn.dataset.theme)));
     if (modeToggle) modeToggle.addEventListener('click', () => setMode(htmlEl.getAttribute('data-mode') === 'light' ? 'dark' : 'light'));
+
+    // 7. Language switcher (FR/EN) — navigation vers la page jumelle
+    // FR: /page.php  <->  EN: /en/page.php (pages dédiées par langue)
+    const langToggle = document.getElementById('langToggle');
+    if (langToggle) langToggle.addEventListener('click', () => {
+        const path = window.location.pathname;
+        const file = path.split('/').pop() || 'index.html';
+        const page = file.replace(/\.php$/, '.html');
+        const isEn = path.includes('/en/');
+        const target = isEn ? '../' + page : 'en/' + page;
+        window.location.href = target;
+    });
 
 });

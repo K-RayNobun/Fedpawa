@@ -19,6 +19,8 @@ function rewrite_links(string $html): string {
     $html = preg_replace('#href="([a-z_-]+)\.php"#',            'href="$1.html"',           $html);
     $html = preg_replace('#href="([a-z_-]+)\.php\?([^"]*)"#',    'href="$1.html?$2"',        $html);
     $html = preg_replace('~href="([a-z_-]+)\.php(#[^"]*)"~', 'href="$1.html$2"', $html);
+    $html = preg_replace('#href="(\.\./)([a-z_-]+)\.php"#',       'href="$1$2.html"',         $html);
+    $html = preg_replace('#href="(\.\./)([a-z_-]+)\.php\?([^"]*)"#', 'href="$1$2.html?$3"',    $html);
     $html = preg_replace('#action="([a-z_-]+)\.php"#',          'action="$1.html"',         $html);
     return $html;
 }
@@ -47,7 +49,7 @@ if (!is_dir($dist)) {
     mkdir($dist, 0777, true);
 }
 
-// --- 1. Pages PHP rendues en HTML ---------------------------------------------
+// --- 1. Pages PHP rendues en HTML statique (FR) --------------------------------
 $pages = [
     'index.html'               => null, // accueil : rendu direct via partiels
     'domiciliation.html'       => 'domiciliation.php',
@@ -60,19 +62,48 @@ $pages = [
     'tunnel_souscription.html' => 'tunnel_souscription.php',
 ];
 
-foreach ($pages as $out => $src) {
+foreach ($pages as $out => $srcPage) {
     ob_start();
-    if ($src === null) {
+    if ($srcPage === null) {
         $active = 'index';
         include $root . '/templates/partials/site-header.php';
         include $root . '/templates/pages/home.php';
         include $root . '/templates/partials/site-footer.php';
     } else {
-        include $public . '/' . $src;
+        include $public . '/' . $srcPage;
     }
     $html = add_banner(rewrite_links((string) ob_get_clean()));
     file_put_contents($dist . '/' . $out, $html);
     echo "  ✓ $out\n";
+}
+
+// --- 1b. Pages PHP rendues en HTML statique (EN, sous /en/) --------------------
+$pagesEn = [
+    'index.html'               => null,
+    'domiciliation.html'       => 'domiciliation.php',
+    'creation_entreprise.html' => 'creation_entreprise.php',
+    'fiscalite.html'           => 'fiscalite.php',
+    'oapi.html'                => 'oapi.php',
+    'contrats.html'            => 'contrats.php',
+    'contact.html'             => 'contact.php',
+    'qui-sommes-nous.html'     => 'qui-sommes-nous.php',
+];
+
+if (!is_dir($dist . '/en')) {
+    mkdir($dist . '/en', 0777, true);
+}
+
+foreach ($pagesEn as $out => $srcPage) {
+    ob_start();
+    if ($srcPage === null) {
+        $active = 'index';
+        include $public . '/en/index.php';
+    } else {
+        include $public . '/en/' . $srcPage;
+    }
+    $html = add_banner(rewrite_links((string) ob_get_clean()));
+    file_put_contents($dist . '/en/' . $out, $html);
+    echo "  ✓ en/$out\n";
 }
 
 // --- 2. Pages déjà statiques (copie + réécriture des liens .php) -------------

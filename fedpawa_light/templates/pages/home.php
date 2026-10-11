@@ -39,7 +39,7 @@
       <div class="expertise-media"><img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&w=800&q=80" alt="Domiciliation"></div>
       <div class="expertise-body expertise-content active" data-service="01">
         <span class="expertise-kicker">Service 01</span>
-        <div class="expertise-title-group"><span class="expertise-number-inline">01</span><h3 class="expertise-title">Domiciliation des Entreprises</h3></div>
+        <div class="expertise-title-group"><span class="expertise-number-inline">01</span><h3 class="expertise-title">Domiciliation de Personnes Morales et d'Entreprises</h3></div>
         <p class="expertise-text">Une adresse professionnelle prestigieuse à Logpom, avec scan de courrier, réexpédition et standard téléphonique. Donnez à votre entreprise une base sérieuse, sans engager les frais d'un bureau physique.</p>
         <ul class="expertise-features"><li>Adresse commerciale reconnue</li><li>Scan & réexpédition du courrier</li><li>Standard téléphonique personnalisé</li><li>Salle de réunion à la demande</li></ul>
         <a class="text-link" href="domiciliation.php">Découvrir la domiciliation <span aria-hidden="true">→</span></a>
@@ -47,7 +47,7 @@
       <div class="expertise-media" style="display:none"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80" alt="Création entreprise"></div>
       <div class="expertise-body expertise-content" data-service="02" style="display:none">
         <span class="expertise-kicker">Service 02</span>
-        <div class="expertise-title-group"><span class="expertise-number-inline">02</span><h3 class="expertise-title">Création & Légalisation d'Entreprises</h3></div>
+        <div class="expertise-title-group"><span class="expertise-number-inline">02</span><h3 class="expertise-title">Création, Transformation, Restructuration & Légalisation d'Entreprises</h3></div>
         <p class="expertise-text">De la rédaction des statuts à l'obtention du RC, IFU et CNPS. Nous prenons en charge l'ensemble du parcours GUCE pour que vous puissiez vous concentrer sur votre activité, dès le premier jour.</p>
         <ul class="expertise-features"><li>Statuts & actes juridiques</li><li>RC, IFU & CNPS obtenus pour vous</li><li>Accompagnement GUCE complet</li><li>Délais maîtrisés & transparents</li></ul>
         <a class="text-link" href="creation_entreprise.php">Découvrir la création <span aria-hidden="true">→</span></a>
@@ -55,7 +55,7 @@
       <div class="expertise-media" style="display:none"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80" alt="Fiscalité"></div>
       <div class="expertise-body expertise-content" data-service="03" style="display:none">
         <span class="expertise-kicker">Service 03</span>
-        <div class="expertise-title-group"><span class="expertise-number-inline">03</span><h3 class="expertise-title">Suivi Réglementaire & Fiscalité</h3></div>
+        <div class="expertise-title-group"><span class="expertise-number-inline">03</span><h3 class="expertise-title">Conseil et Suivi Juridique & Fiscal des Entreprises</h3></div>
         <p class="expertise-text">Déclarations mensuelles, liasses fiscales et bouclier fiscal. Nous gérons vos obligations face à la DGI avec rigueur et anticipation, pour éviter les pénalités et sécuriser votre trésorerie.</p>
         <ul class="expertise-features"><li>Déclarations mensuelles & annuelles</li><li>Liasses fiscales conformes</li><li>Accompagnement DGI</li><li>Veille réglementaire continue</li></ul>
         <a class="text-link" href="fiscalite.php">Découvrir la fiscalité <span aria-hidden="true">→</span></a>
@@ -63,7 +63,7 @@
       <div class="expertise-media" style="display:none"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80" alt="OAPI"></div>
       <div class="expertise-body expertise-content" data-service="04" style="display:none">
         <span class="expertise-kicker">Service 04</span>
-        <div class="expertise-title-group"><span class="expertise-number-inline">04</span><h3 class="expertise-title">Assistance OAPI</h3></div>
+        <div class="expertise-title-group"><span class="expertise-number-inline">04</span><h3 class="expertise-title">Enregistrement des Marques, Logos, Applications & Logiciels auprès de l'OAPI</h3></div>
         <p class="expertise-text">Protection de vos marques, logiciels et créations dans les 17 pays membres de l'OAPI. Nous sécurisons votre propriété intellectuelle à l'échelle africaine, avec une stratégie adaptée à votre secteur.</p>
         <ul class="expertise-features"><li>Dépôt de marques & brevets</li><li>Protection logicielle & œuvres</li><li>Couverture 17 pays OAPI</li><li>Veille en contrefaçon</li></ul>
         <a class="text-link" href="oapi.php">Découvrir OAPI <span aria-hidden="true">→</span></a>
@@ -71,7 +71,7 @@
       <div class="expertise-media" style="display:none"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80" alt="Contrats"></div>
       <div class="expertise-body expertise-content" data-service="05" style="display:none">
         <span class="expertise-kicker">Service 05</span>
-        <div class="expertise-title-group"><span class="expertise-number-inline">05</span><h3 class="expertise-title">Contrats & Sécurité Documentaire</h3></div>
+        <div class="expertise-title-group"><span class="expertise-number-inline">05</span><h3 class="expertise-title">Rédaction de Tous Types de Contrats (Sociaux, Commerciaux, de Travail, de Prestation, de Confidentialité)</h3></div>
         <p class="expertise-text">Contrats commerciaux, contrats de travail et archivage cloud privé sécurisé. Vos engagements juridiques sont rédigés sur mesure et vos documents stratégiques, conservés en lieu sûr.</p>
         <ul class="expertise-features"><li>Contrats commerciaux sur mesure</li><li>Contrats de travail conformes</li><li>Archivage cloud privé sécurisé</li><li>Coffres-forts numériques</li></ul>
         <a class="text-link" href="contrats.php">Découvrir les contrats <span aria-hidden="true">→</span></a>

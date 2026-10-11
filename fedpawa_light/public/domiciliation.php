@@ -1,6 +1,6 @@
 <?php
-$title = "Domiciliation des Entreprises à Douala Logpom | FEDPAWA Corporate Solutions SARL";
-$description = "Domiciliation d'entreprise à Douala Logpom - FEDPAWA CORPORATE SOLUTIONS SARL. Siège social, gestion de courrier, secrétariat téléphonique et bureaux Executive pour entrepreneurs, PME et multinationales.";
+$title = "Domiciliation de Personnes Morales et d'Entreprises à Douala Logpom | FEDPAWA CORPORATE SOLUTIONS SARL";
+$description = "Domiciliation de personnes morales et d'entreprises à Douala Logpom - FEDPAWA CORPORATE SOLUTIONS SARL. Siège social, gestion de courrier, secrétariat téléphonique et bureaux Executive pour entrepreneurs, PME et multinationales.";
 $active = 'domiciliation';
 $extraCss = ['assets/css/pages.css'];
 
@@ -11,7 +11,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
     <div class="container">
       <div class="hero-content">
         <div class="hero-badge">Locaux certifiés à Logpom</div>
-        <h1>Domiciliation des Entreprises</h1>
+        <h1>Domiciliation de Personnes Morales et d'Entreprises</h1>
         <p class="subtitle">Votre Infrastructure d'Affaires & Hub Opérationnel à Douala (Logpom)</p>
         <p>Que vous soyez un entrepreneur local lançant votre première activité au Cameroun, une PME nationale en pleine croissance, ou une multinationale ouvrant sa filiale en Afrique Centrale, l'immobilier classique ne doit plus être un frein à vos ambitions. Évitez les coûts étouffants d'un bail commercial traditionnel, les immobilisations financières de cautions pluriannuelles et la gestion quotidienne des infrastructures d'énergie ou de connectivité.</p>
         <p>FEDPAWA CORPORATE SOLUTIONS SARL met à la disposition de toutes les entreprises, sans distinction de taille ou de localisation, une infrastructure d'affaires de premier ordre au cœur de Douala, Logpom.</p>

@@ -20,8 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('menuToggle');
     const mobileNav = document.getElementById('mobileNav');
     const body = document.body;
+    const mobileCloseBtn = document.querySelector('.mobile-close-btn');
 
     if (menuToggle && mobileNav) {
+        // Toggle menu open/close
         menuToggle.addEventListener('click', () => {
             const open = mobileNav.classList.toggle('open');
             menuToggle.classList.toggle('open', open);
@@ -29,6 +31,29 @@ document.addEventListener('DOMContentLoaded', () => {
             menuToggle.setAttribute('aria-expanded', open);
         });
 
+        // Close menu when clicking the ✕ button
+        if (mobileCloseBtn) {
+            mobileCloseBtn.addEventListener('click', () => {
+                mobileNav.classList.remove('open');
+                menuToggle.classList.remove('open');
+                body.classList.remove('nav-open');
+                menuToggle.setAttribute('aria-expanded', false);
+            });
+        }
+
+        // Close menu when clicking outside the mobile nav content
+        // (le burger est hors du nav : exclure menuToggle de la fermeture, sinon le clic d'ouverture referme immédiatement)
+        document.addEventListener('click', (e) => {
+            const isClickInside = mobileNav.contains(e.target) || menuToggle.contains(e.target);
+            if (!isClickInside && mobileNav.classList.contains('open')) {
+                mobileNav.classList.remove('open');
+                menuToggle.classList.remove('open');
+                body.classList.remove('nav-open');
+                menuToggle.setAttribute('aria-expanded', false);
+            }
+        });
+
+        // Close menu when clicking a nav link
         mobileNav.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileNav.classList.remove('open');
@@ -104,13 +129,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // 7. Language switcher (FR/EN) — navigation vers la page jumelle
     // FR: /page.php  <->  EN: /en/page.php (pages dédiées par langue)
     const langToggle = document.getElementById('langToggle');
-    if (langToggle) langToggle.addEventListener('click', () => {
+    if (langToggle) langToggle.addEventListener('click', switchLanguage);
+
+    // Language switcher MOBILE (dans le menu déroulant) — même logique
+    const mobileLangToggle = document.getElementById('mobileLangToggle');
+    if (mobileLangToggle) mobileLangToggle.addEventListener('click', switchLanguage);
+
+    function switchLanguage() {
         const path = window.location.pathname;
-        const file = path.split('/').pop() || 'index.html';
-        const page = file.replace(/\.php$/, '.html');
+        const file = path.split('/').pop() || 'index.php';
         const isEn = path.includes('/en/');
-        const target = isEn ? '../' + page : 'en/' + page;
+        const target = isEn ? '../' + file : 'en/' + file;
         window.location.href = target;
-    });
+    }
+
+    // Mode toggle MOBILE (dans le menu déroulant) — même logique que le header
+    const mobileModeToggle = document.getElementById('mobileModeToggle');
+    if (mobileModeToggle) mobileModeToggle.addEventListener('click', () => setMode(htmlEl.getAttribute('data-mode') === 'light' ? 'dark' : 'light'));
 
 });

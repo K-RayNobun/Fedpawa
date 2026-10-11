@@ -1,6 +1,6 @@
 <?php
 $title = "Tunnel de Souscription | FEDPAWA CORPORATE SOLUTIONS";
-$description = "Souscrivez en ligne aux services FEDPAWA Corporate Solutions : création d'entreprise, protection OAPI, suivi fiscal et domiciliation. Paiement sécurisé Mobile Money, carte ou virement.";
+$description = "Souscrivez en ligne aux services FEDPAWA Corporate Solutions : création d'entreprise, protection OAPI, suivi fiscal, contrats et domiciliation. Paiement sécurisé Mobile Money, carte ou virement.";
 $active = 'services';
 $extraCss = ['assets/css/dashboard.css'];
 
@@ -34,10 +34,10 @@ include __DIR__ . '/../templates/partials/site-header.php';
 
   <div class="container">
     <div class="tunnel-layout-v2">
-      
+
       <!-- COLONNE GAUCHE : ÉTAPES -->
       <div class="tunnel-card" style="padding: 40px; box-shadow: none; border: 1px solid var(--color-border);">
-        
+
         <!-- ÉTAPE 1 -->
         <div class="tunnel-step-content active" id="step-1">
           <div class="step-header">
@@ -69,6 +69,18 @@ include __DIR__ . '/../templates/partials/site-header.php';
               <div class="card-price">À partir de 25 000 FCFA / mois</div>
               <p class="card-desc">Adresse fiscale, gestion courrier, salles de réunion.</p>
             </div>
+            <div class="selectable-card service-card" data-service="contrats" data-name="Rédaction de Contrats" data-price="50000" onclick="selectService('contrats')">
+              <span class="card-badge">OHADA</span>
+              <h4>Contrats & Actes Juridiques</h4>
+              <div class="card-price">De 50 000 FCFA</div>
+              <p class="card-desc">Rédaction, audit et sécurisation de vos contrats commerciaux et actes.</p>
+            </div>
+            <div class="selectable-card service-card" data-service="recouvrement" data-name="Recouvrement de Créances" data-price="0" onclick="selectService('recouvrement')">
+              <span class="card-badge">Performance-Based</span>
+              <h4>Recouvrement de Créances</h4>
+              <div class="card-price">Commission sur succès</div>
+              <p class="card-desc">Relances amiables, mise en demeure, recouvrement judiciaire.</p>
+            </div>
           </div>
           <div class="btn-group">
             <a href="index.php" class="btn btn-outline">Annuler</a>
@@ -80,6 +92,12 @@ include __DIR__ . '/../templates/partials/site-header.php';
           <div class="step-header">
             <h2>2. Vos informations & détails du projet</h2>
             <p>Renseignez les données nécessaires à la constitution de votre dossier juridique.</p>
+          </div>
+
+          <div id="smart-banner" style="display: none; margin-bottom: 20px; padding: 14px 16px; border-radius: 10px; border: 1px solid var(--color-primary); background: var(--color-bg-alt); font-size: 0.9rem; line-height: 1.5;">
+            <span id="smart-banner-text"></span>
+            <a id="smart-banner-link" href="#" style="font-weight: 700; white-space: nowrap;">Découvrir →</a>
+            <button type="button" onclick="document.getElementById('smart-banner').style.display='none'" style="float: right; background: none; border: none; font-size: 1rem; cursor: pointer; color: var(--color-text-muted); padding: 0 4px;">✕</button>
           </div>
 
           <!-- Formulaire Création -->
@@ -98,18 +116,45 @@ include __DIR__ . '/../templates/partials/site-header.php';
 
           <!-- Formulaire OAPI -->
           <div class="form-block" id="form-oapi" style="display: none;">
-            <div class="form-group"><label>Type d'actif à protéger</label><select class="form-control"><option>Marque / Nom commercial / Logo</option><option>Application mobile / Logiciel</option><option>Dessin ou Modèle</option><option>Brevet</option></select></div>
-            <div class="form-group"><label>Nom exact de la marque / titre</label><input type="text" class="form-control" placeholder="Ex: FEDPAWA App"></div>
+            <div class="form-group"><label>Type d'actif à protéger</label><select class="form-control" data-plan-select><option value="protect_brand">Marque / Nom commercial / Logo</option><option value="protect_brand">Application mobile / Logiciel</option><option value="protect_brand">Dessin ou Modèle</option><option value="brevets">Brevet</option></select></div>
+                       <div class="form-group"><label>Nom exact de la marque / titre</label><input type="text" class="form-control" placeholder="Ex: FEDPAWA App"></div>
             <div class="form-group"><label>Classes de produits/services</label><input type="text" class="form-control" placeholder="Ex: Classe 35, 42 (ou laisser vide pour conseil expert)"></div>
           </div>
 
           <!-- Formulaire Fiscalité -->
           <div class="form-block" id="form-fiscalite" style="display: none;">
             <div class="form-row">
-              <div class="form-group"><label>Numéro NIU (si existant)</label><input type="text" class="form-control" placeholder="M123456789"></div>
+              <div class="form-group"><label>Numéro NIU (si existant)</label><input type="text" id="niu-fiscal-input" class="form-control" placeholder="M123456789"></div>
               <div class="form-group"><label>Centre des impôts</label><select class="form-control"><option>CIME</option><option>CDI</option><option>DGE</option><option>Ne sais pas</option></select></div>
             </div>
-            <div class="form-group"><label>Régime fiscal actuel</label><select class="form-control"><option>Régime Simplifié</option><option>Régime du Réel</option><option>Nouveau/Non attribué</option></select></div>
+            <div class="form-group" style="background: var(--color-bg-alt); padding: 12px 14px; border-radius: 8px; border: 1px dashed var(--color-border);">
+              <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; text-transform: none; letter-spacing: 0; font-weight: 500; cursor: pointer; margin-bottom: 4px;">
+                <input type="checkbox" id="opt-no-niu-fiscal" data-smart-signal="strong" data-smart-from="fiscalite" style="margin-top: 3px;">
+                <span>Je ne dispose pas encore de NIU — mon entreprise n'est pas encore immatriculée</span>
+              </label>
+              <small style="color: var(--color-text-muted); font-size: 0.8rem;">💡 Le NIU est indispensable aux télédéclarations. FEDPAWA peut créer votre entreprise et obtenir votre NIU.</small>
+            </div>
+            <div class="form-group"><label>Régime fiscal actuel</label><select class="form-control" id="regime-fiscal" data-plan-select><option value="simplifie">Régime Simplifié</option><option value="reel">Régime du Réel</option><option value="simplifie" data-smart-soft="creation">Nouveau/Non attribué</option></select></div>
+          </div>
+
+          <!-- Formulaire Contrats -->
+          <div class="form-block" id="form-contrats" style="display: none;">
+            <div class="form-row">
+              <div class="form-group"><label>Type d'acte</label><select class="form-control" id="contrat-type"><option value="commercial">Contrat commercial / fournisseur</option><option value="cgv">CGV / CGU / Contrat client</option><option value="travail">Contrat de travail</option><option value="bail" data-smart-soft="domiciliation">Bail / Location</option><option value="statuts" data-smart-soft="creation">Statuts & pactes d'associés</option><option value="autre">Autre (précisez)</option></select></div>
+              <div class="form-group"><label>Niveau de complexité</label><select class="form-control" data-plan-select><option value="standard">Acte Standard (50 000 - 150 000 FCFA)</option><option value="complexe">Acte Complexe (150 000 - 500 000 FCFA)</option><option value="audit">Audit Juridique Tiers (sur devis)</option></select></div>
+            </div>
+            <div class="form-group"><label>Intitulé / Objet du contrat ou de l'acte</label><input type="text" class="form-control" placeholder="Ex : Contrat de distribution exclusive"></div>
+            <div class="form-group"><label>Parties concernées & contexte</label><textarea class="form-control" rows="3" placeholder="Décrivez brièvement les parties, l'objet et les points sensibles à sécuriser."></textarea></div>
+          </div>
+
+          <!-- Formulaire Recouvrement -->
+          <div class="form-block" id="form-recouvrement" style="display: none;">
+            <div class="form-row">
+              <div class="form-group"><label>Montant total des créances (FCFA)</label><input type="number" class="form-control" placeholder="Ex : 2500000"></div>
+              <div class="form-group"><label>Nombre de débiteurs</label><input type="number" class="form-control" placeholder="Ex : 3"></div>
+            </div>
+            <div class="form-group"><label>Nature de la créance</label><select class="form-control"><option>Facture impayée</option><option>Loyers impayés</option><option>Prêt / avance non remboursée</option><option>Jugement non exécuté</option><option>Autre (précisez)</option></select></div>
+            <div class="form-group"><label>Historique sommaire des relances</label><textarea class="form-control" rows="3" placeholder="Décrivez les relances déjà effectuées (dates, canaux, réponses)."></textarea></div>
           </div>
 
           <!-- Formulaire Domiciliation -->
@@ -126,13 +171,20 @@ include __DIR__ . '/../templates/partials/site-header.php';
               <div class="form-group"><label>Secteur d'activité principal</label><select class="form-control"><option>Commerce et distribution</option><option>Services aux entreprises / Conseil</option><option>Bâtiment et travaux publics (BTP)</option><option>Agroalimentaire & Agriculture</option><option>Technologie, Numérique & E-commerce</option><option>Santé, Pharmacie & Bien-être</option><option>Éducation, Formation & Coaching</option><option>Transport, Logistique & Import-Export</option><option>Finance, Assurance & Immobilier</option><option>Autre (précisez)</option></select></div>
             </div>
             <div class="form-row">
-              <div class="form-group"><label>Numéro RCCM</label><input type="text" class="form-control" placeholder="Ex : RCCM/DL/2024/B/1234 (ou « En cours »)"></div>
-              <div class="form-group"><label>Numéro NIU</label><input type="text" class="form-control" placeholder="Ex : M123456789 (ou « En cours »)"></div>
+              <div class="form-group"><label>Numéro RCCM</label><input type="text" id="rccm-input" class="form-control" placeholder="Ex : RCCM/DL/2024/B/1234 (ou « En cours »)"></div>
+              <div class="form-group"><label>Numéro NIU</label><input type="text" id="niu-input" class="form-control" placeholder="Ex : M123456789 (ou « En cours »)"></div>
+            </div>
+            <div class="form-group" style="background: var(--color-bg-alt); padding: 12px 14px; border-radius: 8px; border: 1px dashed var(--color-border);">
+              <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; text-transform: none; letter-spacing: 0; font-weight: 500; cursor: pointer; margin-bottom: 4px;">
+                <input type="checkbox" id="opt-no-immat" data-smart-signal="strong" data-smart-from="domiciliation" style="margin-top: 3px;">
+                <span>Je ne dispose pas encore de RCCM / NIU — mon entreprise n'est pas encore immatriculée</span>
+              </label>
+              <small style="color: var(--color-text-muted); font-size: 0.8rem;">💡 Pas de souci : FEDPAWA peut créer votre entreprise pour vous (statuts, RCCM, NIU, Kit Corporate). Nous vous le proposerons automatiquement.</small>
             </div>
             <div class="form-group"><label>Description synthétique des activités</label><textarea class="form-control" rows="3" placeholder="Décrivez brièvement l'objet social de votre entreprise."></textarea></div>
             <div class="form-row">
-              <div class="form-group"><label>Gamme & pack choisi</label><select class="form-control"><optgroup label="🇨🇲 Gamme Nationale"><option>Pack Essential (25 000 F / mois)</option><option>Pack Business (45 000 F / mois)</option><option>Pack Premium (70 000 F / mois)</option></optgroup><optgroup label="🌍 Gamme Internationale & Diaspora"><option>Essential Digital (50 000 F / ~88 $)</option><option>Business Virtual (110 000 F / ~180 $)</option><option>Premium Executive (175 000 F / ~290 $)</option></optgroup></select></div>
               <div class="form-group"><label>Périodicité et mode de règlement</label><select class="form-control"><option>Mensuel (Paiement chaque mois)</option><option>Semestriel (6 mois)</option><option>Annuel (12 mois – remises exclusives)</option></select></div>
+              <div class="form-group"><label>Pack domiciliation souhaité</label><select class="form-control" id="dom-pack-select" data-plan-select><option value="national-essential">Pack Essential (25 000 F / mois)</option><option value="national-business">Pack Business (45 000 F / mois)</option><option value="national-premium">Pack Premium (70 000 F / mois)</option><option value="international-essential">Essential Digital (50 000 F / mois)</option><option value="international-business">Business Virtual (110 000 F / mois)</option><option value="international-premium">Premium Executive (175 000 F / mois)</option></select></div>
             </div>
           </div>
 
@@ -152,7 +204,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
               <div class="form-group"><label>Téléphone / WhatsApp</label><input type="tel" class="form-control" placeholder="+237 6XX XX XX XX"></div>
             </div>
           </div>
-          
+
           <div class="btn-group">
             <button class="btn btn-outline" onclick="goToStep(1)">← Retour</button>
             <button class="btn btn-primary" onclick="goToStep(3)">Continuer vers les options →</button>
@@ -165,7 +217,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
             <h2>3. Options complémentaires (facultatives)</h2>
             <p>Cochez les services additionnels souhaités. La tarification de ces options vous sera confirmée sur devis.</p>
           </div>
-          
+
           <div style="display: flex; flex-direction: column; gap: 16px;">
             <label class="selectable-card option-card" data-name="Heures de bureau privé supplémentaires" data-price="0">
               <input type="checkbox" onchange="toggleOption(this)" style="display: none;">
@@ -200,7 +252,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
               </div>
             </label>
 
-            <label class="selectable-card option-card" data-name="Assistance à la création / Immatriculation d'entreprise" data-price="0">
+            <label class="selectable-card option-card" data-name="Assistance à la création / Immatriculation d'entreprise" data-price="0" id="opt-assistance-creation" data-smart-signal="strong" data-smart-from="options">
               <input type="checkbox" onchange="toggleOption(this)" style="display: none;">
               <div style="display: flex; justify-content: space-between; align-items: center;">
                 <div>
@@ -324,9 +376,9 @@ include __DIR__ . '/../templates/partials/site-header.php';
           <h3>Votre Commande</h3>
         </div>
         <div id="summaryItems"></div>
-        
+
         <div class="summary-divider"></div>
-        
+
         <div class="summary-total">
           <span>Total Estimé</span>
           <span id="summaryTotal">0 FCFA</span>
@@ -338,6 +390,21 @@ include __DIR__ . '/../templates/partials/site-header.php';
         </div>
       </aside>
 
+    </div>
+  </div>
+
+  <!-- ============ MODAL DÉTECTION SMART — BESOIN DE CRÉATION D'ENTREPRISE ============ -->
+  <div id="smart-modal-overlay" style="display: none; position: fixed; inset: 0; background: rgba(8,12,24,0.55); backdrop-filter: blur(2px); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 20px;">
+    <div id="smart-modal" role="dialog" aria-modal="true" style="background: var(--color-bg-card, #fff); border-radius: 14px; max-width: 520px; width: 100%; padding: 28px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); border: 1px solid var(--color-border);">
+      <div style="width: 54px; height: 54px; border-radius: 50%; background: var(--color-primary); display: grid; place-items: center; margin-bottom: 16px;">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2l2.4 7.2H22l-6 4.8 2.4 7.2-6-4.8-6 4.8L8.8 14 2.8 9.2h7.6z"/></svg>
+      </div>
+      <h3 style="font-size: 1.25rem; margin-bottom: 10px;">Création d'entreprise recommandée 🎯</h3>
+      <p id="smart-modal-text" style="font-size: 0.92rem; color: var(--color-text-muted); line-height: 1.55; margin-bottom: 22px;"></p>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <button type="button" id="smart-modal-yes" class="btn btn-primary" style="width: 100%;">🚀 Oui, découvrir la Création d'Entreprise</button>
+        <button type="button" id="smart-modal-no" style="width: 100%; background: none; border: none; font-size: 0.88rem; color: var(--color-text-muted); cursor: pointer; text-decoration: underline; padding: 6px;">Non merci, continuer ma souscription actuelle</button>
+      </div>
     </div>
   </div>
 

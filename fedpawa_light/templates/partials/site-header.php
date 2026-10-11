@@ -4,7 +4,6 @@
 $title       = $title ?? "FEDPAWA CORPORATE SOLUTIONS | Infrastructure d'affaires à Douala, Logpom";
 $description = $description ?? "FEDPAWA CORPORATE SOLUTIONS — Infrastructure d'affaires et hub opérationnel à Douala, Logpom : domiciliation, création d'entreprise, fiscalité, OAPI, contrats et espace client 100 % en ligne.";
 $active      = $active ?? '';
-$extraCss    = $extraCss ?? [];
 $lang        = $lang ?? 'fr';
 $servicesActive = in_array($active, ['services', 'domiciliation', 'creation', 'fiscalite', 'oapi', 'contrats'], true);
 ?>
@@ -20,12 +19,9 @@ $servicesActive = in_array($active, ['services', 'domiciliation', 'creation', 'f
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="<?= $langPrefix ?>assets/css/style.css">
 <link rel="stylesheet" href="<?= $langPrefix ?>assets/css/components.css">
-<?php foreach ($extraCss as $css): ?>
-<link rel="stylesheet" href="<?= htmlspecialchars($langPrefix . $css, ENT_QUOTES, 'UTF-8') ?>">
-<?php endforeach; ?>
+<?php foreach ($extraCss as $css): ?><link rel="stylesheet" href="<?= htmlspecialchars($langPrefix . $css, ENT_QUOTES, 'UTF-8') ?>"><?php endforeach; ?>
 </head>
 <body>
-
 <!-- ============== TOP BAR ============== -->
 <div class="top-bar">
   <div class="container">
@@ -62,22 +58,23 @@ $servicesActive = in_array($active, ['services', 'domiciliation', 'creation', 'f
         <li><a class="nav-link <?= $active === 'contact' ? 'is-active' : '' ?>" href="<?= $langPrefix ?>contact.php">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <button class="mode-toggle header-mode-toggle" id="modeToggle" aria-label="Basculer en mode sombre/clair" title="<?= $lang === "en" ? "Light / dark mode" : "Mode clair / sombre" ?>">
+        <button class="mode-toggle header-mode-toggle" id="modeToggle" aria-label="Basculer en mode sombre/clair" title="Light / dark mode">
           <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
           <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
         <button class="lang-toggle" id="langToggle" aria-label="Switch language / Changer de langue" title="FR / EN"><?= $lang === "en" ? "FR" : "EN" ?></button>
         <a class="nav-login" href="<?= $langPrefix ?>authentification.html"><?= $lang === "en" ? "Sign in" : "Se connecter" ?></a>
-        <a class="nav-cta" href="<?= $langPrefix ?>tunnel_souscription.php"><?= $lang === 'en' ? 'Subscribe' : 'Je m’abonne' ?></a>
+        <a class="nav-cta" href="<?= $langPrefix ?>tunnel_souscription.php"><?= $lang === 'en' ? 'Subscribe' : 'Je m\'abonne' ?></a>
       </div>
     </nav>
   </div>
 </header>
 
+<!-- ============== MOBILE NAVIGATION ============== -->
 <div class="mobile-nav" id="mobileNav">
   <nav>
     <a href="<?= $langPrefix ?>index.php"><?= $lang === "en" ? "Home" : "Accueil" ?></a>
-    <a href="domiciliation.php">Domiciliation</a>
+    <a href="<?= $langPrefix ?>domiciliation.php">Domiciliation</a>
     <a href="<?= $langPrefix ?>creation_entreprise.php"><?= $lang === 'en' ? 'Company Formation' : "Création d'entreprise" ?></a>
     <a href="<?= $langPrefix ?>fiscalite.php"><?= $lang === "en" ? "Tax & Legal Advisory" : "Conseils & Fiscalité" ?></a>
     <a href="<?= $langPrefix ?>oapi.php"><?= $lang === "en" ? "OAPI Protection" : "Protection OAPI" ?></a>
@@ -85,8 +82,20 @@ $servicesActive = in_array($active, ['services', 'domiciliation', 'creation', 'f
     <a href="<?= $langPrefix ?>qui-sommes-nous.php"><?= $lang === "en" ? "About Us" : "Qui sommes-nous" ?></a>
     <a href="<?= $langPrefix ?>contact.php">Contact</a>
     <a href="<?= $langPrefix ?>authentification.html"><?= $lang === "en" ? "Sign in" : "Se connecter" ?></a>
-    <a class="mobile-cta" href="<?= $langPrefix ?>tunnel_souscription.php"><?= $lang === 'en' ? 'Subscribe' : 'Je m’abonne' ?></a>
+    <a class="mobile-cta" href="<?= $langPrefix ?>tunnel_souscription.php"><?= $lang === 'en' ? 'Subscribe' : 'Je m\'abonne' ?></a>
+    <!-- Toggles inside mobile menu -->
+    <div class="mobile-nav-toggles">
+      <button class="mode-toggle mobile-mode-toggle" id="mobileModeToggle" aria-label="Basculer en mode sombre/clair" title="Light / dark mode">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="lang-toggle mobile-lang-toggle" id="mobileLangToggle" aria-label="Switch language / Changer de langue" title="FR / EN"><?= $lang === "en" ? "FR" : "EN" ?></button>
+      <button class="mobile-close-btn" aria-label="Fermer le menu" title="Fermer le menu">×</button>
+    </div>
   </nav>
 </div>
 
 <main>
+</main>
+</body>
+</html>

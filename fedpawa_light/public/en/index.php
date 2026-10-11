@@ -103,7 +103,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
       <h2>Ready to Structure Your Company on Solid Foundations?</h2>
       <p>Contact us today for personalized guidance with our experts.</p>
       <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-        <a class="btn btn-primary" href="tunnel_souscription.php">Subscribe</a>
+        <a class="btn btn-primary" href="../tunnel_souscription.php">Subscribe</a>
         <a class="btn btn-outline" href="contact.php">Contact us</a>
       </div>
     </div>

@@ -142,7 +142,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
             <li>Veille réglementaire permanente</li>
             <li>Suivi de l'Attestation de Conformité Fiscale (ACF)</li>
           </ul>
-          <a href="tunnel_souscription.php?service=fiscalite&pack=simplifie" class="btn btn-primary btn-block">Je sécurise ma fiscalité</a>
+          <a href="../tunnel_souscription.php?service=fiscalite&pack=simplifie" class="btn btn-primary btn-block">Je sécurise ma fiscalité</a>
         </div>
 
         <div class="pricing-card">

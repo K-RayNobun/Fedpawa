@@ -157,7 +157,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
             <li>Constitution et dépôt officiel</li>
             <li>Suivi complet jusqu'au certificat</li>
           </ul>
-          <a href="tunnel_souscription.php?service=oapi&pack=protect_brand" class="btn btn-primary btn-block">Protect my asset</a>
+          <a href="../tunnel_souscription.php?service=oapi&pack=protect_brand" class="btn btn-primary btn-block">Protect my asset</a>
         </div>
         <div class="pricing-card">
           <div class="card-header"><h3>Invention Patents</h3><div class="price">Custom Quote</div></div>

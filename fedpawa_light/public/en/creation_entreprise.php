@@ -181,7 +181,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
             <li>Suivi du circuit notarial, Greffe, CFCE & DGI</li>
             <li>Livraison du Kit Corporate complet (RCCM, NIU, Statuts)</li>
           </ul>
-          <a href="tunnel_souscription.php?service=creation&pack=standard" class="btn btn-primary btn-block">Je crée mon entreprise</a>
+          <a href="../tunnel_souscription.php?service=creation&pack=standard" class="btn btn-primary btn-block">Je crée mon entreprise</a>
         </div>
       </div>
 

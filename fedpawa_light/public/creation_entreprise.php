@@ -1,6 +1,6 @@
 <?php
-$title = "Création & Légalisation d'Entreprises | FEDPAWA CORPORATE SOLUTIONS";
-$description = "Création et Légalisation d'Entreprises au Cameroun. Conformité OHADA, Kit Corporate complet, sans déplacement. FEDPAWA Corporate Solutions.";
+$title = "Création, Transformation, Restructuration & Légalisation d'Entreprises | FEDPAWA CORPORATE SOLUTIONS SARL";
+$description = "Création, Transformation, Restructuration et Légalisation d'Entreprises au Cameroun. Conformité OHADA, Kit Corporate complet, sans déplacement. FEDPAWA CORPORATE SOLUTIONS SARL.";
 $active = 'creation';
 $extraCss = ['assets/css/pages.css'];
 
@@ -11,9 +11,10 @@ include __DIR__ . '/../templates/partials/site-header.php';
     <div class="container">
       <div class="hero-content">
         <div class="hero-badge">100% Conforme Actes Uniformes OHADA & GUCE/CFCE</div>
-        <h1>Création & Légalisation d'Entreprises au Cameroun</h1>
-        <p class="subtitle">Donnez une existence légale, inattaquable et pérenne à votre projet d'affaires.</p>
-        <p>Que vous soyez un entrepreneur local formalisant sa première activité, un investisseur étranger ou un membre de la Diaspora structurant son patrimoine, la création d'une entreprise ne se résume pas à remplir un formulaire administratif. C'est un acte juridique fondateur qui détermine votre responsabilité, votre gouvernance et votre optimisation fiscale future. FEDPAWA CORPORATE SOLUTIONS prend en charge l'intégralité de vos démarches de constitution, de transformation et de légalisation auprès des autorités camerounaises.</p>
+        <h1>La Création, la Transformation, la Restructuration et la Légalisation d'Entreprises</h1>
+        <p class="subtitle">Donnez une Existence Légale et Inattaquable à Votre Projet au Cameroun</p>
+        <p>Que vous soyez un entrepreneur local formalisant sa première activité, un investisseur étranger ou un membre de la Diaspora structurant son patrimoine, la création ou la restructuration d'une entreprise ne se résume pas à remplir un formulaire administratif. C'est un acte juridique fondateur qui détermine votre responsabilité, votre gouvernance et votre optimisation fiscale future.</p>
+        <p>FEDPAWA CORPORATE SOLUTIONS SARL prend en charge l'intégralité de vos démarches de constitution, transformation, restructuration et légalisation auprès des autorités camerounaises.</p>
         <div style="display: flex; gap: 16px; flex-wrap: wrap;">
           <a href="tunnel_souscription.php?service=creation&pack=standard" class="btn btn-gold">Je crée mon entreprise</a>
           <a href="#process" class="btn btn-outline">Découvrir le processus en 4 étapes</a>
@@ -53,45 +54,49 @@ include __DIR__ . '/../templates/partials/site-header.php';
         <div class="process-card">
           <span class="process-num">01</span>
           <div class="process-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-          <h3>Audit & Orientation Stratégique</h3>
+          <h3>🔍 Étape 1 : L'Audit Préalable et l'Orientation Stratégique</h3>
+          <p>Avant de lancer la moindre démarche, nous analysons votre projet pour valider les choix fondamentaux :</p>
           <ul class="process-list">
-            <li>Sélection de la forme juridique (SARL, SAS, SA, etc.) selon vos objectifs.</li>
-            <li>Structuration du capital social et répartition des parts.</li>
-            <li>Validation de la gouvernance et des pouvoirs de direction.</li>
+            <li><strong>Sélection de la Forme Juridique :</strong> orientation objective entre l'Établissement (Nom propre), la SARL (Société à Responsabilité Limitée), la SAS (Société par Actions Simplifiée) ou la SA (Société Anonyme) selon vos ambitions et le nombre d'associés.</li>
+            <li><strong>Structuration du Capital Social :</strong> conseil sur la répartition des parts, les apports en numéraire ou en nature, et la protection des associés fondateurs.</li>
+            <li><strong>Validation de la Gouvernance :</strong> définition des pouvoirs de la gérance ou de la présidence, et des modalités de prise de décision (clauses de blocage, majorité requise).</li>
           </ul>
         </div>
 
         <div class="process-card">
           <span class="process-num">02</span>
           <div class="process-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
-          <h3>Rédaction sur-mesure</h3>
+          <h3>✍️ Étape 2 : La Conception et la Rédaction des Actes Juridiques</h3>
+          <p>Nous n'utilisons pas de modèles génériques. Vos documents sont rédigés sur-mesure par des experts en droit des affaires :</p>
           <ul class="process-list">
-            <li>Rédaction des Statuts en stricte conformité OHADA.</li>
-            <li>Établissement de la Déclaration de Souscription et de Versement (DSV).</li>
-            <li>Procès-verbaux de nomination des premiers dirigeants.</li>
+            <li>Rédaction des Statuts de la société en stricte conformité avec les Actes Uniformes de l'OHADA.</li>
+            <li>Rédaction de la Déclaration de Souscription et de Versement (DSV).</li>
+            <li>Rédaction des procès-verbaux de nomination des premiers dirigeants (Gérants, Présidents, Directeurs Généraux).</li>
           </ul>
         </div>
 
         <div class="process-card">
           <span class="process-num">03</span>
           <div class="process-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg></div>
-          <h3>Circuit Administratif</h3>
+          <h3>🏛️ Étape 3 : Le Circuit Administratif et l'Immatriculation</h3>
+          <p>Nous gérons l'intégralité du parcours auprès des institutions. Vous n'avez aucun déplacement à effectuer :</p>
           <ul class="process-list">
-            <li>Interface notariale pour la passation et certification des actes.</li>
-            <li>Dépôt au Greffe & CFCE / Enregistrement Fiscal.</li>
-            <li>Obtention des registres officiels d'immatriculation.</li>
+            <li><strong>Interface Notariale :</strong> suivi du dossier auprès de nos études de notaires partenaires à Douala et Yaoundé pour la passation et la certification des actes.</li>
+            <li><strong>Dépôt au Greffe & CFCE / Enregistrement Fiscal :</strong> prise en charge des démarches et de l'obtention des registres officiels.</li>
           </ul>
         </div>
 
         <div class="process-card">
           <span class="process-num">04</span>
           <div class="process-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12H2"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/><line x1="6" y1="16" x2="6.01" y2="16"/><line x1="10" y1="16" x2="10.01" y2="16"/></svg></div>
-          <h3>Kit Corporate Livré</h3>
+          <h3>💼 Étape 4 : La Livraison du "Kit Corporate"</h3>
+          <p>À l'issue de la procédure, nous vous remettons votre dossier juridique complet, classé et sécurisé, comprenant :</p>
           <ul class="process-list">
-            <li>Exemplaire original des statuts notariés.</li>
-            <li>Titre RCCM, Numéro d'Identifiant Unique (NIU) et Carte Contribuable.</li>
-            <li>Kit immédiatement opérationnel pour la banque.</li>
+            <li>L'exemplaire original des statuts notariés.</li>
+            <li>Votre titre de Registre du Commerce (RCCM).</li>
+            <li>Votre Numéro d'identifiant unique (NIU) et votre Carte de Contribuable active.</li>
           </ul>
+          <p><em>NB : Ce kit complet est immédiatement opérationnel pour l'ouverture de vos comptes bancaires professionnels au Cameroun et la signature de vos premiers contrats.</em></p>
         </div>
       </div>
     </div>

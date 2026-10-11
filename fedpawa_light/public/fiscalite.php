@@ -1,6 +1,6 @@
 <?php
-$title = "Suivi Réglementaire & Fiscalité | FEDPAWA CORPORATE SOLUTIONS";
-$description = "Suivi Réglementaire & Fiscalité des Entreprises au Cameroun. Télé-déclarations DGI, Liasse Fiscale (DSF), Attestation de Conformité Fiscale et Bouclier Fiscal.";
+$title = "Conseil et Suivi Juridique & Fiscal des Entreprises | FEDPAWA CORPORATE SOLUTIONS SARL";
+$description = "Conseil et Suivi Juridique et Fiscal des Entreprises au Cameroun. Télé-déclarations DGI, Liasse Fiscale (DSF), Attestation de Conformité Fiscale (ACF) et Bouclier Fiscal.";
 $active = 'fiscalite';
 $extraCss = ['assets/css/pages.css'];
 
@@ -11,9 +11,10 @@ include __DIR__ . '/../templates/partials/site-header.php';
     <div class="container">
       <div class="hero-content">
         <div class="hero-badge">Conformité Code Général des Impôts & SYSCOHADA</div>
-        <h1>Suivi Réglementaire & Fiscalité des Entreprises au Cameroun</h1>
-        <p class="subtitle">Sécurisez votre croissance et pilotez vos obligations face à la DGI en toute sérénité.</p>
-        <p>La pérennité d'une entreprise au Cameroun repose sur sa conformité fiscale. Trop de dirigeants voient leur élan brisé par des redressements, des pénalités de retard ou des blocages administratifs qui auraient pu être évités grâce à une veille rigoureuse. FEDPAWA CORPORATE SOLUTIONS prend en charge l'intégralité de vos obligations réglementaires et fiscales. Nous assurons l'interface permanente entre votre entreprise et l'administration fiscale camerounaise (CIME, CDI, DGE) pour vous garantir une conformité totale tout en optimisant légalement votre charge fiscale.</p>
+        <h1>Le Conseil et le Suivi Juridique et Fiscal des Entreprises</h1>
+        <p class="subtitle">Sécurisez Votre Croissance et Pilotez Vos Obligations Face à la DGI en Toute Sérénité</p>
+        <p>La pérennité d'une entreprise au Cameroun repose sur sa conformité fiscale et juridique. Trop de dirigeants voient leur élan brisé par des redressements ou des blocages administratifs qui auraient pu être évités grâce à une veille rigoureuse. Que vous soyez une PME nationale ou une filiale internationale, externaliser votre suivi juridique et fiscal à des experts du droit des affaires est un investissement stratégique majeur.</p>
+        <p>FEDPAWA CORPORATE SOLUTIONS SARL prend en charge l'intégralité de vos obligations réglementaires, juridiques et fiscales courantes. Nous assurons l'interface permanente entre votre entreprise et l'administration fiscale camerounaise, vous garantissant une conformité totale tout en optimisant légalement votre charge fiscale.</p>
         <div style="display: flex; gap: 16px; flex-wrap: wrap;">
           <a href="tunnel_souscription.php?service=fiscalite&pack=simplifie" class="btn btn-gold">Je sécurise ma fiscalité</a>
           <a href="contact.php?service=fiscalite-devis" class="btn btn-outline">Demander un devis sur-mesure</a>
@@ -52,40 +53,40 @@ include __DIR__ . '/../templates/partials/site-header.php';
       <div class="solutions-grid">
         <div class="solution-card">
           <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></svg></div>
-          <h3>Gestion des Déclarations Mensuelles</h3>
-          <span class="obj">Obligations périodiques sur le portail DGI</span>
+          <h3>📊 1. Gestion des Déclarations Mensuelles Courantes</h3>
+          <span class="obj">Nous prenons en charge l'ensemble des obligations périodiques obligatoires sur le portail officiel de la DGI :</span>
           <ul class="solution-list">
             <li>Calcul, vérification et télé-déclaration de la Taxe sur la Valeur Ajoutée (TVA).</li>
-            <li>Déclaration et liquidation des acomptes d'Impôt sur les Sociétés (IS) ou sur le Revenu.</li>
-            <li>Gestion des retenues à la source sur les loyers et les prestations de services.</li>
-            <li>Déclaration des taxes sur les salaires (IRPP, CNPS, Crédit Foncier, FNE).</li>
+            <li>Déclaration et liquidation des acomptes d'Impôt sur les Sociétés ou sur le Revenu.</li>
+            <li>Gestion des retenues à la source sur les loyers, les prestataires locaux et internationaux.</li>
+            <li>Déclaration des taxes sur les salaires (IRPP, cotisations sociales CNPS, Crédit Foncier, FNE).</li>
           </ul>
         </div>
 
         <div class="solution-card">
           <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg></div>
-          <h3>Liasse Fiscale Annuelle (DSF)</h3>
-          <span class="obj">Clôture et transition juridique annuelle</span>
+          <h3>📑 2. Établissement de la Liasse Fiscale Annuelle (DSF)</h3>
+          <span class="obj">En fin d'exercice comptable, nous gérons la transition juridique et fiscale majeure :</span>
           <ul class="solution-list">
-            <li>Vérification de la conformité des écritures comptables au regard du système SYSCOHADA.</li>
+            <li>Vérification de la conformité des écritures au regard du système comptable OHADA (SYSCOHADA).</li>
             <li>Élaboration, validation juridique et dépôt de votre Déclaration Statistique et Fiscale (DSF).</li>
-            <li>Optimisation des déductions fiscales légales, amortissements et reports déficitaires.</li>
+            <li>Optimisation des déductions fiscales légales, des amortissements et des reports déficitaires autorisés par le Code Général des Impôts.</li>
           </ul>
         </div>
 
         <div class="solution-card">
           <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <h3>Représentation & Conformité (ACF)</h3>
-          <span class="obj">Interface fluide avec votre centre des impôts</span>
+          <h3>🏛️ 3. Représentation Administrative et Conformité Fiscale</h3>
+          <span class="obj">Nous gérons vos relations quotidiennes avec votre centre des impôts de rattachement (CIME, CDI ou DGE) :</span>
           <ul class="solution-list">
-            <li>Suivi de la délivrance et du maintien de votre Attestation de Conformité Fiscale (ACF).</li>
-            <li>Suivi des demandes de remboursement de crédits de TVA et demandes de compensation.</li>
-            <li>Représentation auprès de votre centre fiscal (CIME, CDI ou DGE) et mise à jour du dossier.</li>
+            <li>Suivi de la délivrance et du maintien de votre Attestation de Conformité Fiscale (ACF), indispensable pour l'ensemble de vos démarches administratives, commerciales et bancaires.</li>
+            <li>Suivi des demandes de remboursement de crédits de TVA ou de compensation fiscale.</li>
+            <li>Mise à jour permanente de votre dossier fiscal (changement de dirigeant, modification de capital, etc.).</li>
           </ul>
         </div>
 
         <div class="solution-card">
-          <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
           <h3>Bouclier Fiscal & Contrôles</h3>
           <span class="obj">Défense face à l'administration</span>
           <ul class="solution-list">

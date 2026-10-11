@@ -1,6 +1,6 @@
 <?php
-$title = "Rédaction de Contrats & Sécurité Documentaire | FEDPAWA";
-$description = "Rédaction de contrats, audit juridique et sécurité documentaire à Douala Logpom. Sécurisez vos partenariats et vos transactions avec FEDPAWA Corporate Solutions.";
+$title = "Rédaction de Tous Types de Contrats (Sociaux, Commerciaux, de Travail, de Prestation, de Confidentialité) | FEDPAWA CORPORATE SOLUTIONS SARL";
+$description = "Rédaction de tous types de contrats : sociaux, commerciaux, de travail, de prestation, de confidentialité (NDA), audit contractuel et sécurité documentaire avec FEDPAWA CORPORATE SOLUTIONS SARL.";
 $active = 'contrats';
 $extraCss = ['assets/css/pages.css'];
 
@@ -11,9 +11,10 @@ include __DIR__ . '/../templates/partials/site-header.php';
     <div class="container">
       <div class="hero-content">
         <div class="hero-badge">Ingénierie Contractuelle & Conformité OHADA</div>
-        <h1>Rédaction de Contrats & Sécurité Documentaire</h1>
-        <p class="subtitle">Verrouillez vos partenariats, protégez vos transactions et éliminez vos risques juridiques</p>
+        <h1>La Rédaction de Tous Types de Contrats (Sociaux, Commerciaux, de Travail, de Prestation, de Confidentialité, Etc.)</h1>
+        <p class="subtitle">Verrouillez Vos Partenariats, Protégez Vos Transactions et Éliminez Vos Risques Juridiques</p>
         <p>Chaque signature engage l'avenir, la trésorerie et la responsabilité de votre entreprise. Qu'il s'agisse de recruter un collaborateur, de signer avec un distributeur, de louer un local ou de nouer un partenariat technologique, le contrat est votre seule véritable assurance. Un document flou ou inadapté aux réalités du droit local est une faille que vos partenaires ou concurrents n'hésiteront pas à exploiter en cas de conflit.</p>
+        <p>FEDPAWA CORPORATE SOLUTIONS SARL met son expertise en ingénierie contractuelle au service de votre sécurité. Nous concevons, rédigeons et auditons vos actes juridiques pour vous offrir une protection maximale, équilibrer vos relations d'affaires et vous garantir une parfaite conformité avec le Code du travail camerounais et les Actes Uniformes de l'OHADA.</p>
         <div style="display: flex; gap: 16px; flex-wrap: wrap;">
           <a href="#pricing" class="btn btn-primary">Voir les forfaits</a>
           <a href="contact.php" class="btn btn-outline">Demander un devis</a>
@@ -40,55 +41,61 @@ include __DIR__ . '/../templates/partials/site-header.php';
     <div class="container">
       <div class="section-header">
         <span class="section-kicker">Nos expertises</span>
-        <h2>Les 4 Solutions Contractuelles</h2>
+        <h2>Nos Solutions Contractuelles et Dispositifs de Sécurité</h2>
       </div>
 
       <div class="solutions-grid">
         <div class="solution-card">
           <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 12h6M9 16h6"/></svg></div>
-          <h3>Contrats Commerciaux & Partenariats</h3>
-          <span class="obj">Sécuriser votre écosystème commercial</span>
+          <h3>📝 1. Contrats Commerciaux, de Prestation & Partenariats d'Affaires</h3>
+          <span class="obj">Nous sécurisons vos relations avec votre écosystème commercial (clients, fournisseurs, prestataires) :</span>
           <ul class="solution-list">
-            <li>Rédaction de contrats de prestations de services, sous-traitance et co-traitance.</li>
-            <li>Conception de baux professionnels et commerciaux conformes OHADA.</li>
-            <li>Contrats de distribution, franchise, agence commerciale et approvisionnement.</li>
-            <li>Établissement de CGV et CGU pour plateformes physiques ou e-commerce.</li>
+            <li>Rédaction de contrats de prestations de services, de sous-traitance et de co-traitance.</li>
+            <li>Conception de baux professionnels et commerciaux conformes aux exigences strictes de l'OHADA.</li>
+            <li>Rédaction de contrats de distribution, de franchise, d'agence commerciale et d'approvisionnement.</li>
+            <li>Établissement de Conditions Générales de Vente (CGV) et de Conditions Générales d'Utilisation (CGU) pour vos plateformes physiques ou e-commerce.</li>
           </ul>
         </div>
 
         <div class="solution-card">
           <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h3>Contrats de Travail & Gestion RH</h3>
-          <span class="obj">Prévenir les contentieux prud'homaux</span>
+          <h3>👥 2. Contrats de Travail & Contrats Sociaux (Gestion des RH)</h3>
+          <span class="obj">Nous protégeons votre entreprise contre le risque de contentieux prud'homal (Tribunal du travail) :</span>
           <ul class="solution-list">
-            <li>Rédaction sur-mesure (CDI, CDD, apprentissage, stagiaires) conformes au Code du travail.</li>
-            <li>Clauses protectrices : non-concurrence, confidentialité (NDA), dédit-formation, exclusivité.</li>
-            <li>Assistance à la rédaction de règlements intérieurs et d'avenants contractuels.</li>
-            <li>Intégration des conventions collectives spécifiques à votre secteur.</li>
-          </ul>
-        </div>
-
-        <div class="solution-card">
-          <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
-          <h3>Audit Contractuel & Risk Management</h3>
-          <span class="obj">Analyser les documents des tiers</span>
-          <ul class="solution-list">
-            <li>Identification des clauses cachées, léonines ou disproportionnées qui déséquilibrent l'accord.</li>
-            <li>Évaluation des mécanismes de responsabilité civile et clauses pénales.</li>
-            <li>Analyse des conditions de résiliation et de sortie de contrat.</li>
-            <li>Rédaction de contre-propositions juridiques pour rééquilibrer la négociation.</li>
+            <li>Rédaction de contrats de travail sur-mesure (CDI, CDD, contrats d'apprentissage, stagiaires) en parfaite adéquation avec le Code du travail camerounais et les conventions collectives applicables.</li>
+            <li>Insertion de clauses protectrices spécifiques : clauses de non-concurrence, clauses de confidentialité strictes (NDA), clauses de dédit-formation ou d'exclusivité.</li>
+            <li>Assistance à la rédaction de règlements intérieurs d'entreprise, chartes sociales et avenants contractuels.</li>
           </ul>
         </div>
 
         <div class="solution-card">
           <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-          <h3>Sécurité Documentaire & Archivage</h3>
-          <span class="obj">Protéger contre la perte et la falsification</span>
+          <h3>🔒 3. Engagements de Confidentialité (NDA) & Sécurité Spécifique</h3>
+          <span class="obj">Protéger vos secrets d'affaires avant tout partenariat :</span>
+          <ul class="solution-list">
+            <li>Rédaction d'accords unilatéraux ou réciproques de confidentialité (NDA) pour protéger vos secrets d'affaires, concepts et négociations avant tout partenariat.</li>
+          </ul>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+          <h3>🔍 4. Audit Contractuel & Gestion des Risques (Risk Management)</h3>
+          <span class="obj">Avant de signer un document proposé par un tiers (banque, multinationale, État), nous passons l'acte au peigne fin :</span>
+          <ul class="solution-list">
+            <li>Identification des clauses cachées, léonines ou disproportionnées qui déséquilibrent l'accord.</li>
+            <li>Évaluation des mécanismes de responsabilité civile, des clauses pénales (pénalités de retard) et des conditions de résiliation.</li>
+            <li>Rédaction de contre-propositions juridiques pour rééquilibrer la négociation en votre faveur.</li>
+          </ul>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <h3>🔐 5. Sécurité Documentaire & Archivage Cloud Privé</h3>
+          <span class="obj">Nous protégeons vos actes majeurs contre la perte, la falsification ou le vol :</span>
           <ul class="solution-list">
             <li>Contrôle de la validité des signatures et de la chaîne de pouvoirs des signataires.</li>
             <li>Numérisation haute définition et indexation méthodique de vos archives juridiques.</li>
-            <li>Mise à disposition d'un Coffre-fort Numérique sécurisé (Cloud privé FEDPAWA).</li>
-            <li>Accès 24h/24 et 7j/7, de manière totalement cryptée.</li>
+            <li>Mise à disposition d'un Coffre-fort Numérique sécurisé (Cloud privé FEDPAWA) pour vous permettre d'accéder à vos contrats stratégiques 24h/24 et 7j/7, où que vous soyez dans le monde, de manière totalement cryptée.</li>
           </ul>
         </div>
       </div>

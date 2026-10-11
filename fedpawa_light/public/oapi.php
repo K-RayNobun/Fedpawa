@@ -1,6 +1,6 @@
 <?php
-$title = "Assistance OAPI | FEDPAWA CORPORATE SOLUTIONS";
-$description = "Assistance OAPI : Protégez vos marques, logiciels et innovations techniques dans 17 pays d'Afrique subsaharienne avec FEDPAWA.";
+$title = "Enregistrement des Marques, Logos, Applications, Logiciels & Propriété Intellectuelle OAPI | FEDPAWA CORPORATE SOLUTIONS SARL";
+$description = "Enregistrement des marques, logos, applications, logiciels et autres droits de propriété intellectuelle auprès de l'OAPI. Protection dans 17 pays d'Afrique subsaharienne avec FEDPAWA CORPORATE SOLUTIONS SARL.";
 $active = 'oapi';
 $extraCss = ['assets/css/pages.css'];
 
@@ -11,9 +11,10 @@ include __DIR__ . '/../templates/partials/site-header.php';
     <div class="container">
       <div class="hero-content">
         <div class="hero-badge">Protection Propriété Intellectuelle • Accord de Bangui</div>
-        <h1>Protection des Marques, Logotypes, Applications & Logiciels auprès de l'OAPI</h1>
-        <p class="subtitle">Sécurisez vos innovations, verrouillez votre identité commerciale et valorisez vos actifs immatériels dans 17 pays d'Afrique subsaharienne.</p>
-        <p>Votre nom commercial, votre logo, votre logiciel ou votre application mobile constituent la signature unique de votre réussite. Si vous exploitez ces actifs sans les enregistrer officiellement, n'importe quel tiers peut les déposer à votre place, bloquer votre activité et détruire la valeur de votre entreprise. Protéger vos créations auprès de l'OAPI vous confère un titre de propriété exclusif et opposable. FEDPAWA CORPORATE SOLUTIONS met son expertise en droit de la propriété intellectuelle au service de votre patrimoine immatériel.</p>
+        <h1>L'Enregistrement des Marques, Logos, Applications, Logiciels et autres droits de Propriété Intellectuelle auprès de l'OAPI</h1>
+        <p class="subtitle">Sécurisez Vos Innovations, Protégez Vos Marques et Valorisez Vos Actifs Tech</p>
+        <p>Votre nom commercial, votre logo, votre logiciel ou votre application mobile constituent la signature unique de votre réussite. Si vous exploitez ces actifs sans les enregistrer officiellement, n'importe quel tiers peut les déposer à votre place, bloquer votre activité et détruire la valeur de votre marque. Protéger vos créations auprès de l'OAPI (Organisation Africaine de la Propriété Intellectuelle) vous confère un titre de propriété exclusif et opposable dans 17 pays d'Afrique subsaharienne.</p>
+        <p>FEDPAWA CORPORATE SOLUTIONS SARL met à votre disposition son expertise pointue en droit de la propriété intellectuelle. Nous analysons la disponibilité de vos actifs, structurons vos dossiers de dépôt selon les normes de l'Accord de Bangui et assurons un suivi juridique rigoureux jusqu'à l'obtention de votre certificat d'enregistrement officiel.</p>
         <div style="display: flex; gap: 16px; flex-wrap: wrap;">
           <a href="tunnel_souscription.php?service=oapi&pack=protect_brand" class="btn btn-gold">Protéger mon actif maintenant</a>
           <a href="#poles" class="btn btn-outline">Vérifier la disponibilité (Antériorité)</a>
@@ -52,49 +53,44 @@ include __DIR__ . '/../templates/partials/site-header.php';
       <div class="solutions-grid">
         <div class="solution-card">
           <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
-          <h3>Recherche d'Antériorité & Audit</h3>
-          <span class="obj">Éviter les rejets et poursuites</span>
+          <h3>🔍 1. Recherche d'Antériorité</h3>
+          <span class="obj">Avant d'investir dans votre communication ou de lancer un produit, nous vérifions la viabilité du dépôt :</span>
           <ul class="solution-list">
-            <li>Analyse approfondie des bases de données officielles de l'OAPI et des registres de commerce.</li>
-            <li>Détection des similitudes phonétiques, orthographiques et visuelles avec des marques existantes.</li>
-            <li>Évaluation juridique des risques de rejet ou d'opposition par des tiers.</li>
-            <li>Remise d'un rapport complet de disponibilité et conseils stratégiques d'ajustement.</li>
+            <li>Analyse approfondie des bases de données officielles de l'OAPI pour s'assurer que le nom, la marque ou le logo choisi n'est pas déjà détenu par un tiers.</li>
+            <li>Évaluation des risques de rejet administratif ou de litige pour contrefaçon.</li>
+            <li>Rapport de disponibilité et conseils stratégiques d'ajustement en cas de similitude constatée.</li>
           </ul>
         </div>
 
         <div class="solution-card">
           <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-          <h3>Dépôt de Marques & Logos</h3>
-          <span class="obj">Bouclier commercial inattaquable</span>
+          <h3>🏷️ 2. Dépôt et Enregistrement de Marques, Logos & Noms Commerciaux</h3>
+          <span class="obj">Nous créons votre bouclier commercial sur le marché africain :</span>
           <ul class="solution-list">
-            <li>Classification rigoureuse de vos produits et services selon les normes internationales (Classification de Nice).</li>
-            <li>Rédaction sur-mesure de la mémoire descriptive et constitution du dossier officiel de dépôt.</li>
-            <li>Traitement de tous types de signes : marques de fabrique, de commerce, de service et collectives.</li>
-            <li>Dépôt physique et électronique auprès de la SNL et suivi direct avec le siège de l'OAPI.</li>
+            <li>Classification rigoureuse de vos produits et services selon les standards internationaux (Classification de Nice).</li>
+            <li>Rédaction et constitution du dossier officiel de dépôt de marque (marques de fabrique, de commerce ou de service) ou de nom commercial.</li>
+            <li>Dépôt de votre dossier auprès de la structure nationale de liaison et suivi en direct avec le siège de l'OAPI.</li>
           </ul>
         </div>
 
         <div class="solution-card">
           <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-          <h3>Protection Actifs Tech & Software</h3>
-          <span class="obj">Sécuriser l'avantage concurrentiel</span>
+          <h3>💻 3. Enregistrement d'Applications, Software, Logiciels & Actifs Tech</h3>
+          <span class="obj">Une spécialité essentielle pour les startups, les éditeurs et les créateurs de solutions numériques :</span>
           <ul class="solution-list">
-            <li>Dépôt et horodatage légal des logiciels, applications mobiles, codes sources et bases de données.</li>
-            <li>Protection des interfaces visuelles, chartes graphiques, UX/UI et designs industriels.</li>
-            <li>Accompagnement dans l'élaboration des dossiers de brevets d'invention pour innovations techniques.</li>
-            <li>Rédaction de contrats de cession de droits d'auteur et de licences d'exploitation.</li>
+            <li>Dépôt et sécurisation de vos logiciels, codes sources et bases de données pour acter légalement votre antériorité.</li>
+            <li>Protection des interfaces visuelles, des chartes graphiques et du design d'applications mobiles ou de plateformes web (Dessins et Modèles industriels).</li>
           </ul>
         </div>
 
         <div class="solution-card">
-          <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <h3>Suivi, Defense & Renouvellements</h3>
-          <span class="obj">Défense active sur 10 ans</span>
+          <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>🛡️ 4. Suivi de Procédure, Revendications & Renouvellements</h3>
+          <span class="obj">Nous veillons sur vos droits tout au long de la vie de vos titres de propriété :</span>
           <ul class="solution-list">
-            <li>Gestion des examens de fond et réponses juridiques aux objections des examinateurs de l'OAPI.</li>
-            <li>Surveillance continue du Bulletin Officiel de la Propriété Intellectuelle (BOPI).</li>
-            <li>Rédaction et introduction de procédures d'opposition contre les dépôts frauduleux.</li>
-            <li>Traitement des procédures de renouvellement décennal (titres valables 10 ans renouvelables).</li>
+            <li>Gestion des examens de fond, réponses aux objections des examinateurs de l'OAPI et correction des dossiers.</li>
+            <li>Surveillance des publications officielles et introduction d'oppositions si un concurrent tente d'enregistrer une marque trop proche de la vôtre.</li>
+            <li>Suivi des échéances et procédures de renouvellement de vos titres (valables 10 ans).</li>
           </ul>
         </div>
       </div>
@@ -173,7 +169,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
       </div>
 
       <div class="oapi-pricing-note">
-        <strong>Note sur les débours et taxes officielles :</strong> Les honoraires FEDPAWA couvrent l'expertise juridique, la rédaction et le suivi de procédure. Les taxes officielles de dépôt perçues directement par l'OAPI (variables selon la nature de l'actif, le nombre de classes de protection retenues et la publication obligatoire au BOPI) sont facturées au coût réel sur présentation des bordereaux officiels.
+        <strong>Note sur les débours et taxes officielles :</strong> Les taxes officielles de dépôt perçues par l'OAPI, la recherche d'antériorité complète, les frais de publication obligatoire et les débours administratifs varient selon la nature de l'actif (marque, logiciel, etc.) et le nombre de classes de protection retenues. Ils vous sont facturés au coût réel. Les brevets d'invention font l'objet d'un devis personnalisé spécifique en raison de la complexité technique du dossier.
       </div>
     </div>
   </section>

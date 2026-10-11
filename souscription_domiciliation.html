@@ -10,10 +10,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/components.css">
-<link rel="stylesheet" href="assets/css/dashboard.css">
-</head>
+<link rel="stylesheet" href="assets/css/dashboard.css"></head>
 <body>
-
 <!-- ============== TOP BAR ============== -->
 <div class="top-bar">
   <div class="container">
@@ -50,18 +48,19 @@
         <li><a class="nav-link " href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <button class="mode-toggle header-mode-toggle" id="modeToggle" aria-label="Basculer en mode sombre/clair" title="Mode clair / sombre">
+        <button class="mode-toggle header-mode-toggle" id="modeToggle" aria-label="Basculer en mode sombre/clair" title="Light / dark mode">
           <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
           <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
         <button class="lang-toggle" id="langToggle" aria-label="Switch language / Changer de langue" title="FR / EN">EN</button>
         <a class="nav-login" href="authentification.html">Se connecter</a>
-        <a class="nav-cta" href="tunnel_souscription.html">Je m’abonne</a>
+        <a class="nav-cta" href="tunnel_souscription.html">Je m'abonne</a>
       </div>
     </nav>
   </div>
 </header>
 
+<!-- ============== MOBILE NAVIGATION ============== -->
 <div class="mobile-nav" id="mobileNav">
   <nav>
     <a href="index.html">Accueil</a>
@@ -73,11 +72,23 @@
     <a href="qui-sommes-nous.html">Qui sommes-nous</a>
     <a href="contact.html">Contact</a>
     <a href="authentification.html">Se connecter</a>
-    <a class="mobile-cta" href="tunnel_souscription.html">Je m’abonne</a>
+    <a class="mobile-cta" href="tunnel_souscription.html">Je m'abonne</a>
+    <!-- Toggles inside mobile menu -->
+    <div class="mobile-nav-toggles">
+      <button class="mode-toggle mobile-mode-toggle" id="mobileModeToggle" aria-label="Basculer en mode sombre/clair" title="Light / dark mode">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="lang-toggle mobile-lang-toggle" id="mobileLangToggle" aria-label="Switch language / Changer de langue" title="FR / EN">EN</button>
+      <button class="mobile-close-btn" aria-label="Fermer le menu" title="Fermer le menu">×</button>
+    </div>
   </nav>
 </div>
 
 <main>
+</main>
+<div style="position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:99999;background:rgba(28,28,28,.88);color:#fff;padding:9px 18px;border-radius:999px;font:600 12px/1 'Open Sans',Arial,sans-serif;letter-spacing:.03em;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.35);">Aperçu démo statique — inscriptions et paiements désactivés</div></body>
+</html>
 <header class="tunnel-header">
   <div class="container">
     <a href="index.html" class="brand">

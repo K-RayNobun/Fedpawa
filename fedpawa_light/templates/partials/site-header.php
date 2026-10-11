@@ -49,7 +49,7 @@ $servicesActive = in_array($active, ['services', 'domiciliation', 'creation', 'f
           <ul class="dropdown-menu">
             <li><a class="<?= $active === 'domiciliation' ? 'is-active' : '' ?>" href="<?= $langPrefix ?>domiciliation.php">Domiciliation</a></li>
             <li><a class="<?= $active === 'creation' ? 'is-active' : '' ?>" href="<?= $langPrefix ?>creation_entreprise.php"><?= $lang === 'en' ? 'Company Formation' : "Création d'entreprise" ?></a></li>
-            <li><a class="<?= $active === 'fiscalite' ? 'is-active' : '' ?>" href="<?= $langPrefix ?>fiscalite.php"><?= $lang === "en" ? "Tax & Legal Advisory" : "Conseils & Fiscalité" ?></a></li>
+            <li><a class="<?= $active === 'fiscalite' ? 'is-active' : '' ?>" href="<?= $langPrefix ?>fiscalite.php"><?= $lang === "en" ? "Tax & Legal Advisory" : "Conseils & Suivi Fiscal" ?></a></li>
             <li><a class="<?= $active === 'oapi' ? 'is-active' : '' ?>" href="<?= $langPrefix ?>oapi.php"><?= $lang === "en" ? "OAPI Protection" : "Protection OAPI" ?></a></li>
             <li><a class="<?= $active === 'contrats' ? 'is-active' : '' ?>" href="<?= $langPrefix ?>contrats.php"><?= $lang === "en" ? "Contracts" : "Contrats" ?></a></li>
           </ul>
@@ -64,7 +64,6 @@ $servicesActive = in_array($active, ['services', 'domiciliation', 'creation', 'f
         </button>
         <button class="lang-toggle" id="langToggle" aria-label="Switch language / Changer de langue" title="FR / EN"><?= $lang === "en" ? "FR" : "EN" ?></button>
         <a class="nav-login" href="<?= $langPrefix ?>authentification.html"><?= $lang === "en" ? "Sign in" : "Se connecter" ?></a>
-        <a class="nav-cta" href="<?= $langPrefix ?>tunnel_souscription.php"><?= $lang === 'en' ? 'Subscribe' : 'Je m\'abonne' ?></a>
       </div>
     </nav>
   </div>
@@ -76,7 +75,7 @@ $servicesActive = in_array($active, ['services', 'domiciliation', 'creation', 'f
     <a href="<?= $langPrefix ?>index.php"><?= $lang === "en" ? "Home" : "Accueil" ?></a>
     <a href="<?= $langPrefix ?>domiciliation.php">Domiciliation</a>
     <a href="<?= $langPrefix ?>creation_entreprise.php"><?= $lang === 'en' ? 'Company Formation' : "Création d'entreprise" ?></a>
-    <a href="<?= $langPrefix ?>fiscalite.php"><?= $lang === "en" ? "Tax & Legal Advisory" : "Conseils & Fiscalité" ?></a>
+    <a href="<?= $langPrefix ?>fiscalite.php"><?= $lang === "en" ? "Tax & Legal Advisory" : "Conseils & Suivi Fiscal" ?></a>
     <a href="<?= $langPrefix ?>oapi.php"><?= $lang === "en" ? "OAPI Protection" : "Protection OAPI" ?></a>
     <a href="<?= $langPrefix ?>contrats.php"><?= $lang === "en" ? "Contracts" : "Contrats" ?></a>
     <a href="<?= $langPrefix ?>qui-sommes-nous.php"><?= $lang === "en" ? "About Us" : "Qui sommes-nous" ?></a>

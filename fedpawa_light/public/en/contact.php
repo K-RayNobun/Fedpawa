@@ -122,7 +122,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
         <p>Nous sommes situés à l'immeuble Pharmacie de Logpom, en bordure de route. Un emplacement visible, accessible et pratique pour tous vos déplacements.</p>
       </div>
       <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.5465862342347!2d9.752301314768894!3d4.087452546219304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10611223b1e6d2e9%3A0x62e6f498e7d0a8e7!2sLogpom%2C%20Douala!5e0!3m2!1sfr!2scm!4v1700000000000!5m2!1sfr!2scm" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps?q=4.082803,9.770557&hl=fr&z=17&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </section>

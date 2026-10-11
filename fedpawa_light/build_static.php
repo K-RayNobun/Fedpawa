@@ -60,6 +60,7 @@ $pages = [
     'contact.html'             => 'contact.php',
     'qui-sommes-nous.html'     => 'qui-sommes-nous.php',
     'tunnel_souscription.html' => 'tunnel_souscription.php',
+    'souscription_domiciliation.html' => 'souscription_domiciliation.php',
 ];
 
 foreach ($pages as $out => $srcPage) {

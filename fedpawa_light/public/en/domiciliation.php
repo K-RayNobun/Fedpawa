@@ -99,7 +99,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
             <li>Email and WhatsApp notification upon each reception</li>
             <li><strong>6 hours of private office per month included</strong></li>
           </ul>
-          <a href="<?= $langPrefix ?>tunnel_souscription.php?pack=domiciliation-national-essential" class="btn btn-outline btn-block">Subscribe</a>
+          <a href="<?= $langPrefix ?>souscription_domiciliation.php?pack=national-essential" class="btn btn-outline btn-block">Subscribe</a>
         </div>
         <div class="pricing-card">
           <div class="card-header"><h3>🔹 BUSINESS Plan</h3><div class="price">45 000 FCFA<span> / month</span></div></div>
@@ -112,7 +112,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
             <li>Monthly physical mail forwarding</li>
             <li><strong>10 hours of private office per month included</strong> (with High-Performance Wi-Fi)</li>
           </ul>
-          <a href="<?= $langPrefix ?>tunnel_souscription.php?pack=domiciliation-national-business" class="btn btn-outline btn-block">Subscribe</a>
+          <a href="<?= $langPrefix ?>souscription_domiciliation.php?pack=national-business" class="btn btn-outline btn-block">Subscribe</a>
         </div>
         <div class="pricing-card popular">
           <div class="popular-badge">Popular</div>
@@ -128,7 +128,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
             <li>Assignment of a local phone number</li>
             <li><strong>15 hours of private office per month included</strong> (with High-Performance Wi-Fi)</li>
           </ul>
-          <a href="<?= $langPrefix ?>tunnel_souscription.php?pack=domiciliation-national-premium" class="btn btn-primary btn-block">Subscribe</a>
+          <a href="<?= $langPrefix ?>souscription_domiciliation.php?pack=national-premium" class="btn btn-primary btn-block">Subscribe</a>
         </div>
       </div>
     </div>
@@ -151,7 +151,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
             <li>Immediate sending of scanned documents by email or WhatsApp</li>
             <li>Physical parcel forwarding service abroad (postage at actual cost)</li>
           </ul>
-          <a href="<?= $langPrefix ?>tunnel_souscription.php?pack=domiciliation-international-essential" class="btn btn-outline btn-block">Subscribe</a>
+          <a href="<?= $langPrefix ?>souscription_domiciliation.php?pack=international-essential" class="btn btn-outline btn-block">Subscribe</a>
         </div>
         <div class="pricing-card">
           <div class="card-header"><h3>📞 BUSINESS VIRTUAL</h3><div class="price">110 000 FCFA<span> / month</span></div><div class="price-sub">~180 USD</div></div>
@@ -165,7 +165,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
             <li>Personalized telephone answering in your company's name by the bilingual receptionist</li>
             <li>Message taking and instant call transmission via WhatsApp or email</li>
           </ul>
-          <a href="<?= $langPrefix ?>tunnel_souscription.php?pack=domiciliation-international-business" class="btn btn-outline btn-block">Subscribe</a>
+          <a href="<?= $langPrefix ?>souscription_domiciliation.php?pack=international-business" class="btn btn-outline btn-block">Subscribe</a>
         </div>
         <div class="pricing-card popular">
           <div class="popular-badge">Prestige</div>
@@ -184,7 +184,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
             <li>Prestigious welcome of your business delegations by the receptionist</li>
             <li>Unlimited coffee included for the whole team during sessions</li>
           </ul>
-          <a href="<?= $langPrefix ?>tunnel_souscription.php?pack=domiciliation-international-premium" class="btn btn-primary btn-block">Subscribe</a>
+          <a href="<?= $langPrefix ?>souscription_domiciliation.php?pack=international-premium" class="btn btn-primary btn-block">Subscribe</a>
         </div>
       </div>
     </div>

@@ -97,7 +97,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
             <li>Notification par email et WhatsApp à chaque réception</li>
             <li><strong>6 heures de bureau privé par mois incluses</strong></li>
           </ul>
-          <a href="tunnel_souscription.php?pack=domiciliation-national-essential" class="btn btn-outline btn-block">Je m'abonne</a>
+          <a href="souscription_domiciliation.php?pack=national-essential" class="btn btn-outline btn-block">Je m'abonne</a>
         </div>
         <div class="pricing-card">
           <div class="card-header"><h3>🔹 Pack BUSINESS</h3><div class="price">45 000 FCFA<span> / mois</span></div></div>
@@ -110,7 +110,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
             <li>Réexpédition physique mensuelle du courrier</li>
             <li><strong>10 heures de bureau privé par mois incluses</strong> (avec Connexion Wifi Haute Performance)</li>
           </ul>
-          <a href="tunnel_souscription.php?pack=domiciliation-national-business" class="btn btn-outline btn-block">Je m'abonne</a>
+          <a href="souscription_domiciliation.php?pack=national-business" class="btn btn-outline btn-block">Je m'abonne</a>
         </div>
         <div class="pricing-card popular">
           <div class="popular-badge">Populaire</div>
@@ -126,7 +126,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
             <li>Attribution d'un numéro de téléphone local</li>
             <li><strong>15 heures de bureau privé par mois incluses</strong> (avec Connexion Wifi Haute Performance)</li>
           </ul>
-          <a href="tunnel_souscription.php?pack=domiciliation-national-premium" class="btn btn-primary btn-block">Je m'abonne</a>
+          <a href="souscription_domiciliation.php?pack=national-premium" class="btn btn-primary btn-block">Je m'abonne</a>
         </div>
       </div>
     </div>
@@ -149,7 +149,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
             <li>Envoi immédiat des documents scannés par e-mail ou WhatsApp</li>
             <li>Service de réexpédition physique des colis vers l'étranger (frais de port au réel)</li>
           </ul>
-          <a href="tunnel_souscription.php?pack=domiciliation-international-essential" class="btn btn-outline btn-block">Je m'abonne</a>
+          <a href="souscription_domiciliation.php?pack=international-essential" class="btn btn-outline btn-block">Je m'abonne</a>
         </div>
         <div class="pricing-card">
           <div class="card-header"><h3>📞 BUSINESS VIRTUAL</h3><div class="price">110 000 FCFA<span> / mois</span></div><div class="price-sub">~180 USD</div></div>
@@ -163,7 +163,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
             <li>Réponse téléphonique personnalisée au nom de votre entreprise par la réceptionniste bilingue</li>
             <li>Prise de message et transmission immédiate des appels par WhatsApp ou e-mail</li>
           </ul>
-          <a href="tunnel_souscription.php?pack=domiciliation-international-business" class="btn btn-outline btn-block">Je m'abonne</a>
+          <a href="souscription_domiciliation.php?pack=international-business" class="btn btn-outline btn-block">Je m'abonne</a>
         </div>
         <div class="pricing-card popular">
           <div class="popular-badge">Prestige</div>
@@ -182,7 +182,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
             <li>Accueil de prestige de vos délégations d'affaires par la réceptionniste</li>
             <li>Café inclus à volonté pour toute l'équipe pendant les sessions</li>
           </ul>
-          <a href="tunnel_souscription.php?pack=domiciliation-international-premium" class="btn btn-primary btn-block">Je m'abonne</a>
+          <a href="souscription_domiciliation.php?pack=international-premium" class="btn btn-primary btn-block">Je m'abonne</a>
         </div>
       </div>
     </div>

@@ -5,6 +5,8 @@ use Dompdf\Dompdf;
 use Dompdf\Options;
 use Twig\Environment;
 use Twig\Loader\ArrayLoader;
+use Twig\Loader\ChainLoader;
+use Twig\Loader\FilesystemLoader;
 
 class PdfService {
     private Environment $twig;
@@ -12,20 +14,28 @@ class PdfService {
     public function __construct() {
         $db = Database::getConnection();
         $template = $db->query("SELECT content FROM contract_templates WHERE name = 'contract'")->fetch();
-        $loader = new ArrayLoader([
+
+        // Le contrat vient de la BDD (éditable par l'admin),
+        // les autres templates (facture) viennent du système de fichiers.
+        $dbLoader = new ArrayLoader([
             'contract.html.twig' => $template['content'] ?? ''
         ]);
-        $this->twig = new Environment($loader);
+        $fsLoader = new FilesystemLoader(__DIR__ . '/../../templates');
+        $this->twig = new Environment(new ChainLoader([$dbLoader, $fsLoader]));
     }
 
-    public function generateContract(array $data): string {
+    private function dompdf(): Dompdf {
         $options = new Options();
         $options->set([
             'defaultFont' => 'Helvetica',
             'isPhpEnabled' => false,
             'isRemoteEnabled' => false
         ]);
-        $dompdf = new Dompdf($options);
+        return new Dompdf($options);
+    }
+
+    public function generateContract(array $data): string {
+        $dompdf = $this->dompdf();
 
         $html = $this->twig->render('contract.html.twig', [
             'client_name' => $data['client_name'] ?? 'Client',
@@ -40,13 +50,7 @@ class PdfService {
     }
 
     public function generateInvoice(array $data): string {
-        $options = new Options();
-        $options->set([
-            'defaultFont' => 'Helvetica',
-            'isPhpEnabled' => false,
-            'isRemoteEnabled' => false
-        ]);
-        $dompdf = new Dompdf($options);
+        $dompdf = $this->dompdf();
 
         $html = $this->twig->render('invoice.html.twig', [
             'invoice_number' => $data['invoice_number'] ?? 'FAC-2026-001',

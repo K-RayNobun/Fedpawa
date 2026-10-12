@@ -22,12 +22,22 @@ if (preg_match('#^/api(/|$)#', $uri)) {
     $router->post('/api/password/reset', 'AuthController@resetPassword');
     $router->get('/api/dashboard', 'DashboardController@index');
     $router->get('/api/courriers', 'CourrierController@index');
+    $router->post('/api/courrier/upload', 'CourierController@upload');
     $router->get('/api/factures', 'FactureController@index');
     $router->post('/api/support', 'SupportController@store');
+    $router->post('/api/kyc/submit', 'KycController@submit');
+    $router->get('/api/mail/thread', 'InternalMailController@thread');
+    $router->post('/api/mail/send', 'InternalMailController@send');
+    $router->post('/api/mail/reply', 'InternalMailController@reply');
 
+    // Admin
+    $router->post('/api/admin/login', 'AuthController@adminLogin');
+    $router->post('/api/admin/password', 'AuthController@updateAdminPassword');
     $router->get('/api/admin/overview', 'AdminController@overview');
-    $router->post('/api/admin/kyc/approve', 'AdminController@approveKyc');
-    $router->post('/api/admin/kyc/reject', 'AdminController@rejectKyc');
+    $router->post('/api/admin/kyc/approve', 'KycController@approve');
+    $router->post('/api/admin/kyc/reject', 'KycController@reject');
+    $router->post('/api/admin/template/update', 'AdminController@updateTemplate');
+    $router->post('/api/admin/courrier/add', 'CourrierController@add');
 
     $router->post('/api/webhooks/campay', 'WebhookController@handleCampay');
 

@@ -288,7 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const baseTotal = cart.price + cart.options.reduce((sum, opt) => sum + (opt.price || 0), 0);
                 const totalAvecFrais = Math.floor(baseTotal * 1.02);
 
-                const res = await fetch('/api/souscription', {
+                const res = await fetch(apiUrl('/api/souscription'), {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({

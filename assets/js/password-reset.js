@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             currentEmail = emailField ? emailField.value : '';
 
             try {
-                const res = await fetch('/api/password/request', {
+                const res = await fetch(apiUrl('/api/password/request'), {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email: currentEmail })
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
             otpInputs.forEach(inp => otpCode += inp.value);
 
             try {
-                const res = await fetch('/api/password/verify', {
+                const res = await fetch(apiUrl('/api/password/verify'), {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ otp: otpCode })
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             try {
-                const res = await fetch('/api/password/reset', {
+                const res = await fetch(apiUrl('/api/password/reset'), {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ mot_de_passe: newPwdInput.value })

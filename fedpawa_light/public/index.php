@@ -38,6 +38,7 @@ if (preg_match('#^/api(/|$)#', $uri)) {
     $router->post('/api/admin/kyc/reject', 'KycController@reject');
     $router->post('/api/admin/template/update', 'AdminController@updateTemplate');
     $router->post('/api/admin/courrier/add', 'CourrierController@add');
+    $router->post('/api/admin/throttle/clear', 'AdminController@clearThrottle');
 
     $router->post('/api/webhooks/campay', 'WebhookController@handleCampay');
 

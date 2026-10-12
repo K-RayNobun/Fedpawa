@@ -12,5 +12,15 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+// Expiration forcée après 1h30 d'inactivité (5400 s)
+define('SESSION_TIMEOUT', 5400);
+if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > SESSION_TIMEOUT)) {
+    session_unset();
+    session_destroy();
+    session_start();
+    $_SESSION['session_expired'] = true;
+}
+$_SESSION['last_activity'] = time();
+
 // Automatic Database Migration / Schema Setup
 \App\Service\MigrationRunner::migrate();

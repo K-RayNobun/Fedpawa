@@ -2,7 +2,7 @@
 namespace App\Service;
 
 class MailService {
-    public function send(int $senderId, string $senderType, ?int $receiverId, string $receiverType, string $content) {
+    public function send(?int $senderId, string $senderType, ?int $receiverId, string $receiverType, string $content) {
         $db = Database::getConnection();
         $stmt = $db->prepare("INSERT INTO internal_messages (sender_id, sender_type, receiver_id, receiver_type, content) VALUES (?, ?, ?, ?, ?)");
         $stmt->execute([$senderId, $senderType, $receiverId, $receiverType, $content]);

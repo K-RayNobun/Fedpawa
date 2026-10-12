@@ -37,11 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             currentEmail = emailField ? emailField.value : '';
 
             try {
-                const res = await fetch('/api/password/request', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email: currentEmail })
-                });
+                const res = await Api.post('/api/password/request', { email: currentEmail });
                 const data = await res.json();
                 if (res.ok) {
                     alert('Code de réinitialisation envoyé ! (Pour test, utilisez le code : 123456)');
@@ -97,11 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
             otpInputs.forEach(inp => otpCode += inp.value);
 
             try {
-                const res = await fetch('/api/password/verify', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ otp: otpCode })
-                });
+                const res = await Api.post('/api/password/verify', { otp: otpCode });
                 const data = await res.json();
                 if (res.ok) {
                     clearInterval(otpTimerInterval);
@@ -172,11 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             try {
-                const res = await fetch('/api/password/reset', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ mot_de_passe: newPwdInput.value })
-                });
+                const res = await Api.post('/api/password/reset', { mot_de_passe: newPwdInput.value });
                 const data = await res.json();
                 if (res.ok) {
                     showState('state-success');

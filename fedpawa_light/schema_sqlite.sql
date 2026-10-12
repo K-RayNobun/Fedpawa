@@ -141,3 +141,14 @@ CREATE TABLE IF NOT EXISTS audit_log (
     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
     details TEXT
 );
+
+CREATE TABLE IF NOT EXISTS login_throttle (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    identifier TEXT NOT NULL,
+    user_type TEXT NOT NULL,
+    ip TEXT,
+    attempts INTEGER DEFAULT 0,
+    locked_until DATETIME,
+    last_attempt_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+CREATE UNIQUE INDEX IF NOT EXISTS idx_throttle_ident ON login_throttle(identifier, user_type);

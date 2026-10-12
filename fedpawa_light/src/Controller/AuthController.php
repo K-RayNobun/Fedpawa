@@ -3,6 +3,8 @@ namespace App\Controller;
 
 use App\Service\Database;
 use App\Service\AuditLogger;
+use App\Service\LoginThrottler;
+use App\Service\MailService;
 
 class AuthController extends Controller {
     // ------------------------------------------------------------------
@@ -63,16 +65,37 @@ class AuthController extends Controller {
                 return;
             }
 
+            $email = $input['email'];
+            $ip = $_SERVER['REMOTE_ADDR'] ?? null;
+
+            // Anti brute-force : compte verrouillé ?
+            $remaining = LoginThrottler::getRemainingLock($email, 'client');
+            if ($remaining > 0) {
+                $minutes = (int)ceil($remaining / 60);
+                $this->json(['error' => "Trop de tentatives échouées (5). Réessayez dans $minutes minute(s) ou contactez le support."], 429);
+                return;
+            }
+
             $db = Database::getConnection();
             $stmt = $db->prepare("SELECT * FROM clients WHERE email = ?");
-            $stmt->execute([$input['email']]);
+            $stmt->execute([$email]);
             $client = $stmt->fetch();
 
             if (!$client || !password_verify($input['mot_de_passe'], $client['mot_de_passe'])) {
+                $justLocked = LoginThrottler::recordFailure($email, 'client', $ip);
+                if ($justLocked) {
+                    AuditLogger::log('LOGIN_LOCKED', null, 'client', "Client $email verrouillé après 5 échecs (30 min)");
+                    // Notification interne à l'admin
+                    (new MailService())->send(null, 'system', null, 'admin',
+                        "L'utilisateur $email a atteint la limite de 5 tentatives de connexion et doit maintenant attendre 30 minutes.");
+                    $this->json(['error' => 'Trop de tentatives échouées (5). Votre compte est bloqué pendant 30 minutes.'], 429);
+                    return;
+                }
                 $this->json(['error' => 'Identifiants invalides'], 401);
                 return;
             }
 
+            LoginThrottler::recordSuccess($email, 'client');
             session_regenerate_id(true);
             $_SESSION['client_id'] = $client['id'];
             $_SESSION['client_name'] = $client['nom'];
@@ -210,17 +233,35 @@ class AuthController extends Controller {
                 return;
             }
 
+            $email = $input['email'];
+            $ip = $_SERVER['REMOTE_ADDR'] ?? null;
+
+            // Anti brute-force : compte verrouillé ?
+            $remaining = LoginThrottler::getRemainingLock($email, 'admin');
+            if ($remaining > 0) {
+                $minutes = (int)ceil($remaining / 60);
+                $this->json(['error' => "Trop de tentatives échouées (5). Réessayez dans $minutes minute(s)."], 429);
+                return;
+            }
+
             $db = Database::getConnection();
             $stmt = $db->prepare("SELECT * FROM admins WHERE email = ?");
-            $stmt->execute([$input['email']]);
+            $stmt->execute([$email]);
             $admin = $stmt->fetch();
 
             if (!$admin || !password_verify($input['mot_de_passe'], $admin['mot_de_passe'])) {
-                AuditLogger::log('ADMIN_LOGIN_FAILED', null, 'admin', 'Email: ' . $input['email']);
+                $justLocked = LoginThrottler::recordFailure($email, 'admin', $ip);
+                AuditLogger::log('ADMIN_LOGIN_FAILED', null, 'admin', 'Email: ' . $email);
+                if ($justLocked) {
+                    AuditLogger::log('LOGIN_LOCKED', null, 'admin', "Admin $email verrouillé après 5 échecs (30 min)");
+                    $this->json(['error' => 'Trop de tentatives échouées (5). Ce compte est bloqué pendant 30 minutes.'], 429);
+                    return;
+                }
                 $this->json(['error' => 'Identifiants invalides'], 401);
                 return;
             }
 
+            LoginThrottler::recordSuccess($email, 'admin');
             session_regenerate_id(true);
             $_SESSION['admin_logged_in'] = true;
             $_SESSION['admin_id'] = $admin['id'];

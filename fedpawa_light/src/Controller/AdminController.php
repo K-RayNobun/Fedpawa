@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Service\Database;
 use App\Service\AuditLogger;
+use App\Service\LoginThrottler;
 
 class AdminController extends Controller {
     public function __construct() {
@@ -58,8 +59,9 @@ class AdminController extends Controller {
 
             $messages = $db->query("SELECT * FROM internal_messages ORDER BY created_at DESC LIMIT 50")->fetchAll();
             $tickets = $db->query("SELECT t.*, c.nom AS client_nom FROM tickets_support t JOIN clients c ON c.id = t.client_id ORDER BY t.created_at DESC LIMIT 50")->fetchAll();
+            $throttled = LoginThrottler::listLocked();
 
-            $this->json(['stats' => $stats, 'messages' => $messages, 'tickets' => $tickets]);
+            $this->json(['stats' => $stats, 'messages' => $messages, 'tickets' => $tickets, 'throttled' => $throttled]);
         } catch (\Exception $e) {
             error_log('Admin overview error: ' . $e->getMessage());
             $this->json(['error' => 'Erreur interne'], 500);
@@ -73,6 +75,38 @@ class AdminController extends Controller {
                   <input type="password" name="new_password" placeholder="New Password" required>
                   <button type="submit">Update Password</button>
               </form></body></html>';
+    }
+
+    // Lever le délai de déblocage d'un compte verrouillé par le throttler
+    public function clearThrottle() {
+        try {
+            $input = json_decode(file_get_contents('php://input'), true);
+            if (!is_array($input) || empty($input['identifier']) || empty($input['user_type'])) {
+                $this->json(['error' => 'Champs manquants'], 400);
+                return;
+            }
+
+            $userType = in_array($input['user_type'], ['client', 'admin'], true) ? $input['user_type'] : null;
+            if ($userType === null) {
+                $this->json(['error' => 'Type d\'utilisateur invalide'], 400);
+                return;
+            }
+
+            // On valide l'existence du VERROU (pas du compte : un email
+            // inexistant peut aussi être verrouillé par un attaquant).
+            $identifier = (string)$input['identifier'];
+            $cleared = LoginThrottler::clearLock($identifier, $userType);
+            if (!$cleared) {
+                $this->json(['error' => 'Aucun verrou actif pour ce compte'], 404);
+                return;
+            }
+
+            AuditLogger::log('THROTTLE_CLEARED', $_SESSION['admin_id'] ?? null, 'admin', "Délai levé pour $identifier ($userType)");
+            $this->json(['message' => 'Délai de déblocage levé pour ' . $identifier]);
+        } catch (\Exception $e) {
+            error_log('Clear throttle error: ' . $e->getMessage());
+            $this->json(['error' => 'Erreur interne'], 500);
+        }
     }
 
     public function updateTemplate() {

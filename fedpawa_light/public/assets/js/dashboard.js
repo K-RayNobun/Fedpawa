@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <td>${co.date_reception}</td>
                         <td>Courrier postal / Administratif</td>
                         <td><span class="badge badge-success">${co.statut}</span></td>
-                        <td><a href="#" class="action-link">Consulter le scan</a></td>
+                        <td>${co.scan ? `<a href="/api/document?type=courrier&id=${co.id}" target="_blank" class="action-link">Consulter le scan</a>` : '<span class="action-link" style="opacity:.5">Aucun scan</span>'}</td>
                     </tr>
                 `).join('');
             }

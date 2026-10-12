@@ -29,6 +29,7 @@ if (preg_match('#^/api(/|$)#', $uri)) {
     $router->get('/api/mail/thread', 'InternalMailController@thread');
     $router->post('/api/mail/send', 'InternalMailController@send');
     $router->post('/api/mail/reply', 'InternalMailController@reply');
+    $router->get('/api/document', 'StorageController@serve');
 
     // Admin
     $router->post('/api/admin/login', 'AuthController@adminLogin');

@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const steps = document.querySelectorAll('.progress-step');
+    const TOTAL_STEPS = steps.length;
     const contents = document.querySelectorAll('.tunnel-step-content');
     const progressFill = document.getElementById('progressFill');
     const summaryItems = document.getElementById('summaryItems');
@@ -73,11 +74,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // La facture (sidebar) n'est visible qu'à l'étape 5 (récapitulatif & paiement)
         const summaryAside = document.querySelector('.order-summary');
-        if (summaryAside) summaryAside.classList.toggle('invoice-final', stepNumber === 5);
+        if (summaryAside) summaryAside.classList.toggle('invoice-final', stepNumber === TOTAL_STEPS);
 
         window.scrollTo({ top: 0, behavior: 'smooth' });
         updateSummary();
     }
+
+    // 2bis. Validation obligatoire d'une étape avant de continuer (Lane tunnel v3)
+    // Tous les champs [required] visibles de l'étape doivent être remplis.
+    window.validateStep = function(fromStep, toStep) {
+        const content = document.getElementById('step-' + fromStep);
+        if (!content) { goToStep(toStep); return; }
+        // activer temporairement la validité native des champs visibles de l'étape
+        const fields = Array.from(content.querySelectorAll('input, select, textarea')).filter(el => {
+            if (!el.offsetParent && el.type !== 'checkbox' && el.type !== 'radio') return false; // invisible
+            return el.willValidate !== undefined;
+        });
+        const invalid = fields.filter(el => {
+            // les champs required cachés (blocs conditionnels repliés) ne bloquent pas
+            if (!el.offsetParent && (el.type === 'checkbox' || el.type === 'radio')) return false;
+            return !el.checkValidity();
+        });
+        if (invalid.length) {
+            invalid[0].reportValidity ? invalid[0].reportValidity() : content.reportValidity();
+            invalid[0].focus({ preventScroll: false });
+            invalid[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+            // bannière d'aide
+            const hint = document.getElementById('step-validation-hint');
+            if (hint) {
+                hint.style.display = 'block';
+                hint.textContent = invalid.length === 1
+                    ? 'Merci de compléter ce champ obligatoire avant de continuer.'
+                    : (invalid.length + ' champs obligatoires restent à compléter avant de continuer.');
+            }
+            return;
+        }
+        const hint = document.getElementById('step-validation-hint');
+        if (hint) hint.style.display = 'none';
+        goToStep(toStep);
+    };
 
     // 3. Sélection de la prestation (Étape 1)
     window.selectService = function(serviceId, isInitial = false, planId = null) {
@@ -106,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (formToShow) formToShow.style.display = 'block';
             
             updateSummary();
-            if (!isInitial) goToStep(2);
+            if (!isInitial) goToStep(1);
         }
     }
 
@@ -473,8 +508,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (urlService) {
         selectService(urlService, true, urlPack);
         // L'utilisateur arrive déjà ciblé (bouton d'une page service) :
-        // la prestation est connue -> on saute l'étape 1 et on ouvre directement le formulaire (étape 2)
-        goToStep(2);
+        // la prestation est connue -> on ouvre directement le formulaire (étape 1)
+        goToStep(1);
+    } else {
+        // Aucun service ciblé (bouton neutre) -> renvoyer vers la section services de l'accueil
+        window.location.replace('index.php#services');
     }
     updateSummary();
 });

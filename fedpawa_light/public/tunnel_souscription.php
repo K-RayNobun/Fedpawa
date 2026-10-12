@@ -15,11 +15,10 @@ include __DIR__ . '/../templates/partials/site-header.php';
   <div class="container">
     <div class="progress-container">
       <div class="progress-line"><div class="progress-line-fill" id="progressFill"></div></div>
-      <div class="progress-step active" data-step="1"><div class="progress-dot">1</div><span class="progress-label">Offre</span></div>
-      <div class="progress-step" data-step="2"><div class="progress-dot">2</div><span class="progress-label">Projet</span></div>
-      <div class="progress-step" data-step="3"><div class="progress-dot">3</div><span class="progress-label">Options</span></div>
-      <div class="progress-step" data-step="4"><div class="progress-dot">4</div><span class="progress-label">Pièces KYC</span></div>
-      <div class="progress-step" data-step="5"><div class="progress-dot">5</div><span class="progress-label">Paiement</span></div>
+      <div class="progress-step active" data-step="1"><div class="progress-dot">1</div><span class="progress-label">Projet</span></div>
+      <div class="progress-step" data-step="2"><div class="progress-dot">2</div><span class="progress-label">Options</span></div>
+      <div class="progress-step" data-step="3"><div class="progress-dot">3</div><span class="progress-label">Pièces KYC</span></div>
+      <div class="progress-step" data-step="4"><div class="progress-dot">4</div><span class="progress-label">Paiement</span></div>
     </div>
   </div>
 </div>
@@ -31,58 +30,10 @@ include __DIR__ . '/../templates/partials/site-header.php';
       <div class="tunnel-card" style="padding: 40px; box-shadow: none; border: 1px solid var(--color-border);">
 
         <!-- ÉTAPE 1 -->
-        <div class="tunnel-step-content active" id="step-1">
-          <div class="step-header">
-            <h2>1. Sélectionnez votre prestation</h2>
-            <p>Choisissez le service principal que vous souhaitez confier à FEDPAWA.</p>
-          </div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <div class="selectable-card service-card" data-service="creation" data-name="Création d'Entreprise" data-price="100000" onclick="selectService('creation')">
-              <span class="card-badge">Formule Totale OHADA</span>
-              <h4>Création & Légalisation</h4>
-              <div class="card-price">100 000 FCFA</div>
-              <p class="card-desc">Immatriculation complète, statuts, RCCM, NIU et Kit Corporate.</p>
-            </div>
-            <div class="selectable-card service-card" data-service="oapi" data-name="Protection OAPI" data-price="200000" onclick="selectService('oapi')">
-              <span class="card-badge">Coverage 17 Pays</span>
-              <h4>Propriété Intellectuelle</h4>
-              <div class="card-price">De 200 000 FCFA</div>
-              <p class="card-desc">Recherche, dépôt de marque, logos et logiciels OAPI.</p>
-            </div>
-            <div class="selectable-card service-card" data-service="fiscalite" data-name="Suivi Fiscal Mensuel" data-price="35000" onclick="selectService('fiscalite')">
-              <span class="card-badge">Conformité DGI</span>
-              <h4>Suivi Réglementaire</h4>
-              <div class="card-price">35 000 FCFA / mois</div>
-              <p class="card-desc">Télé-déclarations, ACF, arrêté des comptes (DSF).</p>
-            </div>
-            <div class="selectable-card service-card" data-service="domiciliation" data-name="Domiciliation Siège" data-price="25000" onclick="window.location.href='souscription_domiciliation.php'">
-              <span class="card-badge">Adresse Logpom</span>
-              <h4>Domiciliation Commerciale</h4>
-              <div class="card-price">À partir de 25 000 FCFA / mois</div>
-              <p class="card-desc">Adresse fiscale, gestion courrier, salles de réunion.</p>
-            </div>
-            <div class="selectable-card service-card" data-service="contrats" data-name="Rédaction de Contrats" data-price="50000" onclick="selectService('contrats')">
-              <span class="card-badge">OHADA</span>
-              <h4>Contrats & Actes Juridiques</h4>
-              <div class="card-price">De 50 000 FCFA</div>
-              <p class="card-desc">Rédaction, audit et sécurisation de vos contrats commerciaux et actes.</p>
-            </div>
-            <div class="selectable-card service-card" data-service="recouvrement" data-name="Recouvrement de Créances" data-price="0" onclick="selectService('recouvrement')">
-              <span class="card-badge">Performance-Based</span>
-              <h4>Recouvrement de Créances</h4>
-              <div class="card-price">Commission sur succès</div>
-              <p class="card-desc">Relances amiables, mise en demeure, recouvrement judiciaire.</p>
-            </div>
-          </div>
-          <div class="btn-group">
-            <a href="index.php" class="btn btn-outline">Annuler</a>
-          </div>
-        </div>
-
-        <!-- ÉTAPE 2 -->
-                <div class="tunnel-step-content" id="step-2">
+        <div id="step-validation-hint" style="display: none; margin-bottom: 14px; padding: 12px 16px; border-radius: 8px; border: 1px solid var(--color-primary); background: var(--color-bg-alt); font-size: 0.88rem;"></div>
+<div class="tunnel-step-content" id="step-1">
                   <div class="step-header">
-                    <h2>2. Vos informations & détails du projet</h2>
+                    <h2>1. Vos informations & détails du projet</h2>
                     <p>Renseignez les données nécessaires à la constitution de votre dossier juridique.</p>
                   </div>
 
@@ -97,12 +48,12 @@ include __DIR__ . '/../templates/partials/site-header.php';
                     <div class="form-section">
                       <h2 class="form-section-title"><span class="form-section-num">2A</span> Création de l'Entreprise</h2>
                       <div class="form-row">
-                        <div class="form-group"><label>Démarche <em class="req">*</em></label><select class="form-control" id="creation-demarche" required><option>Création d'une nouvelle structure</option><option>Transformation</option><option>Restructuration</option><option>Légalisation</option></select></div>
+                        <div class="form-group"><label>Démarche <em class="req">*</em></label><select class="form-control" required id="creation-demarche" required><option>Création d'une nouvelle structure</option><option>Transformation</option><option>Restructuration</option><option>Légalisation</option></select></div>
                         <div class="form-group"><label>Forme juridique envisagée <em class="req">*</em></label><select class="form-control" required><option>EI</option><option>SARL/SARLU</option><option>SAS/SASU</option><option>SA</option><option>Indécis</option></select></div>
                       </div>
                       <div class="form-row">
                         <div class="form-group"><label>Dénomination souhaitée <em class="req">*</em></label><input type="text" class="form-control" required placeholder="Nom de l'entreprise"></div>
-                        <div class="form-group"><label>Deux alternatives</label><input type="text" class="form-control" placeholder="Ex: Nom commercial 2"></div>
+                        <div class="form-group"><label>Deux alternatives</label><input type="text" class="form-control" required placeholder="Ex: Nom commercial 2"></div>
                       </div>
                       <div class="form-group"><label>Ville d'immatriculation <em class="req">*</em></label><select class="form-control" required><option>Douala</option><option>Yaoundé</option></select></div>
                     </div>
@@ -111,21 +62,21 @@ include __DIR__ . '/../templates/partials/site-header.php';
                       <h2 class="form-section-title"><span class="form-section-num">2B</span> Le Capital</h2>
                       <div class="form-row">
                         <div class="form-group"><label>Montant envisagé (FCFA) <em class="req">*</em></label><input type="number" class="form-control" required placeholder="1000000"></div>
-                        <div class="form-group"><label>Nombre d'associés</label><input type="number" class="form-control" placeholder="1"></div>
+                        <div class="form-group"><label>Nombre d'associés</label><input type="number" class="form-control" required placeholder="1"></div>
                       </div>
-                      <div class="form-group"><label>Noms des associés</label><textarea class="form-control" rows="3" placeholder="Prénom Nom — Qualité"></textarea></div>
+                      <div class="form-group"><label>Noms des associés</label><textarea class="form-control" required rows="3" placeholder="Prénom Nom — Qualité"></textarea></div>
                     </div>
                     <div class="form-section">
                       <h2 class="form-section-title"><span class="form-section-num">2C</span> Apports</h2>
                       <div class="form-row">
-                        <div class="form-group"><label>Apports en numéraire</label><input type="number" class="form-control" placeholder="Montant FCFA"></div>
-                        <div class="form-group"><label>Apports en nature</label><textarea class="form-control" rows="2" placeholder="Description des apports"></textarea></div>
+                        <div class="form-group"><label>Apports en numéraire</label><input type="number" class="form-control" required placeholder="Montant FCFA"></div>
+                        <div class="form-group"><label>Apports en nature</label><textarea class="form-control" required rows="2" placeholder="Description des apports"></textarea></div>
                       </div>
                     </div>
                     <div class="form-section">
                       <h2 class="form-section-title"><span class="form-section-num">2D</span> Gouvernance</h2>
                       <div class="form-row">
-                        <div class="form-group"><label>Dirigeant désigné (nom + qualité)</label><input type="text" class="form-control" placeholder="Ex: Jean Dupont, Gérant"></div>
+                        <div class="form-group"><label>Dirigeant désigné (nom + qualité)</label><input type="text" class="form-control" required placeholder="Ex: Jean Dupont, Gérant"></div>
                         <div class="form-group"><label>Clauses spécifiques</label><div class="checkbox-line"><input type="checkbox" class="form-check-input"> Blocage majorité</div><div class="checkbox-line"><input type="checkbox" class="form-check-input"> Autres</div></div>
                       </div>
                     </div>
@@ -133,8 +84,8 @@ include __DIR__ . '/../templates/partials/site-header.php';
                     <div id="creation-existante" style="display: none; margin-top: 20px; padding: 12px; background: var(--color-bg-alt); border-radius: 8px; border: 1px dashed var(--color-border);">
                       <h4>Si entreprise existante (Transformation/Restructuration/Légalisation)</h4>
                       <div class="form-row">
-                        <div class="form-group"><label>RCCM actuel</label><input type="text" class="form-control" placeholder="RCCM/DL/2024/B/1234"></div>
-                        <div class="form-group"><label>NIU actuel</label><input type="text" class="form-control" placeholder="M123456789"></div>
+                        <div class="form-group"><label>RCCM actuel</label><input type="text" class="form-control" required placeholder="RCCM/DL/2024/B/1234"></div>
+                        <div class="form-group"><label>NIU actuel</label><input type="text" class="form-control" required placeholder="M123456789"></div>
                       </div>
                     </div>
                   </div>
@@ -164,7 +115,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
                     <div class="form-section">
                       <h2 class="form-section-title"><span class="form-section-num">2F</span> Sa situation fiscale</h2>
                       <div class="form-row">
-                        <div class="form-group"><label>Régime actuel <em class="req">*</em></label><select class="form-control" id="regime-fiscal" data-plan-select required><option value="simplifie">Régime Simplifié</option><option value="reel">Régime du Réel</option><option value="simplifie" data-smart-soft="creation">Nouveau / Non attribué</option></select></div>
+                        <div class="form-group"><label>Régime actuel <em class="req">*</em></label><select class="form-control" required id="regime-fiscal" data-plan-select required><option value="simplifie">Régime Simplifié</option><option value="reel">Régime du Réel</option><option value="simplifie" data-smart-soft="creation">Nouveau / Non attribué</option></select></div>
                         <div class="form-group"><label>Centre des impôts <em class="req">*</em></label><select class="form-control" required><option>CIME</option><option>CDI</option><option>DGE</option></select></div>
                       </div>
                       <div class="form-row">
@@ -185,7 +136,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
                       <h2 class="form-section-title"><span class="form-section-num">2H</span> La comptabilité</h2>
                       <div class="form-row">
                         <div class="form-group"><label>Qui tient les comptes <em class="req">*</em></label><select class="form-control" required><option>Interne</option><option>Expert externe</option><option>Personne</option></select></div>
-                        <div class="form-group"><label>Volume d'opérations approximatif</label><input type="number" class="form-control" placeholder="Factures/mois"></div>
+                        <div class="form-group"><label>Volume d'opérations approximatif</label><input type="number" class="form-control" required placeholder="Factures/mois"></div>
                       </div>
                     </div>
                   </div>
@@ -194,10 +145,10 @@ include __DIR__ . '/../templates/partials/site-header.php';
                   <div class="form-block" id="form-oapi" style="display: none;">
                     <div class="form-section">
                       <h2 class="form-section-title"><span class="form-section-num">2I</span> L'actif</h2>
-                      <div class="form-group"><label>Type <em class="req">*</em></label><select class="form-control" id="oapi-actif-type" data-plan-select required><option value="marque">Marque / Nom commercial / Logo</option><option value="application">Application logiciel</option><option value="dessin">Dessin & Modèle</option><option value="brevets">Brevet (sur devis)</option></select></div>
+                      <div class="form-group"><label>Type <em class="req">*</em></label><select class="form-control" required id="oapi-actif-type" data-plan-select required><option value="marque">Marque / Nom commercial / Logo</option><option value="application">Application logiciel</option><option value="dessin">Dessin & Modèle</option><option value="brevets">Brevet (sur devis)</option></select></div>
                       <div class="form-group"><label>Nom exact du signe <em class="req">*</em></label><input type="text" class="form-control" required placeholder="Ex: FEDPAWA App"></div>
-                      <div class="form-group"><label>Classes de Nice <em class="req">*</em></label><input type="text" class="form-control" placeholder="Ex: Classe 35, 42"></div>
-                      <div class="form-group"><label>Description activité couverte (2-3 lignes)</label><textarea class="form-control" rows="3" placeholder="Activités couvertes par la protection"></textarea></div>
+                      <div class="form-group"><label>Classes de Nice <em class="req">*</em></label><input type="text" class="form-control" required placeholder="Ex: Classe 35, 42"></div>
+                      <div class="form-group"><label>Description activité couverte (2-3 lignes)</label><textarea class="form-control" required rows="3" placeholder="Activités couvertes par la protection"></textarea></div>
                     </div>
                     <hr class="form-divider">
                     <div class="form-section">
@@ -210,18 +161,18 @@ include __DIR__ . '/../templates/partials/site-header.php';
                     <div class="form-section" id="oapi-titulaire-conditionnel" style="display: none;">
                       <h2 class="form-section-title">Personne morale</h2>
                       <div class="form-row">
-                        <div class="form-group"><label>Dénomination</label><input type="text" class="form-control" placeholder="Ex: FEDPAWA CORPORATE SOLUTIONS SARL"></div>
-                        <div class="form-group"><label>RCCM/NIU</label><input type="text" class="form-control" placeholder="RCCM/DL/2024/B/1234 ou En cours"></div>
+                        <div class="form-group"><label>Dénomination</label><input type="text" class="form-control" required placeholder="Ex: FEDPAWA CORPORATE SOLUTIONS SARL"></div>
+                        <div class="form-group"><label>RCCM/NIU</label><input type="text" class="form-control" required placeholder="RCCM/DL/2024/B/1234 ou En cours"></div>
                       </div>
                     </div>
                     <div class="form-section" id="oapi-titulaire-conditionnel2" style="display: none;">
                       <h2 class="form-section-title">Personne physique</h2>
                       <div class="form-row">
-                        <div class="form-group"><label>Nom</label><input type="text" class="form-control" placeholder="Ex: Jean Dupont"></div>
-                        <div class="form-group"><label>Nationalité</label><input type="text" class="form-control" value="Camerounaise"></div>
+                        <div class="form-group"><label>Nom</label><input type="text" class="form-control" required placeholder="Ex: Jean Dupont"></div>
+                        <div class="form-group"><label>Nationalité</label><input type="text" class="form-control" required value="Camerounaise"></div>
                       </div>
-                      <div class="form-group"><label>Pièce d'identité</label><select class="form-control"><option>CNI</option><option>Passeport</option></select></div>
-                      <div class="form-group"><label>Numéro de pièce</label><input type="text" class="form-control" placeholder="Numéro figurant sur la pièce"></div>
+                      <div class="form-group"><label>Pièce d'identité</label><select class="form-control" required><option>CNI</option><option>Passeport</option></select></div>
+                      <div class="form-group"><label>Numéro de pièce</label><input type="text" class="form-control" required placeholder="Numéro figurant sur la pièce"></div>
                     </div>
                     <hr class="form-divider">
                     <div class="form-section">
@@ -234,9 +185,9 @@ include __DIR__ . '/../templates/partials/site-header.php';
                   <div class="form-block" id="form-contrats" style="display: none;">
                     <div class="form-section">
                       <h2 class="form-section-title"><span class="form-section-num">2K</span> Le besoin</h2>
-                      <div class="form-group"><label>Catégorie <em class="req">*</em></label><select class="form-control" id="contrat-type" required><option value="commercial">Commercial / prestation</option><option value="travail">Prestation / travail</option><option value="social">Social</option><option value="NDA">NDA</option><option value="bail" data-smart-soft="domiciliation">Bail / Location</option><option value="statuts" data-smart-soft="creation">Statuts & pactes d'associés</option><option value="audit">Audit d'un contrat existant</option><option value="archivage">Archivage cloud</option></select></div>
-                      <div class="form-textarea"><label>Situation décrite en synthèse <em class="req">*</em></label><textarea class="form-control" rows="3" placeholder="Synthèse de la situation ou du contrat à sécuriser"></textarea></div>
-                      <div class="form-group"><label>Formule tarifaire <em class="req">*</em></label><select class="form-control" id="contrat-formule" data-plan-select required>
+                      <div class="form-group"><label>Catégorie <em class="req">*</em></label><select class="form-control" required id="contrat-type" required><option value="commercial">Commercial / prestation</option><option value="travail">Prestation / travail</option><option value="social">Social</option><option value="NDA">NDA</option><option value="bail" data-smart-soft="domiciliation">Bail / Location</option><option value="statuts" data-smart-soft="creation">Statuts & pactes d'associés</option><option value="audit">Audit d'un contrat existant</option><option value="archivage">Archivage cloud</option></select></div>
+                      <div class="form-textarea"><label>Situation décrite en synthèse <em class="req">*</em></label><textarea class="form-control" required rows="3" placeholder="Synthèse de la situation ou du contrat à sécuriser"></textarea></div>
+                      <div class="form-group"><label>Formule tarifaire <em class="req">*</em></label><select class="form-control" required id="contrat-formule" data-plan-select required>
                         <option value="standard">Standard — 50 000 FCFA</option>
                         <option value="complexe">Complexe — 150 000 FCFA</option>
                         <option value="audit">Audit — Sur devis</option>
@@ -267,19 +218,19 @@ include __DIR__ . '/../templates/partials/site-header.php';
                     <div class="form-section">
                       <h2 class="form-section-title">L'entreprise et la contrepartie</h2>
                       <div class="form-row">
-                        <div class="form-group"><label>Votre dénomination</label><input type="text" class="form-control" placeholder="Ex: FEDPAWA CORPORATE SOLUTIONS SARL"></div>
-                        <div class="form-group"><label>Nom du cocontractant pressenti</label><input type="text" class="form-control" placeholder="Ex: Société Partenaire"></div>
+                        <div class="form-group"><label>Votre dénomination</label><input type="text" class="form-control" required placeholder="Ex: FEDPAWA CORPORATE SOLUTIONS SARL"></div>
+                        <div class="form-group"><label>Nom du cocontractant pressenti</label><input type="text" class="form-control" required placeholder="Ex: Société Partenaire"></div>
                       </div>
                     </div>
                   </div>
 
                   <div class="form-block" id="form-recouvrement" style="display: none;">
             <div class="form-row">
-              <div class="form-group"><label>Montant total des créances (FCFA)</label><input type="number" class="form-control" placeholder="Ex : 2500000"></div>
-              <div class="form-group"><label>Nombre de débiteurs</label><input type="number" class="form-control" placeholder="Ex : 3"></div>
+              <div class="form-group"><label>Montant total des créances (FCFA)</label><input type="number" class="form-control" required placeholder="Ex : 2500000"></div>
+              <div class="form-group"><label>Nombre de débiteurs</label><input type="number" class="form-control" required placeholder="Ex : 3"></div>
             </div>
-            <div class="form-group"><label>Nature de la créance</label><select class="form-control"><option>Facture impayée</option><option>Loyers impayés</option><option>Prêt / avance non remboursée</option><option>Jugement non exécuté</option><option>Autre (précisez)</option></select></div>
-            <div class="form-group"><label>Historique sommaire des relances</label><textarea class="form-control" rows="3" placeholder="Décrivez les relances déjà effectuées (dates, canaux, réponses)."></textarea></div>
+            <div class="form-group"><label>Nature de la créance</label><select class="form-control" required><option>Facture impayée</option><option>Loyers impayés</option><option>Prêt / avance non remboursée</option><option>Jugement non exécuté</option><option>Autre (précisez)</option></select></div>
+            <div class="form-group"><label>Historique sommaire des relances</label><textarea class="form-control" required rows="3" placeholder="Décrivez les relances déjà effectuées (dates, canaux, réponses)."></textarea></div>
           </div>
 
           <!-- Formulaire Domiciliation -->
@@ -305,7 +256,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
                     <h3 class="form-section-title"><span class="form-section-num">2N</span> Coordonnées de Contact</h3>
                     <div class="form-row">
                       <div class="form-group"><label>Email professionnel <em class="req">*</em></label><input type="email" class="form-control" required placeholder="vous@votre-entreprise.com"></div>
-                      <div class="form-group"><label>WhatsApp / Téléphone <em class="req">*</em></label><input type="tel" class="form-control" required placeholder="+237 6XX XXX XXX" pattern="^\\+?[0-9\\s]{9,16}$"></div>
+                      <div class="form-group"><label>WhatsApp / Téléphone <em class="req">*</em></label><input type="tel" class="form-control" required placeholder="+237 6XX XXX XXX" pattern="^\+?[0-9\s]{9,16}$"></div>
                     </div>
                     <div class="form-row">
                       <div class="form-group"><label>Adresse <em class="req">*</em></label><input type="text" class="form-control" required placeholder="Quartier, rue, repère…"></div>
@@ -491,15 +442,15 @@ include __DIR__ . '/../templates/partials/site-header.php';
                   </div>
 
                   <div class="btn-group">
-                    <button class="btn btn-outline" onclick="goToStep(1)">← Retour</button>
-                    <button class="btn btn-primary" onclick="goToStep(3)">Continuer →</button>
+                    <button class="btn btn-outline" onclick="goToStep(1)" style="visibility: hidden;">← Retour</button>
+                    <button class="btn btn-primary" onclick="validateStep(1, 2)">Continuer →</button>
                   </div>
                 </div>
 
         <!-- ÉTAPE 3 -->
-        <div class="tunnel-step-content" id="step-3">
+        <div class="tunnel-step-content" id="step-2">
           <div class="step-header">
-            <h2>3. Options complémentaires (facultatives)</h2>
+            <h2>2. Options complémentaires (facultatives)</h2>
             <p>Cochez les services additionnels souhaités. La tarification de ces options vous sera confirmée sur devis.</p>
           </div>
 
@@ -550,15 +501,15 @@ include __DIR__ . '/../templates/partials/site-header.php';
           </div>
 
           <div class="btn-group">
-            <button class="btn btn-outline" onclick="goToStep(2)">← Retour</button>
-            <button class="btn btn-primary" onclick="goToStep(4)">Continuer vers les documents →</button>
+            <button class="btn btn-outline" onclick="goToStep(1)">← Retour</button>
+            <button class="btn btn-primary" onclick="validateStep(2, 3)">Continuer vers les documents →</button>
           </div>
         </div>
 
         <!-- ÉTAPE 4 -->
-        <div class="tunnel-step-content" id="step-4">
+        <div class="tunnel-step-content" id="step-3">
           <div class="step-header">
-            <h2>4. Déposez vos pièces justificatives</h2>
+            <h2>3. Déposez vos pièces justificatives</h2>
             <p>Transmettez vos documents de manière 100% sécurisée. (PDF, PNG, JPG - Max 10 Mo).</p>
           </div>
 
@@ -586,15 +537,15 @@ include __DIR__ . '/../templates/partials/site-header.php';
           <p style="font-size: 0.85rem; color: var(--color-text-muted); margin: 20px 0; display: flex; align-items: center; gap: 8px;"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Pacte de Confidentialité : Vos documents sont strictement protégés et chiffrés.</p>
 
           <div class="btn-group">
-            <button class="btn btn-outline" onclick="goToStep(3)">← Retour</button>
-            <button class="btn btn-primary" onclick="goToStep(5)">Voir le récapitulatif →</button>
+            <button class="btn btn-outline" onclick="validateStep(1, 2)">← Retour</button>
+            <button class="btn btn-primary" onclick="validateStep(3, 4)">Voir le récapitulatif →</button>
           </div>
         </div>
 
         <!-- ÉTAPE 5 -->
-        <div class="tunnel-step-content" id="step-5">
+        <div class="tunnel-step-content" id="step-4">
           <div class="step-header">
-            <h2>5. Récapitulatif & Paiement Sécurisé</h2>
+            <h2>4. Récapitulatif & Paiement Sécurisé</h2>
             <p>Vérifiez le détail de votre commande et finalisez votre souscription.</p>
           </div>
 

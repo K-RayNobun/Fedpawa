@@ -101,7 +101,7 @@
         <h2>Un partenaire qui connaît le terrain camerounais</h2>
         <div class="profile-columns">
           <p class="drop-cap">FEDPAWA est née d'un constat simple : les entrepreneurs au Cameroun perdent un temps précieux à multiplier les interlocuteurs, à naviguer entre formalités, fiscalité et protection juridique. Nous avons construit une infrastructure unique où tout se réunit sous un même toit, avec une équipe disponible et rigoureuse.</p>
-          <p>Nous nous situons à l'immeuble Pharmacie de Logpom, en bordure de route, facilement accessible. Nos clients nous connaissent par leur nom, nous prenons leurs appels comme s'ils étaient une grande entreprise, et nous leur offrons un espace client 100 % en ligne pour piloter leurs démarches à tout moment, où qu'ils soient.</p>
+          <p>Nous nous situons à l'immeuble Pharmacie de Logpom, en bordure de route, facilement accessible. Nos clients nous confient leur image, nous prenons leurs appels comme s'ils étaient une grande entreprise, et nous leur offrons un espace client 100 % en ligne pour piloter leurs démarches à tout moment, où qu'ils soient.</p>
         </div>
         <div class="profile-signature">
           <div><div class="signature-name">FEDPAWA Corporate Solutions</div><div class="signature-role">Direction · Logpom, Douala</div></div>

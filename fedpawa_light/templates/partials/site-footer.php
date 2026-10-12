@@ -23,7 +23,7 @@ $langPrefix = $langPrefix ?? '';
       </div>
       <div class="footer-links">
         <h3 class="footer-col-title"><?= $lang === "en" ? "Navigation" : "Navigation" ?></h3>
-        <a href="<?= $langPrefix ?>index.php"><?= $lang === "en" ? "Home" : "Accueil" ?></a><a href="<?= $langPrefix ?>domiciliation.php">Domiciliation</a><a href="creation_entreprise.php"><?= $lang === 'en' ? 'Company Formation' : 'Création d’entreprise' ?></a><a href="<?= $langPrefix ?>fiscalite.php"><?= $lang === "en" ? "Tax Advisory" : "Fiscalité" ?></a><a href="<?= $langPrefix ?>oapi.php">OAPI</a><a href="<?= $langPrefix ?>contrats.php"><?= $lang === "en" ? "Contracts" : "Contrats" ?></a><a href="<?= $langPrefix ?>contact.php">Contact</a>
+        <a href="<?= $langPrefix ?>index.php"><?= $lang === "en" ? "Home" : "Accueil" ?></a><a href="<?= $langPrefix ?>domiciliation.php">Domiciliation</a><a href="<?= $langPrefix ?>creation_entreprise.php"><?= $lang === 'en' ? 'Company Formation' : "Création d'entreprise" ?></a><a href="<?= $langPrefix ?>fiscalite.php"><?= $lang === "en" ? "Tax & Legal Advisory" : "Conseils & Suivi Fiscal" ?></a><a href="<?= $langPrefix ?>oapi.php"><?= $lang === "en" ? "OAPI Protection" : "Protection OAPI" ?></a><a href="<?= $langPrefix ?>contrats.php"><?= $lang === "en" ? "Contracts" : "Contrats" ?></a><a href="<?= $langPrefix ?>contact.php">Contact</a>
       </div>
       <div class="footer-legal">
         <h3 class="footer-col-title"><?= $lang === "en" ? "Legal Information" : "Informations légales" ?></h3>

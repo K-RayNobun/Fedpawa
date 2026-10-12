@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 const res = await fetch(apiUrl('/api/password/request'), {
+                    credentials: 'include',
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email: currentEmail })
@@ -98,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 const res = await fetch(apiUrl('/api/password/verify'), {
+                    credentials: 'include',
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ otp: otpCode })
@@ -173,6 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 const res = await fetch(apiUrl('/api/password/reset'), {
+                    credentials: 'include',
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ mot_de_passe: newPwdInput.value })

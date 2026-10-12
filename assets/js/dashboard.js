@@ -37,7 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fetch Real User Data from Server
     async function loadDashboardData() {
         try {
-            const res = await fetch(apiUrl('/api/dashboard'));
+            const res = await fetch(apiUrl('/api/dashboard'), {
+                credentials: 'include'
+            });
             if (res.status === 401) {
                 window.location.href = 'authentification.html';
                 return;

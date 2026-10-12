@@ -22,6 +22,16 @@ if (preg_match('#^/api(/|$)#', $uri)) {
     $router->post('/api/password/verify', 'AuthController@verifyOtp');
     $router->post('/api/password/reset', 'AuthController@resetPassword');
     $router->get('/api/dashboard', 'DashboardController@index');
+    // Lane #4 : état de session (rôle) pour les gardes d'accès côté navigateur
+    $router->get('/api/me', function() {
+        header('Content-Type: application/json');
+        \App\Controller\Controller::getCsrfToken(); // s'assure qu'une session existe
+        if (!isset($_SESSION['client_id'])) {
+            echo json_encode(['authenticated' => false]);
+        } else {
+            echo json_encode(['authenticated' => true, 'role' => $_SESSION['role'] ?? 'client', 'name' => $_SESSION['client_name'] ?? '']);
+        }
+    });
     $router->get('/api/courriers', 'CourrierController@index');
     $router->get('/api/factures', 'FactureController@index');
     $router->post('/api/support', 'SupportController@store');

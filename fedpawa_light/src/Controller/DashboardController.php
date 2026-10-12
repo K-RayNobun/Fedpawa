@@ -5,10 +5,7 @@ use App\Service\Database;
 
 class DashboardController extends Controller {
     public function index() {
-        if (!isset($_SESSION['client_id'])) {
-            $this->json(['error' => 'Non autorisé'], 401);
-            return;
-        }
+        if (!$this->requireClient()) return;
 
         $db = Database::getConnection();
 

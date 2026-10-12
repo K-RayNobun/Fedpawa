@@ -1,7 +1,7 @@
 // E2E Header desktop — boutons paramètres/profil, états connecté/non-connecté, tunnel, qui-sommes-nous
 const { chromium } = await import('/root/lofi-cities/tools/node_modules/playwright-core/index.mjs');
 const CHROME = '/root/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome';
-const BASE = 'http://127.0.0.1:8099';
+const BASE = process.argv[2] || 'http://127.0.0.1:8099';
 
 const results = [];
 const t = (name, pass, info = '') => { results.push({ name, pass, info }); console.log((pass ? 'PASS' : 'FAIL') + ': ' + name + (info ? ' — ' + info : '')); };

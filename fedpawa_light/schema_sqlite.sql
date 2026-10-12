@@ -13,7 +13,8 @@ CREATE TABLE IF NOT EXISTS clients (
     activite TEXT,
     mot_de_passe TEXT NOT NULL,
     date_inscription DATETIME DEFAULT CURRENT_TIMESTAMP,
-    statut TEXT DEFAULT 'actif'
+    statut TEXT DEFAULT 'actif',
+    role TEXT DEFAULT 'client'
 );
 
 CREATE TABLE IF NOT EXISTS abonnements (

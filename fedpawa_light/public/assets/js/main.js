@@ -151,11 +151,13 @@ document.addEventListener('DOMContentLoaded', () => {
     async function checkConnectionStatus() {
         try {
             if (typeof window.apiUrl !== 'function') return false;
-            const response = await fetch(window.apiUrl('/api/dashboard'), {
+            const response = await fetch(window.apiUrl('/api/me'), {
                 method: 'GET',
                 credentials: 'include'
             });
-            return response.status === 200;
+            if (!response.ok) return false;
+            const data = await response.json();
+            return data.authenticated === true;
         } catch (error) {
             // Dégradation gracieuse : API injoignable -> non-connecté, jamais de blocage
             return false;
@@ -261,6 +263,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+
+    // Positionne un menu déroulant juste sous son bouton déclencheur (aligné à droite),
+    // sans jamais chevaucher le header ni sortir de l'écran.
+    function positionMenuUnder(menu, btn) {
+        if (!menu || !btn) return;
+        const r = btn.getBoundingClientRect();
+        menu.style.visibility = 'hidden';
+        menu.style.opacity = '0';
+        menu.classList.add('open');
+        const mw = menu.offsetWidth, mh = menu.offsetHeight;
+        menu.classList.remove('open');
+        menu.style.visibility = '';
+        menu.style.opacity = '';
+        const gap = 10;
+        let top = r.bottom + window.scrollY + gap;
+        let left = r.right + window.scrollX - mw;
+        if (r.bottom + gap + mh > window.innerHeight) {
+            top = Math.max(r.top + window.scrollY - mh - gap, window.scrollY + 8);
+        }
+        left = Math.max(8, Math.min(left, window.scrollX + window.innerWidth - mw - 8));
+        menu.style.top = top + 'px';
+        menu.style.left = left + 'px';
+        menu.style.right = 'auto';
+    }
+
     function renderNavActions(isConnected) {
         const navActions = document.getElementById('navActions');
         if (!navActions) return;
@@ -274,8 +301,10 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.appendChild(profileMenu);
             profileBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                const open = profileMenu.classList.toggle('open');
-                profileBtn.setAttribute('aria-expanded', open);
+                const wasOpen = profileMenu.classList.contains('open');
+                if (!wasOpen) positionMenuUnder(profileMenu, profileBtn);
+                profileMenu.classList.toggle('open', !wasOpen);
+                profileBtn.setAttribute('aria-expanded', !wasOpen);
             });
             document.addEventListener('click', (e) => {
                 if (!profileMenu.contains(e.target) && e.target !== profileBtn && !profileBtn.contains(e.target)) {
@@ -293,8 +322,10 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.appendChild(settingsMenu);
             settingsBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                const open = settingsMenu.classList.toggle('open');
-                settingsBtn.setAttribute('aria-expanded', open);
+                const wasOpen = settingsMenu.classList.contains('open');
+                if (!wasOpen) positionMenuUnder(settingsMenu, settingsBtn);
+                settingsMenu.classList.toggle('open', !wasOpen);
+                settingsBtn.setAttribute('aria-expanded', !wasOpen);
             });
             document.addEventListener('click', (e) => {
                 if (!settingsMenu.contains(e.target) && e.target !== settingsBtn && !settingsBtn.contains(e.target)) {

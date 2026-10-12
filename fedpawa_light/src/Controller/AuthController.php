@@ -60,6 +60,7 @@ class AuthController extends Controller {
 
         $_SESSION['client_id'] = $client['id'];
         $_SESSION['client_name'] = $client['nom'];
+        $_SESSION['role'] = $client['role'] ?? 'client'; // Lane #4 : rôle pour le contrôle d'accès
 
         $this->json(['message' => 'Connexion réussie', 'redirect' => 'espace_client.html']);
     }

@@ -24,4 +24,29 @@ abstract class Controller {
         $token = $headers['X-CSRF-Token'] ?? $_SERVER['HTTP_X_CSRF_TOKEN'] ?? $_POST['csrf_token'] ?? '';
         return !empty($_SESSION['csrf_token']) && hash_equals($_SESSION['csrf_token'], $token);
     }
+
+    // ---- Lane #4 : gardes d'accès par rôle ----
+    // Renvoie le rôle de session ('admin' | 'client'), ou null si non-connecté.
+    protected function sessionRole(): ?string {
+        if (session_status() !== PHP_SESSION_ACTIVE) return null;
+        if (!isset($_SESSION['client_id'])) return null;
+        return $_SESSION['role'] ?? null;
+    }
+
+    // Client connecté requis. Si admin -> 403 (les admins n'entrent pas dans l'espace client).
+    // Renvoie true si OK, false sinon (réponse JSON déjà envoyée).
+    protected function requireClient(): bool {
+        $role = $this->sessionRole();
+        if ($role === null) { $this->json(['error' => 'Connexion requise', 'login_required' => true], 401); return false; }
+        if ($role === 'admin') { $this->json(['error' => 'Espace client réservé aux comptes clients', 'forbidden' => true], 403); return false; }
+        return true;
+    }
+
+    // Admin requis (401 si non-connecté, 403 si client).
+    protected function requireAdmin(): bool {
+        $role = $this->sessionRole();
+        if ($role === null) { $this->json(['error' => 'Connexion requise', 'login_required' => true], 401); return false; }
+        if ($role !== 'admin') { $this->json(['error' => 'Accès administrateur requis', 'forbidden' => true], 403); return false; }
+        return true;
+    }
 }

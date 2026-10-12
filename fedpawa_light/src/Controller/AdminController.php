@@ -5,6 +5,7 @@ use App\Service\Database;
 
 class AdminController extends Controller {
     public function overview() {
+        if (!$this->requireAdmin()) return;
         $db = Database::getConnection();
 
         $clientsCount = $db->query("SELECT COUNT(*) FROM clients")->fetchColumn();
@@ -32,6 +33,7 @@ class AdminController extends Controller {
     }
 
     public function approveKyc() {
+        if (!$this->requireAdmin()) return;
         $input = json_decode(file_get_contents('php://input'), true);
         $id = $input['id'] ?? null;
         if (!$id) {
@@ -44,6 +46,7 @@ class AdminController extends Controller {
     }
 
     public function rejectKyc() {
+        if (!$this->requireAdmin()) return;
         $input = json_decode(file_get_contents('php://input'), true);
         $id = $input['id'] ?? null;
         if (!$id) {

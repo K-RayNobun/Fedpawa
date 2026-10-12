@@ -417,5 +417,5 @@ observer.observe(summaryTotalEl, { childList: true });
 </script>
 
 <?php
-$extraJs = ['assets/js/tunnel.js'];
+$extraJs = ['assets/js/config.js', 'assets/js/tunnel.js'];
 include __DIR__ . '/../templates/partials/site-footer.php';

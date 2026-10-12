@@ -1,0 +1,12 @@
+.git
+**/.env
+**/.env.*
+**/storage/*.sqlite
+**/storage/logs/*
+**/storage/uploads/*
+**/storage/documents/*
+**/vendor
+**/dist
+**/node_modules
+*.mjs
+*.log

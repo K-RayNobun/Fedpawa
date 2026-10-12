@@ -8,6 +8,10 @@ include __DIR__ . '/../templates/partials/site-header.php';
 ?>
 <div class="progress-wrapper" id="domStepper">
   <div class="container">
+      <div class="dom-step-mobile" id="domStepMobile">
+        <div class="dom-step-mobile-txt"><span id="domStepCount">&Eacute;tape 1/5</span><strong id="domStepTitle">Entreprise</strong></div>
+        <div class="dom-step-mobile-bar"><div class="dom-step-mobile-fill" id="domStepFill"></div></div>
+      </div>
     <div class="progress-container">
       <div class="progress-line"><div class="progress-line-fill" id="progressFill"></div></div>
       <div class="progress-step active" data-step="1"><div class="progress-dot">1</div><span class="progress-label">Entreprise</span></div>

@@ -451,3 +451,16 @@ html[data-theme="navy"] .otp-input:focus { border-color: var(--color-gold); }
   .cost-table th { font-size: 0.7rem; }
   .summary-item span:last-child { white-space: normal; }
 }
+
+/* ============ Lane #3 - Stepper mobile : titre de l'etape courante uniquement ============ */
+.dom-step-mobile { display: none; }
+@media (max-width: 575px) {
+  #domStepper .progress-container { display: none; }
+  #domStepper .dom-step-mobile { display: block; }
+  .dom-step-mobile-txt { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+  .dom-step-mobile-txt span { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); white-space: nowrap; }
+  .dom-step-mobile-txt strong { font-family: var(--font-serif); font-size: 1.05rem; color: var(--color-heading); text-align: right; }
+  .dom-step-mobile-bar { height: 4px; border-radius: 2px; background: var(--color-border); overflow: hidden; }
+  .dom-step-mobile-fill { height: 100%; width: 0%; background: var(--color-primary); transition: width 0.4s ease; }
+  html[data-theme="navy"] .dom-step-mobile-fill { background: var(--color-gold); }
+}

@@ -42,6 +42,17 @@
       d.classList.toggle('completed', sn < n);
     });
     if (progressFill) progressFill.style.width = ((n - 1) / (TOTAL_STEPS - 1)) * 100 + '%';
+    // En-tête mobile : compteur + titre de l'étape courante + barre de progression
+    const mobCount = document.getElementById('domStepCount');
+    const mobTitle = document.getElementById('domStepTitle');
+    const mobFill = document.getElementById('domStepFill');
+    if (mobCount) mobCount.textContent = '\u00c9tape ' + n + '/' + TOTAL_STEPS;
+    if (mobTitle) {
+      const d = stepDots.find(x => Number(x.dataset.step) === n);
+      const lbl = d ? d.querySelector('.progress-label') : null;
+      if (lbl) mobTitle.textContent = lbl.textContent;
+    }
+    if (mobFill) mobFill.style.width = ((n - 1) / (TOTAL_STEPS - 1)) * 100 + '%';
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   window.goToStep = function (n) {

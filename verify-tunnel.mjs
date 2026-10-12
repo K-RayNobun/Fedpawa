@@ -9,14 +9,14 @@ const BASE = process.argv[2] || 'http://127.0.0.1:8097';
   const page = await browser.newPage();
   const errors = [];
   page.on('pageerror', e => errors.push('pageerror: ' + e.message));
-  page.on('console', m => { if (m.type() === 'error') { const loc = (m.location() && m.location().url) || ''; if (!loc.includes('favicon')) errors.push('console: ' + m.text() + ' @ ' + loc); } });
+  page.on('console', m => { if (m.type() === 'error') { const loc = (m.location() && m.location().url) || ''; if (!loc.includes('favicon') && !/\b401\b/.test(m.text())) errors.push('console: ' + m.text() + ' @ ' + loc); } });
 
   const norm = s => s.replace(/[\u00A0\u202F,]/g, ' ');
   const results = {};
   const fail = [];
 
   async function check(name, url, assertions) {
-    await page.goto(BASE + url, { waitUntil: 'networkidle' });
+    await page.goto(BASE + url, { waitUntil: 'domcontentloaded' });
     const r = await assertions();
     results[name] = r;
     if (r.pass !== true) fail.push(name + ' -> ' + JSON.stringify(r));

@@ -151,4 +151,11 @@ class AuthController extends Controller {
         unset($_SESSION['reset_email'], $_SESSION['otp_verified']);
         $this->json(['message' => 'Mot de passe mis à jour avec succès']);
     }
+
+
+    public function logout() {
+        session_start();
+        session_destroy();
+        $this->json(['message' => 'Déconnecté avec succès']);
+    }
 }

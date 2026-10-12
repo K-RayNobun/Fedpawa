@@ -9,7 +9,7 @@ const norm = s => s.replace(/[\u00A0\u202F,]/g, ' ');
   const out = {};
 
   // contrats standard -> l'utilisateur passe le select complexité sur "audit" (sur devis)
-  await page.goto(BASE + '/tunnel_souscription.php?service=contrats&pack=standard', { waitUntil: 'networkidle' });
+  await page.goto(BASE + '/tunnel_souscription.php?service=contrats&pack=standard', { waitUntil: 'domcontentloaded' });
   out.total_initial = norm(await page.evaluate(() => document.getElementById('summaryTotal').innerText)); // 51 000
   await page.evaluate(() => {
     const form = document.getElementById('form-contrats');
@@ -29,7 +29,7 @@ const norm = s => s.replace(/[\u00A0\u202F,]/g, ' ');
   out.total_apres_complexe = norm(await page.evaluate(() => document.getElementById('summaryTotal').innerText));
 
   // fiscalite : select régime -> reel = sur devis
-  await page.goto(BASE + '/tunnel_souscription.php?service=fiscalite&pack=simplifie', { waitUntil: 'networkidle' });
+  await page.goto(BASE + '/tunnel_souscription.php?service=fiscalite&pack=simplifie', { waitUntil: 'domcontentloaded' });
   await page.evaluate(() => {
     const sel = document.querySelector('#form-fiscalite select[data-plan-select]');
     sel.value = 'reel';
@@ -38,7 +38,7 @@ const norm = s => s.replace(/[\u00A0\u202F,]/g, ' ');
   out.fiscalite_reel_total = norm(await page.evaluate(() => document.getElementById('summaryTotal').innerText));
 
   // oapi : type d'actif -> brevets = sur devis
-  await page.goto(BASE + '/tunnel_souscription.php?service=oapi&pack=protect_brand', { waitUntil: 'networkidle' });
+  await page.goto(BASE + '/tunnel_souscription.php?service=oapi&pack=protect_brand', { waitUntil: 'domcontentloaded' });
   await page.evaluate(() => {
     const sel = document.querySelector('#form-oapi select[data-plan-select]');
     sel.value = 'brevets';

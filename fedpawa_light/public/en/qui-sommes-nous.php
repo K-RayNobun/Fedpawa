@@ -35,7 +35,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
           <p>Pour répondre à ce défi, FEDPAWA a structuré une offre globale à 360°, combinant l'expertise de juristes d'affaires, de fiscalistes chevronnés et de spécialistes de la propriété intellectuelle. Nous avons digitalisé les processus administratifs pour offrir à nos clients une transparence totale sur leurs démarches, sans déplacements inutiles et sans frais cachés.</p>
         </div>
         <div class="about-vision-box">
-          <div class="about-vision-photo"><img src="../assets/images/photo_6.jpg" alt="Our premises in Logpom, Douala" loading="lazy"></div>
+          <div class="about-vision-photo"><img src="../assets/images/photo_6.svg" alt="Our premises in Logpom, Douala" loading="lazy"></div>
           <h3><span>🎯</span> Notre Mission & Ambition</h3>
           <p>Être le guichet unique de référence pour tout entrepreneur ou groupe souhaitant s'implanter, se protéger et se développer au Cameroun et dans l'espace OHADA/OAPI. Nous faisons de la conformité un bouclier protecteur et de la fiscalité un outil d'optimisation légale.</p>
         </div>
@@ -54,43 +54,43 @@ include __DIR__ . '/../../templates/partials/site-header.php';
 
       <div class="gallery-grid">
         <div class="gallery-item w-2 h-2">
-          <img src="../assets/images/photo_1.jpg" alt="Reception and welcome desk" loading="lazy">
+          <img src="../assets/images/photo_1.svg" alt="Reception and welcome desk" loading="lazy">
           <span class="gallery-caption">Reception & Welcome</span>
         </div>
         <div class="gallery-item">
-          <img src="../assets/images/photo_7.jpg" alt="Executive private office" loading="lazy">
+          <img src="../assets/images/photo_7.svg" alt="Executive private office" loading="lazy">
           <span class="gallery-caption">Executive Private Office</span>
         </div>
         <div class="gallery-item">
-          <img src="../assets/images/photo_8.jpg" alt="Meeting room" loading="lazy">
+          <img src="../assets/images/photo_8.svg" alt="Meeting room" loading="lazy">
           <span class="gallery-caption">Meeting Room</span>
         </div>
         <div class="gallery-item">
-          <img src="../assets/images/photo_9.jpg" alt="Workspace" loading="lazy">
+          <img src="../assets/images/photo_9.svg" alt="Workspace" loading="lazy">
           <span class="gallery-caption">Workspace</span>
         </div>
         <div class="gallery-item w-2">
-          <img src="../assets/images/photo_10.jpg" alt="Coffee and lounge area" loading="lazy">
+          <img src="../assets/images/photo_10.svg" alt="Coffee and lounge area" loading="lazy">
           <span class="gallery-caption">Coffee & Lounge Area</span>
         </div>
         <div class="gallery-item">
-          <img src="../assets/images/photo_11.jpg" alt="Telephone secretariat" loading="lazy">
+          <img src="../assets/images/photo_11.svg" alt="Telephone secretariat" loading="lazy">
           <span class="gallery-caption">Telephone Secretariat</span>
         </div>
         <div class="gallery-item">
-          <img src="../assets/images/photo_12.jpg" alt="Mail handling" loading="lazy">
+          <img src="../assets/images/photo_12.svg" alt="Mail handling" loading="lazy">
           <span class="gallery-caption">Mail Handling</span>
         </div>
         <div class="gallery-item">
-          <img src="../assets/images/photo_13.jpg" alt="Logpom operational hub" loading="lazy">
+          <img src="../assets/images/photo_13.svg" alt="Logpom operational hub" loading="lazy">
           <span class="gallery-caption">Logpom Operational Hub</span>
         </div>
         <div class="gallery-item">
-          <img src="../assets/images/photo_14.jpg" alt="High-end equipped offices" loading="lazy">
+          <img src="../assets/images/photo_14.svg" alt="High-end equipped offices" loading="lazy">
           <span class="gallery-caption">High-End Offices</span>
         </div>
         <div class="gallery-item">
-          <img src="../assets/images/photo_15.jpg" alt="High-speed connection" loading="lazy">
+          <img src="../assets/images/photo_15.svg" alt="High-speed connection" loading="lazy">
           <span class="gallery-caption">High-Speed Connection</span>
         </div>
       </div>

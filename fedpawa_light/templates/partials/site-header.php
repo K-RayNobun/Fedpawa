@@ -6,6 +6,7 @@ $description = $description ?? "FEDPAWA CORPORATE SOLUTIONS — Infrastructure d
 $active      = $active ?? '';
 $lang        = $lang ?? 'fr';
 $servicesActive = in_array($active, ['services', 'domiciliation', 'creation', 'fiscalite', 'oapi', 'contrats'], true);
+$langPrefix = $lang === 'en' ? '/en' : '';
 ?>
 <!DOCTYPE html>
 <html lang="<?= $lang ?>" data-theme="navy" data-mode="dark">
@@ -40,7 +41,6 @@ $servicesActive = in_array($active, ['services', 'domiciliation', 'creation', 'f
       <img class="brand-logo" src="<?= $langPrefix ?>assets/images/logo.jpg" alt="Logo FEDPAWA Corporate Solutions">
       <span class="brand-copy"><strong>FEDPAWA</strong><small>Corporate Solutions</small></span>
     </a>
-    <button class="menu-toggle" id="menuToggle" aria-label="<?= $lang === "en" ? "Open menu" : "Ouvrir le menu" ?>"><span></span><span></span><span></span></button>
     <nav class="main-nav">
       <ul class="nav-list">
         <li><a class="nav-link <?= $active === 'index' ? 'is-active' : '' ?>" href="<?= $langPrefix ?>index.php"><?= $lang === "en" ? "Home" : "Accueil" ?></a></li>
@@ -57,15 +57,13 @@ $servicesActive = in_array($active, ['services', 'domiciliation', 'creation', 'f
         <li><a class="nav-link <?= $active === 'about' ? 'is-active' : '' ?>" href="<?= $langPrefix ?>qui-sommes-nous.php"><?= $lang === "en" ? "About Us" : "Qui sommes-nous" ?></a></li>
         <li><a class="nav-link <?= $active === 'contact' ? 'is-active' : '' ?>" href="<?= $langPrefix ?>contact.php">Contact</a></li>
       </ul>
-      <div class="nav-actions">
-        <button class="mode-toggle header-mode-toggle" id="modeToggle" aria-label="Basculer en mode sombre/clair" title="Light / dark mode">
-          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
-        <button class="lang-toggle" id="langToggle" aria-label="Switch language / Changer de langue" title="FR / EN"><?= $lang === "en" ? "FR" : "EN" ?></button>
-        <a class="nav-login" href="<?= $langPrefix ?>authentification.html"><?= $lang === "en" ? "Sign in" : "Se connecter" ?></a>
-      </div>
     </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu / Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-actions" id="navActions">
+      <!-- Connection state will be toggled by JS -->
+      <!-- For non-connected users: settings button -->
+      <!-- For connected users: Espace Client + Profile button -->
+    </div>
   </div>
 </header>
 
@@ -80,7 +78,7 @@ $servicesActive = in_array($active, ['services', 'domiciliation', 'creation', 'f
     <a href="<?= $langPrefix ?>contrats.php"><?= $lang === "en" ? "Contracts" : "Contrats" ?></a>
     <a href="<?= $langPrefix ?>qui-sommes-nous.php"><?= $lang === "en" ? "About Us" : "Qui sommes-nous" ?></a>
     <a href="<?= $langPrefix ?>contact.php">Contact</a>
-    <a href="<?= $langPrefix ?>authentification.html"><?= $lang === "en" ? "Sign in" : "Se connecter" ?></a>
+
     <a class="mobile-cta" href="<?= $langPrefix ?>tunnel_souscription.php"><?= $lang === 'en' ? 'Subscribe' : 'Je m\'abonne' ?></a>
     <!-- Toggles inside mobile menu -->
     <div class="mobile-nav-toggles">

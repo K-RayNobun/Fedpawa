@@ -16,6 +16,7 @@ if (preg_match('#^/api(/|$)#', $uri)) {
     $router->post('/api/souscription', 'SubscriptionController@process');
     $router->post('/api/signature', 'SubscriptionController@finalize');
     $router->post('/api/login', 'AuthController@login');
+    $router->post('/api/logout', 'AuthController@logout');
     $router->post('/api/register', 'AuthController@register');
     $router->post('/api/password/request', 'AuthController@requestPasswordReset');
     $router->post('/api/password/verify', 'AuthController@verifyOtp');

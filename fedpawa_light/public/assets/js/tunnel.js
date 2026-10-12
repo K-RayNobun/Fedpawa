@@ -289,6 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const totalAvecFrais = Math.floor(baseTotal * 1.02);
 
                 const res = await fetch(apiUrl('/api/souscription'), {
+                    credentials: 'include',
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({

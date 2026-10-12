@@ -247,3 +247,10 @@ html[data-mode="dark"] .sun-icon { display: none; }
   .fp-toast-container { top: 12px; right: 12px; left: 12px; max-width: none; }
   .fp-modal-actions { flex-direction: column-reverse; }
 }
+
+/* ============== FIX: panneau mobile-nav fermé (fixed, transformé hors écran) crée un
+   débordement fantôme de 142px -> scroll horizontal indésirable.
+   overflow-x: clip supprime la zone scrollable SANS casser position: sticky (contrairement à hidden) ============== */
+html { overflow-x: clip; }
+body { overflow-x: clip; }
+@supports not (overflow: clip) { html, body { overflow-x: hidden; } }

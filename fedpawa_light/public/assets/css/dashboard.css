@@ -412,3 +412,42 @@ html[data-theme="navy"] .otp-input:focus { border-color: var(--color-gold); }
   .gamme-grid { grid-template-columns: 1fr; }
   .form-section-title { font-size: 1.1rem; }
 }
+
+/* ============ TUNNEL — Facture visible uniquement à l'étape 5 ============ */
+/* La sidebar n'apparaît qu'au récapitulatif final (classe posée par goToStep(5)) */
+.order-summary { display: none; }
+.order-summary.invoice-final { display: block; }
+@media (max-width: 991px) {
+  .order-summary.invoice-final { position: static; order: -1; margin-bottom: 30px; }
+}
+
+/* ============ TUNNEL — Responsive mobile (débordements) ============ */
+@media (max-width: 991px) {
+  .tunnel-layout-v2 { gap: 24px; }
+  .step-header h2 { font-size: 1.4rem; }
+  .tunnel-card { padding: 28px 18px; }
+  .tunnel-card[style] { padding: 28px 18px !important; }
+  .tunnel-card[style*="padding: 40px"] { padding: 28px 18px !important; }
+}
+@media (max-width: 575px) {
+  .progress-wrapper { padding: 20px 0; }
+  .progress-container { gap: 4px; }
+  .progress-step { width: auto; flex: 1 1 0; min-width: 0; }
+  .progress-label { font-size: 0.6rem; letter-spacing: 0.02em; }
+  .progress-dot { width: 22px; height: 22px; font-size: 0.65rem; }
+  .step-header h2 { font-size: 1.2rem; }
+  .btn-group { flex-direction: column-reverse; }
+  .btn-group .btn { width: 100%; }
+  /* cartes service : 1 colonne mobile, largeur contrainte */
+  .tunnel-step-content > div[style*="grid"] { display: grid !important; grid-template-columns: 1fr !important; }
+  .selectable-card { padding: 18px; min-width: 0; max-width: 100%; }
+  .selectable-card h4 { font-size: 1rem; word-break: break-word; }
+  .selectable-card .card-price { font-size: 1rem; }
+  /* formulaires : rows en colonne */
+  .form-row { flex-direction: column; }
+  .form-row { grid-template-columns: 1fr; }
+  .cost-table { font-size: 0.85rem; }
+  .cost-table th, .cost-table td { padding: 8px; }
+  .cost-table th { font-size: 0.7rem; }
+  .summary-item span:last-child { white-space: normal; }
+}

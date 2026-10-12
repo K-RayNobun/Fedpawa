@@ -70,7 +70,11 @@ document.addEventListener('DOMContentLoaded', () => {
         contents.forEach(content => content.classList.remove('active'));
         const activeContent = document.getElementById(`step-${stepNumber}`);
         if (activeContent) activeContent.classList.add('active');
-        
+
+        // La facture (sidebar) n'est visible qu'à l'étape 5 (récapitulatif & paiement)
+        const summaryAside = document.querySelector('.order-summary');
+        if (summaryAside) summaryAside.classList.toggle('invoice-final', stepNumber === 5);
+
         window.scrollTo({ top: 0, behavior: 'smooth' });
         updateSummary();
     }
@@ -170,7 +174,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // 6. Mise à jour du récapitulatif (Sidebar + 2% Frais de transfert)
+    let finalBaseTotal = 0; // total HT (plans + options chiffrées), hors frais 2%
+    // 6. Mise à jour du récapitulatif — le total affiché inclut les frais de service 2% (inclus, non détaillés)
     function updateSummary() {
         if (!summaryItems || !summaryTotal) return;
         summaryItems.innerHTML = '';
@@ -181,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Ligne prestation : label du plan si défini, sinon nom du service
             const lineLabel = cart.planLabel ? `${cart.serviceName} — ${cart.planLabel}` : cart.serviceName;
             if (cart.price > 0) {
-                summaryItems.innerHTML += `<div class="summary-item"><span>${lineLabel}</span><span>${cart.price.toLocaleString('fr-FR')} FCFA${cart.planUnit}</span></div>`;
+                summaryItems.innerHTML += `<div class="summary-item"><span>${lineLabel}</span><span>Prix Total Hors Taxe : ${cart.price.toLocaleString('fr-FR')} FCFA${cart.planUnit}</span></div>`;
                 baseTotal += cart.price;
             } else {
                 summaryItems.innerHTML += `<div class="summary-item"><span>${lineLabel}</span><span>Sur devis</span></div>`;
@@ -211,14 +216,13 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Ajouter 2% de frais de transfert
+        // Total : plan affiché HT, le total général inclut subtilement les 2% de frais
         const fee = Math.floor(baseTotal * 0.02);
+        finalBaseTotal = baseTotal;
         const finalTotal = baseTotal + fee;
 
-        summaryItems.innerHTML += `<div class="summary-divider"></div><div class="summary-item"><span>Frais de traitement (2%)</span><span>${fee.toLocaleString('fr-FR')} FCFA</span></div>`;
-
         summaryTotal.innerText = finalTotal.toLocaleString('fr-FR') + ' FCFA';
-        
+
         const finalBtn = document.getElementById('finalPayBtn');
         if (finalBtn) finalBtn.innerText = `🔒 Procéder au paiement sécurisé (${finalTotal.toLocaleString('fr-FR')} FCFA)`;
     }
@@ -412,6 +416,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // 9. Initialisation : ?service=contrats&pack=complexe pré-sélectionne tout
     if (urlService) {
         selectService(urlService, true, urlPack);
+        // L'utilisateur arrive déjà ciblé (bouton d'une page service) :
+        // la prestation est connue -> on saute l'étape 1 et on ouvre directement le formulaire (étape 2)
+        goToStep(2);
     }
     updateSummary();
 });

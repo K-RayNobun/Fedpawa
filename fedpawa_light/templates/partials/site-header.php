@@ -20,7 +20,7 @@ $langPrefix = $lang === 'en' ? '/en' : '';
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="<?= $langPrefix ?>assets/css/style.css">
 <link rel="stylesheet" href="<?= $langPrefix ?>assets/css/components.css">
-<?php foreach ($extraCss as $css): ?><link rel="stylesheet" href="<?= htmlspecialchars($langPrefix . $css, ENT_QUOTES, 'UTF-8') ?>"><?php endforeach; ?>
+<?php foreach (($extraCss ?? []) as $css): ?><link rel="stylesheet" href="<?= htmlspecialchars($langPrefix . $css, ENT_QUOTES, 'UTF-8') ?>"><?php endforeach; ?>
 </head>
 <body>
 <!-- ============== TOP BAR ============== -->

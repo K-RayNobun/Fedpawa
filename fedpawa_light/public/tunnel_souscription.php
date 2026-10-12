@@ -8,6 +8,8 @@ include __DIR__ . '/../templates/partials/site-header.php';
 ?>
 
 
+<div id="tunnelMeta" data-skip-step1="0"></div>
+
 <div class="progress-wrapper">
   <div class="container">
     <div class="progress-container">
@@ -369,7 +371,8 @@ include __DIR__ . '/../templates/partials/site-header.php';
         <div class="summary-divider"></div>
 
         <div class="summary-total">
-          <span>Total Estimé</span>
+          <span>Total à régler</span>
+         
           <span id="summaryTotal">0 FCFA</span>
         </div>
 

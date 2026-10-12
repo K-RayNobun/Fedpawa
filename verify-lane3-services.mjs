@@ -156,8 +156,11 @@ const norm = s => (s || '').replace(/[\u00A0\u202F,]/g, ' ').trim();
 
   // ==== RÉSUMÉ ====
   const failed = out.cases.filter(c => !c.pass);
+  out.total = out.cases.length;
+  out.failed = failed.length;
   console.log('\n=== RÉSUMÉ ===');
-  console.log('Total:', out.cases.length, '| Passed:', out.cases.length - failed.length, '| Failed:', failed.length);
+  console.log('Total:', out.total, '| Passed:', out.total - out.failed, '| Failed:', out.failed);
+  console.log(JSON.stringify(out));
   if (failed.length > 0) {
     console.log('Échecs:', failed.map(f => f.name + (f.info ? ' (' + f.info + ')' : '')).join(', '));
   } else {

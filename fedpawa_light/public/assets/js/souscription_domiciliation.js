@@ -329,15 +329,68 @@
       return;
     }
 
-    // Succès : collecte des données pour récap (pas d'envoi réseau — site statique)
+    // Lane #2: connexion requise puis paiement Mobile Money
     const data = new FormData(form);
     const name = data.get('nom_complet') || 'client';
     const pack = currentPack();
+    const months = periodSelect.selectedOptions[0] ? Number(periodSelect.selectedOptions[0].dataset.months || 1) : 1;
+    const total = pack ? pack.price * months : 0;
+    const phone = data.get('telephone') || '';
 
-    form.style.display = 'none';
-    const ok = document.getElementById('form-success');
-    document.getElementById('success-name').textContent = name;
-    ok.style.display = 'block';
-    ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (!window.FedpawaPay) {
+      errorsBox.style.display = 'block';
+      errorsBox.innerHTML = '<strong>Composant paiement indisponible.</strong>';
+      return;
+    }
+
+    const submitPayload = async (pay) => {
+      try {
+        const csrf = await FedpawaPay.getCsrf();
+        const res = await fetch(apiUrl('/api/souscription'), {
+          credentials: 'include',
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': csrf || '' },
+          body: JSON.stringify({
+            service: 'domiciliation',
+            pack: packSelect.value,
+            plan: packSelect.value,
+            nom: name,
+            name,
+            planLabel: pack ? pack.label : '',
+            prix: total,
+            periodicite: data.get('periodicite'),
+            paymentMethod: 'momo',
+            momo_phone: pay.phone,
+            momo_operator: pay.operator,
+            name,
+            email: data.get('email'),
+            telephone: phone || pay.phone,
+            denom: data.get('denomination')
+          })
+        });
+        const out = await res.json().catch(() => ({}));
+        if (res.ok && out.status !== 'error') {
+          return { ok: true, message: out.message || 'Souscription enregistrée.', subscription_ref: out.subscription_ref || null };
+        }
+        return { ok: false, message: out.message || out.error || 'Échec de la souscription.' };
+      } catch (err) {
+        console.error(err);
+        return { ok: false, message: 'Erreur réseau.' };
+      }
+    };
+
+    const openMomo = () => FedpawaPay.momoScreen({
+      label: (pack ? pack.label : 'Domiciliation') + (data.get('periodicite') === 'annuel' ? ' — Annuel (12 mois)' : (data.get('periodicite') === 'semestriel' ? ' — Semestriel (6 mois)' : ' — Mensuel')),
+      priceFCFA: total,
+      onSubmit: submitPayload
+    });
+
+    FedpawaPay.getSession().then(session => {
+      if (!session.authenticated) {
+        FedpawaPay.loginModal(openMomo);
+        return;
+      }
+      openMomo();
+    });
   });
 })();

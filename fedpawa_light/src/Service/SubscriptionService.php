@@ -8,7 +8,16 @@ class SubscriptionService {
     public function store(array $data) {
         $db = Database::getConnection();
         
-        // 1. Validation de base des données obligatoires
+        // 1. Validation de base — Lane #2: pour un utilisateur connecté, nom/email
+        // manquants au formulaire sont comblés depuis son compte en session.
+        if (isset($_SESSION['client_id']) && (empty($data['email']) || empty($data['nom']))) {
+            $stmt = $db->prepare("SELECT nom, email FROM clients WHERE id = ?");
+            $stmt->execute([$_SESSION['client_id']]);
+            if ($c = $stmt->fetch()) {
+                $data['nom'] = $data['nom'] ?: $c['nom'];
+                $data['email'] = $data['email'] ?: $c['email'];
+            }
+        }
         if (empty($data['email']) || empty($data['pack']) || empty($data['nom'])) {
             throw new Exception("Données de souscription incomplètes.");
         }
@@ -16,10 +25,27 @@ class SubscriptionService {
         // 2. Début de transaction pour assurer l'intégrité (Workflow 1)
         $db->beginTransaction();
         try {
-            // Création/récupération du client
-            $stmt = $db->prepare("INSERT INTO clients (nom, entreprise, email, mot_de_passe) VALUES (?, ?, ?, ?)");
-            $stmt->execute([$data['nom'], $data['entreprise'], $data['email'], password_hash('temporary_pass', PASSWORD_DEFAULT)]);
-            $clientId = $db->lastInsertId();
+            // Lane #2 : client connecté -> rattacher l'abonnement à son compte existant
+            // (sinon création d'un doublon avec mot de passe temporaire)
+            $clientId = null;
+            if (isset($_SESSION['client_id'])) {
+                $stmt = $db->prepare("SELECT id FROM clients WHERE id = ?");
+                $stmt->execute([$_SESSION['client_id']]);
+                if ($stmt->fetch()) $clientId = $_SESSION['client_id'];
+            }
+            if (!$clientId) {
+                // Anonyme: retrouver par email, sinon créer (ancien comportement)
+                $stmt = $db->prepare("SELECT id FROM clients WHERE email = ?");
+                $stmt->execute([$data['email']]);
+                $existing = $stmt->fetch();
+                if ($existing) {
+                    $clientId = $existing['id'];
+                } else {
+                    $stmt = $db->prepare("INSERT INTO clients (nom, entreprise, email, telephone, mot_de_passe) VALUES (?, ?, ?, ?, ?)");
+                    $stmt->execute([$data['nom'], $data['entreprise'] ?? '', $data['email'], $data['telephone'] ?? '', password_hash('temporary_pass', PASSWORD_DEFAULT)]);
+                    $clientId = $db->lastInsertId();
+                }
+            }
 
             // Création de l'abonnement
             $stmt = $db->prepare("INSERT INTO abonnements (client_id, pack, prix, date_debut, statut) VALUES (?, ?, ?, ?, 'en_attente')");

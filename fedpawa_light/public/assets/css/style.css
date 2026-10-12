@@ -255,3 +255,40 @@ html[data-mode="dark"] .sun-icon { display: none; }
 html { overflow-x: clip; }
 body { overflow-x: clip; }
 @supports not (overflow: clip) { html, body { overflow-x: hidden; } }
+
+/* ============== Lane #2 — Composant Paiement Mobile Money (responsive) ============== */
+.pay-momo-modal .fp-modal { padding: 26px 22px 22px; }
+.pay-momo-head { text-align: center; margin-bottom: 18px; }
+.pay-momo-icon { width: 58px; height: 58px; margin: 0 auto 14px; border-radius: 50%; background: color-mix(in srgb, var(--color-primary) 12%, transparent); color: var(--color-primary); display: grid; place-items: center; }
+.pay-momo-icon svg { width: 30px; height: 30px; }
+.pay-momo-icon.ok { background: color-mix(in srgb, var(--color-success) 15%, transparent); color: var(--color-success); }
+.pay-momo-amount { font-family: var(--font-serif); font-size: 1.7rem; font-weight: 800; color: var(--color-primary); margin: 6px 0 2px; }
+html[data-theme="navy"] .pay-momo-amount { color: var(--color-gold); }
+.pay-momo-desc { font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.5; }
+.pay-momo-form { display: flex; flex-direction: column; gap: 14px; }
+.pay-field label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--color-heading); margin-bottom: 6px; text-transform: none; letter-spacing: 0; }
+.pay-momo-operators { display: flex; gap: 10px; }
+.pay-op-pill { flex: 1; position: relative; cursor: pointer; }
+.pay-op-pill input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.pay-op-pill span { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 12px 8px; border: 2px solid var(--color-border); border-radius: 10px; font-size: 0.85rem; font-weight: 600; color: var(--color-text-main); transition: all 0.15s ease; background: var(--color-bg-main); }
+.pay-op-pill input:checked + span { border-color: var(--color-primary); background: var(--color-primary-soft, color-mix(in srgb, var(--color-primary) 8%, transparent)); color: var(--color-primary); }
+.pay-momo-note { font-size: 0.78rem; color: var(--color-text-muted); line-height: 1.5; background: var(--color-bg-alt); border-radius: 8px; padding: 10px 12px; }
+.pay-momo-err { font-size: 0.82rem; color: #c0392b; background: color-mix(in srgb, #c0392b 8%, transparent); border: 1px solid color-mix(in srgb, #c0392b 30%, transparent); border-radius: 8px; padding: 10px 12px; }
+.pay-momo-submit { width: 100%; padding: 14px; font-size: 0.95rem; border-radius: 10px; }
+.pay-momo-cancel { background: none; border: none; color: var(--color-text-muted); font-size: 0.85rem; text-decoration: underline; cursor: pointer; padding: 8px; font-family: inherit; }
+.pay-momo-success { text-align: center; }
+/* mini formulaire de connexion dans la modal */
+.pay-login-form { display: flex; flex-direction: column; gap: 14px; margin-top: 16px; text-align: left; }
+.pay-login-submit { width: 100%; padding: 13px; border-radius: 10px; }
+.pay-login-err { font-size: 0.82rem; color: #c0392b; background: color-mix(in srgb, #c0392b 8%, transparent); border-radius: 8px; padding: 10px 12px; }
+.pay-login-alt { text-align: center; font-size: 0.82rem; color: var(--color-text-muted); }
+.pay-login-alt a { color: var(--color-primary); font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--color-primary); }
+html[data-theme="navy"] .pay-login-alt a { color: var(--color-gold); border-bottom-color: var(--color-gold); }
+@media (max-width: 575px) {
+  .fp-modal-overlay.pay-momo-modal { padding: 12px; align-items: stretch; display: flex; }
+  .fp-modal-overlay.pay-momo-modal .fp-modal { max-height: calc(100vh - 24px); overflow-y: auto; width: 100%; transform: none; transition: none; }
+  .pay-momo-modal .fp-modal { padding: 20px 16px 18px; border-radius: 12px; }
+  .pay-momo-amount { font-size: 1.45rem; }
+  .pay-momo-operators { flex-direction: column; gap: 8px; }
+  .pay-op-pill span { padding: 13px 10px; font-size: 0.9rem; }
+}

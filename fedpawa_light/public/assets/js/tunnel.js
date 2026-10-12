@@ -155,24 +155,8 @@ document.addEventListener('DOMContentLoaded', () => {
         updateSummary();
     }
 
-    // 5. Gestion des modes de paiement
-    window.togglePaymentMethod = function(method) {
-        const momoBox = document.getElementById('pay-momo-box');
-        const manualBox = document.getElementById('pay-manual-box');
-        
-        document.querySelectorAll('input[name="payment"]').forEach(inp => {
-            const label = inp.closest('.selectable-card');
-            if (label) label.classList.toggle('selected', inp.checked);
-        });
-
-        if (method === 'momo') {
-            if (momoBox) momoBox.style.display = 'block';
-            if (manualBox) manualBox.style.display = 'none';
-        } else {
-            if (momoBox) momoBox.style.display = 'none';
-            if (manualBox) manualBox.style.display = 'block';
-        }
-    };
+    // 5. Modes de paiement: Mobile Money uniquement (les autres sont désactivés faute de service)
+    window.togglePaymentMethod = function () {};
 
     let finalBaseTotal = 0; // total HT (plans + options chiffrées), hors frais 2%
     // 6. Mise à jour du récapitulatif — le total affiché inclut les frais de service 2% (inclus, non détaillés)
@@ -258,75 +242,79 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 8. Final Payment
+    // 8. Final Payment — Mobile Money uniquement, réservé aux connectés (Lane #2)
     const finalPayBtn = document.getElementById('finalPayBtn');
     if (finalPayBtn) {
         finalPayBtn.addEventListener('click', async () => {
             if (!cart.service) {
-                alert('Veuillez sélectionner une prestation.');
+                if (window.FedpawaUI) FedpawaUI.toast('Veuillez sélectionner une prestation.', 'warning');
                 goToStep(1);
                 return;
             }
 
-            const paymentMethodInput = document.querySelector('input[name="payment"]:checked');
-            const paymentMethod = paymentMethodInput ? paymentMethodInput.value : 'momo';
-
-            if (paymentMethod === 'card' || paymentMethod === 'bank') {
-                const proofInput = document.getElementById('paymentProof');
-                if (!proofInput || !proofInput.files || proofInput.files.length === 0) {
-                    alert('Veuillez téléverser un reçu ou une capture d\'écran de votre virement/paiement.');
-                    return;
-                }
-            }
-
             const activeForm = document.querySelector(`#form-${cart.service}`);
             const name = activeForm ? (activeForm.querySelector('input[name="name"], input[placeholder*="Nom"], input[id*="nom"]')?.value || 'Client') : 'Client';
-            const email = activeForm ? (activeForm.querySelector('input[type="email"]')?.value || 'client@fedpawa.cm') : 'client@fedpawa.cm';
-            const telephone = activeForm ? (activeForm.querySelector('input[type="tel"]')?.value || '+237600000000') : '+237600000000';
+            const email = activeForm ? (activeForm.querySelector('input[type="email"]')?.value || '') : '';
+            const telephone = activeForm ? (activeForm.querySelector('input[type="tel"]')?.value || '') : '';
 
-            try {
-                finalPayBtn.disabled = true;
-                finalPayBtn.innerText = 'Traitement en cours...';
+            // Total réel avec frais 2% (débours au coût réel : hors total)
+            const baseTotal = cart.price + cart.options.reduce((sum, opt) => sum + (opt.price || 0), 0);
+            const totalAvecFrais = Math.floor(baseTotal * 1.02);
 
-                // Calculer total réel avec frais (débours au coût réel : hors total)
-                const baseTotal = cart.price + cart.options.reduce((sum, opt) => sum + (opt.price || 0), 0);
-                const totalAvecFrais = Math.floor(baseTotal * 1.02);
-
-                const res = await fetch(apiUrl('/api/souscription'), {
-                    credentials: 'include',
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        service: cart.service,
-                        plan: cart.planId,
-                        planLabel: cart.planLabel,
-                        prix: totalAvecFrais,
-                        options: cart.options,
-                        paymentMethod,
-                        name,
-                        email,
-                        telephone
-                    })
-                });
-
-                const data = await res.json();
-                if (res.ok) {
-                    alert(paymentMethod === 'momo' ? 'Paiement initié !' : 'Souscription enregistrée, en attente de vérification.');
-                    window.location.href = 'espace_client.html';
-                } else {
-                    alert('Erreur: ' + (data.error || 'Échec'));
-                    finalPayBtn.disabled = false;
-                    updateSummary();
-                }
-            } catch (err) {
-                console.error(err);
-                alert('Erreur réseau.');
-                finalPayBtn.disabled = false;
-                updateSummary();
+            if (!window.FedpawaPay) {
+                if (window.FedpawaUI) FedpawaUI.toast('Composant paiement indisponible.', 'error');
+                return;
             }
+
+            const submitPayload = async (pay) => {
+                try {
+                    const csrf = await FedpawaPay.getCsrf();
+                    const res = await fetch(apiUrl('/api/souscription'), {
+                        credentials: 'include',
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': csrf || '' },
+                        body: JSON.stringify({
+                            service: cart.service,
+                            plan: cart.planId,
+                            pack: cart.planId,
+                            planLabel: cart.planLabel,
+                            prix: totalAvecFrais,
+                            options: cart.options,
+                            paymentMethod: 'momo',
+                            momo_phone: pay.phone,
+                            momo_operator: pay.operator,
+                            nom: name,
+                            name,
+                            email,
+                            telephone: telephone || pay.phone
+                        })
+                    });
+                    const data = await res.json().catch(() => ({}));
+                    if (res.ok && data.status !== 'error') {
+                        return { ok: true, message: data.message || 'Souscription enregistrée.', subscription_ref: data.subscription_ref || data.transaction_id || null };
+                    }
+                    return { ok: false, message: data.message || data.error || 'Échec de la souscription.' };
+                } catch (err) {
+                    console.error(err);
+                    return { ok: false, message: 'Erreur réseau.' };
+                }
+            };
+
+            const openMomo = () => FedpawaPay.momoScreen({
+                label: (cart.serviceName || 'Prestation') + (cart.planLabel ? ' — ' + cart.planLabel : ''),
+                priceFCFA: totalAvecFrais,
+                onSubmit: submitPayload
+            });
+
+            // Garde de connexion puis écran Mobile Money
+            const session = await FedpawaPay.getSession();
+            if (!session.authenticated) {
+                FedpawaPay.loginModal(openMomo);
+                return;
+            }
+            openMomo();
         });
     }
-
 
     // ============ 10. DÉTECTION SMART DES BESOINS (signaux subtils) ============
     // Marqueurs data- dans le DOM :

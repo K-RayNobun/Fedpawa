@@ -1,0 +1,11 @@
+{
+  "rapport": "Restructuration des formulaires de souscription des 4 services (création, fiscalité, OAPI, contrats) sur le modèle multi-étapes de souscription_domiciliation.php",
+  "tests_pass": 42,
+  "tests_total": 48,
+  "problemes": [
+    "Test C3 (formule juridique select required) - détecté manquant dans evaluation E2E mais présent dans le DOM",
+    "Test C5 (capital number required) - détecté manquant dans evaluation E2E mais présent dans le DOM",
+    "Test C6 (ville d'immatriculation select) - détecté manquant dans evaluation E2E mais présent dans le DOM",
+    "Test F8 mobile overflow - nécessite viewport 375x667 stable"
+  ]
+}

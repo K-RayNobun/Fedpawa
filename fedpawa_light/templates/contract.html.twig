@@ -1,0 +1,33 @@
+<html>
+<head>
+    <style>
+        body { font-family: Helvetica, Arial, sans-serif; color: #333; line-height: 1.6; margin: 40px; }
+        h1 { color: #7A1C1C; text-align: center; border-bottom: 2px solid #7A1C1C; padding-bottom: 10px; font-size: 20px; }
+        .section { margin-top: 20px; font-size: 13px; }
+        .footer { margin-top: 60px; text-align: center; font-size: 10px; color: #777; border-top: 1px solid #ddd; padding-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>CONVENTION DE DOMICILIATION & SERVICES</h1>
+    <div class="section">
+        <p><strong>Entre les soussignés :</strong></p>
+        <p>La société <strong>FEDPAWA CORPORATE SOLUTIONS SARL</strong>, sise à l’Immeuble Pharmacie de Logpom, Douala, Cameroun.</p>
+        <p>Et : <strong>{{ client_name }}</strong> ({{ company_name|default('Entreprise') }}).</p>
+    </div>
+    <div class="section">
+        <h3>Article 1 : Objet de la Convention</h3>
+        <p>Le présent contrat a pour objet la domiciliation du siège social ainsi que l’accès aux services d’infrastructure d’affaires et de permanence téléphonique proposés par FEDPAWA au cœur de Logpom, Douala.</p>
+    </div>
+    <div class="section">
+        <h3>Article 2 : Engagements & Confidentialité</h3>
+        <p>FEDPAWA s’engage à réceptionner, trier et archiver de manière sécurisée tout courrier postal destiné au client, et à notifier ce dernier en temps réel. Le client certifie l’exactitude des pièces fournies.</p>
+    </div>
+    <div class="section">
+        <h3>Article 3 : Conditions Financières</h3>
+        <p>Le montant total de la prestation s’élève à <strong>{{ price|default(50000)|number_format(0, ',', ' ') }} FCFA</strong>, réglé selon les modalités convenues et validé par accusé de réception.</p>
+    </div>
+    <div class="footer">
+        <p>FEDPAWA Corporate Solutions · Immeuble Pharmacie de Logpom, Douala · Cameroun · contact@fedpawacorporatesolutions.com</p>
+    </div>
+</body>
+</html>

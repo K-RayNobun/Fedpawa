@@ -4,7 +4,72 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->safeLoad();
 
+// ==========================================================
+// GlobalErrorHandler : aucune trace technique exposée à l'utilisateur
+// ==========================================================
+$APP_DEBUG = getenv('APP_DEBUG') === 'true';
+
+ini_set('display_errors', '0');
+error_reporting(E_ALL);
+
+function fedpawa_log_error(string $message): void {
+    $dir = __DIR__ . '/../storage/logs';
+    if (!is_dir($dir)) mkdir($dir, 0755, true);
+    file_put_contents($dir . '/php_errors.log', date('[Y-m-d H:i:s] ') . $message . PHP_EOL, FILE_APPEND);
+}
+
+function fedpawa_error_response(string $safeMessage = 'Erreur interne du serveur'): void {
+    global $APP_DEBUG;
+    $uri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+    if (!headers_sent() && preg_match('#^/api(/|$)#', $uri ?? '')) {
+        http_response_code(500);
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode(['error' => $safeMessage]);
+    } else {
+        http_response_code(500);
+        header('Content-Type: text/html; charset=utf-8');
+        echo '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Erreur</title></head>'
+           . '<body style="font-family:sans-serif;text-align:center;padding:80px 20px;">'
+           . '<h1>Une erreur est survenue</h1>'
+           . '<p style="color:#777;">Veuillez réessayer dans quelques instants. Si le problème persiste, contactez le support.</p>'
+           . '<p><a href="/" style="color:#7A1C1C;">Retour à l\'accueil</a></p>'
+           . ($APP_DEBUG ? '<pre style="text-align:left;background:#f5f5f5;padding:15px;max-width:900px;margin:30px auto;">' . htmlspecialchars(fedpawa_last_error()) . '</pre>' : '')
+           . '</body></html>';
+    }
+    exit;
+}
+
+function fedpawa_last_error(): string {
+    global $fedpawa_last_error;
+    return $fedpawa_last_error ?? 'n/a';
+}
+
+set_exception_handler(function (\Throwable $e) {
+    global $fedpawa_last_error, $APP_DEBUG;
+    $fedpawa_last_error = get_class($e) . ' : ' . $e->getMessage() . "\n" . $e->getTraceAsString();
+    fedpawa_log_error('UNCAUGHT EXCEPTION: ' . $fedpawa_last_error);
+    fedpawa_error_response();
+});
+
+set_error_handler(function (int $severity, string $message, string $file = '', int $line = 0): bool {
+    // Les erreurs supprimées par @ sont ignorées
+    if (!(error_reporting() & $severity)) return false;
+    throw new \ErrorException($message, 0, $severity, $file, $line);
+});
+
+register_shutdown_function(function () {
+    $error = error_get_last();
+    if ($error !== null && in_array($error['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR], true)) {
+        global $fedpawa_last_error;
+        $fedpawa_last_error = 'FATAL: ' . $error['message'] . ' in ' . $error['file'] . ':' . $error['line'];
+        fedpawa_log_error('SHUTDOWN FATAL: ' . $fedpawa_last_error);
+        fedpawa_error_response();
+    }
+});
+
+// ==========================================================
 // Session Security Hardening
+// ==========================================================
 if (session_status() === PHP_SESSION_NONE) {
     ini_set('session.cookie_httponly', '1');
     // API cross-site (GitHub Pages -> api.fedpawa.com) : cookie SameSite=None; Secure, sinon le navigateur ne renvoie pas la session
@@ -13,6 +78,16 @@ if (session_status() === PHP_SESSION_NONE) {
     ini_set('session.use_strict_mode', '1');
     session_start();
 }
+
+// Expiration forcée après 1h30 d'inactivité (5400 s)
+define('SESSION_TIMEOUT', 5400);
+if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > SESSION_TIMEOUT)) {
+    session_unset();
+    session_destroy();
+    session_start();
+    $_SESSION['session_expired'] = true;
+}
+$_SESSION['last_activity'] = time();
 
 // Automatic Database Migration / Schema Setup
 \App\Service\MigrationRunner::migrate();

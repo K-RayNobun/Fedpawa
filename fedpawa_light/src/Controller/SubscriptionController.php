@@ -6,6 +6,7 @@ use App\Service\PdfService;
 use App\Service\OtpService;
 use App\Service\CampayService;
 use App\Service\NotificationService;
+use App\Service\AuditLogger;
 use App\Service\Database;
 
 class SubscriptionController extends Controller {
@@ -22,54 +23,115 @@ class SubscriptionController extends Controller {
     }
 
     public function process() {
-        header('Content-Type: application/json');
-
-        // 0. Vérification CSRF : refuser toute requête sans token valide
-        if (!$this->validateCsrf()) {
-            http_response_code(403);
-            echo json_encode(['status' => 'error', 'message' => 'Requête refusée (jeton CSRF invalide).']);
-            return;
-        }
-
-        $input = json_decode(file_get_contents('php://input'), true);
-        if (!is_array($input)) {
-            http_response_code(400);
-            echo json_encode(['status' => 'error', 'message' => 'Requête invalide.']);
-            return;
-        }
-
+        if (!$this->requireClient()) return; // Lane #4 : souscription réservée aux connectés
         try {
-            // 1. Enregistrer la souscription (client + abonnement en attente)
-            $sub = $this->subService->store($input);
-            $subId = $sub['subscription_id'] ?? $sub['client_id'];
-
-            // 2. Paiement : désactivé tant que les clés Campay de production ne sont pas configurées
-            if (getenv('CAMPAY_ENABLED') !== '1') {
-                $this->json(['status' => 'payment_disabled', 'message' => 'Paiement non activé sur cet environnement.', 'subscription_ref' => 'SUB_' . $subId]);
+            $input = json_decode(file_get_contents('php://input'), true);
+            if (!is_array($input)) {
+                $this->json(['error' => 'Requête invalide'], 400);
                 return;
             }
 
-            $payment = $this->campay->collect((float)$input['prix'], (string)$input['telephone'], 'SUB_' . $subId);
-            $this->json(['status' => 'payment_pending', 'transaction_id' => $payment['transaction_id'] ?? null]);
-        } catch (\Throwable $e) {
-            http_response_code(400);
-            echo json_encode(['status' => 'error', 'message' => 'Données de souscription invalides.']);
+            // Lane #4 : le client connecté prime — on rattache la souscription à sa session
+            if (!empty($_SESSION['client_id'])) {
+                $db = \App\Service\Database::getConnection();
+                $me = $db->prepare("SELECT email, nom FROM clients WHERE id = ?");
+                $me->execute([(int)$_SESSION['client_id']]);
+                if ($row = $me->fetch()) {
+                    $input['email'] = $row['email'];
+                    $input['nom'] = $input['nom'] ?? $row['nom'];
+                }
+            }
+
+            // 1. Initialiser la souscription
+            $sub = $this->subService->store($input);
+
+            // 2. Initier le paiement Campay
+            try {
+                $payment = $this->campay->collect((float)$input['prix'], $input['telephone'] ?? '', 'SUB_' . $sub['subscription_id']);
+            } catch (\Exception $e) {
+                error_log('Campay collect failed: ' . $e->getMessage());
+                $this->json(['status' => 'payment_init_failed', 'error' => 'Impossible d\'initier le paiement. Réessayez.'], 502);
+                return;
+            }
+
+            $transactionId = $payment['reference'] ?? $payment['transaction_id'] ?? null;
+
+            // 3. Enregistrer le paiement en attente (rapprochement webhook)
+            if ($transactionId) {
+                $db = Database::getConnection();
+                $db->prepare("INSERT INTO paiements (client_id, montant, mode_paiement, transaction_id, date, statut) VALUES (?, ?, 'campay', ?, ?, 'en_attente')")
+                   ->execute([$sub['client_id'], (float)$input['prix'], $transactionId, date('Y-m-d H:i:s')]);
+            }
+
+            // 4. Générer l'OTP pour la signature.
+            // NOTE (démo) : aucun SMS/e-mail n'est configuré, l'OTP est donc
+            // renvoyé dans la réponse pour permettre de tester le flux de signature.
+            $otp = OtpService::generate($sub['client_id']);
+
+            AuditLogger::log('SUBSCRIPTION_INIT', $sub['client_id'], 'client', 'Sub ID: ' . $sub['subscription_id']);
+
+            $this->json([
+                'status' => 'payment_pending',
+                'transaction_id' => $transactionId,
+                'subscription_id' => $sub['subscription_id'],
+                'client_id' => $sub['client_id'],
+                'signature_otp' => $otp
+            ]);
+        } catch (\Exception $e) {
+            $this->json(['error' => $e->getMessage()], 400);
         }
     }
 
     public function finalize() {
-        $input = json_decode(file_get_contents('php://input'), true);
-        
-        if (OtpService::verify($input['client_id'], $input['otp'])) {
-            // Finaliser : Générer PDF, marquer actif, notifier
-            $pdf = $this->pdfService->generateContract(['client_name' => $input['name']]);
-            $path = __DIR__ . '/../../storage/documents/contrat_' . $input['sub_id'] . '.pdf';
+        if (!$this->requireClient()) return;
+        try {
+            $input = json_decode(file_get_contents('php://input'), true);
+            if (!is_array($input) || empty($input['otp']) || empty($input['sub_id']) || empty($input['client_id'])) {
+                $this->json(['error' => 'Champs manquants'], 400);
+                return;
+            }
+
+            $clientId = (int)$input['client_id'];
+
+            // Vérifier que l'abonnement appartient bien à ce client
+            $db = Database::getConnection();
+            $stmt = $db->prepare("SELECT a.*, c.nom, c.email FROM abonnements a JOIN clients c ON c.id = a.client_id WHERE a.id = ? AND a.client_id = ?");
+            $stmt->execute([(int)$input['sub_id'], $clientId]);
+            $sub = $stmt->fetch();
+            if (!$sub) {
+                $this->json(['error' => 'Souscription introuvable'], 404);
+                return;
+            }
+
+            // L'OTP est le facteur d'authentification de la signature
+            if (!OtpService::verify($clientId, (string)$input['otp'])) {
+                $this->json(['error' => 'Signature invalide'], 400);
+                return;
+            }
+
+            // Finaliser : générer le PDF, marquer actif, notifier
+            $pdf = $this->pdfService->generateContract([
+                'client_name' => $sub['nom'],
+                'price' => $sub['prix']
+            ]);
+            $dir = __DIR__ . '/../../storage/documents';
+            if (!is_dir($dir)) mkdir($dir, 0755, true);
+            $path = $dir . '/contrat_' . $sub['id'] . '.pdf';
             file_put_contents($path, $pdf);
-            
-            $this->notifier->sendWelcomeEmail($input['email'], $input['name'], $path);
+
+            $db->prepare("UPDATE abonnements SET statut = 'actif' WHERE id = ?")->execute([$sub['id']]);
+            $db->prepare("INSERT INTO contrats (client_id, type, fichier, date_signature) VALUES (?, 'domiciliation', ?, ?)")
+               ->execute([$clientId, 'documents/contrat_' . $sub['id'] . '.pdf', date('Y-m-d H:i:s')]);
+
+            $this->notifier->sendWelcomeEmail($sub['email'], $sub['nom']);
+
+            OtpService::clear($clientId);
+            AuditLogger::log('SUBSCRIPTION_FINALIZED', $clientId, 'client', 'Sub ID: ' . $sub['id']);
+
             $this->json(['message' => 'Souscription finalisée']);
-        } else {
-            $this->json(['error' => 'Signature invalide'], 400);
+        } catch (\Exception $e) {
+            error_log('Finalize error: ' . $e->getMessage());
+            $this->json(['error' => 'Erreur interne lors de la finalisation'], 500);
         }
     }
 }

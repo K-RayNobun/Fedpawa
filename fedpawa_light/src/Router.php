@@ -6,6 +6,9 @@ use App\Exception\NotFoundException;
 class Router {
     private array $routes = [];
 
+    // Routes POST exemptées de CSRF (appels serveur-à-serveur sans session navigateur)
+    private const CSRF_EXEMPT = ['/api/webhooks/campay'];
+
     public function post(string $path, string $handler): void {
         $this->routes['POST'][$path] = $handler;
     }
@@ -25,6 +28,12 @@ class Router {
             } else {
                 [$controllerName, $methodName] = explode('@', $handler);
                 $controllerClass = "App\\Controller\\" . $controllerName;
+
+                // Protection CSRF centralisée : tout POST vers un contrôleur est validé
+                if ($method === 'POST' && !in_array($path, self::CSRF_EXEMPT, true)) {
+                    \App\Controller\Controller::enforceCsrf();
+                }
+
                 $controller = new $controllerClass();
                 $controller->$methodName();
             }

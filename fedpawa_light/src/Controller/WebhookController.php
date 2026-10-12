@@ -2,21 +2,35 @@
 namespace App\Controller;
 
 use App\Service\Database;
+use App\Service\AuditLogger;
 
 class WebhookController extends Controller {
     public function handleCampay() {
-        $raw = file_get_contents('php://input');
-        $data = json_decode($raw, true);
+        try {
+            $raw = file_get_contents('php://input');
+            $data = json_decode($raw, true);
 
-        // TODO: Vérifier la signature Campay ici pour la sécurité
+            if (!is_array($data)) {
+                $this->json(['error' => 'Payload invalide'], 400);
+                return;
+            }
 
-        if (isset($data['transaction_id']) && $data['status'] === 'SUCCESSFUL') {
-            $db = Database::getConnection();
-            $stmt = $db->prepare("UPDATE paiements SET statut = 'réussi' WHERE transaction_id = ?");
-            $stmt->execute([$data['transaction_id']]);
-            $this->json(['message' => 'Paiement confirmé']);
-        } else {
-            $this->json(['error' => 'Paiement non confirmé'], 400);
+            // TODO: Vérifier la signature Campay ici pour la sécurité
+
+            if (isset($data['transaction_id']) && ($data['status'] === 'SUCCESSFUL' || $data['status'] === 'FAILED')) {
+                $db = Database::getConnection();
+                $statut = $data['status'] === 'SUCCESSFUL' ? 'réussi' : 'échoué';
+                $stmt = $db->prepare("UPDATE paiements SET statut = ? WHERE transaction_id = ?");
+                $stmt->execute([$statut, $data['transaction_id']]);
+
+                AuditLogger::log('CAMPAY_WEBHOOK', null, 'system', 'Tx: ' . $data['transaction_id'] . ' -> ' . $statut);
+                $this->json(['message' => 'Paiement mis à jour']);
+            } else {
+                $this->json(['error' => 'Paiement non confirmé'], 400);
+            }
+        } catch (\Exception $e) {
+            error_log('Campay webhook error: ' . $e->getMessage());
+            $this->json(['error' => 'Erreur interne'], 500);
         }
     }
 }

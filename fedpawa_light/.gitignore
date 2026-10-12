@@ -1,0 +1,23 @@
+# Dépendances
+/vendor/
+
+# Environnement
+.env
+
+# Données sensibles (base, logs, uploads, backups, documents)
+/storage/*.sqlite
+/storage/*.sqlite-*
+/storage/logs/*
+!/storage/logs/.gitkeep
+/storage/uploads/*
+!/storage/uploads/.gitkeep
+/storage/backups/*
+!/storage/backups/.gitkeep
+/storage/documents/*
+!/storage/documents/.gitkeep
+
+# OTP temporaires
+/storage/otp_*.txt
+
+# OS
+.DS_Store

@@ -152,6 +152,55 @@
   const periodSelect = document.getElementById('periodicite');
   const optionBoxes = document.querySelectorAll('input[name="options"]');
 
+
+  /* ---------- SECTION 4bis : caract&eacute;ristiques d&eacute;taill&eacute;es des packs (source: page domiciliation.php) ---------- */
+  const PACK_DETAILS = {
+    'national-essential': { badge: 'Nationale', name: 'Pack ESSENTIAL', usd: null, features: [
+      'Adresse de si&egrave;ge social &agrave; Logpom, Douala', 'R&eacute;ception du courrier', 'Scan syst&eacute;matique de chaque courrier',
+      'Archivage num&eacute;rique (1 mois)', 'Notification par email et WhatsApp &agrave; chaque r&eacute;ception', '6 heures de bureau priv&eacute; par mois incluses' ] },
+    'national-business': { badge: 'Nationale', name: 'Pack BUSINESS', usd: null, features: [
+      'Adresse de si&egrave;ge social &agrave; Logpom, Douala', 'R&eacute;ception du courrier', 'Scan syst&eacute;matique de chaque courrier',
+      'Archivage num&eacute;rique (1 mois)', 'Notification par email et WhatsApp &agrave; chaque r&eacute;ception', 'R&eacute;exp&eacute;dition physique mensuelle du courrier',
+      '10 heures de bureau priv&eacute; par mois incluses (WiFi haute performance)' ] },
+    'national-premium': { badge: 'Populaire', name: 'Pack PREMIUM', usd: null, features: [
+      'Adresse de si&egrave;ge social &agrave; Logpom, Douala', 'R&eacute;ception du courrier', 'Scan syst&eacute;matique de chaque courrier',
+      'Archivage num&eacute;rique (1 mois)', 'Notification par email et WhatsApp &agrave; chaque r&eacute;ception', 'R&eacute;exp&eacute;dition physique instantan&eacute;e du courrier',
+      'R&eacute;ceptionniste d&eacute;di&eacute;e bilingue au nom de votre entreprise + ligne t&eacute;l&eacute;phonique locale',
+      '15 heures de bureau priv&eacute; par mois incluses (WiFi haute performance)' ] },
+    'international-essential': { badge: 'Internationale', name: 'ESSENTIAL DIGITAL', usd: '~88 USD', features: [
+      'Adresse officielle du si&egrave;ge social &agrave; Logpom', 'R&eacute;ception physique des plis et colis &agrave; l\u2019accueil',
+      'Num&eacute;risation et scan instantan&eacute; de chaque courrier', 'Envoi imm&eacute;diat des documents scann&eacute;s par e-mail ou WhatsApp',
+      'R&eacute;exp&eacute;dition physique des colis vers l\u2019&eacute;tranger (frais de port au r&eacute;el)' ] },
+    'international-business': { badge: 'Internationale', name: 'BUSINESS VIRTUAL', usd: '~180 USD', features: [
+      'Adresse officielle du si&egrave;ge social &agrave; Logpom', 'R&eacute;ception physique des plis et colis &agrave; l\u2019accueil',
+      'Num&eacute;risation et scan instantan&eacute; de chaque courrier', 'Envoi imm&eacute;diat des documents scann&eacute;s par e-mail ou WhatsApp',
+      'R&eacute;exp&eacute;dition physique des colis vers l\u2019&eacute;tranger (frais de port au r&eacute;el)', 'Num&eacute;ro de t&eacute;l&eacute;phone local camerounais d&eacute;di&eacute;',
+      'R&eacute;ponse t&eacute;l&eacute;phonique personnalis&eacute;e (r&eacute;ceptionniste bilingue)', 'Prise de message et transmission imm&eacute;diate par WhatsApp ou e-mail' ] },
+    'international-premium': { badge: 'Prestige', name: 'PREMIUM EXECUTIVE', usd: '~290 USD', features: [
+      'Adresse officielle du si&egrave;ge social &agrave; Logpom', 'R&eacute;ception physique des plis et colis &agrave; l\u2019accueil',
+      'Num&eacute;risation et scan instantan&eacute; de chaque courrier', 'Envoi imm&eacute;diat des documents scann&eacute;s par e-mail ou WhatsApp',
+      'R&eacute;exp&eacute;dition physique des colis vers l\u2019&eacute;tranger (frais de port au r&eacute;el)', 'Num&eacute;ro de t&eacute;l&eacute;phone local camerounais d&eacute;di&eacute;',
+      'R&eacute;ponse t&eacute;l&eacute;phonique personnalis&eacute;e (r&eacute;ceptionniste bilingue)', 'Prise de message et transmission imm&eacute;diate par WhatsApp ou e-mail',
+      '20 heures/mois en bureau priv&eacute; climatis&eacute; haut standing (sur r&eacute;servation)', 'Connexion Internet haut d&eacute;bit pendant vos sessions',
+      'Accueil de prestige de vos d&eacute;l&eacute;gations d\u2019affaires', 'Caf&eacute; inclus &agrave; volont&eacute; pour toute l\u2019&eacute;quipe' ] }
+  };
+
+  function renderPackDetail(packValue) {
+    const box = document.getElementById('packDetail');
+    if (!box) return;
+    const d = PACK_DETAILS[packValue];
+    if (!d) { box.style.display = 'none'; return; }
+    document.getElementById('pdBadge').textContent = d.badge;
+    document.getElementById('pdName').textContent = d.name;
+    const usdEl = document.getElementById('pdUsd');
+    usdEl.style.display = d.usd ? '' : 'none';
+    if (d.usd) usdEl.textContent = d.usd + ' / mois';
+    const pack = currentPack();
+    document.getElementById('pdPrice').textContent = pack ? fmt(pack.price) + ' / mois' : '';
+    document.getElementById('pdFeatures').innerHTML = d.features.map(f => '<li>' + f + '</li>').join('');
+    box.style.display = 'block';
+  }
+
   /* ---------- Sidebar récap ---------- */
   function currentPack() {
     const opt = packSelect.selectedOptions[0];
@@ -197,7 +246,7 @@
   };
 
   // Listeners
-  packSelect.addEventListener('change', updateSummary);
+  packSelect.addEventListener('change', () => { updateSummary(); renderPackDetail(packSelect.value); });
   periodSelect.addEventListener('change', updateSummary);
   optionBoxes.forEach(cb => cb.addEventListener('change', updateSummary));
 
@@ -211,6 +260,7 @@
     window.selectGamme('nationale');
   }
   updateSummary();
+  renderPackDetail(packSelect.value);
 
   /* ---------- SECTION 5 : dropzones ---------- */
   document.querySelectorAll('.dropzone').forEach(dz => {

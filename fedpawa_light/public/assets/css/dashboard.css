@@ -464,3 +464,20 @@ html[data-theme="navy"] .otp-input:focus { border-color: var(--color-gold); }
   .dom-step-mobile-fill { height: 100%; width: 0%; background: var(--color-primary); transition: width 0.4s ease; }
   html[data-theme="navy"] .dom-step-mobile-fill { background: var(--color-gold); }
 }
+
+/* ============ Lane #3 - Panneau detail pack dynamique (etape 4) ============ */
+.pack-detail { border: 1px solid var(--color-border); border-radius: 12px; background: var(--color-bg-alt); padding: 20px 22px; margin: 14px 0 20px; animation: fadeIn 0.35s ease; }
+.pack-detail-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 14px; }
+.pack-detail-badge { display: inline-block; font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-gold); border: 1px solid var(--color-gold); border-radius: 999px; padding: 3px 10px; margin-bottom: 6px; }
+.pack-detail-head h4 { font-family: var(--font-serif); font-size: 1.15rem; color: var(--color-heading); margin: 0; }
+.pack-detail-usd { font-size: 0.8rem; color: var(--color-text-muted); margin: 4px 0 0; }
+.pack-detail-price { font-family: var(--font-sans); font-size: 1.2rem; font-weight: 700; color: var(--color-primary); white-space: nowrap; }
+html[data-theme="navy"] .pack-detail-price { color: var(--color-gold); }
+.pack-detail-features { margin: 0; padding: 0; list-style: none; display: grid; gap: 7px; }
+.pack-detail-features li { font-size: 0.85rem; color: var(--color-text-main); line-height: 1.45; padding-left: 22px; position: relative; }
+.pack-detail-features li::before { content: "\2713"; position: absolute; left: 0; top: 0; color: var(--color-success); font-weight: 700; font-size: 0.85rem; }
+@media (max-width: 575px) {
+  .pack-detail { padding: 16px; }
+  .pack-detail-head { flex-direction: column; gap: 8px; }
+  .pack-detail-price { font-size: 1.05rem; }
+}

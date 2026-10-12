@@ -42,6 +42,7 @@ $langPrefix = $langPrefix ?? '';
 </a>
 
 <script src="<?= $langPrefix ?>assets/js/config.js"></script>
+<script src="<?= $langPrefix ?>assets/js/fedpawa-ui.js"></script>
 <script src="<?= $langPrefix ?>assets/js/main.js"></script>
 <?php foreach ($extraJs as $js): ?>
 <script src="<?= htmlspecialchars($langPrefix . $js, ENT_QUOTES, 'UTF-8') ?>"></script>

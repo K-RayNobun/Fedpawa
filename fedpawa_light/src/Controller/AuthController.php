@@ -77,7 +77,15 @@ class AuthController extends Controller {
         $client = $stmt->fetch();
 
         if (!$client) {
-            $this->json(['message' => 'Si cet e-mail existe, un code de réinitialisation a été envoyé.']);
+            // Anti-énumération : réponse STRICTEMENT identique à celle d'un email connu
+            // (mêmes champs, même format). Aucun code n'est stocké : la vérification échouera
+            // proprement côté verify (400 Données invalides), sans révéler l'inexistence du compte.
+            $mailConfigured = (getenv('MAIL_SERVICE_CONFIGURED') === '1');
+            $response = ['message' => 'Code OTP envoyé avec succès', 'mail_service' => $mailConfigured ? 'configured' : 'not_configured'];
+            if (!$mailConfigured) {
+                $response['debug_otp'] = sprintf("%06d", mt_rand(1, 999999)); // factice, non stocké
+            }
+            $this->json($response);
             return;
         }
 

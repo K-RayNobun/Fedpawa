@@ -1,5 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+
+    // Alias locaux : FedpawaUI si dispo, sinon alert/confirm natifs
+    const ui = window.FedpawaUI || {
+        toast: (m) => alert(m),
+        modal: (c) => { alert((c.title ? c.title + '\n\n' : '') + (c.message || '')); return { close(){} }; }
+    };
+
     // 1. Gestion des états (écrans)
     const states = document.querySelectorAll('.reset-state');
     
@@ -32,29 +38,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (res.ok) {
                     // mail_service: "configured" = envoi réel actif ; "not_configured" = mode pré-production
                     if (data.mail_service === 'not_configured') {
-                        alert('Mode pré-production : le service d\'envoi d\'e-mail n\'est pas encore activé.\nPour vos tests, le code à saisir est indiqué ci-dessous (visible uniquement en pré-production).\n\nCode : ' + (data.debug_otp || '(indisponible)'));
+                        ui.modal({
+                            title: 'Mode pré-production',
+                            icon: window.FedpawaUI ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>' : undefined,
+                            iconType: 'warning',
+                            message: 'Le service d\'envoi d\'e-mail n\'est pas encore activé.<br>Pour vos tests, votre code est :<br><strong style="font-size:1.6em;letter-spacing:.35em;color:var(--color-primary)"> ' + (data.debug_otp || '------') + '</strong>',
+                            buttons: [{ label: 'J\'ai noté mon code', className: 'fp-modal-btn-primary' }]
+                        });
                     } else {
-                        alert('Un code de vérification a été envoyé à votre adresse e-mail. Il est valide pendant 15 minutes.');
+                        ui.toast('Un code de vérification a été envoyé à votre adresse e-mail. Valable 15 minutes.', 'success');
                     }
                     showState('state-otp');
                     startOtpTimer();
                 } else {
-                    alert('Erreur: ' + (data.error || 'Impossible d\'envoyer le code'));
+                    ui.toast(data.error || 'Impossible d\'envoyer le code', 'error');
                 }
             } catch (err) {
                 console.error(err);
-                alert('Erreur réseau.');
+                ui.toast('Erreur réseau. Vérifiez votre connexion.', 'error');
             }
         });
     }
 
-    // 4. Compte à rebours OTP
+    // 4. Compte à rebours de renvoi (3 min) + lien de renvoi fonctionnel
     let otpTimerInterval;
     function startOtpTimer() {
+        clearInterval(otpTimerInterval);
         let timeLeft = 179; // 3 minutes : délai avant de pouvoir redemander un code (le code reste valide 15 min côté serveur)
         const timerEl = document.getElementById('otpTimer');
         const resendLink = document.getElementById('resendLink');
-        resendLink.style.display = 'none';
+        if (resendLink) resendLink.style.display = 'none';
 
         otpTimerInterval = setInterval(() => {
             const minutes = Math.floor(timeLeft / 60);
@@ -64,10 +77,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (timeLeft < 0) {
                 clearInterval(otpTimerInterval);
-                if (timerEl) timerEl.innerText = "Expiré";
+                if (timerEl) timerEl.innerText = "Vous pouvez redemander un code.";
                 if (resendLink) resendLink.style.display = 'inline-block';
             }
         }, 1000);
+    }
+
+    // Renvoyer le code : même requête que la demande initiale, puis redémarrer le compte à rebours
+    const resendLinkBtn = document.getElementById('resendLink');
+    if (resendLinkBtn) {
+        resendLinkBtn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            resendLinkBtn.style.display = 'none';
+            try {
+                const res = await fetch(apiUrl('/api/password/request'), {
+                    credentials: 'include',
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: currentEmail })
+                });
+                const data = await res.json();
+                if (res.ok) {
+                    if (data.mail_service === 'not_configured') {
+                        ui.modal({
+                            title: 'Nouveau code envoyé',
+                            iconType: 'warning',
+                            message: 'Mode pré-production — le service d\'e-mail n\'est pas encore activé.<br>Nouveau code :<br><strong style="font-size:1.6em;letter-spacing:.35em;color:var(--color-primary)"> ' + (data.debug_otp || '------') + '</strong>',
+                            buttons: [{ label: 'OK', className: 'fp-modal-btn-primary' }]
+                        });
+                    } else {
+                        ui.toast('Un nouveau code a été envoyé à votre adresse e-mail.', 'success');
+                    }
+                    document.querySelectorAll('.otp-input').forEach(i => i.value = '');
+                    const first = document.querySelector('.otp-input');
+                    if (first) first.focus();
+                    startOtpTimer();
+                } else {
+                    ui.toast(data.error || 'Impossible de renvoyer le code', 'error');
+                    resendLinkBtn.style.display = 'inline-block';
+                }
+            } catch (err) {
+                console.error(err);
+                ui.toast('Erreur réseau.', 'error');
+                resendLinkBtn.style.display = 'inline-block';
+            }
+        });
     }
 
     // 5. Auto-saut OTP inputs
@@ -99,11 +153,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     clearInterval(otpTimerInterval);
                     showState('state-new-pwd');
                 } else {
-                    alert('Erreur: ' + (data.error || 'Code OTP invalide'));
+                    ui.toast(data.error || 'Code invalide ou expiré', 'error');
                 }
             } catch (err) {
                 console.error(err);
-                alert('Erreur réseau.');
+                ui.toast('Erreur réseau.', 'error');
             }
         });
     }
@@ -159,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
         newPwdForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             if (newPwdInput.value !== confirmPwdInput.value) {
-                alert('Les mots de passe ne correspondent pas.');
+                ui.toast('Les mots de passe ne correspondent pas.', 'error');
                 return;
             }
 
@@ -174,11 +228,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (res.ok) {
                     showState('state-success');
                 } else {
-                    alert('Erreur: ' + (data.error || 'Impossible de réinitialiser le mot de passe'));
+                    ui.toast(data.error || 'Impossible de réinitialiser le mot de passe', 'error');
                 }
             } catch (err) {
                 console.error(err);
-                alert('Erreur réseau.');
+                ui.toast('Erreur réseau.', 'error');
             }
         });
     }

@@ -1,7 +1,7 @@
 // E2E Lane #3 Fedpawa — Tests pour les 4 services autres que domiciliation
 const { chromium } = await import('/root/lofi-cities/tools/node_modules/playwright-core/index.mjs');
 const CHROME = '/root/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome';
-const BASE = 'http://127.0.0.1:18080';
+const BASE = process.argv[2] || 'http://127.0.0.1:18080';
 const out = { cases: [] };
 const check = (name, condition, info) => { out.cases.push({ name, pass: condition, info }); };
 const norm = s => (s || '').replace(/[\u00A0\u202F,]/g, ' ').trim();
@@ -15,8 +15,9 @@ const norm = s => (s || '').replace(/[\u00A0\u202F,]/g, ' ').trim();
 
   // Helper: go to service and wait
   async function gotoSvc(svc, pack) {
-    await page.goto(BASE + '/tunnel_souscription.php?service=' + svc + '&pack=' + pack, { waitUntil: 'domcontentloaded' });
-    await page.waitForTimeout(500);
+    await page.goto(BASE + '/tunnel_souscription.php?service=' + svc + '&pack=' + pack, { waitUntil: 'load' });
+    await page.waitForFunction(() => typeof window.goToStep === 'function' && typeof window.selectService === 'function', { timeout: 8000 }).catch(() => {});
+    await page.waitForTimeout(1200);
   }
 
   // ==== SERVICE 1: CRÉATION ====
@@ -28,7 +29,7 @@ const norm = s => (s || '').replace(/[\u00A0\u202F,]/g, ' ').trim();
   check('C3 formulaire juridique select', await page.evaluate(() => document.querySelector('#form-creation select[required]') ? 'present' : 'missing') !== 'missing');
   check('C4 dénomination input', await page.evaluate(() => document.querySelector('#form-creation input[placeholder*="Nom"]') ? 'present' : 'missing') !== 'missing');
   check('C5 capital number input', await page.evaluate(() => document.querySelector('#form-creation input[type="number"][required]') ? 'present' : 'missing') !== 'missing');
-  check('C6 ville d\'immatriculation select', await page.evaluate(() => document.querySelector('#form-creation select[value="Douala"]') ? 'present' : 'missing') !== 'missing');
+  check('C6 ville d\'immatriculation select', await page.evaluate(() => Array.from(document.querySelectorAll('#form-creation select option')).some(o => o.text === 'Douala') ? 'present' : 'missing') !== 'missing');
   check('C7 sidebar non vide', await page.evaluate(() => document.getElementById('summaryItems').innerText.length > 0));
   check('C8 0 pageerror', errors.length === 0 || !errors.some(e => e.includes('pageerror')));
   
@@ -52,7 +53,7 @@ const norm = s => (s || '').replace(/[\u00A0\u202F,]/g, ' ').trim();
   check('F1 étape 2 active', await page.evaluate(() => document.getElementById('step-2').classList.contains('active')));
   check('F2 bloc fiscalité visible', await page.evaluate(() => document.getElementById('form-fiscalite').style.display !== 'none'));
   check('F3 régime fiscal select', await page.evaluate(() => document.querySelector('#regime-fiscal') ? 'present' : 'missing') !== 'missing');
-  check('F4 centre des impôts select', await page.evaluate(() => document.querySelector('#form-fiscalite select[value="CIME"]') ? 'present' : 'missing') !== 'missing');
+  check('F4 centre des impôts select', await page.evaluate(() => Array.from(document.querySelectorAll('#form-fiscalite select option')).some(o => /CIME/.test(o.text)) ? 'present' : 'missing') !== 'missing');
   check('F5 ACF radio', await page.evaluate(() => document.querySelector('input[name="acf"]') ? 'present' : 'missing') !== 'missing');
   check('F6 declarations radio', await page.evaluate(() => document.querySelector('input[name="declarations"]') ? 'present' : 'missing') !== 'missing');
   check('F7 sidebar contient 35000', await page.evaluate(() => document.getElementById('summaryItems').innerText.includes('35 000') || document.getElementById('summaryItems').innerText.includes('35')));
@@ -69,13 +70,13 @@ const norm = s => (s || '').replace(/[\u00A0\u202F,]/g, ' ').trim();
   check('O1 étape 2 active', await page.evaluate(() => document.getElementById('step-2').classList.contains('active')));
   check('O2 bloc OAPI visible', await page.evaluate(() => document.getElementById('form-oapi').style.display !== 'none'));
   check('O3 type actif select', await page.evaluate(() => document.querySelector('#form-oapi select[data-plan-select]') ? 'present' : 'missing') !== 'missing');
-  check('O4 nom signe input', await page.evaluate(() => document.querySelector('#form-oapi input[placeholder*="signe"]') ? 'present' : 'missing') !== 'missing');
-  check('O5 classes Nice input', await page.evaluate(() => document.querySelector('#form-oapi input[placeholder*="Nice"]') ? 'present' : 'missing') !== 'missing');
+  check('O4 nom signe input', await page.evaluate(() => document.querySelector('#form-oapi input[placeholder*="FEDPAWA"]') ? 'present' : 'missing') !== 'missing');
+  check('O5 classes Nice input', await page.evaluate(() => document.querySelector('#form-oapi input[placeholder*="Classe"]') ? 'present' : 'missing') !== 'missing');
   check('O6 titulaire pm radio', await page.evaluate(() => document.querySelector('input[name="titulaire"][value="personne_morale"]') ? 'present' : 'missing') !== 'missing');
   check('O7 titulaire pf radio', await page.evaluate(() => document.querySelector('input[name="titulaire"][value="personne_physique"]') ? 'present' : 'missing') !== 'missing');
   check('O8 pm conditional visible', await page.evaluate(() => document.getElementById('oapi-titulaire-conditionnel').style.display !== 'none'));
   check('O9 pf conditional hidden default', await page.evaluate(() => document.getElementById('oapi-titulaire-conditionnel2').style.display === 'none'));
-  check('O10 sidebar contient 200000', await page.evaluate(() => document.getElementById('summaryItems').innerText.includes('200 000') || document.getElementById('summaryItems').innerText.includes('200000')));
+  check('O10 sidebar contient 200 000', norm(await page.evaluate(() => document.getElementById('summaryItems').innerText)).includes('200 000'));
 
   // Mobile 375px
   await page.setViewportSize({ width: 375, height: 667 });
@@ -109,13 +110,13 @@ const norm = s => (s || '').replace(/[\u00A0\u202F,]/g, ' ').trim();
   check('K4 catégorie select >= 6 options', contratTypeOptions >= 6, 'found=' + contratTypeOptions);
   check('K5 situation synthèse textarea', await page.evaluate(() => document.querySelector('#form-contrats textarea') ? 'present' : 'missing') !== 'missing');
   check('K6 type précis input', await page.evaluate(() => document.querySelector('#form-contrats input[type="text"]') ? 'present' : 'missing') !== 'missing');
-  check('K7 langue select FR/EN', await page.evaluate(() => document.querySelector('#form-contrats select[value="fr"]') && document.querySelector('#form-contrats select[value="en"]') ? 'present' : 'missing') !== 'missing');
+  check('K7 langue select FR/EN', await page.evaluate(() => Array.from(document.querySelectorAll('#form-contrats select option')).filter(o => ['fr','en','FR','EN'].includes(o.value || o.text)).length >= 2 ? 'present' : 'missing') !== 'missing');
   check('K8 non-concurrence checkbox', await page.evaluate(() => document.querySelector('input[data-smart-signal="strong"][data-smart-from="contrats"]') ? 'present' : 'missing') !== 'missing');
   const ndaCount = await page.evaluate(() => document.querySelectorAll('input[data-smart-signal="strong"][data-smart-from="contrats"]').length);
   check('K9 NDA strict + autres checkboxes', ndaCount >= 3, 'found=' + ndaCount);
-  check('K10 audit conditional visible', await page.evaluate(() => document.getElementById('contrats-audit-conditionnel').style.display !== 'none'));
-  check('K11 votre dénomination input', await page.evaluate(() => document.querySelector('#form-contrats input[placeholder*="Votre"]') ? 'present' : 'missing') !== 'missing');
-  check('K12 nom cocontractant input', await page.evaluate(() => document.querySelector('#form-contrats input[placeholder*="cocontractant"]') ? 'present' : 'missing') !== 'missing');
+  check('K10 audit conditional caché par défaut (visible seulement si audit)', await page.evaluate(() => document.getElementById('contrats-audit-conditionnel').style.display === 'none'));
+  check('K11 votre dénomination input', await page.evaluate(() => (document.querySelector('#form-contrats input[placeholder*="FEDPAWA"]') || document.querySelector('#form-contrats input[placeholder*="dénomination" i]')) ? 'present' : 'missing') !== 'missing');
+  check('K12 nom cocontractant input', await page.evaluate(() => document.querySelector('#form-contrats input[placeholder*="Partenaire"]') ? 'present' : 'missing') !== 'missing');
   const sumK = await page.evaluate(() => document.getElementById('summaryItems').innerText);
   check('K13 sidebar total', sumK.includes('50 000') || sumK.includes('150 000') || sumK.includes('Forfait'));
 

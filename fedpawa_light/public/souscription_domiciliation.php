@@ -85,6 +85,13 @@ include __DIR__ . '/../templates/partials/site-header.php';
               <input type="text" id="niu" name="niu" class="form-control" required placeholder="Ex : M123456789">
               <small class="field-hint" id="niu-hint">Si votre entreprise est en cours de création, indiquez « En cours ».</small>
             </div>
+            <div class="form-group" style="background: var(--color-bg-alt); padding: 12px 14px; border-radius: 8px; border: 1px dashed var(--color-border);">
+              <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; text-transform: none; letter-spacing: 0; font-weight: 500; cursor: pointer; margin-bottom: 4px;">
+                <input type="checkbox" id="opt-no-immat" data-smart-signal="strong" data-smart-from="domiciliation" style="margin-top: 3px;">
+                <span>Je ne dispose pas encore de RCCM / NIU — mon entreprise n'est pas encore immatriculée</span>
+              </label>
+              <small style="color: var(--color-text-muted); font-size: 0.8rem;">💡 Pas de souci : FEDPAWA peut créer votre entreprise pour vous (statuts, RCCM, NIU, Kit Corporate). Nous vous le proposerons automatiquement.</small>
+            </div>
           </div>
 
           <div class="form-group">
@@ -373,6 +380,18 @@ include __DIR__ . '/../templates/partials/site-header.php';
       </div>
     </aside>
 
+  </div>
+</div>
+
+<!-- Modal smart-detection (création d'entreprise) -->
+<div id="smart-modal-overlay" style="display: none; position: fixed; inset: 0; background: rgba(8,12,24,0.55); backdrop-filter: blur(2px); z-index: 9999; align-items: center; justify-content: center; padding: 20px;">
+  <div id="smart-modal" role="dialog" aria-modal="true" style="background: var(--color-bg-card, #fff); border-radius: 14px; max-width: 520px; width: 100%; padding: 28px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); border: 1px solid var(--color-border);">
+    <h3 id="smart-modal-title" style="margin-bottom: 10px;">Une bonne nouvelle 🎉</h3>
+    <p id="smart-modal-text" style="font-size: 0.92rem; color: var(--color-text-muted); line-height: 1.55; margin-bottom: 22px;"></p>
+    <div style="display: grid; gap: 10px;">
+      <button type="button" id="smart-modal-yes" class="btn btn-primary" style="width: 100%;">🚀 Oui, découvrir la Création d'Entreprise</button>
+      <button type="button" id="smart-modal-no" style="width: 100%; background: none; border: none; font-size: 0.88rem; color: var(--color-text-muted); cursor: pointer; text-decoration: underline; padding: 6px;">Non merci, continuer ma souscription actuelle</button>
+    </div>
   </div>
 </div>
 

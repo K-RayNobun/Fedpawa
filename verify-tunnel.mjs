@@ -49,12 +49,12 @@ const BASE = process.argv[2] || 'http://127.0.0.1:8097';
     return { pass, total };
   });
 
-  // 4. Domiciliation national-business : 45 000/mois -> 45 900 + select synchronisé
-  await check('domiciliation-national-business', '/tunnel_souscription.php?service=domiciliation&pack=national-business', async () => {
-    const total = await page.evaluate(() => document.getElementById('summaryTotal').innerText);
-    const selVal = await page.evaluate(() => document.getElementById('dom-pack-select').value);
-    const pass = norm(total) === '45 900 FCFA' && selVal === 'national-business';
-    return { pass, total, selVal };
+  // 4. Domiciliation national-business : route désormais vers le formulaire dédié (souscription_domiciliation.php)
+  await check('domiciliation-national-business', '/souscription_domiciliation.php?pack=national-business', async () => {
+    const total = await page.evaluate(() => document.getElementById('summaryTotal')?.innerText || document.querySelector('.tunnel-total, .invoice-total, #invoiceTotal')?.innerText || '');
+    const selVal = await page.evaluate(() => document.getElementById('pack')?.value || '');
+    const pass = norm(total) === '45 000 FCFA' && selVal === 'national-business'; // panier dédié affiche le HT; les frais 2% apparaissent à la facture finale
+    return { pass, info: 'total=' + norm(total) + ' select=' + selVal };
   });
 
   // 5. Sur devis (OAPI brevets) : pas de total chiffré
@@ -73,16 +73,17 @@ const BASE = process.argv[2] || 'http://127.0.0.1:8097';
     return { pass, selectedCount: n, total };
   });
 
-  // 7. Changement manuel de pack (domiciliation) : le select met à jour le total
-  await check('manual-pack-change', '/tunnel_souscription.php?service=domiciliation&pack=national-essential', async () => {
+  // 7. Changement manuel de pack (domiciliation) : le select du formulaire dédié met à jour le total
+  await check('manual-pack-change', '/souscription_domiciliation.php?pack=national-essential', async () => {
+    const before = norm(await page.evaluate(() => document.getElementById('summaryTotal')?.innerText || ''));
     await page.evaluate(() => {
-      const sel = document.getElementById('dom-pack-select');
-      sel.value = 'international-premium';
-      sel.dispatchEvent(new Event('change'));
+      const sel = document.getElementById('pack');
+      if (sel) { sel.value = 'national-business'; sel.dispatchEvent(new Event('change', { bubbles: true })); }
     });
-    const total = await page.evaluate(() => document.getElementById('summaryTotal').innerText);
-    const pass = norm(total) === '178 500 FCFA';
-    return { pass, total };
+    await page.waitForTimeout(600);
+    const after = norm(await page.evaluate(() => document.getElementById('summaryTotal')?.innerText || ''));
+    const pass = before !== after && after === '45 000 FCFA'; // le panier dédié suit le select pack (HT)
+    return { pass, info: 'avant=' + before + ' apres=' + after };
   });
 
   // 8. Carte Recouvrement présente + clic fonctionne

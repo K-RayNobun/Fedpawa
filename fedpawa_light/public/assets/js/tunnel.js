@@ -81,6 +81,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Sélection de la prestation (Étape 1)
     window.selectService = function(serviceId, isInitial = false, planId = null) {
+        // Domiciliation: formulaire dédié multi-étapes (Lane #3)
+        if (serviceId === 'domiciliation') {
+            window.location.href = 'souscription_domiciliation.php' + (planId ? '?pack=' + encodeURIComponent(planId) : '');
+            return;
+        }
         const cards = document.querySelectorAll('.service-card');
         cards.forEach(c => c.classList.remove('selected'));
         
@@ -315,6 +320,69 @@ document.addEventListener('DOMContentLoaded', () => {
             openMomo();
         });
     }
+
+
+    // ============ 7bis. LOGIQUE CONDITIONNELLE DES FORMULAIRES PAR SERVICE (Lane #3) ============
+    function initServiceFormConditionals() {
+        // --- Création: démarche -> bloc "si existante" (RCCM + NIU actuels) ---
+        const demarche = document.getElementById('creation-demarche');
+        const creationEx = document.getElementById('creation-existante');
+        if (demarche && creationEx) {
+            const toggle = () => {
+                const isExisting = !/Création d'une nouvelle structure/i.test(demarche.value || demarche.options[demarche.selectedIndex]?.text || '');
+                creationEx.style.display = isExisting ? 'block' : 'none';
+                creationEx.querySelectorAll('input').forEach(inp => inp.required = isExisting);
+            };
+            demarche.addEventListener('change', toggle);
+            toggle();
+        }
+
+        // --- OAPI: titulaire personne morale / physique ---
+        const radiosTitulaire = document.querySelectorAll('#form-oapi input[name="titulaire"]');
+        const condPM = document.getElementById('oapi-titulaire-conditionnel');
+        const condPF = document.getElementById('oapi-titulaire-conditionnel2');
+        if (radiosTitulaire.length && condPM && condPF) {
+            const toggleTitulaire = () => {
+                const val = document.querySelector('#form-oapi input[name="titulaire"]:checked')?.value;
+                condPM.style.display = (val === 'personne_morale') ? 'block' : 'none';
+                condPF.style.display = (val === 'personne_physique') ? 'block' : 'none';
+                condPM.querySelectorAll('input,select').forEach(el => el.required = (val === 'personne_morale'));
+                condPF.querySelectorAll('input,select').forEach(el => el.required = (val === 'personne_physique'));
+            };
+            radiosTitulaire.forEach(r => r.addEventListener('change', toggleTitulaire));
+            toggleTitulaire();
+        }
+
+        // --- OAPI: visuel obligatoire si logo/dessin ---
+        const actifType = document.getElementById('oapi-actif-type');
+        const dzVisuel = document.getElementById('dz-oapi-visuel');
+        if (actifType && dzVisuel) {
+            const toggleVisuel = () => {
+                const t = (actifType.value || actifType.options[actifType.selectedIndex]?.text || '').toLowerCase();
+                dzVisuel.classList.toggle('required', /logo|dessin/.test(t));
+            };
+            actifType.addEventListener('change', toggleVisuel);
+            toggleVisuel();
+        }
+
+        // --- Contrats: catégorie audit -> formule sur devis + dropzone du contrat tiers ---
+        const contratType = document.getElementById('contrat-type');
+        const auditCond = document.getElementById('contrats-audit-conditionnel');
+        const contratFormule = document.getElementById('contrat-formule');
+        if (contratType && auditCond) {
+            const toggleAudit = () => {
+                const isAudit = contratType.value === 'audit';
+                auditCond.style.display = isAudit ? 'block' : 'none';
+                if (isAudit && contratFormule) {
+                    contratFormule.value = 'audit';
+                    contratFormule.dispatchEvent(new Event('change', { bubbles: true }));
+                }
+            };
+            contratType.addEventListener('change', toggleAudit);
+            toggleAudit();
+        }
+    }
+    initServiceFormConditionals();
 
     // ============ 10. DÉTECTION SMART DES BESOINS (signaux subtils) ============
     // Marqueurs data- dans le DOM :

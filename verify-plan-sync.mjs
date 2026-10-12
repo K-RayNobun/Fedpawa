@@ -13,7 +13,7 @@ const norm = s => s.replace(/[\u00A0\u202F,]/g, ' ');
   out.total_initial = norm(await page.evaluate(() => document.getElementById('summaryTotal').innerText)); // 51 000
   await page.evaluate(() => {
     const form = document.getElementById('form-contrats');
-    const sel = form.querySelector('select[data-plan-select]');
+    const sel = form.querySelector('#contrat-formule') || form.querySelector('select[data-plan-select]');
     sel.value = 'audit';
     sel.dispatchEvent(new Event('change'));
   });
@@ -22,7 +22,7 @@ const norm = s => s.replace(/[\u00A0\u202F,]/g, ' ');
 
   // retour sur complexe -> 153 000
   await page.evaluate(() => {
-    const sel = document.querySelector('#form-contrats select[data-plan-select]');
+    const sel = document.querySelector('#contrat-formule') || document.querySelector('#form-contrats select[data-plan-select]');
     sel.value = 'complexe';
     sel.dispatchEvent(new Event('change'));
   });

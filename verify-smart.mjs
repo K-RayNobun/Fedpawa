@@ -15,7 +15,9 @@ const norm = s => s.replace(/[\u00A0\u202F,]/g, ' ');
   const fail = [];
   async function openTunnel(url) {
     await page.goto(BASE + url, { waitUntil: 'domcontentloaded' });
-    await page.evaluate(() => goToStep(2));
+    const isDedicated = url.includes('souscription_domiciliation');
+    await page.waitForTimeout(isDedicated ? 1200 : 300);
+    if (!isDedicated) { try { await page.evaluate(() => goToStep(2)); } catch (e) {} }
   }
 
   async function check(name, fn) {
@@ -26,7 +28,7 @@ const norm = s => s.replace(/[\u00A0\u202F,]/g, ' ');
 
   // 1. FORT SIGNAL domiciliation : optin RCCM/NIU -> modal
   await check('dom-optin-modal', async () => {
-    await openTunnel('/tunnel_souscription.php?service=domiciliation&pack=national-business');
+    await openTunnel('/souscription_domiciliation.php?pack=national-business');
     await page.check('#opt-no-immat');
     const visible = await page.evaluate(() => document.getElementById('smart-modal-overlay').style.display);
     const text = await page.evaluate(() => document.getElementById('smart-modal-text').innerText);
@@ -35,7 +37,7 @@ const norm = s => s.replace(/[\u00A0\u202F,]/g, ' ');
 
   // 1b. bouton Oui -> redirige vers creation_entreprise.php
   await check('dom-modal-yes-redirects', async () => {
-    await openTunnel('/tunnel_souscription.php?service=domiciliation&pack=national-business');
+    await openTunnel('/souscription_domiciliation.php?pack=national-business');
     await page.check('#opt-no-immat');
     await Promise.all([page.waitForNavigation(), page.click('#smart-modal-yes')]);
     const url = page.url();
@@ -44,12 +46,12 @@ const norm = s => s.replace(/[\u00A0\u202F,]/g, ' ');
 
   // 1c. bouton Non -> modal fermé, tunnel intact
   await check('dom-modal-no-dismiss', async () => {
-    await openTunnel('/tunnel_souscription.php?service=domiciliation&pack=national-business');
+    await openTunnel('/souscription_domiciliation.php?pack=national-business');
     await page.check('#opt-no-immat');
     await page.click('#smart-modal-no');
     const display = await page.evaluate(() => document.getElementById('smart-modal-overlay').style.display);
     const total = norm(await page.evaluate(() => document.getElementById('summaryTotal').innerText));
-    return { pass: display === 'none' && total === '45 900 FCFA', display, total };
+    return { pass: display === 'none' && total === '45 000 FCFA', display, total }; // panier dédié = HT
   });
 
   // 2. FORT SIGNAL fiscalité : optin NIU -> modal (message NIU)
@@ -100,7 +102,7 @@ const norm = s => s.replace(/[\u00A0\u202F,]/g, ' ');
 
   // 5. FORT SIGNAL option Assistance création (étape 3) -> modal
   await check('opt-assistance-modal', async () => {
-    await openTunnel('/tunnel_souscription.php?service=domiciliation&pack=national-essential');
+    await openTunnel('/tunnel_souscription.php?service=contrats&pack=standard');
     await page.evaluate(() => { goToStep(3); });
     await page.click('#opt-assistance-creation');
     const visible = await page.evaluate(() => document.getElementById('smart-modal-overlay').style.display);

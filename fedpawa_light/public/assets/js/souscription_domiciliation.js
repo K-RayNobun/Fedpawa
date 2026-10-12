@@ -98,7 +98,23 @@
 
   showStep(1);
 
-  /* ---------- SECTION 1 : statut conditionnel ---------- */
+  /* ---------- Smart-detection: pas encore immatriculé -> proposer la création ---------- */
+  const optNoImmat = document.getElementById('opt-no-immat');
+  const smartOverlay = document.getElementById('smart-modal-overlay');
+  if (optNoImmat && smartOverlay) {
+    const smartText = document.getElementById('smart-modal-text');
+    optNoImmat.addEventListener('change', () => {
+      if (optNoImmat.checked) {
+        smartText.innerText = "Nous avons détecté que votre entreprise n'est pas encore immatriculée (pas de RCCM / NIU). Bonne nouvelle : FEDPAWA prend en charge la création complète — statuts, RCCM, NIU et Kit Corporate — pour que votre domiciliation démarre sur des bases solides.";
+        smartOverlay.style.display = 'flex';
+      }
+    });
+    document.getElementById('smart-modal-no').addEventListener('click', () => { smartOverlay.style.display = 'none'; });
+    document.getElementById('smart-modal-yes').addEventListener('click', () => { window.location.href = 'creation_entreprise.php'; });
+    smartOverlay.addEventListener('click', (e) => { if (e.target === smartOverlay) smartOverlay.style.display = 'none'; });
+  }
+
+/* ---------- SECTION 1 : statut conditionnel ---------- */
   const statutRadios = document.querySelectorAll('input[name="statut_structure"]');
   const rccmInput = document.getElementById('rccm');
   const niuInput = document.getElementById('niu');

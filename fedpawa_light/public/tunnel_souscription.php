@@ -54,7 +54,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
               <div class="card-price">35 000 FCFA / mois</div>
               <p class="card-desc">Télé-déclarations, ACF, arrêté des comptes (DSF).</p>
             </div>
-            <div class="selectable-card service-card" data-service="domiciliation" data-name="Domiciliation Siège" data-price="25000" onclick="selectService('domiciliation')">
+            <div class="selectable-card service-card" data-service="domiciliation" data-name="Domiciliation Siège" data-price="25000" onclick="window.location.href='souscription_domiciliation.php'">
               <span class="card-badge">Adresse Logpom</span>
               <h4>Domiciliation Commerciale</h4>
               <div class="card-price">À partir de 25 000 FCFA / mois</div>
@@ -96,7 +96,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
                     <div class="form-section">
                       <h2 class="form-section-title"><span class="form-section-num">2A</span> Création de l'Entreprise</h2>
                       <div class="form-row">
-                        <div class="form-group"><label>Démarche <em class="req">*</em></label><select class="form-control" required><option>Création d'une nouvelle structure</option><option>Transformation</option><option>Restructuration</option><option>Légalisation</option></select></div>
+                        <div class="form-group"><label>Démarche <em class="req">*</em></label><select class="form-control" id="creation-demarche" required><option>Création d'une nouvelle structure</option><option>Transformation</option><option>Restructuration</option><option>Légalisation</option></select></div>
                         <div class="form-group"><label>Forme juridique envisagée <em class="req">*</em></label><select class="form-control" required><option>EI</option><option>SARL/SARLU</option><option>SAS/SASU</option><option>SA</option><option>Indécis</option></select></div>
                       </div>
                       <div class="form-row">
@@ -148,6 +148,13 @@ include __DIR__ . '/../templates/partials/site-header.php';
                       </div>
                       <div class="form-row">
                         <div class="form-group"><label>NIU <em class="req">*</em></label><input type="text" class="form-control" required></div>
+                      <div class="form-group" style="background: var(--color-bg-alt); padding: 12px 14px; border-radius: 8px; border: 1px dashed var(--color-border);">
+                        <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; text-transform: none; letter-spacing: 0; font-weight: 500; cursor: pointer; margin-bottom: 4px;">
+                          <input type="checkbox" id="opt-no-niu-fiscal" data-smart-signal="strong" data-smart-from="fiscalite" style="margin-top: 3px;">
+                          <span>Je n'ai pas encore de NIU — mon entreprise n'est pas encore immatriculée</span>
+                        </label>
+                        <small style="color: var(--color-text-muted); font-size: 0.8rem;">💡 FEDPAWA peut créer votre entreprise (statuts, RCCM, NIU, Kit Corporate). Nous vous le proposerons automatiquement.</small>
+                      </div>
                         <div class="form-group"><label>Forme <em class="req">*</em></label><select class="form-control" required><option>SARL</option><option>SAS</option><option>SA</option><option>EI</option><option>Autre</option></select></div>
                       </div>
                       <div class="form-group"><label>Secteur <em class="req">*</em></label><select class="form-control" required><option>Commerce</option><option>BTP</option><option>Services</option><option>Industriel</option><option>Autre</option></select></div>
@@ -156,7 +163,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
                     <div class="form-section">
                       <h2 class="form-section-title"><span class="form-section-num">2F</span> Sa situation fiscale</h2>
                       <div class="form-row">
-                        <div class="form-group"><label>Régime actuel <em class="req">*</em></label><select class="form-control" id="regime-fiscal" data-plan-select required><option value="simplifie">Régime Simplifié</option><option value="reel">Régime du Réel</option></select></div>
+                        <div class="form-group"><label>Régime actuel <em class="req">*</em></label><select class="form-control" id="regime-fiscal" data-plan-select required><option value="simplifie">Régime Simplifié</option><option value="reel">Régime du Réel</option><option value="simplifie" data-smart-soft="creation">Nouveau / Non attribué</option></select></div>
                         <div class="form-group"><label>Centre des impôts <em class="req">*</em></label><select class="form-control" required><option>CIME</option><option>CDI</option><option>DGE</option></select></div>
                       </div>
                       <div class="form-row">
@@ -186,7 +193,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
                   <div class="form-block" id="form-oapi" style="display: none;">
                     <div class="form-section">
                       <h2 class="form-section-title"><span class="form-section-num">2I</span> L'actif</h2>
-                      <div class="form-group"><label>Type <em class="req">*</em></label><select class="form-control" data-plan-select required><option value="marque">Marque / Nom commercial / Logo</option><option value="application">Application logiciel</option><option value="dessin">Dessin & Modèle</option><option value="brevet">Brevet</option></select></div>
+                      <div class="form-group"><label>Type <em class="req">*</em></label><select class="form-control" id="oapi-actif-type" data-plan-select required><option value="marque">Marque / Nom commercial / Logo</option><option value="application">Application logiciel</option><option value="dessin">Dessin & Modèle</option><option value="brevets">Brevet (sur devis)</option></select></div>
                       <div class="form-group"><label>Nom exact du signe <em class="req">*</em></label><input type="text" class="form-control" required placeholder="Ex: FEDPAWA App"></div>
                       <div class="form-group"><label>Classes de Nice <em class="req">*</em></label><input type="text" class="form-control" placeholder="Ex: Classe 35, 42"></div>
                       <div class="form-group"><label>Description activité couverte (2-3 lignes)</label><textarea class="form-control" rows="3" placeholder="Activités couvertes par la protection"></textarea></div>
@@ -226,8 +233,13 @@ include __DIR__ . '/../templates/partials/site-header.php';
                   <div class="form-block" id="form-contrats" style="display: none;">
                     <div class="form-section">
                       <h2 class="form-section-title"><span class="form-section-num">2K</span> Le besoin</h2>
-                      <div class="form-group"><label>Catégorie <em class="req">*</em></label><select class="form-control" id="contrat-type" required><option value="commercial">Commercial / prestation</option><option value="travail">Prestation / travail</option><option value="social">Social</option><option value="NDA">NDA</option><option value="audit">Audit d'un contrat existant</option><option value="archivage">Archivage cloud</option></select></div>
+                      <div class="form-group"><label>Catégorie <em class="req">*</em></label><select class="form-control" id="contrat-type" required><option value="commercial">Commercial / prestation</option><option value="travail">Prestation / travail</option><option value="social">Social</option><option value="NDA">NDA</option><option value="bail" data-smart-soft="domiciliation">Bail / Location</option><option value="statuts" data-smart-soft="creation">Statuts & pactes d'associés</option><option value="audit">Audit d'un contrat existant</option><option value="archivage">Archivage cloud</option></select></div>
                       <div class="form-textarea"><label>Situation décrite en synthèse <em class="req">*</em></label><textarea class="form-control" rows="3" placeholder="Synthèse de la situation ou du contrat à sécuriser"></textarea></div>
+                      <div class="form-group"><label>Formule tarifaire <em class="req">*</em></label><select class="form-control" id="contrat-formule" data-plan-select required>
+                        <option value="standard">Standard — 50 000 FCFA</option>
+                        <option value="complexe">Complexe — 150 000 FCFA</option>
+                        <option value="audit">Audit — Sur devis</option>
+                      </select><small class="text-muted">Standard: contrat simple. Complexe: clauses protectrices multiples.</small></div>
                     </div>
                     <hr class="form-divider">
                     <div class="form-section">
@@ -260,7 +272,18 @@ include __DIR__ . '/../templates/partials/site-header.php';
                     </div>
                   </div>
 
-                  <!-- === BLUCS COMMUNS (Représentant légal + Contact) === -->
+                  <div class="form-block" id="form-recouvrement" style="display: none;">
+            <div class="form-row">
+              <div class="form-group"><label>Montant total des créances (FCFA)</label><input type="number" class="form-control" placeholder="Ex : 2500000"></div>
+              <div class="form-group"><label>Nombre de débiteurs</label><input type="number" class="form-control" placeholder="Ex : 3"></div>
+            </div>
+            <div class="form-group"><label>Nature de la créance</label><select class="form-control"><option>Facture impayée</option><option>Loyers impayés</option><option>Prêt / avance non remboursée</option><option>Jugement non exécuté</option><option>Autre (précisez)</option></select></div>
+            <div class="form-group"><label>Historique sommaire des relances</label><textarea class="form-control" rows="3" placeholder="Décrivez les relances déjà effectuées (dates, canaux, réponses)."></textarea></div>
+          </div>
+
+          <!-- Formulaire Domiciliation -->
+          
+<!-- === BLOCS COMMUNS (Représentant légal + Contact) === -->
                   <div class="form-section" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--color-border);">
                     <h3 class="form-section-title"><span class="form-section-num">2M</span> Identité du Représentant Légal</h3>
                     <div class="form-row">

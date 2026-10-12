@@ -1,5 +1,6 @@
 // E2E tunnel v2 : responsive mobile + facture étape 5 + HT/TTC subtil + skip step1
 const { chromium } = await import('/root/lofi-cities/tools/node_modules/playwright-core/index.mjs');
+import { ensureLogin } from '/root/Fedpawa/test-lib.mjs';
 const CHROME = '/root/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome';
 const BASE = process.argv[2] || 'http://127.0.0.1:8099';
 const out = { cases: [] };
@@ -15,7 +16,8 @@ const norm = s => (s || '').replace(/[\u00A0\u202F,]/g, ' ').trim();
 
   // ========== A. SKIP STEP 1 ==========
   // A1. Avec ?service= : arrive directement étape 2, carte présélectionnée
-  await page.goto(BASE + '/tunnel_souscription.php?service=contrats&pack=complexe', { waitUntil: 'domcontentloaded' });
+  await ensureLogin(page);
+    await page.goto(BASE + '/tunnel_souscription.php?service=contrats&pack=complexe', { waitUntil: 'domcontentloaded' });
   await page.waitForTimeout(800);
   check('A1 ?service= -> direct étape 2', await page.evaluate(() => document.getElementById('step-2').classList.contains('active')));
   check('A2 carte contrats présélectionnée', await page.evaluate(() => document.querySelector('[data-service="contrats"]').classList.contains('selected')));

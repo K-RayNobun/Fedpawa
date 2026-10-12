@@ -9,7 +9,7 @@ $servicesActive = in_array($active, ['services', 'domiciliation', 'creation', 'f
 $langPrefix = $lang === 'en' ? '/en' : '';
 ?>
 <!DOCTYPE html>
-<html lang="<?= $lang ?>" data-theme="navy" data-mode="dark">
+<html lang="<?= $lang ?>" data-theme="navy" data-mode="dark"<?= isset($dataAuth) ? ' data-auth="' . $dataAuth . '"' : '' ?>>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">

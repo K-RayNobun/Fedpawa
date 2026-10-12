@@ -3,6 +3,7 @@
 // Usage: <html data-auth="client"> ou <html data-auth="admin">
 //   - data-auth="client" : page réservée aux clients (admin redirigé vers admin_dashboard, anonyme vers login)
 //   - data-auth="admin"  : page réservée aux admins (client redirigé vers espace client, anonyme vers login)
+//   - data-auth="user"   : page réservée à tout utilisateur connecté (anonyme -> login)
 //   - data-auth="guest"  : page pour non-connectés (connecté -> redirigé vers son espace)
 // ============================================================
 (function () {
@@ -12,6 +13,11 @@
 
     function redirectTo(page) {
         var isEn = window.location.pathname.indexOf('/en/') !== -1;
+        // préserver la destination pour revenir après connexion
+        var sep = page.indexOf('?') === -1 ? '?' : '&';
+        if (page === 'authentification.html') {
+            page += sep + 'next=' + encodeURIComponent(window.location.pathname.split('/').pop() + window.location.search);
+        }
         window.location.replace((isEn ? '../' : '') + page);
     }
 
@@ -24,6 +30,9 @@
         } else if (required === 'admin') {
             if (!role) { redirectTo('authentification.html'); return; }
             if (role !== 'admin') { redirectTo('espace_client.html'); return; }
+        } else if (required === 'user') {
+            // page réservée à tout utilisateur connecté (client ou admin)
+            if (!role) { redirectTo('authentification.html'); return; }
         } else if (required === 'guest') {
             if (role === 'admin') { redirectTo('admin_dashboard.html'); return; }
             if (role) { redirectTo('espace_client.html'); return; }

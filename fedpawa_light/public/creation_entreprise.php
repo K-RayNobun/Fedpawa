@@ -10,7 +10,6 @@ include __DIR__ . '/../templates/partials/site-header.php';
   <section class="page-hero">
     <div class="container">
       <div class="hero-content">
-        <div class="hero-badge">100% Conforme Actes Uniformes OHADA & GUCE/CFCE</div>
         <h1>La Création, la Transformation, la Restructuration et la Légalisation d'Entreprises</h1>
         <p class="subtitle">Donnez une Existence Légale et Inattaquable à Votre Projet au Cameroun</p>
         <p>Que vous soyez un entrepreneur local formalisant sa première activité, un investisseur étranger ou un membre de la Diaspora structurant son patrimoine, la création ou la restructuration d'une entreprise ne se résume pas à remplir un formulaire administratif. C'est un acte juridique fondateur qui détermine votre responsabilité, votre gouvernance et votre optimisation fiscale future.</p>

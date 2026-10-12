@@ -1,5 +1,6 @@
 // E2E tunnel dynamique Fedpawa — service + pack pré-remplis
 const { chromium } = await import('/root/lofi-cities/tools/node_modules/playwright-core/index.mjs');
+import { ensureLogin } from '/root/Fedpawa/test-lib.mjs';
 const CHROME = '/root/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome';
 
 const BASE = process.argv[2] || 'http://127.0.0.1:8097';
@@ -7,6 +8,7 @@ const BASE = process.argv[2] || 'http://127.0.0.1:8097';
 (async () => {
   const browser = await chromium.launch({ executablePath: CHROME, args: ['--no-sandbox'] });
   const page = await browser.newPage();
+  await ensureLogin(page);
   const errors = [];
   page.on('pageerror', e => errors.push('pageerror: ' + e.message));
   page.on('console', m => { if (m.type() === 'error') { const loc = (m.location() && m.location().url) || ''; if (!loc.includes('favicon') && !/\b401\b/.test(m.text())) errors.push('console: ' + m.text() + ' @ ' + loc); } });

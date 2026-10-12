@@ -91,7 +91,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (res.ok) {
                     showToast('Connexion réussie ! Redirection...', 'success');
                     setTimeout(() => {
-                        window.location.href = data.redirect || 'espace_client.html';
+                        (function () {
+                            var params = new URLSearchParams(window.location.search);
+                            var next = params.get('next');
+                            if (next && /^[\w.-]+\.(php|html)(\?.*)?$/.test(next)) {
+                                window.location.href = next;
+                                return;
+                            }
+                            window.location.href = data.redirect || 'espace_client.html';
+                        })();
                     }, 800);
                 } else {
                     showToast(data.error || 'Identifiants invalides.', 'error');

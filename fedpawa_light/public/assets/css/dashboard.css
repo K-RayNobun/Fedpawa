@@ -65,7 +65,7 @@ html[data-theme="navy"] .progress-step.completed .progress-dot { background: var
 .progress-step.active .progress-label, .progress-step.completed .progress-label { color: var(--color-heading); }
 
 .tunnel-main { padding: 60px 0 100px; }
-.tunnel-card { background: var(--color-bg-main); border: 1px solid var(--color-border); box-shadow: var(--shadow-card); padding: 50px; max-width: 800px; margin: 0 auto; }
+.tunnel-card { background: var(--color-bg-main); border: 1px solid var(--color-border); box-shadow: var(--shadow-card); padding: 50px; max-width: 800px; margin: 0 auto; width: 100%; box-sizing: border-box; min-width: 0; }
 .tunnel-step-content { display: none; animation: fadeIn 0.5s ease; }
 .tunnel-step-content.active { display: block; }
 .step-header { margin-bottom: 30px; text-align: center; }
@@ -305,7 +305,7 @@ html[data-theme="navy"] .summary-total { color: var(--color-gold); }
 .summary-secure-badge { display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--color-success); margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--color-border); }
 
 /* Tableau Récapitulatif (Étape 5) */
-.cost-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+.cost-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; table-layout: fixed; }
 .cost-table th { text-align: left; padding: 12px; background: var(--color-bg-section); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); }
 .cost-table td { padding: 12px; border-bottom: 1px solid var(--color-border); font-size: 0.9rem; color: var(--color-text-main); }
 .cost-table .total-row td { font-size: 1.1rem; font-weight: 700; color: var(--color-heading); border-top: 2px solid var(--color-heading); border-bottom: none; }
@@ -480,4 +480,27 @@ html[data-theme="navy"] .pack-detail-price { color: var(--color-gold); }
   .pack-detail { padding: 16px; }
   .pack-detail-head { flex-direction: column; gap: 8px; }
   .pack-detail-price { font-size: 1.05rem; }
+}
+
+/* ============ Lane affichage — débordements mobiles ============ */
+.tunnel-step-content, .step-header, .cost-table, .summary-side { min-width: 0; max-width: 100%; overflow-wrap: break-word; }
+.tunnel-step-content.active { min-width: 0; }
+img, table { max-width: 100%; }
+@media (max-width: 575px) {
+  .tunnel-layout, .tunnel-grid, .summary-side { width: 100% !important; max-width: 100% !important; min-width: 0 !important; }
+  .cost-table th, .cost-table td { padding: 8px 6px; font-size: 0.78rem; }
+  .tunnel-card { padding: 24px 14px; }
+}
+
+/* ============ Lane affichage — page auth responsive ============ */
+@media (max-width: 991px) {
+  .auth-wrapper { grid-template-columns: 1fr; }
+  .auth-visual { display: none; }
+  .auth-forms { min-height: 100vh; padding: 40px 20px; }
+}
+@media (max-width: 575px) {
+  .auth-forms { padding: 28px 16px; }
+  .form-container { max-width: 100%; }
+  .auth-tabs { gap: 8px; }
+  .auth-tab { padding: 10px 12px; font-size: 0.85rem; }
 }

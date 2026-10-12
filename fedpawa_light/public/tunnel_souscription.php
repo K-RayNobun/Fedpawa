@@ -4,6 +4,7 @@ $description = "Souscrivez en ligne aux services FEDPAWA Corporate Solutions : c
 $active = 'services';
 $extraCss = ['assets/css/dashboard.css'];
 
+$dataAuth = 'user';
 include __DIR__ . '/../templates/partials/site-header.php';
 ?>
 
@@ -683,5 +684,5 @@ observer.observe(summaryTotalEl, { childList: true });
 </script>
 
 <?php
-$extraJs = ['assets/js/config.js', 'assets/js/fedpawa-ui.js', 'assets/js/fedpawa-pay.js', 'assets/js/tunnel.js'];
+$extraJs = ['assets/js/config.js', 'assets/js/auth-guard.js', 'assets/js/fedpawa-ui.js', 'assets/js/fedpawa-pay.js', 'assets/js/tunnel.js'];
 include __DIR__ . '/../templates/partials/site-footer.php';

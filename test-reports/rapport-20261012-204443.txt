@@ -1,0 +1,5 @@
+=== Rapport E2E 20261012-204443 — base http://127.0.0.1:18081 ===
+lane3-services: ? (exit=0)
+smart: OK (exit=0)
+plan-sync: OK (exit=0)
+=== 3 suites OK, 0 en échec: aucune ===

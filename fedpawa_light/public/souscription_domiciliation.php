@@ -4,6 +4,7 @@ $description = "Formulaire de souscription en ligne au service de domiciliation 
 $active = 'services';
 $extraCss = ['assets/css/dashboard.css'];
 
+$dataAuth = 'user';
 include __DIR__ . '/../templates/partials/site-header.php';
 ?>
 <div class="progress-wrapper" id="domStepper">
@@ -30,8 +31,8 @@ include __DIR__ . '/../templates/partials/site-header.php';
     <div class="tunnel-card" style="padding: 40px; box-shadow: none; border: 1px solid var(--color-border);" id="souscriptionForm">
 
       <div class="step-header" style="margin-bottom: 28px;">
-        <h1 style="font-size: 1.6rem;">Formulaire de Souscription en Ligne</h1>
-        <p style="font-size: 1rem; color: var(--color-primary); font-weight: 600;">Service de Domiciliation d'Entreprises et Mise à Disposition d'Infrastructures</p>
+        <h1 style="font-size: 1.6rem; color: var(--color-surface, #fff);">Renseignez vos informations</h1>
+        <p style="font-size: 1rem; color: var(--color-primary); font-weight: 600;">Domiciliation d'Entreprises — Souscription en ligne</p>
       </div>
 
       <form id="domiciliationForm" novalidate>
@@ -396,5 +397,5 @@ include __DIR__ . '/../templates/partials/site-header.php';
 </div>
 
 <?php
-$extraJs = ['assets/js/config.js', 'assets/js/fedpawa-ui.js', 'assets/js/fedpawa-pay.js', 'assets/js/souscription_domiciliation.js'];
+$extraJs = ['assets/js/config.js', 'assets/js/auth-guard.js', 'assets/js/fedpawa-ui.js', 'assets/js/fedpawa-pay.js', 'assets/js/souscription_domiciliation.js'];
 include __DIR__ . '/../templates/partials/site-footer.php';

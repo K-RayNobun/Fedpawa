@@ -1,0 +1,12 @@
+=== Rapport E2E 20261012-212325 — base http://127.0.0.1:18081 ===
+access-states: 13/13 (exit=0)
+lane3-services: ? (exit=2)
+payment-flow: ? (exit=2)
+tunnel-v2: ? (exit=2)
+domiciliation-stepper: ? (exit=2)
+domiciliation-mobile: ? (exit=2)
+etape4-packs: ? (exit=2)
+tunnel: ? (exit=2)
+plan-sync: ? (exit=2)
+smart: ? (exit=2)
+=== 1 suites OK, 9 en échec: lane3-services payment-flow tunnel-v2 domiciliation-stepper domiciliation-mobile etape4-packs tunnel plan-sync smart ===

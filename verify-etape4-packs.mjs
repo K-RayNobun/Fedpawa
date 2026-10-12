@@ -1,6 +1,7 @@
 
 // E2E étape 4 redessinée: dropdown pack dynamique + panneau détail + select pays 195
 const { chromium } = await import('/root/lofi-cities/tools/node_modules/playwright-core/index.mjs');
+import { ensureLogin } from '/root/Fedpawa/test-lib.mjs';
 const CHROME = '/root/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome';
 const BASE = process.argv[2] || 'http://127.0.0.1:18081';
 const out = { cases: [] };
@@ -12,7 +13,8 @@ const check = (name, pass, info = '') => out.cases.push({ name, pass, info });
   page.on('pageerror', e => errors.push(e.message.slice(0, 120)));
   page.on('console', m => { const loc = (m.location() && m.location().url) || ''; if (m.type() === 'error' && !loc.includes('favicon') && !/\b(401|400|500)\b/.test(m.text())) errors.push(m.text().slice(0, 120)); });
 
-  await page.goto(BASE + '/souscription_domiciliation.php', { waitUntil: 'load' });
+  await ensureLogin(page);
+    await page.goto(BASE + '/souscription_domiciliation.php', { waitUntil: 'load' });
   await page.waitForTimeout(900);
 
   // ==== A. Cartes gamme sans prix en texte (étape 4 via navigation directe) ====

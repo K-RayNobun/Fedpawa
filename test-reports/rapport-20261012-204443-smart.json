@@ -1,0 +1,62 @@
+{
+  "results": {
+    "dom-optin-modal": {
+      "pass": true,
+      "visible": "flex",
+      "text": "Nous avons détecté que votre entreprise n'est pas encore imm"
+    },
+    "dom-modal-yes-redirects": {
+      "pass": true,
+      "url": "creation_entreprise.php"
+    },
+    "dom-modal-no-dismiss": {
+      "pass": true,
+      "display": "none",
+      "total": "45 000 FCFA"
+    },
+    "fiscal-optin-modal": {
+      "pass": true,
+      "visible": "flex",
+      "text": "Sans NIU, les télédéclarations fiscales sont impossibles. FE"
+    },
+    "contrats-soft-banner": {
+      "pass": true,
+      "shown": "block",
+      "link": "creation_entreprise.php"
+    },
+    "contrats-soft-bail-banner": {
+      "pass": true,
+      "shown": "block",
+      "link": "domiciliation.php"
+    },
+    "contrats-no-banner": {
+      "pass": true,
+      "shown": "none"
+    },
+    "fiscal-soft-nouveau-banner": {
+      "pass": true,
+      "shown": "block",
+      "link": "creation_entreprise.php"
+    },
+    "opt-assistance-modal": {
+      "pass": true,
+      "visible": "flex",
+      "text": "Vous avez demandé une assistance à la création / immatricula"
+    },
+    "overlay-click-dismiss": {
+      "pass": true,
+      "display": "none"
+    },
+    "banner-close-x": {
+      "pass": true,
+      "shown": "none"
+    },
+    "optin-no-spam": {
+      "pass": true,
+      "display": "none"
+    }
+  },
+  "errors": [],
+  "pass": true,
+  "failed": []
+}

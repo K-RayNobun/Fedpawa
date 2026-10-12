@@ -1,6 +1,7 @@
 
 // Test mobile: en-tete compact au lieu du stepper complet
 const { chromium } = await import('/root/lofi-cities/tools/node_modules/playwright-core/index.mjs');
+import { ensureLogin } from '/root/Fedpawa/test-lib.mjs';
 const CHROME = '/root/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome';
 const BASE = process.argv[2] || 'http://127.0.0.1:18081';
 const out = { cases: [] };
@@ -10,6 +11,7 @@ const check = (name, pass, info = '') => out.cases.push({ name, pass, info });
 
   // ===== MOBILE 375px =====
   const m = await (await browser.newContext({ viewport: { width: 375, height: 667 } })).newPage();
+  await ensureLogin(m);
   await m.goto(BASE + '/souscription_domiciliation.php?pack=national-business', { waitUntil: 'load' });
   await m.waitForTimeout(900);
   let r = await m.evaluate(() => ({
@@ -78,6 +80,7 @@ const check = (name, pass, info = '') => out.cases.push({ name, pass, info });
 
   // ===== DESKTOP: rien ne change =====
   const d = await (await browser.newContext({ viewport: { width: 1440, height: 900 } })).newPage();
+  await ensureLogin(d);
   await d.goto(BASE + '/souscription_domiciliation.php', { waitUntil: 'load' });
   await d.waitForTimeout(900);
   r = await d.evaluate(() => ({

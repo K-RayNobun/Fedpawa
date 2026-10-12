@@ -1,4 +1,5 @@
 const { chromium } = await import('/root/lofi-cities/tools/node_modules/playwright-core/index.mjs');
+import { ensureLogin } from '/root/Fedpawa/test-lib.mjs';
 const CHROME = '/root/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome';
 const BASE = process.argv[2] || 'http://127.0.0.1:8097';
 const norm = s => s.replace(/[\u00A0\u202F,]/g, ' ');
@@ -9,7 +10,8 @@ const norm = s => s.replace(/[\u00A0\u202F,]/g, ' ');
   const out = {};
 
   // contrats standard -> l'utilisateur passe le select complexité sur "audit" (sur devis)
-  await page.goto(BASE + '/tunnel_souscription.php?service=contrats&pack=standard', { waitUntil: 'domcontentloaded' });
+  await ensureLogin(page);
+    await page.goto(BASE + '/tunnel_souscription.php?service=contrats&pack=standard', { waitUntil: 'domcontentloaded' });
   out.total_initial = norm(await page.evaluate(() => document.getElementById('summaryTotal').innerText)); // 51 000
   await page.evaluate(() => {
     const form = document.getElementById('form-contrats');

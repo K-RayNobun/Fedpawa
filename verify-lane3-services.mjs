@@ -1,5 +1,6 @@
 // E2E Lane #3 Fedpawa — Tests pour les 4 services autres que domiciliation
 const { chromium } = await import('/root/lofi-cities/tools/node_modules/playwright-core/index.mjs');
+import { ensureLogin } from '/root/Fedpawa/test-lib.mjs';
 const CHROME = '/root/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome';
 const BASE = process.argv[2] || 'http://127.0.0.1:18080';
 const out = { cases: [] };
@@ -15,6 +16,7 @@ const norm = s => (s || '').replace(/[\u00A0\u202F,]/g, ' ').trim();
 
   // Helper: go to service and wait
   async function gotoSvc(svc, pack) {
+    await ensureLogin(page);
     await page.goto(BASE + '/tunnel_souscription.php?service=' + svc + '&pack=' + pack, { waitUntil: 'load' });
     await page.waitForFunction(() => typeof window.goToStep === 'function' && typeof window.selectService === 'function', { timeout: 8000 }).catch(() => {});
     await page.waitForTimeout(1200);

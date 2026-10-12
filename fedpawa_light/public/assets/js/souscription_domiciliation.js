@@ -25,6 +25,68 @@
     .replace(/"/g, String.fromCharCode(38) + 'quot;')
     .replace(/'/g, String.fromCharCode(38) + '#39;');
 
+
+  /* ---------- STEPPER MULTI-ETAPES (Lane #3) ---------- */
+  const stepContents = Array.from(document.querySelectorAll('.tunnel-step-content[data-step]'));
+  const stepDots = Array.from(document.querySelectorAll('.progress-step[data-step]'));
+  const progressFill = document.getElementById('progressFill');
+  let currentStep = 1;
+  const TOTAL_STEPS = stepContents.length || 5;
+
+  function showStep(n) {
+    currentStep = n;
+    stepContents.forEach(el => el.classList.toggle('active', Number(el.dataset.step) === n));
+    stepDots.forEach(d => {
+      const sn = Number(d.dataset.step);
+      d.classList.toggle('active', sn === n);
+      d.classList.toggle('completed', sn < n);
+    });
+    if (progressFill) progressFill.style.width = ((n - 1) / (TOTAL_STEPS - 1)) * 100 + '%';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  window.goToStep = function (n) {
+    if (n >= 1 && n <= TOTAL_STEPS) showStep(n);
+  };
+
+  // Validation locale d'une etape avant de passer a la suivante
+  function stepFields(n) {
+    const cont = stepContents.find(el => Number(el.dataset.step) === n);
+    return cont ? Array.from(cont.querySelectorAll('input, select, textarea')) : [];
+  }
+  function validateStep(n) {
+    const errs = [];
+    stepFields(n).forEach(f => {
+      if (f.willValidate && !f.checkValidity()) {
+        errs.push(FR.requiredMissing);
+        f.reportValidity && f.reportValidity();
+      }
+    });
+    // Etape 4 : pack obligatoire
+    if (n === 4 && !packSelect.value) errs.push(FR.packMissing);
+    return [...new Set(errs)];
+  }
+  window.domNext = function () {
+    const errs = validateStep(currentStep);
+    if (errs.length) {
+      errorsBox.style.display = 'block';
+      errorsBox.innerHTML = '<strong>⚠️ Merci de corriger :</strong><ul>' + errs.map(m => '<li>' + esc(m) + '</li>').join('') + '</ul>';
+      errorsBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    errorsBox.style.display = 'none';
+    if (currentStep < TOTAL_STEPS) showStep(currentStep + 1);
+  };
+
+  // Navigation directe via le stepper : clic sur une etape deja validee (precedente) seulement
+  stepDots.forEach(d => {
+    d.addEventListener('click', () => {
+      const n = Number(d.dataset.step);
+      if (n < currentStep) showStep(n);
+    });
+  });
+
+  showStep(1);
+
   /* ---------- SECTION 1 : statut conditionnel ---------- */
   const statutRadios = document.querySelectorAll('input[name="statut_structure"]');
   const rccmInput = document.getElementById('rccm');

@@ -6,6 +6,19 @@ $extraCss = ['assets/css/dashboard.css'];
 
 include __DIR__ . '/../templates/partials/site-header.php';
 ?>
+<div class="progress-wrapper" id="domStepper">
+  <div class="container">
+    <div class="progress-container">
+      <div class="progress-line"><div class="progress-line-fill" id="progressFill"></div></div>
+      <div class="progress-step active" data-step="1"><div class="progress-dot">1</div><span class="progress-label">Entreprise</span></div>
+      <div class="progress-step" data-step="2"><div class="progress-dot">2</div><span class="progress-label">Repr&eacute;sentant</span></div>
+      <div class="progress-step" data-step="3"><div class="progress-dot">3</div><span class="progress-label">Contact</span></div>
+      <div class="progress-step" data-step="4"><div class="progress-dot">4</div><span class="progress-label">Formule</span></div>
+      <div class="progress-step" data-step="5"><div class="progress-dot">5</div><span class="progress-label">Documents</span></div>
+    </div>
+  </div>
+</div>
+
 <div class="container" style="padding: 32px 16px 64px;">
   <div class="tunnel-layout-v2">
 
@@ -19,6 +32,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
 
       <form id="domiciliationForm" novalidate>
 
+      <div class="tunnel-step-content active" data-step="1">
         <!-- ============ SECTION 1 – SITUATION DE L'ENTREPRISE ============ -->
         <section class="form-section">
           <h2 class="form-section-title"><span class="form-section-num">1</span> Situation de l'Entreprise</h2>
@@ -92,6 +106,10 @@ include __DIR__ . '/../templates/partials/site-header.php';
           </div>
         </section>
 
+<div class="btn-group"><button type="button" class="btn btn-primary" onclick="domNext()">Continuer &rarr;</button></div>
+      </div>
+
+      <div class="tunnel-step-content" data-step="2">
         <!-- ============ SECTION 2 – REPRÉSENTANT LÉGAL & DIRIGEANT ============ -->
         <section class="form-section">
           <h2 class="form-section-title"><span class="form-section-num">2</span> Représentant Légal & Dirigeant</h2>
@@ -146,6 +164,10 @@ include __DIR__ . '/../templates/partials/site-header.php';
           </div>
         </section>
 
+<div class="btn-group"><button type="button" class="btn btn-outline" onclick="goToStep(1)">&larr; Retour</button><button type="button" class="btn btn-primary" onclick="domNext()">Continuer &rarr;</button></div>
+      </div>
+
+      <div class="tunnel-step-content" data-step="3">
         <!-- ============ SECTION 3 – COORDONNÉES DE CONTACT & NOTIFICATION ============ -->
         <section class="form-section">
           <h2 class="form-section-title"><span class="form-section-num">3</span> Coordonnées de Contact & Notification</h2>
@@ -180,6 +202,10 @@ include __DIR__ . '/../templates/partials/site-header.php';
           </div>
         </section>
 
+<div class="btn-group"><button type="button" class="btn btn-outline" onclick="goToStep(2)">&larr; Retour</button><button type="button" class="btn btn-primary" onclick="domNext()">Continuer &rarr;</button></div>
+      </div>
+
+      <div class="tunnel-step-content" data-step="4">
         <!-- ============ SECTION 4 – CHOIX DE LA FORMULE & ENGAGEMENT ============ -->
         <section class="form-section">
           <h2 class="form-section-title"><span class="form-section-num">4</span> Choix de la Formule & Engagement</h2>
@@ -238,6 +264,10 @@ include __DIR__ . '/../templates/partials/site-header.php';
           </div>
         </section>
 
+<div class="btn-group"><button type="button" class="btn btn-outline" onclick="goToStep(3)">&larr; Retour</button><button type="button" class="btn btn-primary" onclick="domNext()">Continuer &rarr;</button></div>
+      </div>
+
+      <div class="tunnel-step-content" data-step="5">
         <!-- ============ SECTION 5 – CONFORMITÉ & DISPOSITIF KYC ============ -->
         <section class="form-section">
           <h2 class="form-section-title"><span class="form-section-num">5</span> Conformité & Dispositif KYC (Know Your Customer)</h2>
@@ -282,8 +312,10 @@ include __DIR__ . '/../templates/partials/site-header.php';
 
           <div id="form-errors" class="form-errors" style="display: none;"></div>
 
+          <button type="button" class="btn btn-outline" style="width: 100%; margin-bottom: 14px;" onclick="goToStep(4)">&larr; Retour &agrave; l'&eacute;tape pr&eacute;c&eacute;dente</button>
           <button type="submit" class="btn btn-primary btn-block btn-validate">👉 VALIDER ET GÉNÉRER MON CONTRAT DE DOMICILIATION</button>
         </section>
+      </div>
       </form>
 
       <!-- ============ ÉCRAN DE SUCCÈS ============ -->

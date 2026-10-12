@@ -3,7 +3,7 @@
 // ==========================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // 1. Dynamic Year
     const currentYearEl = document.getElementById('currentYear');
     if (currentYearEl) currentYearEl.textContent = new Date().getFullYear();
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-        
+
         reveals.forEach(el => observer.observe(el));
     }
 
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const target = item.dataset.target;
                 navItems.forEach(n => n.classList.remove('active'));
                 item.classList.add('active');
-                
+
                 let mediaIndex = 0;
                 contents.forEach((c, i) => {
                     const active = c.dataset.service === target;
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const savedTheme = localStorage.getItem('fedpawa-theme') || 'navy';
     const savedMode = localStorage.getItem('fedpawa-mode') || 'dark';
-    
+
     setTheme(savedTheme);
     setMode(savedMode);
 
@@ -122,7 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
         htmlEl.setAttribute('data-mode', mode);
         localStorage.setItem('fedpawa-mode', mode);
     }
-
     themeButtons.forEach(btn => btn.addEventListener('click', () => setTheme(btn.dataset.theme)));
     if (modeToggle) modeToggle.addEventListener('click', () => setMode(htmlEl.getAttribute('data-mode') === 'light' ? 'dark' : 'light'));
 
@@ -146,5 +145,168 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mode toggle MOBILE (dans le menu déroulant) — même logique que le header
     const mobileModeToggle = document.getElementById('mobileModeToggle');
     if (mobileModeToggle) mobileModeToggle.addEventListener('click', () => setMode(htmlEl.getAttribute('data-mode') === 'light' ? 'dark' : 'light'));
+
+    // 8. État de connexion + boutons paramètres (non-connecté) / profil (connecté)
+    //    Site statique : la session vit sur l'API (config.js fournit window.apiUrl()).
+    async function checkConnectionStatus() {
+        try {
+            if (typeof window.apiUrl !== 'function') return false;
+            const response = await fetch(window.apiUrl('/api/dashboard'), {
+                method: 'GET',
+                credentials: 'include'
+            });
+            return response.status === 200;
+        } catch (error) {
+            // Dégradation gracieuse : API injoignable -> non-connecté, jamais de blocage
+            return false;
+        }
+    }
+
+    function langPrefixFor(file) {
+        const path = window.location.pathname;
+        const isEn = path.includes('/en/');
+        return isEn ? '../' + file : file;
+    }
+
+    function buildSubmenu(container, withAccount) {
+        // ---- Accordéon Thème : clic -> déplie Jour/Nuit ----
+        const themeSec = document.createElement('div');
+        themeSec.className = 'settings-section';
+        const themeTrigger = document.createElement('button');
+        themeTrigger.className = 'settings-accordion-trigger';
+        themeTrigger.setAttribute('aria-expanded', 'false');
+        themeTrigger.innerHTML = '<span>🎨 Thème / Theme</span><span class="chev">▾</span>';
+        const themeOpts = document.createElement('div');
+        themeOpts.className = 'settings-accordion-body';
+        themeOpts.style.display = 'none';
+        const btnJour = document.createElement('button');
+        btnJour.className = 'settings-submenu-btn';
+        btnJour.dataset.mode = 'light';
+        btnJour.textContent = '☀️ Jour / Day';
+        const btnNuit = document.createElement('button');
+        btnNuit.className = 'settings-submenu-btn';
+        btnNuit.dataset.mode = 'dark';
+        btnNuit.textContent = '🌙 Nuit / Night';
+        themeOpts.append(btnJour, btnNuit);
+        themeTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const open = themeOpts.style.display === 'none';
+            themeOpts.style.display = open ? 'block' : 'none';
+            themeTrigger.setAttribute('aria-expanded', open);
+        });
+        [btnJour, btnNuit].forEach(b => b.addEventListener('click', (e) => {
+            e.stopPropagation();
+            setMode(b.dataset.mode);
+            container.classList.remove('open');
+        }));
+        themeSec.append(themeTrigger, themeOpts);
+        container.appendChild(themeSec);
+
+        // ---- Accordéon Langue : clic -> déplie Français/English ----
+        const langSec = document.createElement('div');
+        langSec.className = 'settings-section';
+        const langTrigger = document.createElement('button');
+        langTrigger.className = 'settings-accordion-trigger';
+        langTrigger.setAttribute('aria-expanded', 'false');
+        langTrigger.innerHTML = '<span>🌐 Langue / Language</span><span class="chev">▾</span>';
+        const langOpts = document.createElement('div');
+        langOpts.className = 'settings-accordion-body';
+        langOpts.style.display = 'none';
+        const btnFr = document.createElement('button');
+        btnFr.className = 'settings-submenu-btn';
+        btnFr.dataset.lang = 'fr';
+        btnFr.textContent = '🇫🇷 Français';
+        const btnEn = document.createElement('button');
+        btnEn.className = 'settings-submenu-btn';
+        btnEn.dataset.lang = 'en';
+        btnEn.textContent = '🇬🇧 English';
+        langOpts.append(btnFr, btnEn);
+        langTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const open = langOpts.style.display === 'none';
+            langOpts.style.display = open ? 'block' : 'none';
+            langTrigger.setAttribute('aria-expanded', open);
+        });
+        [btnFr, btnEn].forEach(b => b.addEventListener('click', (e) => {
+            e.stopPropagation();
+            container.classList.remove('open');
+            const isEn = window.location.pathname.includes('/en/');
+            const file = window.location.pathname.split('/').pop() || 'index.php';
+            const target = (b.dataset.lang === 'en') ? (isEn ? null : 'en/' + file) : (isEn ? '../' + file : null);
+            if (target) window.location.href = target;
+        }));
+        langSec.append(langTrigger, langOpts);
+        container.appendChild(langSec);
+
+        if (withAccount) {
+            const accSec = document.createElement('div');
+            accSec.className = 'settings-section';
+            const monEspace = document.createElement('a');
+            monEspace.href = langPrefixFor('espace_client.html');
+            monEspace.textContent = '👤 Mon Espace / My Account';
+            const logoutBtn = document.createElement('button');
+            logoutBtn.className = 'profile-logout-btn';
+            logoutBtn.textContent = '🚪 Se déconnecter / Log out';
+            logoutBtn.addEventListener('click', async (e) => {
+                e.stopPropagation();
+                try {
+                    if (typeof window.apiUrl === 'function') {
+                        await fetch(window.apiUrl('/api/logout'), { method: 'POST', credentials: 'include' });
+                    }
+                } catch (err) { /* dégradation gracieuse */ }
+                window.location.reload();
+            });
+            accSec.append(monEspace, logoutBtn);
+            container.appendChild(accSec);
+        }
+    }
+
+    function renderNavActions(isConnected) {
+        const navActions = document.getElementById('navActions');
+        if (!navActions) return;
+
+        if (isConnected) {
+            navActions.innerHTML = '<a class="nav-login nav-espace-client" href="' + langPrefixFor('espace_client.html') + '">Espace Client</a><button class="nav-profile-btn" id="navProfileBtn" aria-label="Menu profil / Profile menu" title="Profil" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></button>';
+            const profileBtn = document.getElementById('navProfileBtn');
+            const profileMenu = document.createElement('div');
+            profileMenu.className = 'profile-menu settings-menu';
+            buildSubmenu(profileMenu, true);
+            document.body.appendChild(profileMenu);
+            profileBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const open = profileMenu.classList.toggle('open');
+                profileBtn.setAttribute('aria-expanded', open);
+            });
+            document.addEventListener('click', (e) => {
+                if (!profileMenu.contains(e.target) && e.target !== profileBtn && !profileBtn.contains(e.target)) {
+                    profileMenu.classList.remove('open');
+                    profileBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { profileMenu.classList.remove('open'); profileBtn.setAttribute('aria-expanded', 'false'); } });
+        } else {
+            navActions.innerHTML = '<a class="nav-login" href="' + langPrefixFor('authentification.html') + '">' + (document.documentElement.getAttribute('lang') === 'en' ? 'Sign in' : 'Se connecter') + '</a><button class="nav-settings-btn" id="navSettingsBtn" aria-label="Paramètres / Settings" title="Paramètres" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.09a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.09a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>';
+            const settingsBtn = document.getElementById('navSettingsBtn');
+            const settingsMenu = document.createElement('div');
+            settingsMenu.className = 'settings-menu';
+            buildSubmenu(settingsMenu, false);
+            document.body.appendChild(settingsMenu);
+            settingsBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const open = settingsMenu.classList.toggle('open');
+                settingsBtn.setAttribute('aria-expanded', open);
+            });
+            document.addEventListener('click', (e) => {
+                if (!settingsMenu.contains(e.target) && e.target !== settingsBtn && !settingsBtn.contains(e.target)) {
+                    settingsMenu.classList.remove('open');
+                    settingsBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { settingsMenu.classList.remove('open'); settingsBtn.setAttribute('aria-expanded', 'false'); } });
+        }
+    }
+
+    // On est DÉJÀ dans un bloc DOMContentLoaded : exécution directe
+    checkConnectionStatus().then(renderNavActions);
 
 });

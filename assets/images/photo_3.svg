@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 400 250" fill="none">
+  <rect width="400" height="250" fill="#e2ddd5" rx="8"/>
+  <text x="200" y="125" text-anchor="middle" fill="#6a6a6a" font-family="Open Sans" font-size="14" dominant-baseline="middle">
+    Photo 3 placeholder
+  </text>
+  <text x="200" y="145" text-anchor="middle" fill="#6a6a6a" font-family="Open Sans" font-size="11" dominant-baseline="middle">
+    Image placeholder
+  </text>
+</svg>

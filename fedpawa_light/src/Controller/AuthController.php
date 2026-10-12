@@ -81,6 +81,12 @@ class AuthController extends Controller {
             return;
         }
 
+        // Envoi du code : le service mail n'est pas encore intégré.
+        // MAIL_SERVICE_CONFIGURED passe à true quand l'envoi réel sera branché (SMTP) :
+        //   - false (aujourd'hui) : le code est renvoyé dans debug_otp pour permettre les tests,
+        //     car aucun e-mail ne part — il n'y a aucun autre moyen de le connaître.
+        //   - true (plus tard)    : plus de debug_otp dans la réponse ; l'e-mail est le seul canal.
+        $mailConfigured = (getenv('MAIL_SERVICE_CONFIGURED') === '1');
         $token = sprintf("%06d", mt_rand(1, 999999));
         $expiresAt = date('Y-m-d H:i:s', strtotime('+15 minutes'));
 
@@ -89,7 +95,12 @@ class AuthController extends Controller {
 
         $_SESSION['reset_email'] = $input['email'];
 
-        $this->json(['message' => 'Code OTP envoyé avec succès', 'debug_otp' => $token]);
+        $response = ['message' => 'Code OTP envoyé avec succès', 'mail_service' => $mailConfigured ? 'configured' : 'not_configured'];
+        if (!$mailConfigured) {
+            // Pré-production uniquement : le code part dans la réponse car aucun mail n'est envoyé
+            $response['debug_otp'] = $token;
+        }
+        $this->json($response);
     }
 
     public function verifyOtp() {

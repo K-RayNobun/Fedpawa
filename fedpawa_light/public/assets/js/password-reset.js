@@ -9,24 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // 2. Onglets Email / WhatsApp
-    const tabs = document.querySelectorAll('.channel-tab');
+    // 2. Envoi du code par EMAIL uniquement
     const emailInput = document.getElementById('emailInput');
-    const phoneInput = document.getElementById('phoneInput');
     let currentEmail = '';
-    
-    window.switchChannel = function(channel) {
-        tabs.forEach(t => t.classList.remove('active'));
-        document.querySelector(`[data-channel="${channel}"]`).classList.add('active');
-        
-        if (channel === 'email') {
-            emailInput.style.display = 'block';
-            phoneInput.style.display = 'none';
-        } else {
-            emailInput.style.display = 'none';
-            phoneInput.style.display = 'block';
-        }
-    }
 
     // 3. Demande d'envoi du code (État 1 -> État 2)
     const requestForm = document.getElementById('requestForm');
@@ -45,7 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 const data = await res.json();
                 if (res.ok) {
-                    alert('Code de réinitialisation envoyé ! (Pour test, utilisez le code : 123456)');
+                    // mail_service: "configured" = envoi réel actif ; "not_configured" = mode pré-production
+                    if (data.mail_service === 'not_configured') {
+                        alert('Mode pré-production : le service d\'envoi d\'e-mail n\'est pas encore activé.\nPour vos tests, le code à saisir est indiqué ci-dessous (visible uniquement en pré-production).\n\nCode : ' + (data.debug_otp || '(indisponible)'));
+                    } else {
+                        alert('Un code de vérification a été envoyé à votre adresse e-mail. Il est valide pendant 15 minutes.');
+                    }
                     showState('state-otp');
                     startOtpTimer();
                 } else {
@@ -61,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Compte à rebours OTP
     let otpTimerInterval;
     function startOtpTimer() {
-        let timeLeft = 299; // 5 minutes
+        let timeLeft = 179; // 3 minutes : délai avant de pouvoir redemander un code (le code reste valide 15 min côté serveur)
         const timerEl = document.getElementById('otpTimer');
         const resendLink = document.getElementById('resendLink');
         resendLink.style.display = 'none';

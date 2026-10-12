@@ -42,27 +42,12 @@
           <p>Ne vous inquiétez pas. Saisissez votre identifiant pour réinitialiser votre accès.</p>
         </div>
 
-        <div class="channel-tabs">
-          <div class="channel-tab active" data-channel="email" onclick="switchChannel('email')">Par Email</div>
-          <div class="channel-tab" data-channel="whatsapp" onclick="switchChannel('whatsapp')">Par WhatsApp</div>
-        </div>
-
         <form id="requestForm">
           <div class="form-group" id="emailInput">
             <label>Adresse E-mail professionnelle</label>
             <input type="email" class="form-control" placeholder="nom@entreprise.cm" required>
           </div>
           
-          <div class="form-group" id="phoneInput" style="display: none;">
-            <label>Numéro WhatsApp / Téléphone</label>
-            <div style="display: flex; gap: 10px;">
-              <select class="form-control" style="max-width: 100px;">
-                <option>+237</option><option>+33</option><option>+1</option>
-              </select>
-              <input type="tel" class="form-control" placeholder="6XX XX XX XX">
-            </div>
-          </div>
-
           <button type="submit" class="btn btn-primary btn-block">Envoyer le lien de réinitialisation</button>
         </form>
 
@@ -77,7 +62,7 @@
         <a href="#" class="back-link" onclick="showState('state-request'); return false;">← Modifier l'identifiant</a>
         <div class="form-header">
           <h2>Saisissez le code de vérification</h2>
-          <p>Un code à 6 chiffres a été envoyé à votre canal sélectionné.</p>
+          <p>Un code à 6 chiffres a été envoyé à votre adresse e-mail professionnelle.</p>
         </div>
 
         <form id="otpForm">
@@ -91,7 +76,7 @@
           </div>
           
           <p style="text-align: center; font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 20px;">
-            Code valide pendant : <strong id="otpTimer" style="color: var(--color-danger);">05:00</strong><br>
+            Vous pourrez redemander un code dans : <strong id="otpTimer" style="color: var(--color-danger);">03:00</strong><br>
             <a href="#" id="resendLink" style="display: none; color: var(--color-primary); font-weight: 600;">Vous n'avez rien reçu ? Renvoyer le code</a>
           </p>
 

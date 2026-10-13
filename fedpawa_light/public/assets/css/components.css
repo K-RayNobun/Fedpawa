@@ -25,7 +25,7 @@ html[data-theme="navy"] .section-kicker::before { background: var(--color-gold);
 .form-group.full { grid-column: 1 / -1; }
 .form-group label { display: block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 8px; }
 .form-control { width: 100%; padding: 14px 16px; font-family: var(--font-sans); font-size: 0.95rem; color: var(--color-text-main); background-color: var(--color-bg-main); border: 1px solid var(--color-border-strong); outline: none; transition: var(--transition-fast); }
-.form-control:focus { border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(122,28,28,0.12); }
+.form-control:focus { border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(21,41,77,0.12); }
 html[data-theme="navy"] .form-control:focus { box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15); }
 html[data-mode="dark"] .form-control { color: #fff; }
 select.form-control { appearance: none; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e"); background-repeat: no-repeat; background-position: right 16px center; background-size: 16px; padding-right: 40px; }

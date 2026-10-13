@@ -154,7 +154,6 @@ html[data-theme="navy"] .upload-area:hover, html[data-theme="navy"] .upload-area
 .db-nav-item svg { width: 18px; height: 18px; flex-shrink: 0; }
 .db-nav-item:hover { background: rgba(255,255,255,0.05); color: #fff; }
 .db-nav-item.active { background: rgba(255,255,255,0.1); color: #fff; border-left-color: var(--color-gold); }
-html[data-theme="bordeaux"] .db-nav-item.active { border-left-color: var(--color-primary); }
 .nav-count { margin-left: auto; background: var(--color-danger); color: #fff; font-size: 0.65rem; padding: 2px 6px; border-radius: 10px; font-weight: 700; }
 
 .db-main { flex: 1; padding: 40px; max-width: 1200px; margin: 0 auto; width: 100%; }

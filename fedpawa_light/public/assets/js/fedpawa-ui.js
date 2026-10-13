@@ -1,7 +1,7 @@
 // ==========================================================
 // FEDPAWA UI — Composants Toast & Modal (thème-adaptatifs)
 // Dépend des variables CSS du site (--color-primary, --color-gold, etc.)
-// S'adapte automatiquement au thème actif (bordeaux / navy / dark).
+// S'adapte automatiquement au thème actif (navy / dark).
 // ==========================================================
 (function () {
     'use strict';

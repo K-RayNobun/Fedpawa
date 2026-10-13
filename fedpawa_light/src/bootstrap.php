@@ -45,7 +45,7 @@ function fedpawa_error_response(string $safeMessage = 'Erreur interne du serveur
            . '<body style="font-family:sans-serif;text-align:center;padding:80px 20px;">'
            . '<h1>Une erreur est survenue</h1>'
            . '<p style="color:#777;">Veuillez réessayer dans quelques instants. Si le problème persiste, contactez le support.</p>'
-           . '<p><a href="/" style="color:#7A1C1C;">Retour à l\'accueil</a></p>'
+           . '<p><a href="/" style="color:#15294D;">Retour à l\'accueil</a></p>'
            . ($APP_DEBUG ? '<pre style="text-align:left;background:#f5f5f5;padding:15px;max-width:900px;margin:30px auto;">' . htmlspecialchars(fedpawa_last_error()) . '</pre>' : '')
            . '</body></html>';
     }

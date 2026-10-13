@@ -160,7 +160,7 @@ function contractSignScreen(m, config, sub, payInfo) {
         '  <div class="pay-momo-amount">' + esc(fmt(config.priceFCFA)) + '</div>' +
         '</div>' +
         '<div class="contract-doc" style="max-height:38vh;overflow:auto;border:1px solid var(--color-border,#ddd);border-radius:8px;padding:14px 16px;margin:10px 0;font-size:0.82rem;line-height:1.55;background:#faf9f7;">' +
-        '  <div style="text-align:center;font-weight:700;color:#7A1C1C;letter-spacing:0.06em;">CONVENTION DE DOMICILIATION & SERVICES</div>' +
+        '  <div style="text-align:center;font-weight:700;color:#15294D;letter-spacing:0.06em;">CONVENTION DE DOMICILIATION & SERVICES</div>' +
         '  <p style="margin:10px 0 4px;"><strong>Entre les soussignes :</strong></p>' +
         '  <p style="margin:0 0 4px;">La soci\u00e9t\u00e9 <strong>FEDPAWA CORPORATE SOLUTIONS SARL</strong>, sise a l\u2019Immeuble Pharmacie de Logpom, Douala, Cameroun.</p>' +
         '  <p style="margin:0;">Et : <strong>' + esc((sub.client_name || window.FP_contractName || 'Client')) + '</strong>.</p>' +

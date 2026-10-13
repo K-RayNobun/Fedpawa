@@ -56,24 +56,28 @@ include __DIR__ . '/../templates/partials/site-header.php';
 
       <div class="gallery-grid">
         <div class="gallery-item w-2 h-2" data-category="accueil">
-          <img src="assets/images/photo_1.jpg" alt="Accueil et réception" loading="lazy">
+          <img src="assets/images/domi_accueil_1.jpg" alt="Accueil et réception FEDPAWA" loading="lazy">
+          <span class="gallery-caption">Accueil & Réception</span>
+        </div>
+        <div class="gallery-item" data-category="accueil">
+          <img src="assets/images/domi_accueil_2.jpg" alt="Espace d'accueil et réception" loading="lazy">
           <span class="gallery-caption">Accueil & Réception</span>
         </div>
         <div class="gallery-item" data-category="bureau">
-          <img src="assets/images/photo_2.jpg" alt="Bureau privé" loading="lazy">
+          <img src="assets/images/domi_bureau_1.jpg" alt="Bureau privé Executive" loading="lazy">
           <span class="gallery-caption">Bureau Privé Executive</span>
         </div>
+        <div class="gallery-item" data-category="bureau">
+          <img src="assets/images/domi_bureau_2.jpg" alt="Bureau privé équipé" loading="lazy">
+          <span class="gallery-caption">Bureau Privé & Connexion Haut Débit</span>
+        </div>
         <div class="gallery-item" data-category="reunion">
-          <img src="assets/images/photo_3.jpg" alt="Salle de réunion" loading="lazy">
+          <img src="assets/images/domi_reunion_1.jpg" alt="Salle de réunion" loading="lazy">
           <span class="gallery-caption">Salle de Réunion & Hub</span>
         </div>
-        <div class="gallery-item" data-category="bureau">
-          <img src="assets/images/photo_4.jpg" alt="Bureau équipé" loading="lazy">
-          <span class="gallery-caption">Espace de travail haut débit</span>
-        </div>
-        <div class="gallery-item w-2" data-category="accueil">
-          <img src="assets/images/photo_5.jpg" alt="Espace café" loading="lazy">
-          <span class="gallery-caption">Espace Café & Détente</span>
+        <div class="gallery-item w-2" data-category="reunion">
+          <img src="assets/images/domi_reunion_2.jpg" alt="Salle de réunion stratégique" loading="lazy">
+          <span class="gallery-caption">Salle de Réunion Stratégique</span>
         </div>
       </div>
     </div>

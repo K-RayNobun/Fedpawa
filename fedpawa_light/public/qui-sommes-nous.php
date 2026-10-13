@@ -33,7 +33,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
           <p>Pour répondre à ce défi, FEDPAWA a structuré une offre globale à 360°, combinant l'expertise de juristes d'affaires, de fiscalistes chevronnés et de spécialistes de la propriété intellectuelle. Nous avons digitalisé les processus administratifs pour offrir à nos clients une transparence totale sur leurs démarches, sans déplacements inutiles et sans frais cachés.</p>
         </div>
         <div class="about-vision-box">
-          <div class="about-vision-photo"><img src="assets/images/photo_6.svg" alt="Nos locaux à Logpom, Douala" loading="lazy"></div>
+          <div class="about-vision-photo"><img src="assets/images/qui_6.jpg" alt="Nos locaux à Logpom, Douala" loading="lazy"></div>
           <h3><span>🎯</span> Notre Mission & Ambition</h3>
           <p>Être le guichet unique de référence pour tout entrepreneur ou groupe souhaitant s'implanter, se protéger et se développer au Cameroun et dans l'espace OHADA/OAPI. Nous faisons de la conformité un bouclier protecteur et de la fiscalité un outil d'optimisation légale.</p>
         </div>
@@ -52,43 +52,43 @@ include __DIR__ . '/../templates/partials/site-header.php';
 
       <div class="gallery-grid">
         <div class="gallery-item w-2 h-2">
-          <img src="assets/images/photo_1.svg" alt="Accueil et réception FEDPAWA" loading="lazy">
+          <img src="assets/images/qui_1.jpg" alt="Accueil et réception FEDPAWA" loading="lazy">
           <span class="gallery-caption">Accueil & Réception</span>
         </div>
         <div class="gallery-item">
-          <img src="assets/images/photo_7.svg" alt="Bureau privé Executive" loading="lazy">
+          <img src="assets/images/qui_7.jpg" alt="Bureau privé Executive" loading="lazy">
           <span class="gallery-caption">Bureau Privé Executive</span>
         </div>
         <div class="gallery-item">
-          <img src="assets/images/photo_8.svg" alt="Salle de réunion" loading="lazy">
+          <img src="assets/images/qui_8.jpg" alt="Salle de réunion" loading="lazy">
           <span class="gallery-caption">Salle de Réunion</span>
         </div>
         <div class="gallery-item">
-          <img src="assets/images/photo_9.svg" alt="Espace de travail" loading="lazy">
+          <img src="assets/images/qui_9.jpg" alt="Espace de travail" loading="lazy">
           <span class="gallery-caption">Espace de Travail</span>
         </div>
         <div class="gallery-item w-2">
-          <img src="assets/images/photo_10.svg" alt="Espace café et détente" loading="lazy">
+          <img src="assets/images/qui_10.jpg" alt="Espace café et détente" loading="lazy">
           <span class="gallery-caption">Espace Café & Détente</span>
         </div>
         <div class="gallery-item">
-          <img src="assets/images/photo_11.svg" alt="Secrétariat téléphonique" loading="lazy">
+          <img src="assets/images/qui_11.jpg" alt="Secrétariat téléphonique" loading="lazy">
           <span class="gallery-caption">Secrétariat Téléphonique</span>
         </div>
         <div class="gallery-item">
-          <img src="assets/images/photo_12.svg" alt="Gestion du courrier" loading="lazy">
+          <img src="assets/images/qui_12.jpg" alt="Gestion du courrier" loading="lazy">
           <span class="gallery-caption">Gestion du Courrier</span>
         </div>
         <div class="gallery-item">
-          <img src="assets/images/photo_13.svg" alt="Hub opérationnel Logpom" loading="lazy">
+          <img src="assets/images/qui_13.jpg" alt="Hub opérationnel Logpom" loading="lazy">
           <span class="gallery-caption">Hub Opérationnel Logpom</span>
         </div>
         <div class="gallery-item">
-          <img src="assets/images/photo_14.svg" alt="Bureaux équipés haut standing" loading="lazy">
+          <img src="assets/images/qui_14.jpg" alt="Bureaux équipés haut standing" loading="lazy">
           <span class="gallery-caption">Bureaux Haut Standing</span>
         </div>
         <div class="gallery-item">
-          <img src="assets/images/photo_15.svg" alt="Connexion haut débit" loading="lazy">
+          <img src="assets/images/qui_15.jpg" alt="Connexion haut débit" loading="lazy">
           <span class="gallery-caption">Connexion Haut Débit</span>
         </div>
       </div>

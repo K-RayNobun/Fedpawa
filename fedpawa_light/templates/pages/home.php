@@ -17,7 +17,7 @@
     <div class="hero-media">
       <div class="hero-frame-border"></div>
       <div class="hero-image-frame">
-        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80" alt="Bureau professionnel moderne à Douala">
+        <img src="assets/images/home_hero.jpg" alt="Professionnels camerounais au bureau à Douala">
       </div>
       <div class="hero-float-card">
         <div class="float-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></div>
@@ -36,7 +36,7 @@
       <p>Une offre complète pour installer, protéger et développer votre entreprise depuis Logpom. Sélectionnez une expertise pour en découvrir les contours.</p>
     </div>
     <div class="expertise-card reveal">
-      <div class="expertise-media"><img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&w=800&q=80" alt="Domiciliation"></div>
+      <div class="expertise-media"><img src="assets/images/home_domiciliation.jpg" alt="Domiciliation"></div>
       <div class="expertise-body expertise-content active" data-service="01">
         <span class="expertise-kicker">Service 01</span>
         <div class="expertise-title-group"><span class="expertise-number-inline">01</span><h3 class="expertise-title">Domiciliation de Personnes Morales et d'Entreprises</h3></div>
@@ -44,7 +44,7 @@
         <ul class="expertise-features"><li>Adresse commerciale reconnue</li><li>Scan & réexpédition du courrier</li><li>Standard téléphonique personnalisé</li><li>Salle de réunion à la demande</li></ul>
         <a class="text-link" href="domiciliation.php">Découvrir la domiciliation <span aria-hidden="true">→</span></a>
       </div>
-      <div class="expertise-media" style="display:none"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80" alt="Création entreprise"></div>
+      <div class="expertise-media" style="display:none"><img src="assets/images/home_creation.jpg" alt="Création entreprise"></div>
       <div class="expertise-body expertise-content" data-service="02" style="display:none">
         <span class="expertise-kicker">Service 02</span>
         <div class="expertise-title-group"><span class="expertise-number-inline">02</span><h3 class="expertise-title">Création, Transformation, Restructuration & Légalisation d'Entreprises</h3></div>
@@ -52,7 +52,7 @@
         <ul class="expertise-features"><li>Statuts & actes juridiques</li><li>RC, IFU & CNPS obtenus pour vous</li><li>Accompagnement GUCE complet</li><li>Délais maîtrisés & transparents</li></ul>
         <a class="text-link" href="creation_entreprise.php">Découvrir la création <span aria-hidden="true">→</span></a>
       </div>
-      <div class="expertise-media" style="display:none"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80" alt="Fiscalité"></div>
+      <div class="expertise-media" style="display:none"><img src="assets/images/home_fiscalite.jpg" alt="Fiscalité"></div>
       <div class="expertise-body expertise-content" data-service="03" style="display:none">
         <span class="expertise-kicker">Service 03</span>
         <div class="expertise-title-group"><span class="expertise-number-inline">03</span><h3 class="expertise-title">Conseil et Suivi Juridique & Fiscal des Entreprises</h3></div>
@@ -60,7 +60,7 @@
         <ul class="expertise-features"><li>Déclarations mensuelles & annuelles</li><li>Liasses fiscales conformes</li><li>Accompagnement DGI</li><li>Veille réglementaire continue</li></ul>
         <a class="text-link" href="fiscalite.php">Découvrir la fiscalité <span aria-hidden="true">→</span></a>
       </div>
-      <div class="expertise-media" style="display:none"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80" alt="OAPI"></div>
+      <div class="expertise-media" style="display:none"><img src="assets/images/home_oapi.jpg" alt="OAPI — Marques et dessins"></div>
       <div class="expertise-body expertise-content" data-service="04" style="display:none">
         <span class="expertise-kicker">Service 04</span>
         <div class="expertise-title-group"><span class="expertise-number-inline">04</span><h3 class="expertise-title">Enregistrement des Marques, Logos, Applications & Logiciels auprès de l'OAPI</h3></div>
@@ -68,7 +68,7 @@
         <ul class="expertise-features"><li>Dépôt de marques & brevets</li><li>Protection logicielle & œuvres</li><li>Couverture 17 pays OAPI</li><li>Veille en contrefaçon</li></ul>
         <a class="text-link" href="oapi.php">Découvrir OAPI <span aria-hidden="true">→</span></a>
       </div>
-      <div class="expertise-media" style="display:none"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80" alt="Contrats"></div>
+      <div class="expertise-media" style="display:none"><img src="assets/images/home_contrats.jpg" alt="Contrats — Juridique"></div>
       <div class="expertise-body expertise-content" data-service="05" style="display:none">
         <span class="expertise-kicker">Service 05</span>
         <div class="expertise-title-group"><span class="expertise-number-inline">05</span><h3 class="expertise-title">Rédaction de Tous Types de Contrats (Sociaux, Commerciaux, de Travail, de Prestation, de Confidentialité)</h3></div>
@@ -93,7 +93,7 @@
     <div class="profile-layout">
       <div class="profile-visual reveal">
         <div class="profile-frame-border"></div>
-        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="Équipe FEDPAWA">
+        <img src="assets/images/home_team.jpg" alt="Équipe FEDPAWA">
         <div class="profile-visual-badge"><div class="year">2024</div><div class="label">Fondé à Logpom, Douala</div></div>
       </div>
       <div class="profile-content reveal">

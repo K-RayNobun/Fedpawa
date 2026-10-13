@@ -16,11 +16,10 @@ export async function ensureLogin(page) {
   }
   const me = await page.evaluate(() => fetch('/api/me', { credentials: 'include' }).then(r => r.ok ? r.json() : { authenticated: false })).catch(() => ({ authenticated: false }));
   if (me && me.authenticated) return true;
-  await page.evaluate(([email, pass]) => fetch('/api/login', {
-    credentials: 'include', method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, mot_de_passe: pass })
-  }).then(r => r.json()), [TEST_EMAIL, TEST_PASS]);
+  // CSRF obligatoire depuis la fusion audited_features: passer par window.Api (api.js)
+  await page.addScriptTag({ url: BASE + '/assets/js/api.js' });
+  await page.evaluate(([email, pass]) => window.Api.post('/api/login', { email, mot_de_passe: pass })
+    .then(r => r.json()), [TEST_EMAIL, TEST_PASS]);
   const after = await page.evaluate(() => fetch('/api/me', { credentials: 'include' }).then(r => r.json()).catch(() => ({ authenticated: false })));
   return !!(after && after.authenticated);
 }

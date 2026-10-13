@@ -121,11 +121,35 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = 'souscription_domiciliation.php' + (planId ? '?pack=' + encodeURIComponent(planId) : '');
             return;
         }
+        // Lane tunnel v3 : l'étape de sélection des cartes a été supprimée.
+        // Sans carte visible, on initialise le panier directement depuis le catalogue PLANS.
+        const plan = (PLANS[serviceId] || {})[planId || Object.keys(PLANS[serviceId] || {})[0]];
+        const SERVICE_NAMES = {
+            creation: 'Création d\'entreprise',
+            oapi: 'Protection OAPI',
+            fiscalite: 'Conseils & Suivi Fiscal',
+            contrats: 'Contrats & Rédaction Juridique',
+            recouvrement: 'Recouvrement de Créances'
+        };
+        if (plan) {
+            cart.service = serviceId;
+            cart.serviceName = SERVICE_NAMES[serviceId] || serviceId;
+            applyPlan(serviceId, (planId && (PLANS[serviceId] || {})[planId]) ? planId : Object.keys(PLANS[serviceId])[0]);
+
+            // Afficher le bon formulaire à l'étape 2
+            document.querySelectorAll('.form-block').forEach(fb => fb.style.display = 'none');
+            const formToShow = document.getElementById(`form-${serviceId}`);
+            if (formToShow) formToShow.style.display = 'block';
+
+            updateSummary();
+            if (!isInitial) goToStep(1);
+        }
+        // Compat : si des cartes service existent encore (autre page), garder l'ancien chemin
         const cards = document.querySelectorAll('.service-card');
         cards.forEach(c => c.classList.remove('selected'));
         
         const card = document.querySelector(`[data-service="${serviceId}"]`);
-        if (card) {
+        if (card && !plan) {
             card.classList.add('selected');
             cart.service = serviceId;
             cart.serviceName = card.dataset.name;
@@ -308,12 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const submitPayload = async (pay) => {
                 try {
-                    const csrf = await FedpawaPay.getCsrf();
-                    const res = await fetch(apiUrl('/api/souscription'), {
-                        credentials: 'include',
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': csrf || '' },
-                        body: JSON.stringify({
+                                        const res = await Api.post('/api/souscription', {
                             service: cart.service,
                             plan: cart.planId,
                             pack: cart.planId,
@@ -327,11 +346,24 @@ document.addEventListener('DOMContentLoaded', () => {
                             name,
                             email,
                             telephone: telephone || pay.phone
-                        })
-                    });
+                        });
                     const data = await res.json().catch(() => ({}));
                     if (res.ok && data.status !== 'error') {
-                        return { ok: true, message: data.message || 'Souscription enregistrée.', subscription_ref: data.subscription_ref || data.transaction_id || null };
+                        return {
+                            ok: true,
+                            message: data.message || 'Souscription enregistrée.',
+                            subscription_ref: data.subscription_ref || data.transaction_id || null,
+                            // Lane contrat : données brutes pour « Vérifier Mon Paiement » + contrat
+                            api: (data.status === 'payment_pending') ? {
+                                status: data.status,
+                                subscription_id: data.subscription_id,
+                                client_id: data.client_id,
+                                transaction_id: data.transaction_id,
+                                signature_otp: data.signature_otp,
+                                subscription_ref: data.subscription_ref || data.transaction_id,
+                                client_name: name
+                            } : null
+                        };
                     }
                     return { ok: false, message: data.message || data.error || 'Échec de la souscription.' };
                 } catch (err) {

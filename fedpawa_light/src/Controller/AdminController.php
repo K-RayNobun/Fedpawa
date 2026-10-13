@@ -148,4 +148,34 @@ class AdminController extends Controller {
             $this->json(['error' => 'Erreur interne'], 500);
         }
     }
+
+    // Lane audit: listes complètes pour le dashboard admin (uniquement depuis la DB)
+    public function lists() {
+        try {
+            $db = Database::getConnection();
+
+            $clients = $db->query("SELECT id, nom, entreprise, email, telephone, date_inscription FROM clients ORDER BY id DESC LIMIT 200")->fetchAll();
+            $abonnements = $db->query("SELECT a.id, a.client_id, c.nom AS client_nom, c.entreprise, a.pack, a.prix, a.date_debut, a.date_fin, a.statut FROM abonnements a JOIN clients c ON c.id = a.client_id ORDER BY a.id DESC LIMIT 200")->fetchAll();
+            $paiements = $db->query("SELECT p.id, p.client_id, c.nom AS client_nom, c.entreprise, p.montant, p.mode_paiement, p.transaction_id, p.date, p.statut FROM paiements p LEFT JOIN clients c ON c.id = p.client_id ORDER BY p.id DESC LIMIT 200")->fetchAll();
+            $courriers = $db->query("SELECT co.id, co.client_id, c.nom AS client_nom, c.entreprise, co.date_reception, co.scan, co.statut FROM courriers co LEFT JOIN clients c ON c.id = co.client_id ORDER BY co.id DESC LIMIT 200")->fetchAll();
+            $contrats = $db->query("SELECT ct.id, ct.client_id, c.nom AS client_nom, c.entreprise, ct.type, ct.fichier, ct.date_signature FROM contrats ct LEFT JOIN clients c ON c.id = ct.client_id ORDER BY ct.id DESC LIMIT 200")->fetchAll();
+            $kyc = $db->query("SELECT k.id, k.client_id, c.nom AS client_nom, c.entreprise, k.piece_identite, k.justificatif_domicile, k.statuts, k.date_soumission FROM kyc k JOIN clients c ON c.id = k.client_id ORDER BY k.id DESC LIMIT 200")->fetchAll();
+            $tickets = $db->query("SELECT t.*, c.nom AS client_nom FROM tickets_support t JOIN clients c ON c.id = t.client_id ORDER BY t.created_at DESC LIMIT 100")->fetchAll();
+            $messages = $db->query("SELECT m.id, m.sender_id, m.sender_type, m.receiver_id, m.content, m.is_read, m.created_at, c.nom AS client_nom, c.entreprise FROM internal_messages m LEFT JOIN clients c ON c.id = m.sender_id ORDER BY m.created_at DESC LIMIT 100")->fetchAll();
+
+            $this->json([
+                'clients' => $clients,
+                'abonnements' => $abonnements,
+                'paiements' => $paiements,
+                'courriers' => $courriers,
+                'contrats' => $contrats,
+                'kyc' => $kyc,
+                'tickets' => $tickets,
+                'messages' => $messages
+            ]);
+        } catch (\Exception $e) {
+            error_log('Admin lists error: ' . $e->getMessage());
+            $this->json(['error' => 'Erreur interne'], 500);
+        }
+    }
 }

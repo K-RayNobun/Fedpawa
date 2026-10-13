@@ -8,13 +8,14 @@ $method = strtoupper($_SERVER['REQUEST_METHOD'] ?? 'GET');
 if (preg_match('#^/api(/|$)#', $uri)) {
     $router = new \App\Router();
 
-    $router->get('/api/csrf-token', function() {
+        $router->get('/api/csrf-token', function() {
         header('Content-Type: application/json');
         echo json_encode(['csrf_token' => \App\Controller\Controller::getCsrfToken()]);
     });
 
     $router->post('/api/souscription', 'SubscriptionController@process');
     $router->post('/api/signature', 'SubscriptionController@finalize');
+    $router->post('/api/paiement/verifier', 'SubscriptionController@verifyPayment');
     $router->post('/api/login', 'AuthController@login');
     $router->post('/api/logout', 'AuthController@logout');
     $router->post('/api/register', 'AuthController@register');
@@ -22,11 +23,15 @@ if (preg_match('#^/api(/|$)#', $uri)) {
     $router->post('/api/password/verify', 'AuthController@verifyOtp');
     $router->post('/api/password/reset', 'AuthController@resetPassword');
     $router->get('/api/dashboard', 'DashboardController@index');
+    $router->post('/api/profil/update', 'DashboardController@updateProfile');
     // Lane #4 : état de session (rôle) pour les gardes d'accès côté navigateur
     $router->get('/api/me', function() {
         header('Content-Type: application/json');
         \App\Controller\Controller::getCsrfToken(); // s'assure qu'une session existe
-        if (!isset($_SESSION['client_id'])) {
+        if (isset($_SESSION['admin_logged_in'])) {
+            // Session du portail admin (table admins) : admin authentifié
+            echo json_encode(['authenticated' => true, 'role' => 'admin', 'name' => 'Administration']);
+        } elseif (!isset($_SESSION['client_id'])) {
             echo json_encode(['authenticated' => false]);
         } else {
             echo json_encode(['authenticated' => true, 'role' => $_SESSION['role'] ?? 'client', 'name' => $_SESSION['client_name'] ?? '']);
@@ -46,6 +51,7 @@ if (preg_match('#^/api(/|$)#', $uri)) {
     $router->post('/api/admin/login', 'AuthController@adminLogin');
     $router->post('/api/admin/password', 'AuthController@updateAdminPassword');
     $router->get('/api/admin/overview', 'AdminController@overview');
+    $router->get('/api/admin/lists', 'AdminController@lists');
     $router->post('/api/admin/kyc/approve', 'KycController@approve');
     $router->post('/api/admin/kyc/reject', 'KycController@reject');
     $router->post('/api/admin/template/update', 'AdminController@updateTemplate');

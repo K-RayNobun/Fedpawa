@@ -28,12 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             currentEmail = emailField ? emailField.value : '';
 
             try {
-                const res = await fetch(apiUrl('/api/password/request'), {
-                    credentials: 'include',
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email: currentEmail })
-                });
+                const res = await Api.post('/api/password/request', { email: currentEmail });
                 const data = await res.json();
                 if (res.ok) {
                     // mail_service: "configured" = envoi réel actif ; "not_configured" = mode pré-production
@@ -90,12 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             resendLinkBtn.style.display = 'none';
             try {
-                const res = await fetch(apiUrl('/api/password/request'), {
-                    credentials: 'include',
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email: currentEmail })
-                });
+                const res = await Api.post('/api/password/request', { email: currentEmail });
                 const data = await res.json();
                 if (res.ok) {
                     if (data.mail_service === 'not_configured') {
@@ -142,12 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
             otpInputs.forEach(inp => otpCode += inp.value);
 
             try {
-                const res = await fetch(apiUrl('/api/password/verify'), {
-                    credentials: 'include',
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ otp: otpCode })
-                });
+                const res = await Api.post('/api/password/verify', { otp: otpCode });
                 const data = await res.json();
                 if (res.ok) {
                     clearInterval(otpTimerInterval);
@@ -218,12 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             try {
-                const res = await fetch(apiUrl('/api/password/reset'), {
-                    credentials: 'include',
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ mot_de_passe: newPwdInput.value })
-                });
+                const res = await Api.post('/api/password/reset', { mot_de_passe: newPwdInput.value });
                 const data = await res.json();
                 if (res.ok) {
                     showState('state-success');

@@ -32,7 +32,7 @@ class InternalMailController extends Controller {
 
     public function reply() {
         try {
-            if (!isset($_SESSION['admin_logged_in'])) {
+            if (!(isset($_SESSION['admin_logged_in']) || (!empty($_SESSION['client_id']) && ($_SESSION['role'] ?? 'client') === 'admin'))) {
                 $this->json(['error' => 'Non autorisé'], 403);
                 return;
             }

@@ -143,12 +143,49 @@ document.addEventListener('DOMContentLoaded', () => {
                 `).join('');
             }
 
+
+        // ===== Lane audit: onglet Abonnement (données réelles) =====
+        const offerLabel = document.getElementById('offerLabel');
+        if (offerLabel && sub) {
+            offerLabel.innerText = (sub.pack || 'Aucun pack');
+            const price = document.getElementById('offerPrice');
+            const start = document.getElementById('offerStart');
+            const end = document.getElementById('offerEnd');
+            const hours = document.getElementById('offerHours');
+            if (price) price.innerHTML = '<strong>Tarif :</strong> ' + Number(sub.prix || 0).toLocaleString('fr-FR') + ' FCFA';
+            if (start) start.innerHTML = '<strong>Date de début :</strong> ' + (sub.date_debut ? new Date(String(sub.date_debut).replace(' ', 'T')).toLocaleDateString('fr-FR') : '—');
+            if (end) end.innerHTML = '<strong>Date de fin :</strong> ' + (sub.date_fin ? new Date(String(sub.date_fin).replace(' ', 'T')).toLocaleDateString('fr-FR') : 'Sans engagement');
+            if (hours) hours.innerText = '';
+        }
+
+        // ===== Lane audit: documents KYC - statuts réels =====
+        const docItems = document.querySelectorAll('#tab-documents .doc-item');
+        if (kyc && docItems.length) {
+            const setDoc = (idx, ok, label) => {
+                const d = docItems[idx];
+                if (!d) return;
+                const st = d.querySelector('.doc-status');
+                if (st) st.className = 'doc-status ' + (ok ? 'valid' : 'pending');
+                const p = d.querySelector('.doc-info p');
+                if (p) p.innerText = label;
+            };
+            const approuve = kyc.statuts === 'approuvé';
+            setDoc(0, !!kyc.piece_identite, kyc.piece_identite ? (approuve ? 'Validé' : 'Téléversé, en validation') : 'En attente de téléversement');
+            setDoc(1, !!kyc.piece_identite, kyc.piece_identite ? (approuve ? 'Validé' : 'Téléversé, en validation') : 'En attente de téléversement');
+            setDoc(2, !!kyc.justificatif_domicile, kyc.justificatif_domicile ? (approuve ? 'Validé' : 'Téléversé, en validation') : 'En attente de téléversement');
+            setDoc(3, approuve, approuve ? 'Validé par l\'administration' : 'En attente de validation');
+        }
         } catch (err) {
             console.error('Erreur chargement dashboard:', err);
         }
     }
 
-    loadDashboardData();
+    // Lane audit: ce script ne charge les données CLIENT que sur l'espace client.
+    // Sur admin_dashboard.html, /api/dashboard est 401 (route client) et la redirection
+    // provoquait une boucle infinie admin_dashboard <-> authentification.
+    if (document.documentElement.getAttribute('data-auth') !== 'admin') {
+        loadDashboardData();
+    }
 
     // KYC Drag & Drop (Espace Client)
     const uploadArea = document.getElementById('uploadArea');
@@ -174,4 +211,69 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // ===== Lane audit: formulaires réels (profil, support, KYC, mail) =====
+    const profilForm = document.getElementById('profilForm');
+    if (profilForm) {
+        profilForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const inputs = profilForm.querySelectorAll('input');
+            const payload = { nom: inputs[0]?.value, entreprise: inputs[1]?.value, email: inputs[2]?.value, telephone: inputs[3]?.value, adresse: inputs[4]?.value };
+            try {
+                const res = await Api.post('/api/profil/update', payload);
+                const data = await res.json().catch(() => ({}));
+                if (res.ok && !data.error) { if (window.FedpawaUI) FedpawaUI.toast('Profil mis à jour.', 'success'); loadDashboardData(); }
+                else if (window.FedpawaUI) FedpawaUI.toast((data && data.error) || 'Erreur de mise à jour.', 'error');
+            } catch (err) { if (window.FedpawaUI) FedpawaUI.toast('Erreur réseau.', 'error'); }
+        });
+    }
+
+    const supportForm = document.getElementById('supportForm');
+    if (supportForm) {
+        supportForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const sujet = supportForm.querySelector('input')?.value?.trim();
+            const message = supportForm.querySelector('textarea')?.value?.trim();
+            if (!sujet || !message) return;
+            const btn = supportForm.querySelector('button[type="submit"], .btn-primary');
+            if (btn) { btn.disabled = true; btn.innerText = 'Envoi...'; }
+            try {
+                const res = await Api.post('/api/support', { sujet, message });
+                const data = await res.json().catch(() => ({}));
+                if (res.ok && !data.error) {
+                    if (window.FedpawaUI) FedpawaUI.toast('Message envoyé au support. Réponse sous 24h.', 'success');
+                    supportForm.reset();
+                } else if (window.FedpawaUI) FedpawaUI.toast((data && data.error) || 'Erreur d\'envoi.', 'error');
+            } catch (err) { if (window.FedpawaUI) FedpawaUI.toast('Erreur réseau.', 'error'); }
+            if (btn) { btn.disabled = false; btn.innerText = 'Envoyer'; }
+        });
+    }
+
+    // ===== Lane audit: envoi de documents KYC réel =====
+    if (uploadArea && fileInput) {
+        const submitKyc = async (files) => {
+            if (!files.length) return;
+            const fd = new FormData();
+            // le backend attend exactement ces deux champs (KycService)
+            if (files[0]) fd.append('piece_identite', files[0], files[0].name || 'identite.pdf');
+            if (files[1]) fd.append('justificatif_domicile', files[1], files[1].name || 'justificatif.pdf');
+            try {
+                const csrf = await (await fetch(apiUrl('/api/csrf-token'), { credentials: 'include' })).json();
+                const res = await fetch(apiUrl('/api/kyc/submit'), {
+                    method: 'POST', credentials: 'include',
+                    headers: { 'X-CSRF-Token': csrf.csrf_token || '' },
+                    body: fd
+                });
+                const data = await res.json().catch(() => ({}));
+                if (res.ok && !data.error) { if (window.FedpawaUI) FedpawaUI.toast('Documents transmis. Validation en cours.', 'success'); loadDashboardData(); }
+                else if (window.FedpawaUI) FedpawaUI.toast((data && data.error) || 'Erreur de téléversement.', 'error');
+            } catch (err) { if (window.FedpawaUI) FedpawaUI.toast('Erreur réseau.', 'error'); }
+        };
+        // remplacer les alert() de démo par l'envoi réel
+        uploadArea.addEventListener('drop', (e) => { e.preventDefault(); uploadArea.classList.remove('dragover'); submitKyc(e.dataTransfer.files); });
+        fileInput.addEventListener('change', () => submitKyc(fileInput.files));
+        const kycBtn = document.querySelector('#tab-documents .btn-primary');
+        if (kycBtn) kycBtn.addEventListener('click', () => { if (fileInput.files.length) submitKyc(fileInput.files); else if (fileInput) fileInput.click(); });
+    }
+
 });

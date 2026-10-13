@@ -23,6 +23,7 @@ class SubscriptionController extends Controller {
     }
 
     public function process() {
+        error_log('LANE-DEBUG process() v3 campayEnabled=' . var_export(fedpawa_env('CAMPAY_ENABLED', '1') === '1', true));
         if (!$this->requireClient()) return; // Lane #4 : souscription réservée aux connectés
         try {
             $input = json_decode(file_get_contents('php://input'), true);
@@ -45,22 +46,32 @@ class SubscriptionController extends Controller {
             // 1. Initialiser la souscription
             $sub = $this->subService->store($input);
 
-            // 2. Initier le paiement Campay
-            try {
-                $payment = $this->campay->collect((float)$input['prix'], $input['telephone'] ?? '', 'SUB_' . $sub['subscription_id']);
-            } catch (\Exception $e) {
-                error_log('Campay collect failed: ' . $e->getMessage());
-                $this->json(['status' => 'payment_init_failed', 'error' => 'Impossible d\'initier le paiement. Réessayez.'], 502);
-                return;
+            // 2. Initier le paiement Campay (ou mode démo si CAMPAY_ENABLED=0)
+            $campayEnabled = fedpawa_env('CAMPAY_ENABLED', '1') === '1';
+            $transactionId = null;
+            if ($campayEnabled) {
+                try {
+                    $payment = $this->campay->collect((float)$input['prix'], $input['telephone'] ?? '', 'SUB_' . $sub['subscription_id']);
+                    $transactionId = $payment['reference'] ?? $payment['transaction_id'] ?? null;
+                } catch (\Exception $e) {
+                    error_log('Campay collect failed: ' . $e->getMessage());
+                    $this->json(['status' => 'payment_init_failed', 'error' => 'Impossible d\'initier le paiement. Réessayez.'], 502);
+                    return;
+                }
+            } else {
+                // Mode démo : référence simulée, le « Vérifier Mon Paiement » la confirmera
+                $transactionId = 'DEMO-SUB-' . $sub['subscription_id'];
             }
 
-            $transactionId = $payment['reference'] ?? $payment['transaction_id'] ?? null;
-
-            // 3. Enregistrer le paiement en attente (rapprochement webhook)
+            // 3. Enregistrer le paiement en attente (rapprochement webhook ou vérification manuelle)
+            $db = Database::getConnection();
             if ($transactionId) {
-                $db = Database::getConnection();
                 $db->prepare("INSERT INTO paiements (client_id, montant, mode_paiement, transaction_id, date, statut) VALUES (?, ?, 'campay', ?, ?, 'en_attente')")
                    ->execute([$sub['client_id'], (float)$input['prix'], $transactionId, date('Y-m-d H:i:s')]);
+            } else {
+                // Campay n'a pas renvoyé de référence (mode démo) : trace quand même la tentative
+                $db->prepare("INSERT INTO paiements (client_id, montant, mode_paiement, transaction_id, date, statut) VALUES (?, ?, 'campay', '', ?, 'en_attente')")
+                   ->execute([$sub['client_id'], (float)$input['prix'], date('Y-m-d H:i:s')]);
             }
 
             // 4. Générer l'OTP pour la signature.
@@ -103,6 +114,16 @@ class SubscriptionController extends Controller {
                 return;
             }
 
+
+            // Lane contrat : signature possible uniquement si le paiement est reçu
+            $stmt = $db->prepare("SELECT id, statut FROM paiements WHERE client_id = ? ORDER BY id DESC LIMIT 1");
+            $stmt->execute([$clientId]);
+            $pay = $stmt->fetch();
+            $campayEnabled = fedpawa_env('CAMPAY_ENABLED', '1') === '1';
+            if ($campayEnabled && (!$pay || $pay['statut'] !== 'recu')) {
+                $this->json(['error' => 'Paiement non confirmé. Utilisez « Vérifier Mon Paiement » avant de signer.'], 402);
+                return;
+            }
             // L'OTP est le facteur d'authentification de la signature
             if (!OtpService::verify($clientId, (string)$input['otp'])) {
                 $this->json(['error' => 'Signature invalide'], 400);
@@ -120,18 +141,74 @@ class SubscriptionController extends Controller {
             file_put_contents($path, $pdf);
 
             $db->prepare("UPDATE abonnements SET statut = 'actif' WHERE id = ?")->execute([$sub['id']]);
-            $db->prepare("INSERT INTO contrats (client_id, type, fichier, date_signature) VALUES (?, 'domiciliation', ?, ?)")
-               ->execute([$clientId, 'documents/contrat_' . $sub['id'] . '.pdf', date('Y-m-d H:i:s')]);
+            $stmtC = $db->prepare("INSERT INTO contrats (client_id, type, fichier, date_signature) VALUES (?, 'domiciliation', ?, ?)");
+            $stmtC->execute([$clientId, 'documents/contrat_' . $sub['id'] . '.pdf', date('Y-m-d H:i:s')]);
+            $contratId = (int)$db->lastInsertId();
 
             $this->notifier->sendWelcomeEmail($sub['email'], $sub['nom']);
 
             OtpService::clear($clientId);
             AuditLogger::log('SUBSCRIPTION_FINALIZED', $clientId, 'client', 'Sub ID: ' . $sub['id']);
 
-            $this->json(['message' => 'Souscription finalisée']);
+            $this->json([
+                'message' => 'Souscription finalisée',
+                'contrat_url' => '/api/document?type=contrat&id=' . $contratId
+            ]);
         } catch (\Exception $e) {
             error_log('Finalize error: ' . $e->getMessage());
             $this->json(['error' => 'Erreur interne lors de la finalisation'], 500);
+        }
+    }
+    public function verifyPayment() {
+        if (!$this->requireClient()) return;
+        try {
+            $input = json_decode(file_get_contents('php://input'), true);
+            $subId = (int)($input['sub_id'] ?? 0);
+            $clientId = (int)$_SESSION['client_id'];
+
+            $db = Database::getConnection();
+            $stmt = $db->prepare("SELECT id, prix, statut FROM abonnements WHERE id = ? AND client_id = ?");
+            $stmt->execute([$subId, $clientId]);
+            $sub = $stmt->fetch();
+            if (!$sub) {
+                $this->json(['error' => 'Souscription introuvable'], 404);
+                return;
+            }
+
+            // Dernier paiement de ce client (rattachement par client, le plus recent)
+            $stmt = $db->prepare("SELECT id, transaction_id, statut, montant FROM paiements WHERE client_id = ? ORDER BY id DESC LIMIT 1");
+            $stmt->execute([$clientId]);
+            $pay = $stmt->fetch();
+
+            $campayEnabled = fedpawa_env('CAMPAY_ENABLED', '1') === '1';
+            $statut = 'en_attente';
+            $transactionId = $pay['transaction_id'] ?? '';
+
+            if ($campayEnabled && $transactionId) {
+                // Production : statut reel cote Campay
+                $status = $this->campay->checkStatus($transactionId);
+                $statut = (($status['status'] ?? '') === 'SUCCESSFUL') ? 'recu' : 'en_attente';
+                if ($pay) {
+                    $db->prepare("UPDATE paiements SET statut = ? WHERE id = ?")->execute([$statut, (int)$pay['id']]);
+                }
+            } elseif (!$campayEnabled) {
+                // Mode demo : le paiement est considere comme recu des la demande de verification
+                if ($pay) {
+                    $statut = 'recu';
+                    $db->prepare("UPDATE paiements SET statut = ? WHERE id = ?")->execute([$statut, (int)$pay['id']]);
+                }
+            }
+
+            $this->json([
+                'status' => ($statut === 'recu') ? 'paid' : 'pending',
+                'sub_id' => $subId,
+                'client_id' => $clientId,
+                'prix' => (float)$sub['prix'],
+                'transaction_id' => $transactionId
+            ]);
+        } catch (\Exception $e) {
+            error_log('VerifyPayment error: ' . $e->getMessage());
+            $this->json(['error' => 'Erreur lors de la vérification du paiement'], 500);
         }
     }
 }

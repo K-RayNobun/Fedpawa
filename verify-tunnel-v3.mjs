@@ -1,6 +1,7 @@
 const BASE = process.argv[2] || 'http://127.0.0.1:18081';
 
 const { chromium } = await import('/root/lofi-cities/tools/node_modules/playwright-core/index.mjs');
+import { ensureLogin } from '/root/Fedpawa/test-lib.mjs';
 const CHROME = '/root/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome';
 (async () => {
   const browser = await chromium.launch({ executablePath: CHROME, args: ['--no-sandbox'] });
@@ -13,6 +14,8 @@ const CHROME = '/root/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome';
   await page.evaluate(() => fetch('/api/login', { credentials: 'include', method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: 'curl-test@fedpawa.com', mot_de_passe: 'Test1234!' }) }));
 
   // 1. sans service -> redirection
+  const ok = await ensureLogin(page);
+  if (!ok) { console.log('FATAL login test impossible'); process.exit(2); }
   await page.goto(BASE + '/tunnel_souscription.php', { waitUntil: 'load' });
   await page.waitForTimeout(1500);
   check('sans service -> accueil#services', page.url().includes('index.php') && page.url().includes('#services'), page.url().split('/').pop());

@@ -1,4 +1,17 @@
 <?php
+
+
+// Lane contrat : lecture d'environnement robuste (getenv peut ne pas voir
+// les variables docker run -e selon le SAPI ; on complète avec $_SERVER/$_ENV)
+if (!function_exists('fedpawa_env')) {
+    function fedpawa_env(string $name, string $default = ''): string {
+        $v = getenv($name);
+        if ($v !== false && $v !== '') return $v;
+        if (!empty($_SERVER[$name])) return (string)$_SERVER[$name];
+        if (!empty($_ENV[$name])) return (string)$_ENV[$name];
+        return $default;
+    }
+}
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');

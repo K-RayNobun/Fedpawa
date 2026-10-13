@@ -12,8 +12,8 @@ class KycController extends Controller {
         $this->service = new KycService();
     }
 
-    private function requireAdmin(): bool {
-        if (!isset($_SESSION['admin_logged_in'])) {
+    protected function requireAdmin(): bool {
+        if (!(isset($_SESSION['admin_logged_in']) || (!empty($_SESSION['client_id']) && ($_SESSION['role'] ?? 'client') === 'admin'))) {
             $this->json(['error' => 'Non autorisé'], 403);
             return false;
         }

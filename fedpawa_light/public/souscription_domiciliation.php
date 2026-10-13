@@ -397,5 +397,5 @@ include __DIR__ . '/../templates/partials/site-header.php';
 </div>
 
 <?php
-$extraJs = ['assets/js/config.js', 'assets/js/auth-guard.js', 'assets/js/fedpawa-ui.js', 'assets/js/fedpawa-pay.js', 'assets/js/souscription_domiciliation.js'];
+$extraJs = ['assets/js/api.js', 'assets/js/config.js', 'assets/js/auth-guard.js', 'assets/js/fedpawa-ui.js', 'assets/js/fedpawa-pay.js', 'assets/js/souscription_domiciliation.js'];
 include __DIR__ . '/../templates/partials/site-footer.php';

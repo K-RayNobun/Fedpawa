@@ -2,7 +2,7 @@
 $title = "Souscription Domiciliation d'Entreprises | FEDPAWA CORPORATE SOLUTIONS SARL";
 $description = "Formulaire de souscription en ligne au service de domiciliation d'entreprises et mise à disposition d'infrastructures de FEDPAWA CORPORATE SOLUTIONS SARL à Douala Logpom.";
 $active = 'services';
-$extraCss = ['assets/css/dashboard.css'];
+$extraCss = ['assets/css/dashboard.css?v=2'];
 
 $dataAuth = 'user';
 include __DIR__ . '/../templates/partials/site-header.php';
@@ -397,5 +397,5 @@ include __DIR__ . '/../templates/partials/site-header.php';
 </div>
 
 <?php
-$extraJs = ['assets/js/api.js', 'assets/js/config.js', 'assets/js/auth-guard.js', 'assets/js/fedpawa-ui.js', 'assets/js/fedpawa-pay.js', 'assets/js/souscription_domiciliation.js'];
+$extraJs = ['assets/js/api.js', 'assets/js/config.js', 'assets/js/auth-guard.js', 'assets/js/fedpawa-ui.js?v=2', 'assets/js/fedpawa-pay.js?v=2', 'assets/js/souscription_domiciliation.js'];
 include __DIR__ . '/../templates/partials/site-footer.php';

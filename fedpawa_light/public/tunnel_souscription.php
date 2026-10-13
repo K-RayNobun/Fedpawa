@@ -2,7 +2,7 @@
 $title = "Tunnel de Souscription | FEDPAWA CORPORATE SOLUTIONS";
 $description = "Souscrivez en ligne aux services FEDPAWA Corporate Solutions : création d'entreprise, protection OAPI, suivi fiscal, contrats et domiciliation. Paiement sécurisé Mobile Money, carte ou virement.";
 $active = 'services';
-$extraCss = ['assets/css/dashboard.css'];
+$extraCss = ['assets/css/dashboard.css?v=2'];
 
 $dataAuth = 'user';
 include __DIR__ . '/../templates/partials/site-header.php';
@@ -635,5 +635,5 @@ observer.observe(summaryTotalEl, { childList: true });
 </script>
 
 <?php
-$extraJs = ['assets/js/api.js', 'assets/js/config.js', 'assets/js/auth-guard.js', 'assets/js/fedpawa-ui.js', 'assets/js/fedpawa-pay.js', 'assets/js/tunnel.js'];
+$extraJs = ['assets/js/api.js', 'assets/js/config.js', 'assets/js/auth-guard.js', 'assets/js/fedpawa-ui.js?v=2', 'assets/js/fedpawa-pay.js?v=2', 'assets/js/tunnel.js'];
 include __DIR__ . '/../templates/partials/site-footer.php';

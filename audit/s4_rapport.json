@@ -1,0 +1,93 @@
+{
+ "section": "S4-auth-espaces",
+ "pages": [
+  "authentification",
+  "mot_de_passe_oublie",
+  "espace_client",
+  "admin_dashboard"
+ ],
+ "findings": [
+  {
+   "id": "SEC-S4-1",
+   "face": "security",
+   "severity": "critical",
+   "title": "FAILLE: code OTP de reset renvoyé dans la réponse HTTP (debug_otp)",
+   "evidence": "POST /api/password/request avec un email valide → 200 {\"message\":\"Code OTP envoyé avec succès\",\"debug_otp\":\"376439\"} — le code de réinitialisation est lisible par l'appelant. N'importe qui peut: 1) demander un reset pour le compte d'un autre, 2) lire le code dans la réponse, 3) reset son mot de passe = PRISE DE COMPTE TOTALE. Le commentaire du code dit 'NOTE (démo): aucun e-mail configuré' — mais la prod est déployée avec cette faille",
+   "location": "src/Controller/AuthController.php:144 (requestPasswordReset)",
+   "fix": "Retirer debug_otp de la réponse IMMÉDIATEMENT en prod (le garder derrière un if(getenv('APP_ENV')==='dev')); uniformiser la réponse pour email existant/inexistant"
+  },
+  {
+   "id": "SEC-S4-2",
+   "face": "security",
+   "severity": "high",
+   "title": "Énumération d'emails possible via réponses différenciées",
+   "evidence": "email inexistant → \"Si cet e-mail existe, un code de réinitialisation a été envoyé.\" / email valide → \"Code OTP envoyé avec succès\" — un attaquant peut dresser la liste des emails inscrits (combined avec la faille SEC-S4-1: ciblage précis)",
+   "location": "AuthController requestPasswordReset",
+   "fix": "Toujours retourner le même message générique quel que soit le résultat"
+  },
+  {
+   "id": "A11Y-S4-1",
+   "face": "accessibility",
+   "severity": "medium",
+   "title": "Input email (page auth): contraste 1.23:1",
+   "evidence": "INPUT fg=rgb(0,0,0) sur bg=rgb(17,28,46) = 1.23:1 (texte noir sur fond navy foncé) — champ quasi invisible",
+   "location": "authentification.html (inputs)",
+   "fix": "Couleur de texte input claire en mode sombre"
+  },
+  {
+   "id": "A11Y-S4-2",
+   "face": "accessibility",
+   "severity": "medium",
+   "title": "Mot de passe oublié: 3 forms sans labels (champs non identifiables)",
+   "evidence": "requestForm/otpForm/newPwdForm: champs sans labels ni aria-label (label=False sur 9 champs)",
+   "location": "mot_de_passe_oublie.html",
+   "fix": "Ajouter <label for> ou aria-label sur chaque champ"
+  },
+  {
+   "id": "FE-S4-1",
+   "face": "front-end",
+   "severity": "low",
+   "title": "Console auth: favicon 404 + 403 /api/login au chargement",
+   "evidence": "Au chargement de authentification.html: une requête /api/login part et reçoit 403 (CSRF manquant au boot) — erreur console visible; probablement un appel de garde déclenché trop tôt",
+   "location": "authentification.html + api.js",
+   "fix": "Ne pas appeler /api/login au chargement; vérifier le handler d'initialisation"
+  },
+  {
+   "id": "UX-S4-1",
+   "face": "ux-content",
+   "severity": "medium",
+   "title": "Champ téléphone non required dans le register (incohérence avec tunnel)",
+   "evidence": "Le formulaire d'inscription n'exige pas le téléphone alors que le tunnel l'exige à l'étape coordonnées — incohérence de données collectées",
+   "location": "authentification.html (form register)",
+   "fix": "Uniformiser la politique de collecte (recommandé: required des deux côtés)"
+  }
+ ],
+ "checked": {
+  "security": [
+   "login/register sans CSRF → 403 propre (2/2)",
+   "3 logins invalides → 401 x3, pas de lockout visible (acceptable)",
+   "client → /api/admin/lists → 403",
+   "admin → espace_client → redirigé admin_dashboard",
+   "CSRF présent sur toutes les POST testées",
+   "reset 3 états (request/verify/reset) fonctionnels"
+  ],
+  "front-end": [
+   "0 image cassée",
+   "espace client + admin: 0 erreur console bloquante",
+   "données réelles affichées (Client Test, standard, sans engagement)"
+  ],
+  "accessibility": [
+   "contrastes espace client + admin: OK",
+   "h1 unique, theme navy cohérent"
+  ],
+  "seo": [
+   "titles conformes (auth 43c, mdp 49c)"
+  ]
+ },
+ "not_checked": {
+  "security": [
+   "rate limiting /api/password/request (nécessiterait >10 essais = brute force, hors politique)",
+   "expiration OTP (vérifié en code: expires_at défini, non testé en runtime)"
+  ]
+ }
+}

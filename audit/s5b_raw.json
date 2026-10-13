@@ -1,0 +1,267 @@
+{
+ "init": {
+  "url": "http://127.0.0.1:18081/tunnel_souscription.php?service=contrats",
+  "steps": [
+   "step-validation-hint",
+   "step-1",
+   "step-2",
+   "step-3",
+   "step-4"
+  ],
+  "visible": [
+   "step-1"
+  ],
+  "amount": "50 000 FCFA"
+ },
+ "step_skip_empty": [
+  {
+   "clicked": "CONTINUER →",
+   "step": "step-1"
+  },
+  {
+   "visible": [
+    "step-validation-hint",
+    "step-1"
+   ],
+   "errors": [],
+   "url": "http://127.0.0.1:18081/tunnel_souscription.php?service=contrats"
+  },
+  {
+   "done": true,
+   "noBtn": true,
+   "step": "step-validation-hint"
+  },
+  {
+   "visible": [
+    "step-validation-hint",
+    "step-1"
+   ],
+   "errors": [],
+   "url": "http://127.0.0.1:18081/tunnel_souscription.php?service=contrats"
+  }
+ ],
+ "hostile": [
+  "creation-demarche",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "opt-no-niu-fiscal",
+  "?",
+  "?",
+  "regime-fiscal",
+  "?",
+  "acf",
+  "acf",
+  "declarations",
+  "declarations",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "oapi-actif-type",
+  "?",
+  "?",
+  "?",
+  "titulaire",
+  "titulaire",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "contrat-type",
+  "?",
+  "contrat-formule",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "?",
+  "pays"
+ ],
+ "hostile_after": {
+  "visible": [
+   "step-validation-hint",
+   "step-1"
+  ],
+  "errors": [],
+  "url": "http://127.0.0.1:18081/tunnel_souscription.php?service=contrats"
+ },
+ "valid_flow": [
+  {
+   "step": "step-1",
+   "filled": [
+    "creation-demarche",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "opt-no-niu-fiscal",
+    "?",
+    "?",
+    "regime-fiscal",
+    "?",
+    "acf",
+    "acf",
+    "declarations",
+    "declarations",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "oapi-actif-type",
+    "?",
+    "?",
+    "?",
+    "titulaire",
+    "titulaire",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "contrat-type",
+    "?",
+    "contrat-formule",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "pays"
+   ],
+   "btn": "Continuer →"
+  },
+  {
+   "visible": [
+    "step-2"
+   ],
+   "url": "http://127.0.0.1:18081/tunnel_souscription.php?service=contrats",
+   "amount": "?"
+  },
+  {
+   "step": "step-2",
+   "filled": [
+    "?",
+    "?",
+    "?",
+    "?"
+   ],
+   "btn": "Continuer vers les documents →"
+  },
+  {
+   "visible": [
+    "step-3"
+   ],
+   "url": "http://127.0.0.1:18081/tunnel_souscription.php?service=contrats",
+   "amount": "100 000 FCFA"
+  },
+  {
+   "step": "step-3",
+   "filled": [],
+   "noBtn": true
+  },
+  {
+   "visible": [
+    "step-3"
+   ],
+   "url": "http://127.0.0.1:18081/tunnel_souscription.php?service=contrats",
+   "amount": "100 000 FCFA"
+  },
+  {
+   "step": "step-3",
+   "filled": [],
+   "noBtn": true
+  },
+  {
+   "visible": [
+    "step-3"
+   ],
+   "url": "http://127.0.0.1:18081/tunnel_souscription.php?service=contrats",
+   "amount": "100 000 FCFA"
+  },
+  {
+   "step": "step-3",
+   "filled": [],
+   "noBtn": true
+  },
+  {
+   "visible": [
+    "step-3"
+   ],
+   "url": "http://127.0.0.1:18081/tunnel_souscription.php?service=contrats",
+   "amount": "100 000 FCFA"
+  }
+ ],
+ "console": [
+  "Failed to load resource: the server responded with a status of 404 (Not Found)"
+ ],
+ "failed": []
+}

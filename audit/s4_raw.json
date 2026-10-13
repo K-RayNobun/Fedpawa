@@ -1,0 +1,825 @@
+{
+ "anon": {
+  "auth": {
+   "label": "auth-anonyme",
+   "url": "/authentification.html",
+   "console": [
+    "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "error: Failed to load resource: the server responded with a status of 403 (Forbidden)"
+   ],
+   "failed": [
+    "403 /api/login"
+   ],
+   "seo": {
+    "title": "Espace Client | FEDPAWA CORPORATE SOLUTIONS",
+    "title_len": 43,
+    "h1_count": 1,
+    "lang": "fr",
+    "theme": "navy",
+    "imgs_no_alt": 0
+   },
+   "broken_imgs": [],
+   "text_head": "F\nFEDPAWA\nCORPORATE SOLUTIONS\nGérez votre entreprise en toute sérénité.\n\nAccédez à votre tableau de bord pour suivre vos abonnements, téléverser vos documents KYC, consulter vos courriers scannés et gérer votre fiscalité.\n\nSuivi des démarches en temp",
+   "forms": [
+    {
+     "action": null,
+     "method": null,
+     "fields": [
+      {
+       "name": "",
+       "type": "email",
+       "hasLabel": true
+      },
+      {
+       "name": "",
+       "type": "password",
+       "hasLabel": true
+      },
+      {
+       "name": "",
+       "type": "checkbox",
+       "hasLabel": true
+      }
+     ],
+     "hasOnsubmitAlert": false
+    },
+    {
+     "action": null,
+     "method": null,
+     "fields": [
+      {
+       "name": "",
+       "type": "select-one",
+       "hasLabel": true
+      },
+      {
+       "name": "",
+       "type": "text",
+       "hasLabel": true
+      },
+      {
+       "name": "",
+       "type": "text",
+       "hasLabel": true
+      },
+      {
+       "name": "",
+       "type": "select-one",
+       "hasLabel": true
+      },
+      {
+       "name": "",
+       "type": "email",
+       "hasLabel": true
+      },
+      {
+       "name": "",
+       "type": "tel",
+       "hasLabel": true
+      },
+      {
+       "name": "",
+       "type": "password",
+       "hasLabel": true
+      },
+      {
+       "name": "",
+       "type": "password",
+       "hasLabel": true
+      },
+      {
+       "name": "",
+       "type": "checkbox",
+       "hasLabel": true
+      }
+     ],
+     "hasOnsubmitAlert": false
+    }
+   ],
+   "contrast": [
+    {
+     "sel": "A",
+     "text": "F\nFEDPAWA\nCORPORATE SOLUTIONS",
+     "ratio": 9.53,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(5,8,15)"
+    },
+    {
+     "sel": "SPAN",
+     "text": "FEDPAWA\nCORPORATE SOLUTIONS",
+     "ratio": 9.53,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(5,8,15)"
+    },
+    {
+     "sel": "H1",
+     "text": "Gérez votre entreprise en toute sér",
+     "ratio": 20.04,
+     "need": 3,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(5,8,15)"
+    },
+    {
+     "sel": "SPAN",
+     "text": "toute sérénité",
+     "ratio": 9.53,
+     "need": 3,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(5,8,15)"
+    },
+    {
+     "sel": "P",
+     "text": "Accédez à votre tableau de bord pou",
+     "ratio": 4.21,
+     "need": 4.5,
+     "fg": "rgb(100, 116, 139)",
+     "bg": "rgb(5,8,15)"
+    },
+    {
+     "sel": "H2",
+     "text": "Espace Client",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "P",
+     "text": "Connectez-vous ou créez un compte p",
+     "ratio": 6.66,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "LABEL",
+     "text": "ADRESSE E-MAIL",
+     "ratio": 6.66,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "LABEL",
+     "text": "MOT DE PASSE",
+     "ratio": 6.66,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "LABEL",
+     "text": "Se souvenir de moi",
+     "ratio": 6.66,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "INPUT",
+     "text": "on",
+     "ratio": 1.23,
+     "need": 4.5,
+     "fg": "rgb(0, 0, 0)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "SPAN",
+     "text": "Se souvenir de moi",
+     "ratio": 6.66,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "A",
+     "text": "Mot de passe oublié ?",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "BUTTON",
+     "text": "SE CONNECTER",
+     "ratio": 8.77,
+     "need": 4.5,
+     "fg": "rgb(10, 20, 36)",
+     "bg": "rgb(212,175,55)"
+    },
+    {
+     "sel": "P",
+     "text": "Pas encore de compte ? Créer un com",
+     "ratio": 6.66,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "SPAN",
+     "text": "Pas encore de compte ?",
+     "ratio": 6.66,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "A",
+     "text": "Créer un compte",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    }
+   ]
+  },
+  "mdp": {
+   "label": "mdp-anonyme",
+   "url": "/mot_de_passe_oublie.html",
+   "console": [
+    "error: Failed to load resource: the server responded with a status of 403 (Forbidden)"
+   ],
+   "failed": [
+    "403 /api/login"
+   ],
+   "seo": {
+    "title": "Mot de passe oublié | FEDPAWA CORPORATE SOLUTIONS",
+    "title_len": 49,
+    "h1_count": 1,
+    "lang": "fr",
+    "theme": "navy",
+    "imgs_no_alt": 0
+   },
+   "broken_imgs": [],
+   "text_head": "F\nFEDPAWA\nCORPORATE SOLUTIONS\nSécurité et Confidentialité Absolue.\n\nVos données sont protégées par un chiffrement de bout en bout. Réinitialisez votre accès en toute sérénité.\n\nChiffrement SSL 256-bit\nAuthentification Sécurisée\nAssistance 24/7\n© FEDP",
+   "forms": [
+    {
+     "action": null,
+     "method": null,
+     "fields": [
+      {
+       "name": "",
+       "type": "email",
+       "hasLabel": false
+      }
+     ],
+     "hasOnsubmitAlert": false
+    },
+    {
+     "action": null,
+     "method": null,
+     "fields": [
+      {
+       "name": "",
+       "type": "text",
+       "hasLabel": false
+      },
+      {
+       "name": "",
+       "type": "text",
+       "hasLabel": false
+      },
+      {
+       "name": "",
+       "type": "text",
+       "hasLabel": false
+      },
+      {
+       "name": "",
+       "type": "text",
+       "hasLabel": false
+      },
+      {
+       "name": "",
+       "type": "text",
+       "hasLabel": false
+      },
+      {
+       "name": "",
+       "type": "text",
+       "hasLabel": false
+      }
+     ],
+     "hasOnsubmitAlert": false
+    },
+    {
+     "action": null,
+     "method": null,
+     "fields": [
+      {
+       "name": "",
+       "type": "password",
+       "hasLabel": false
+      },
+      {
+       "name": "",
+       "type": "password",
+       "hasLabel": false
+      }
+     ],
+     "hasOnsubmitAlert": false
+    }
+   ],
+   "contrast": [
+    {
+     "sel": "A",
+     "text": "F\nFEDPAWA\nCORPORATE SOLUTIONS",
+     "ratio": 9.53,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(5,8,15)"
+    },
+    {
+     "sel": "SPAN",
+     "text": "FEDPAWA\nCORPORATE SOLUTIONS",
+     "ratio": 9.53,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(5,8,15)"
+    },
+    {
+     "sel": "H1",
+     "text": "Sécurité et Confidentialité Absolue",
+     "ratio": 20.04,
+     "need": 3,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(5,8,15)"
+    },
+    {
+     "sel": "SPAN",
+     "text": "Confidentialité",
+     "ratio": 9.53,
+     "need": 3,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(5,8,15)"
+    },
+    {
+     "sel": "P",
+     "text": "Vos données sont protégées par un c",
+     "ratio": 4.21,
+     "need": 4.5,
+     "fg": "rgb(100, 116, 139)",
+     "bg": "rgb(5,8,15)"
+    },
+    {
+     "sel": "A",
+     "text": "← Retour à la page de connexion",
+     "ratio": 6.66,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "H2",
+     "text": "Mot de passe oublié ?",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "P",
+     "text": "Ne vous inquiétez pas. Saisissez vo",
+     "ratio": 6.66,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "LABEL",
+     "text": "ADRESSE E-MAIL PROFESSIONNELLE",
+     "ratio": 6.66,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "BUTTON",
+     "text": "ENVOYER LE LIEN DE RÉINITIALISATION",
+     "ratio": 8.77,
+     "need": 4.5,
+     "fg": "rgb(10, 20, 36)",
+     "bg": "rgb(212,175,55)"
+    },
+    {
+     "sel": "P",
+     "text": "Vous rencontrez des difficultés ?\nC",
+     "ratio": 6.66,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "A",
+     "text": "Contacter le support client",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    }
+   ]
+  }
+ },
+ "client": {
+  "login": {
+   "status": 200,
+   "body": "{\"message\":\"Connexion r\\u00e9ussie\",\"redirect\":\"espace_client.html\",\"role\":\"client\"}"
+  },
+  "espace": {
+   "label": "espace-client",
+   "url": "/espace_client.html",
+   "console": [
+    "error: Failed to load resource: the server responded with a status of 403 (Forbidden)"
+   ],
+   "failed": [
+    "403 /api/admin/lists"
+   ],
+   "seo": {
+    "title": "Espace Client | FEDPAWA CORPORATE SOLUTIONS",
+    "title_len": 43,
+    "h1_count": 8,
+    "lang": "fr",
+    "theme": "navy",
+    "imgs_no_alt": 0
+   },
+   "broken_imgs": [],
+   "text_head": "F\nFEDPAWA\nESPACE CLIENT\nClient Test\nCT\nDÉCONNEXION\nTableau de bord\nMon abonnement\nMes factures\nMes contrats\nMes documents (KYC)\nMes courriers\nMon profil\nSupport\nBonjour, Client Test\n\nBienvenue dans votre espace client. Voici un résumé de votre compte",
+   "forms": [
+    {
+     "action": null,
+     "method": null,
+     "fields": [
+      {
+       "name": "",
+       "type": "text",
+       "hasLabel": false
+      },
+      {
+       "name": "",
+       "type": "text",
+       "hasLabel": false
+      },
+      {
+       "name": "",
+       "type": "email",
+       "hasLabel": false
+      },
+      {
+       "name": "",
+       "type": "tel",
+       "hasLabel": false
+      },
+      {
+       "name": "",
+       "type": "text",
+       "hasLabel": false
+      }
+     ],
+     "hasOnsubmitAlert": false
+    },
+    {
+     "action": null,
+     "method": null,
+     "fields": [
+      {
+       "name": "",
+       "type": "text",
+       "hasLabel": false
+      },
+      {
+       "name": "",
+       "type": "textarea",
+       "hasLabel": false
+      }
+     ],
+     "hasOnsubmitAlert": false
+    }
+   ],
+   "contrast": [
+    {
+     "sel": "A",
+     "text": "F\nFEDPAWA\nESPACE CLIENT",
+     "ratio": 8.19,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "SPAN",
+     "text": "FEDPAWA\nESPACE CLIENT",
+     "ratio": 8.19,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "SPAN",
+     "text": "Client Test",
+     "ratio": 15.72,
+     "need": 4.5,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "A",
+     "text": "DÉCONNEXION",
+     "ratio": 17.22,
+     "need": 4.5,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "SPAN",
+     "text": "DÉCONNEXION",
+     "ratio": 17.22,
+     "need": 4.5,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "H1",
+     "text": "Bonjour, Client Test",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "P",
+     "text": "Bienvenue dans votre espace client.",
+     "ratio": 6.66,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "H3",
+     "text": "ABONNEMENT ACTIF",
+     "ratio": 6.71,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "SPAN",
+     "text": "ACTIF",
+     "ratio": 13.97,
+     "need": 4.5,
+     "fg": "rgb(226, 232, 240)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "H3",
+     "text": "CONFORMITÉ (KYC)",
+     "ratio": 6.71,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "SPAN",
+     "text": "CONFORME",
+     "ratio": 13.97,
+     "need": 4.5,
+     "fg": "rgb(226, 232, 240)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "H3",
+     "text": "DERNIER COURRIER REÇU",
+     "ratio": 6.71,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "SPAN",
+     "text": "SCANNÉ & ARCHIVÉ",
+     "ratio": 13.97,
+     "need": 4.5,
+     "fg": "rgb(226, 232, 240)",
+     "bg": "rgb(15,27,48)"
+    }
+   ]
+  },
+  "espace_text": "F\nFEDPAWA\nESPACE CLIENT\nClient Test\nCT\nDÉCONNEXION\nTableau de bord\nMon abonnement\nMes factures\nMes contrats\nMes documents (KYC)\nMes courriers\nMon profil\nSupport\nBonjour, Client Test\n\nBienvenue dans votre espace client. Voici un résumé de votre compte.\n\nABONNEMENT ACTIF\nstandard\nSans engagement\nACTIF\nCONFORMITÉ (KYC)\nDossier validé\nChargement…\nCONFORME\nDERNIER COURRIER REÇU\n13/10/2026\nRéception enregistrée\nSCANNÉ & ARCHIVÉ",
+  "admin_api": {
+   "status": 403,
+   "body": "{\"error\":\"Non autoris\\u00e9\"}"
+  }
+ },
+ "admin": {
+  "login": {
+   "status": 200,
+   "body": "{\"message\":\"Connexion r\\u00e9ussie\",\"redirect\":\"admin_dashboard.html\",\"role\":\"admin\"}"
+  },
+  "dashboard": {
+   "label": "admin-dashboard",
+   "url": "/admin_dashboard.html",
+   "console": [
+    "error: Failed to load resource: the server responded with a status of 403 (Forbidden)"
+   ],
+   "failed": [
+    "403 /api/dashboard"
+   ],
+   "seo": {
+    "title": "Administration | FEDPAWA CORPORATE SOLUTIONS",
+    "title_len": 44,
+    "h1_count": 10,
+    "lang": "fr",
+    "theme": "navy",
+    "imgs_no_alt": 0
+   },
+   "broken_imgs": [],
+   "text_head": "F\nFEDPAWA ADMIN\nBACK-OFFICE\nSuper Administrateur\nSA\nDÉCONNEXION\nVue d'ensemble\nGestion Clients\nAbonnements\nPaiements\nCourriers\nContrats\nValidation KYC\n0\nStats & Paramètres\nTickets Support\nMessagerie\nVue d'ensemble\n\nBienvenue. Voici la synthétique de ",
+   "forms": [
+    {
+     "action": null,
+     "method": null,
+     "fields": [
+      {
+       "name": "",
+       "type": "select-one",
+       "hasLabel": false
+      },
+      {
+       "name": "",
+       "type": "date",
+       "hasLabel": false
+      },
+      {
+       "name": "",
+       "type": "checkbox",
+       "hasLabel": true
+      }
+     ],
+     "hasOnsubmitAlert": false
+    }
+   ],
+   "contrast": [
+    {
+     "sel": "A",
+     "text": "F\nFEDPAWA ADMIN\nBACK-OFFICE",
+     "ratio": 8.19,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "SPAN",
+     "text": "FEDPAWA ADMIN\nBACK-OFFICE",
+     "ratio": 8.19,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "SPAN",
+     "text": "ADMIN",
+     "ratio": 9.53,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(5,8,15)"
+    },
+    {
+     "sel": "SPAN",
+     "text": "Super Administrateur",
+     "ratio": 15.72,
+     "need": 4.5,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "A",
+     "text": "DÉCONNEXION",
+     "ratio": 17.22,
+     "need": 4.5,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "SPAN",
+     "text": "DÉCONNEXION",
+     "ratio": 17.22,
+     "need": 4.5,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "H1",
+     "text": "Vue d'ensemble",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "P",
+     "text": "Bienvenue. Voici la synthétique de ",
+     "ratio": 6.66,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "H3",
+     "text": "MEMBRES ACTIFS",
+     "ratio": 6.71,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "H3",
+     "text": "CA MENSUEL",
+     "ratio": 6.71,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "H3",
+     "text": "ABONNEMENTS",
+     "ratio": 6.71,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "H3",
+     "text": "KYC EN ATTENTE",
+     "ratio": 6.71,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "H2",
+     "text": "Actions Requises",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "P",
+     "text": "Répondez rapidement aux demandes cl",
+     "ratio": 6.71,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "A",
+     "text": "CONSULTER →",
+     "ratio": 8.19,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "P",
+     "text": "Boîte de réception interne.",
+     "ratio": 6.71,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "A",
+     "text": "OUVRIR LA MESSAGERIE →",
+     "ratio": 8.19,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(15,27,48)"
+    }
+   ]
+  },
+  "dash_text": "F\nFEDPAWA ADMIN\nBACK-OFFICE\nSuper Administrateur\nSA\nDÉCONNEXION\nVue d'ensemble\nGestion Clients\nAbonnements\nPaiements\nCourriers\nContrats\nValidation KYC\n0\nStats & Paramètres\nTickets Support\nMessagerie\nVue d'ensemble\n\nBienvenue. Voici la synthétique de l'activité de FEDPAWA Corporate Solutions.\n\nMEMBRES ACTIFS\n81\nTotal enregistrés\nCA MENSUEL\n153 000 FCFA\nPaiements reçus cumulés\nABONNEMENTS\n47\nToutes souscriptions\nKYC EN ATTENTE\n0\nDossiers à traiter\nActions Requises\n5 ticket(s) support ouvert(s)\n\nRépondez rapidement aux demandes clients.\n\nCONSULTER →\n5 message(s) client(s) reçu(s)\n\nBoîte de récept",
+  "espace_client_access": {
+   "final_url": "/admin_dashboard.html",
+   "redirected": true
+  }
+ },
+ "security": {
+  "login_sans_csrf": {
+   "status": 403,
+   "body": "{\"error\":\"Jeton CSRF invalide ou manquant\"}"
+  },
+  "invalid_login_x3": [
+   401,
+   401,
+   401
+  ],
+  "reset_inconnu": {
+   "status": 404,
+   "body": "Route introuvable: /api/mot-de-passe/oublie"
+  },
+  "register_sans_csrf": {
+   "status": 403,
+   "body": "{\"error\":\"Jeton CSRF invalide ou manquant\"}"
+  }
+ }
+}

@@ -1,0 +1,108 @@
+{
+ "section": "S2-services",
+ "pages": [
+  "domiciliation",
+  "creation_entreprise",
+  "fiscalite",
+  "oapi",
+  "contrats",
+  "FR+EN"
+ ],
+ "findings": [
+  {
+   "id": "UX-S2-1",
+   "face": "ux-content",
+   "severity": "high",
+   "title": "Pages EN: ~26 liens internes par page retombent en FR (nav, logo, footer)",
+   "evidence": "Sur les 5 pages services EN: nav header (HOME, Domiciliation, Company Formation, Tax & Legal Advisory, OAPI Protection, Contracts), logo, footer complet et certains CTA pointent vers les versions FR sans /en/ — ex: /en/domiciliation.php contient HOME -> /index.php",
+   "location": "includes header/footer sur pages EN (toutes)",
+   "fix": "Utiliser $langPrefix dynamique pour TOUS les liens internes du header/footer/CTA (le même mécanisme que les assets)"
+  },
+  {
+   "id": "UX-S2-2",
+   "face": "ux-content",
+   "severity": "medium",
+   "title": "Packs domiciliation EN: intitulés traduits mais l'architecture des cards n'est pas vérifiable visuellement (6 prix identiques FR/EN)",
+   "evidence": "FR: 6 prix (25k/45k/70k/50k/110k/175k), EN: 6 prix identiques — cohérent. Mais les libellés des packs EN sont restés en partie en français: source contient 'Pack ESSENTIAL', 'Pack BUSINESS', 'Pack PREMIUM'",
+   "location": "/en/domiciliation.php (cards packs)",
+   "fix": "Vérifier les libellés EN: 'Pack' est acceptable en EN mais 'domicile' vs 'address' mérite relecture"
+  },
+  {
+   "id": "UX-S2-3",
+   "face": "ux-content",
+   "severity": "medium",
+   "title": "CTA 'Je m'abonne' des pages création/fiscalité/OAPI/contrats mènent au tunnel SANS service présélectionné",
+   "evidence": "creation/fiscalite/oapi/contrats FR: unique CTA abonnement -> /tunnel_souscription.php (sans ?service=) → rebond #services. Seule domiciliation a 2 CTA avec ?pack= (essential, business) et 5 autres vides",
+   "location": "creation_entreprise.php, fiscalite.php, oapi.php, contrats.php",
+   "fix": "Préfixer chaque CTA avec ?service=creation|fiscalite|oapi|contrats pour entrer directement dans le tunnel présélectionné"
+  },
+  {
+   "id": "FE-S2-1",
+   "face": "front-end",
+   "severity": "low",
+   "title": "Lightbox domiciliation: <img src=\"\"> déclenche une requête fantôme vers la page",
+   "evidence": "<img src=\"\" id=\"lightboxImg\"> génère une requête GET domiciliation.php (200, HTML rendu comme image échouée) — visible dans les outils réseau, src vide au chargement",
+   "location": "domiciliation.php:211 (lightbox)",
+   "fix": "src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' ou src='assets/images/domi_accueil_1.jpg' par défaut"
+  },
+  {
+   "id": "A11Y-S2-1",
+   "face": "accessibility",
+   "severity": "medium",
+   "title": "Toutes les pages services: titles 86-140 chars et descriptions 165-228 chars (troncature SERP)",
+   "evidence": "domiciliation FR 102c/228c, creation 105c/177c, fiscalite 86c/170c, oapi 125c/208c, contrats 140c/194c — toutes au-dessus des seuils 60/160",
+   "location": "$title/$description de chaque page",
+   "fix": "Raccourcir à <60c/<160c — le SEO repose sur les mots-clés en tête"
+  },
+  {
+   "id": "SEO-S2-1",
+   "face": "seo-perf",
+   "severity": "medium",
+   "title": "Poids ressources domiciliation: 803KB (FR) dont ~700KB images",
+   "evidence": "domiciliation FR res=803KB pour 6 photos 810x1080/1080x810 + logo + gratte-ciel 177KB; les autres pages ~428KB stables",
+   "location": "assets/images/domi_*.jpg (6 fichiers 85-141KB)",
+   "fix": "Convertir domi_*.jpg en WebP ~60-70KB (-45%) + lazy loading déjà présent"
+  },
+  {
+   "id": "SEO-S2-2",
+   "face": "seo-perf",
+   "severity": "low",
+   "title": "H1 manquant ou multiple à vérifier sur les 5 pages",
+   "evidence": "Aucune page service n'a signalé de h1_count==0 ni >1 — OK sur ce point (vérifié: h1 unique partout)",
+   "location": "—",
+   "fix": "— (point positif documenté)"
+  }
+ ],
+ "checked": {
+  "front-end": [
+   "console: 0 erreur sur 10 pages (sauf favicon global)",
+   "failed requests: 0/10",
+   "images cassées: 0 réelle (1 lightbox src vide — faux positif documenté)",
+   "mobile 375px: 0 overflow sur 10 pages"
+  ],
+  "ux-content": [
+   "prix FR/EN identiques sur les 5 services (12/12 valeurs)",
+   "prix domiciliation FR: 25k/45k/70k/50k/110k/175k conformes au pricing officiel",
+   "CTA domiciliation avec ?pack= présélectionnés (essential/business)"
+  ],
+  "accessibility": [
+   "contrastes: 0 échec supplémentaire mesuré sur pages services (60 blocs/page)",
+   "h1 unique sur 10/10 pages",
+   "alt présents sur toutes les img de contenu"
+  ],
+  "seo-perf": [
+   "DCL: 200-345ms selon page (rapide)",
+   "HTML: 20-22KB/page",
+   "création/fiscalite/oapi/contrats: res stables 428KB"
+  ]
+ },
+ "not_checked": {
+  "accessibility": [
+   "navigation clavier Tab (prévue S3)",
+   "ARIA roles (prévu S3)"
+  ],
+  "security": [
+   "entrées hostiles endpoint contact (prévu S4) — pages services sont statiques"
+  ]
+ }
+}

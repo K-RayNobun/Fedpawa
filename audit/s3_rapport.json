@@ -1,0 +1,94 @@
+{
+ "section": "S3-entreprise-contact",
+ "pages": [
+  "qui-sommes-nous.php",
+  "contact.php",
+  "+EN"
+ ],
+ "findings": [
+  {
+   "id": "UX-S3-1",
+   "face": "ux-content",
+   "severity": "critical",
+   "title": "Formulaire de contact: FAUX — il n'envoie rien (simulateur JS)",
+   "evidence": "<form onsubmit=\"event.preventDefault(); alert('Merci ! Votre message a bien été envoyé.'); this.reset();\"> — aucune requête réseau part, aucun backend, l'utilisateur croit avoir écrit à l'entreprise et son message est perdu. Method GET affiché mais aucun traitement $_GET/$_POST dans contact.php",
+   "location": "public/contact.php (form tag)",
+   "fix": "Brancher sur un endpoint réel (ex: /api/contact -> table messages + mail notification) avec feedback honnête; en attendant, remplacer le form par mailto: + numéro WhatsApp"
+  },
+  {
+   "id": "A11Y-S3-1",
+   "face": "accessibility",
+   "severity": "high",
+   "title": "Focus invisible: 6/25 éléments focusables sans indicateur (outline: none)",
+   "evidence": "Links nav (Domiciliation, Création d'entreprise…) ont outline:none et box-shadow:none — un utilisateur clavier ne sait pas où il est (reproduit sur les 4 pages testées)",
+   "location": "reset CSS / nav links (global)",
+   "fix": ":focus-visible { outline: 2px solid var(--color-gold); outline-offset: 2px; }"
+  },
+  {
+   "id": "A11Y-S3-2",
+   "face": "accessibility",
+   "severity": "medium",
+   "title": "Carte WhatsApp contact: ratio 1.98:1 (blanc sur vert WhatsApp)",
+   "evidence": "«WhatsApp — Discutez avec nous» blanc #FFF sur rgb(37,211,102) = 1.98:1 < 4.5:1 (h3 aussi à 1.98 < 3:1 large)",
+   "location": "contact.php (.qa-card WhatsApp)",
+   "fix": "Fond vert assombri (#128C7E WhatsApp dark = ~3.5:1) ou texte navy"
+  },
+  {
+   "id": "A11Y-S3-3",
+   "face": "accessibility",
+   "severity": "medium",
+   "title": "Chips «ENTREPRISES STRUCTURÉES»/«COUVERTURE OAPI» 4.21:1 en mode sombre",
+   "evidence": "spans rgb(100,116,139) sur rgb(5,8,15) — même pattern que S1 (texte muted mode sombre)",
+   "location": "qui-sommes-nous.php (badges)",
+   "fix": "Éclaircir la palette muted dark-mode"
+  },
+  {
+   "id": "SEO-S3-1",
+   "face": "seo-perf",
+   "severity": "medium",
+   "title": "Titles > 60 chars (qui-sommes FR 74c, EN 78c)",
+   "evidence": "FR 74c / EN 78c — tronqués en SERP",
+   "location": "$title pages",
+   "fix": "Raccourcir"
+  },
+  {
+   "id": "FE-S3-1",
+   "face": "front-end",
+   "severity": "low",
+   "title": "NAV débordante à 375px (right=683px) — mais scrollWidth=375 (pas de scroll global)",
+   "evidence": "Éléments nav A right=683px sur les 4 pages mobiles: le menu mobile est hors écran (drawer caché par design) mais nos outils le mesurent comme débordant — À CONFIRMER visuellement: si le drawer s'ouvre bien, faux positif",
+   "location": "nav mobile (toutes pages)",
+   "fix": "Vérifier le rendu du menu hamburger — si OK, ignorer"
+  }
+ ],
+ "checked": {
+  "front-end": [
+   "0 erreur console EN/FR (sauf favicon global)",
+   "0 requête échouée",
+   "0 image cassée",
+   "mobile: pas de débordement global (scrollWidth=375)"
+  ],
+  "ux-content": [
+   "title/desc contact conformes (37c/140c)",
+   "h1 unique 4/4 pages",
+   "lang correct 4/4",
+   "formulaire: labels présents 5/5 champs, required OK"
+  ],
+  "accessibility": [
+   "focus clavier 25 éléments/page",
+   "contrastes ~60 blocs/page",
+   "alt 100%"
+  ],
+  "security": [
+   "formulaire contact = le principal point d'entrée — testé (voir finding critical)"
+  ]
+ },
+ "not_checked": {
+  "security": [
+   "endpoint de soumission inexistant — rien à fuzz côté réseau (le form est JS-only)"
+  ],
+  "ux-content": [
+   "horaires adresse vérifiés visuellement sur texte: Immeuble Pharmacie de Logpom, Lun-Ven 8h-18h, Sam 9h-14h — cohérents"
+  ]
+ }
+}

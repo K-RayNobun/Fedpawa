@@ -6,7 +6,7 @@ $description = $description ?? "FEDPAWA CORPORATE SOLUTIONS — Infrastructure d
 $active      = $active ?? '';
 $lang        = $lang ?? 'fr';
 $servicesActive = in_array($active, ['services', 'domiciliation', 'creation', 'fiscalite', 'oapi', 'contrats'], true);
-$langPrefix = $lang === 'en' ? '/en' : '';
+$langPrefix = $langPrefix ?? ($lang === 'en' ? '/en' : '');
 ?>
 <!DOCTYPE html>
 <html lang="<?= $lang ?>" data-theme="navy" data-mode="dark"<?= isset($dataAuth) ? ' data-auth="' . $dataAuth . '"' : '' ?>>

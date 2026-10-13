@@ -1,0 +1,209 @@
+{
+ "section": "S1-accueil",
+ "pages": [
+  "/",
+  "/en/index.php"
+ ],
+ "findings": [
+  {
+   "id": "FE-1",
+   "face": "front-end",
+   "severity": "low",
+   "title": "favicon.ico absent (404 console sur toutes les pages)",
+   "evidence": "Console FR: 'Failed to load resource: 404' sur /favicon.ico — aucune icône d'onglet navigateur",
+   "location": "site-wide (toutes pages)",
+   "fix": "Ajouter un favicon.ico 32x32 (peut dériver du logo.jpg) à la racine de public/"
+  },
+  {
+   "id": "UX-1",
+   "face": "ux-content",
+   "severity": "high",
+   "title": "Page EN: la majorité des liens internes retombent sur les pages FR",
+   "evidence": "22 liens EN mènent aux pages sans préfixe /en/: «Domiciliation»→/domiciliation.php, «Company Formation»→/creation_entreprise.php, «Tax & Legal Advisory»→/fiscalite.php, «OAPI Protection»→/oapi.php, «Contracts»→/contrats.php, «ABOUT US»→/qui-sommes-nous.php… (logo, nav principale, footer, SUBSCRIBE)",
+   "location": "/en/index.php: nav header, footer, bouton SUBSCRIBE",
+   "fix": "Préfixer tous les href des pages EN avec /en/ (ou générer la nav via $langPrefix dans le header/footer partagés)"
+  },
+  {
+   "id": "UX-2",
+   "face": "ux-content",
+   "severity": "medium",
+   "title": "FR: CTA principal «JE M'ABONNE» mène au tunnel sans présélection",
+   "evidence": "Bouton hero «JE M'ABONNE» -> /tunnel_souscription.php (sans ?service=) → l'utilisateur est immédiatement rebasculé vers index.php#services",
+   "location": "templates/pages/home.php (hero)",
+   "fix": "Soit pointer directement vers #services (sans rebond), soit présélectionner un service par défaut"
+  },
+  {
+   "id": "UX-3",
+   "face": "ux-content",
+   "severity": "low",
+   "title": "Aucun prix visible sur l'accueil FR/EN",
+   "evidence": "0 occurrence de 'FCFA' dans le texte visible de l'accueil FR et EN; les packs chiffrés n'apparaissent que sur domiciliation.php",
+   "location": "templates/pages/home.php",
+   "fix": "Optionnel: afficher 'dès 25 000 FCFA/mois' sur la card Domiciliation pour ancrer le proposition de valeur"
+  },
+  {
+   "id": "A11Y-1",
+   "face": "accessibility",
+   "severity": "high",
+   "title": "Contraste insuffisant du CTA doré (ratio 2.1:1, requis 4.5:1)",
+   "evidence": "Boutons «JE M'ABONNE»/«SUBSCRIBE»: texte blanc #FFFFFF sur fond doré rgb(212,175,55) = ratio 2.1:1 — échec WCAG AA (identique en mode clair et sombre)",
+   "location": ".btn-primary (composant global)",
+   "fix": "Passer le texte en #0A1424 (navy foncé) sur le doré: ratio ~7:1, conforme AA"
+  },
+  {
+   "id": "A11Y-2",
+   "face": "accessibility",
+   "severity": "medium",
+   "title": "Texte muted sur fond sombre sous le seuil AA (4.21:1)",
+   "evidence": "span rgb(100,116,139) sur rgb(5,8,15): ratio 4.21:1 < 4.5:1 requis — «Adresse, démarches et suivi au même endroit» (hero, mode sombre)",
+   "location": ".hero (mode sombre), texte secondaire",
+   "fix": "Éclaircir la couleur muted en mode sombre (ex: #7C8AA5 → ~5:1)"
+  },
+  {
+   "id": "A11Y-3",
+   "face": "accessibility",
+   "severity": "low",
+   "title": "Éléments < 24px de hauteur (cibles tactiles)",
+   "evidence": "Lien mailto contact@fedpawa.com: h=16px; items nav footer: h=23px — sous le seuil WCAG 2.2 (24px min)",
+   "location": "footer + contact bar",
+   "fix": "Ajouter padding vertical pour atteindre 24px minimum"
+  },
+  {
+   "id": "A11Y-4",
+   "face": "accessibility",
+   "severity": "low",
+   "title": "Polices < 12px",
+   "evidence": "'CORPORATE SOLUTIONS' 10.56px (small), expertise-kicker 11.52px, lang-toggle 11.52px",
+   "location": "brand small, kickers, toggle langue",
+   "fix": "Monter à 12px minimum"
+  },
+  {
+   "id": "SEC-1",
+   "face": "security",
+   "severity": "medium",
+   "title": "Headers de sécurité manquants: CSP, X-Frame-Options, Referrer-Policy",
+   "evidence": "Réponse / (prod, via Cloudflare): seulement HSTS + X-Content-Type-Options présents; ni Content-Security-Policy, ni X-Frame-Options, ni Referrer-Policy",
+   "location": "Caddy + conteneur PHP",
+   "fix": "Ajouter dans Caddy: X-Frame-Options DENY, Referrer-Policy strict-origin-when-cross-origin, et une CSP permissive-résiliente (self + fonts.googleapis + images)"
+  },
+  {
+   "id": "SEO-1",
+   "face": "seo-perf",
+   "severity": "high",
+   "title": "Aucun tag canonical ni hreflang FR/EN",
+   "evidence": "FR et EN: link[rel=canonical] absent, link[rel=hreflang] absents (0) — risque de contenu dupliqué / confusion géolinguistique pour Google",
+   "location": "site-header.php (head)",
+   "fix": "<link rel='canonical' href='https://api.fedpawa.com{page}'> + hreflang fr/en alternates sur chaque page"
+  },
+  {
+   "id": "SEO-2",
+   "face": "seo-perf",
+   "severity": "high",
+   "title": "Aucun tag Open Graph / Twitter Card",
+   "evidence": "og:title, og:description, og:image, og:url: tous absents des 2 pages — aperçu lien nu sur WhatsApp/LinkedIn (canal principal B2B Cameroun)",
+   "location": "site-header.php (head)",
+   "fix": "OG complet avec og:image dédié (ex: home_hero.jpg 1000x750) + twitter:card summary_large_image"
+  },
+  {
+   "id": "SEO-3",
+   "face": "seo-perf",
+   "severity": "medium",
+   "title": "Title > 60 chars (tronqué par Google)",
+   "evidence": "FR: 'FEDPAWA CORPORATE SOLUTIONS | Infrastruc…' = 72 chars; EN = 71 — le nom de marque + 2 segments prioritaires suffisent",
+   "location": "site-header.php ($title)",
+   "fix": "Raccourcir: 'FEDPAWA | Domiciliation & Business Hub Douala' (~50 chars)"
+  },
+  {
+   "id": "SEO-4",
+   "face": "seo-perf",
+   "severity": "medium",
+   "title": "Meta description > 160 chars",
+   "evidence": "FR: 191 chars; EN: 187 — le tail sera tronqué dans les SERPs",
+   "location": "site-header.php ($description)",
+   "fix": "Compresser à ~150-155 chars avec les mots-clés en tête"
+  },
+  {
+   "id": "SEO-5",
+   "face": "seo-perf",
+   "severity": "medium",
+   "title": "Poids images: 503KB (FR) pour 7 images",
+   "evidence": "Ressources totales 783KB dont images 503KB — les home_*.jpg font 55-101KB chacun; conversion WebP = -40%",
+   "location": "assets/images/home_*.jpg",
+   "fix": "Convertir en WebP (PIL/cwebp) + <picture> avec fallback JPG; viser <50KB/image"
+  },
+  {
+   "id": "SEO-6",
+   "face": "seo-perf",
+   "severity": "low",
+   "title": "Gratte-ciel Unsplash 177KB chargé sur mobile",
+   "evidence": "photo-1486406 (hero CSS ::before) chargé sur toutes les pages/tailles d'écran: 177KB pour un effet d'arrière-plan opacité 0.18",
+   "location": "components.css .hero::before",
+   "fix": "Servir une version réduite (~700px, WebP) ou le limiter aux grands écrans"
+  }
+ ],
+ "checked": {
+  "front-end": [
+   "console errors (FR:1 favicon, EN:0 après fix)",
+   "requêtes 4xx/5xx (0 après fix langPrefix)",
+   "images cassées (0)",
+   "liens internes (38 FR / 40 EN)",
+   "nav desktop+mobile"
+  ],
+  "ux-content": [
+   "structure sections FR/EN",
+   "CTA et destinations",
+   "switch FR<->EN",
+   "signaux de confiance (email visible, adresse?)"
+  ],
+  "accessibility": [
+   "contrastes mode clair (80 blocs mesurés)",
+   "contrastes mode sombre (25 échantillons)",
+   "alt images (0 manquant)",
+   "hiérarchie Hn (h1 unique OK)",
+   "overflow mobile 375px",
+   "cibles tactiles",
+   "tailles police"
+  ],
+  "security": [
+   "accès anonyme 5 pages protégées (5/5 redirigées)",
+   "/api/admin/lists anonyme (403)",
+   "cron.php (Accès refusé)",
+   "7 payloads hostiles login/register (7/7 rejet propre, 0 fuite interne)",
+   "headers sécurité",
+   "flags cookie (HttpOnly, Secure, SameSite=None à revoir en HTTP local)"
+  ],
+  "seo-perf": [
+   "title/description",
+   "canonical/hreflang",
+   "OG",
+   "Hn",
+   "alt",
+   "poids page",
+   "timing (DCL 277ms FR)",
+   "gzip",
+   "comptage ressources"
+  ]
+ },
+ "not_checked": {
+  "front-end": [
+   "captcha (hors périmètre)"
+  ],
+  "ux-content": [
+   "qualité traduction EN fine-grain (comparaison sémantique complète FR<->EN à faire section par section)",
+   "prix EN: pages services EN non encore auditées (S2)"
+  ],
+  "accessibility": [
+   "navigation clavier complète (Tab through) — à intégrer au script S2",
+   "lecteur d'écran (NVDA/JAWS) non disponible sur ce serveur"
+  ],
+  "security": [
+   "fuzzing avancé (uploads fichiers corrompus) — prévu S4/S5",
+   "rate limiting brute force (politique: pas de brute force)",
+   "tests admin authentifié (prévus S4)"
+  ],
+  "seo-perf": [
+   "robots.txt / sitemap.xml (prévu check global S5)",
+   "Core Web Vitals terrain (nécessite données réelles utilisateurs)"
+  ]
+ }
+}

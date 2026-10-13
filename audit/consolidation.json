@@ -1,0 +1,1055 @@
+{
+ "sections": [
+  {
+   "section": "S1-accueil",
+   "pages": [
+    "/",
+    "/en/index.php"
+   ],
+   "findings": [
+    {
+     "id": "FE-1",
+     "face": "front-end",
+     "severity": "low",
+     "title": "favicon.ico absent (404 console sur toutes les pages)",
+     "evidence": "Console FR: 'Failed to load resource: 404' sur /favicon.ico — aucune icône d'onglet navigateur",
+     "location": "site-wide (toutes pages)",
+     "fix": "Ajouter un favicon.ico 32x32 (peut dériver du logo.jpg) à la racine de public/",
+     "section": "S1-accueil"
+    },
+    {
+     "id": "UX-1",
+     "face": "ux-content",
+     "severity": "high",
+     "title": "Page EN: la majorité des liens internes retombent sur les pages FR",
+     "evidence": "22 liens EN mènent aux pages sans préfixe /en/: «Domiciliation»→/domiciliation.php, «Company Formation»→/creation_entreprise.php, «Tax & Legal Advisory»→/fiscalite.php, «OAPI Protection»→/oapi.php, «Contracts»→/contrats.php, «ABOUT US»→/qui-sommes-nous.php… (logo, nav principale, footer, SUBSCRIBE)",
+     "location": "/en/index.php: nav header, footer, bouton SUBSCRIBE",
+     "fix": "Préfixer tous les href des pages EN avec /en/ (ou générer la nav via $langPrefix dans le header/footer partagés)",
+     "section": "S1-accueil"
+    },
+    {
+     "id": "UX-2",
+     "face": "ux-content",
+     "severity": "medium",
+     "title": "FR: CTA principal «JE M'ABONNE» mène au tunnel sans présélection",
+     "evidence": "Bouton hero «JE M'ABONNE» -> /tunnel_souscription.php (sans ?service=) → l'utilisateur est immédiatement rebasculé vers index.php#services",
+     "location": "templates/pages/home.php (hero)",
+     "fix": "Soit pointer directement vers #services (sans rebond), soit présélectionner un service par défaut",
+     "section": "S1-accueil"
+    },
+    {
+     "id": "UX-3",
+     "face": "ux-content",
+     "severity": "low",
+     "title": "Aucun prix visible sur l'accueil FR/EN",
+     "evidence": "0 occurrence de 'FCFA' dans le texte visible de l'accueil FR et EN; les packs chiffrés n'apparaissent que sur domiciliation.php",
+     "location": "templates/pages/home.php",
+     "fix": "Optionnel: afficher 'dès 25 000 FCFA/mois' sur la card Domiciliation pour ancrer le proposition de valeur",
+     "section": "S1-accueil"
+    },
+    {
+     "id": "A11Y-1",
+     "face": "accessibility",
+     "severity": "high",
+     "title": "Contraste insuffisant du CTA doré (ratio 2.1:1, requis 4.5:1)",
+     "evidence": "Boutons «JE M'ABONNE»/«SUBSCRIBE»: texte blanc #FFFFFF sur fond doré rgb(212,175,55) = ratio 2.1:1 — échec WCAG AA (identique en mode clair et sombre)",
+     "location": ".btn-primary (composant global)",
+     "fix": "Passer le texte en #0A1424 (navy foncé) sur le doré: ratio ~7:1, conforme AA",
+     "section": "S1-accueil"
+    },
+    {
+     "id": "A11Y-2",
+     "face": "accessibility",
+     "severity": "medium",
+     "title": "Texte muted sur fond sombre sous le seuil AA (4.21:1)",
+     "evidence": "span rgb(100,116,139) sur rgb(5,8,15): ratio 4.21:1 < 4.5:1 requis — «Adresse, démarches et suivi au même endroit» (hero, mode sombre)",
+     "location": ".hero (mode sombre), texte secondaire",
+     "fix": "Éclaircir la couleur muted en mode sombre (ex: #7C8AA5 → ~5:1)",
+     "section": "S1-accueil"
+    },
+    {
+     "id": "A11Y-3",
+     "face": "accessibility",
+     "severity": "low",
+     "title": "Éléments < 24px de hauteur (cibles tactiles)",
+     "evidence": "Lien mailto contact@fedpawa.com: h=16px; items nav footer: h=23px — sous le seuil WCAG 2.2 (24px min)",
+     "location": "footer + contact bar",
+     "fix": "Ajouter padding vertical pour atteindre 24px minimum",
+     "section": "S1-accueil"
+    },
+    {
+     "id": "A11Y-4",
+     "face": "accessibility",
+     "severity": "low",
+     "title": "Polices < 12px",
+     "evidence": "'CORPORATE SOLUTIONS' 10.56px (small), expertise-kicker 11.52px, lang-toggle 11.52px",
+     "location": "brand small, kickers, toggle langue",
+     "fix": "Monter à 12px minimum",
+     "section": "S1-accueil"
+    },
+    {
+     "id": "SEC-1",
+     "face": "security",
+     "severity": "medium",
+     "title": "Headers de sécurité manquants: CSP, X-Frame-Options, Referrer-Policy",
+     "evidence": "Réponse / (prod, via Cloudflare): seulement HSTS + X-Content-Type-Options présents; ni Content-Security-Policy, ni X-Frame-Options, ni Referrer-Policy",
+     "location": "Caddy + conteneur PHP",
+     "fix": "Ajouter dans Caddy: X-Frame-Options DENY, Referrer-Policy strict-origin-when-cross-origin, et une CSP permissive-résiliente (self + fonts.googleapis + images)",
+     "section": "S1-accueil"
+    },
+    {
+     "id": "SEO-1",
+     "face": "seo-perf",
+     "severity": "high",
+     "title": "Aucun tag canonical ni hreflang FR/EN",
+     "evidence": "FR et EN: link[rel=canonical] absent, link[rel=hreflang] absents (0) — risque de contenu dupliqué / confusion géolinguistique pour Google",
+     "location": "site-header.php (head)",
+     "fix": "<link rel='canonical' href='https://api.fedpawa.com{page}'> + hreflang fr/en alternates sur chaque page",
+     "section": "S1-accueil"
+    },
+    {
+     "id": "SEO-2",
+     "face": "seo-perf",
+     "severity": "high",
+     "title": "Aucun tag Open Graph / Twitter Card",
+     "evidence": "og:title, og:description, og:image, og:url: tous absents des 2 pages — aperçu lien nu sur WhatsApp/LinkedIn (canal principal B2B Cameroun)",
+     "location": "site-header.php (head)",
+     "fix": "OG complet avec og:image dédié (ex: home_hero.jpg 1000x750) + twitter:card summary_large_image",
+     "section": "S1-accueil"
+    },
+    {
+     "id": "SEO-3",
+     "face": "seo-perf",
+     "severity": "medium",
+     "title": "Title > 60 chars (tronqué par Google)",
+     "evidence": "FR: 'FEDPAWA CORPORATE SOLUTIONS | Infrastruc…' = 72 chars; EN = 71 — le nom de marque + 2 segments prioritaires suffisent",
+     "location": "site-header.php ($title)",
+     "fix": "Raccourcir: 'FEDPAWA | Domiciliation & Business Hub Douala' (~50 chars)",
+     "section": "S1-accueil"
+    },
+    {
+     "id": "SEO-4",
+     "face": "seo-perf",
+     "severity": "medium",
+     "title": "Meta description > 160 chars",
+     "evidence": "FR: 191 chars; EN: 187 — le tail sera tronqué dans les SERPs",
+     "location": "site-header.php ($description)",
+     "fix": "Compresser à ~150-155 chars avec les mots-clés en tête",
+     "section": "S1-accueil"
+    },
+    {
+     "id": "SEO-5",
+     "face": "seo-perf",
+     "severity": "medium",
+     "title": "Poids images: 503KB (FR) pour 7 images",
+     "evidence": "Ressources totales 783KB dont images 503KB — les home_*.jpg font 55-101KB chacun; conversion WebP = -40%",
+     "location": "assets/images/home_*.jpg",
+     "fix": "Convertir en WebP (PIL/cwebp) + <picture> avec fallback JPG; viser <50KB/image",
+     "section": "S1-accueil"
+    },
+    {
+     "id": "SEO-6",
+     "face": "seo-perf",
+     "severity": "low",
+     "title": "Gratte-ciel Unsplash 177KB chargé sur mobile",
+     "evidence": "photo-1486406 (hero CSS ::before) chargé sur toutes les pages/tailles d'écran: 177KB pour un effet d'arrière-plan opacité 0.18",
+     "location": "components.css .hero::before",
+     "fix": "Servir une version réduite (~700px, WebP) ou le limiter aux grands écrans",
+     "section": "S1-accueil"
+    }
+   ],
+   "checked": {
+    "front-end": [
+     "console errors (FR:1 favicon, EN:0 après fix)",
+     "requêtes 4xx/5xx (0 après fix langPrefix)",
+     "images cassées (0)",
+     "liens internes (38 FR / 40 EN)",
+     "nav desktop+mobile"
+    ],
+    "ux-content": [
+     "structure sections FR/EN",
+     "CTA et destinations",
+     "switch FR<->EN",
+     "signaux de confiance (email visible, adresse?)"
+    ],
+    "accessibility": [
+     "contrastes mode clair (80 blocs mesurés)",
+     "contrastes mode sombre (25 échantillons)",
+     "alt images (0 manquant)",
+     "hiérarchie Hn (h1 unique OK)",
+     "overflow mobile 375px",
+     "cibles tactiles",
+     "tailles police"
+    ],
+    "security": [
+     "accès anonyme 5 pages protégées (5/5 redirigées)",
+     "/api/admin/lists anonyme (403)",
+     "cron.php (Accès refusé)",
+     "7 payloads hostiles login/register (7/7 rejet propre, 0 fuite interne)",
+     "headers sécurité",
+     "flags cookie (HttpOnly, Secure, SameSite=None à revoir en HTTP local)"
+    ],
+    "seo-perf": [
+     "title/description",
+     "canonical/hreflang",
+     "OG",
+     "Hn",
+     "alt",
+     "poids page",
+     "timing (DCL 277ms FR)",
+     "gzip",
+     "comptage ressources"
+    ]
+   },
+   "not_checked": {
+    "front-end": [
+     "captcha (hors périmètre)"
+    ],
+    "ux-content": [
+     "qualité traduction EN fine-grain (comparaison sémantique complète FR<->EN à faire section par section)",
+     "prix EN: pages services EN non encore auditées (S2)"
+    ],
+    "accessibility": [
+     "navigation clavier complète (Tab through) — à intégrer au script S2",
+     "lecteur d'écran (NVDA/JAWS) non disponible sur ce serveur"
+    ],
+    "security": [
+     "fuzzing avancé (uploads fichiers corrompus) — prévu S4/S5",
+     "rate limiting brute force (politique: pas de brute force)",
+     "tests admin authentifié (prévus S4)"
+    ],
+    "seo-perf": [
+     "robots.txt / sitemap.xml (prévu check global S5)",
+     "Core Web Vitals terrain (nécessite données réelles utilisateurs)"
+    ]
+   }
+  },
+  {
+   "section": "S2-services",
+   "pages": [
+    "domiciliation",
+    "creation_entreprise",
+    "fiscalite",
+    "oapi",
+    "contrats",
+    "FR+EN"
+   ],
+   "findings": [
+    {
+     "id": "UX-S2-1",
+     "face": "ux-content",
+     "severity": "high",
+     "title": "Pages EN: ~26 liens internes par page retombent en FR (nav, logo, footer)",
+     "evidence": "Sur les 5 pages services EN: nav header (HOME, Domiciliation, Company Formation, Tax & Legal Advisory, OAPI Protection, Contracts), logo, footer complet et certains CTA pointent vers les versions FR sans /en/ — ex: /en/domiciliation.php contient HOME -> /index.php",
+     "location": "includes header/footer sur pages EN (toutes)",
+     "fix": "Utiliser $langPrefix dynamique pour TOUS les liens internes du header/footer/CTA (le même mécanisme que les assets)",
+     "section": "S2-services"
+    },
+    {
+     "id": "UX-S2-2",
+     "face": "ux-content",
+     "severity": "medium",
+     "title": "Packs domiciliation EN: intitulés traduits mais l'architecture des cards n'est pas vérifiable visuellement (6 prix identiques FR/EN)",
+     "evidence": "FR: 6 prix (25k/45k/70k/50k/110k/175k), EN: 6 prix identiques — cohérent. Mais les libellés des packs EN sont restés en partie en français: source contient 'Pack ESSENTIAL', 'Pack BUSINESS', 'Pack PREMIUM'",
+     "location": "/en/domiciliation.php (cards packs)",
+     "fix": "Vérifier les libellés EN: 'Pack' est acceptable en EN mais 'domicile' vs 'address' mérite relecture",
+     "section": "S2-services"
+    },
+    {
+     "id": "UX-S2-3",
+     "face": "ux-content",
+     "severity": "medium",
+     "title": "CTA 'Je m'abonne' des pages création/fiscalité/OAPI/contrats mènent au tunnel SANS service présélectionné",
+     "evidence": "creation/fiscalite/oapi/contrats FR: unique CTA abonnement -> /tunnel_souscription.php (sans ?service=) → rebond #services. Seule domiciliation a 2 CTA avec ?pack= (essential, business) et 5 autres vides",
+     "location": "creation_entreprise.php, fiscalite.php, oapi.php, contrats.php",
+     "fix": "Préfixer chaque CTA avec ?service=creation|fiscalite|oapi|contrats pour entrer directement dans le tunnel présélectionné",
+     "section": "S2-services"
+    },
+    {
+     "id": "FE-S2-1",
+     "face": "front-end",
+     "severity": "low",
+     "title": "Lightbox domiciliation: <img src=\"\"> déclenche une requête fantôme vers la page",
+     "evidence": "<img src=\"\" id=\"lightboxImg\"> génère une requête GET domiciliation.php (200, HTML rendu comme image échouée) — visible dans les outils réseau, src vide au chargement",
+     "location": "domiciliation.php:211 (lightbox)",
+     "fix": "src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' ou src='assets/images/domi_accueil_1.jpg' par défaut",
+     "section": "S2-services"
+    },
+    {
+     "id": "A11Y-S2-1",
+     "face": "accessibility",
+     "severity": "medium",
+     "title": "Toutes les pages services: titles 86-140 chars et descriptions 165-228 chars (troncature SERP)",
+     "evidence": "domiciliation FR 102c/228c, creation 105c/177c, fiscalite 86c/170c, oapi 125c/208c, contrats 140c/194c — toutes au-dessus des seuils 60/160",
+     "location": "$title/$description de chaque page",
+     "fix": "Raccourcir à <60c/<160c — le SEO repose sur les mots-clés en tête",
+     "section": "S2-services"
+    },
+    {
+     "id": "SEO-S2-1",
+     "face": "seo-perf",
+     "severity": "medium",
+     "title": "Poids ressources domiciliation: 803KB (FR) dont ~700KB images",
+     "evidence": "domiciliation FR res=803KB pour 6 photos 810x1080/1080x810 + logo + gratte-ciel 177KB; les autres pages ~428KB stables",
+     "location": "assets/images/domi_*.jpg (6 fichiers 85-141KB)",
+     "fix": "Convertir domi_*.jpg en WebP ~60-70KB (-45%) + lazy loading déjà présent",
+     "section": "S2-services"
+    },
+    {
+     "id": "SEO-S2-2",
+     "face": "seo-perf",
+     "severity": "low",
+     "title": "H1 manquant ou multiple à vérifier sur les 5 pages",
+     "evidence": "Aucune page service n'a signalé de h1_count==0 ni >1 — OK sur ce point (vérifié: h1 unique partout)",
+     "location": "—",
+     "fix": "— (point positif documenté)",
+     "section": "S2-services"
+    }
+   ],
+   "checked": {
+    "front-end": [
+     "console: 0 erreur sur 10 pages (sauf favicon global)",
+     "failed requests: 0/10",
+     "images cassées: 0 réelle (1 lightbox src vide — faux positif documenté)",
+     "mobile 375px: 0 overflow sur 10 pages"
+    ],
+    "ux-content": [
+     "prix FR/EN identiques sur les 5 services (12/12 valeurs)",
+     "prix domiciliation FR: 25k/45k/70k/50k/110k/175k conformes au pricing officiel",
+     "CTA domiciliation avec ?pack= présélectionnés (essential/business)"
+    ],
+    "accessibility": [
+     "contrastes: 0 échec supplémentaire mesuré sur pages services (60 blocs/page)",
+     "h1 unique sur 10/10 pages",
+     "alt présents sur toutes les img de contenu"
+    ],
+    "seo-perf": [
+     "DCL: 200-345ms selon page (rapide)",
+     "HTML: 20-22KB/page",
+     "création/fiscalite/oapi/contrats: res stables 428KB"
+    ]
+   },
+   "not_checked": {
+    "accessibility": [
+     "navigation clavier Tab (prévue S3)",
+     "ARIA roles (prévu S3)"
+    ],
+    "security": [
+     "entrées hostiles endpoint contact (prévu S4) — pages services sont statiques"
+    ]
+   }
+  },
+  {
+   "section": "S3-entreprise-contact",
+   "pages": [
+    "qui-sommes-nous.php",
+    "contact.php",
+    "+EN"
+   ],
+   "findings": [
+    {
+     "id": "UX-S3-1",
+     "face": "ux-content",
+     "severity": "critical",
+     "title": "Formulaire de contact: FAUX — il n'envoie rien (simulateur JS)",
+     "evidence": "<form onsubmit=\"event.preventDefault(); alert('Merci ! Votre message a bien été envoyé.'); this.reset();\"> — aucune requête réseau part, aucun backend, l'utilisateur croit avoir écrit à l'entreprise et son message est perdu. Method GET affiché mais aucun traitement $_GET/$_POST dans contact.php",
+     "location": "public/contact.php (form tag)",
+     "fix": "Brancher sur un endpoint réel (ex: /api/contact -> table messages + mail notification) avec feedback honnête; en attendant, remplacer le form par mailto: + numéro WhatsApp",
+     "section": "S3-entreprise-contact"
+    },
+    {
+     "id": "A11Y-S3-1",
+     "face": "accessibility",
+     "severity": "high",
+     "title": "Focus invisible: 6/25 éléments focusables sans indicateur (outline: none)",
+     "evidence": "Links nav (Domiciliation, Création d'entreprise…) ont outline:none et box-shadow:none — un utilisateur clavier ne sait pas où il est (reproduit sur les 4 pages testées)",
+     "location": "reset CSS / nav links (global)",
+     "fix": ":focus-visible { outline: 2px solid var(--color-gold); outline-offset: 2px; }",
+     "section": "S3-entreprise-contact"
+    },
+    {
+     "id": "A11Y-S3-2",
+     "face": "accessibility",
+     "severity": "medium",
+     "title": "Carte WhatsApp contact: ratio 1.98:1 (blanc sur vert WhatsApp)",
+     "evidence": "«WhatsApp — Discutez avec nous» blanc #FFF sur rgb(37,211,102) = 1.98:1 < 4.5:1 (h3 aussi à 1.98 < 3:1 large)",
+     "location": "contact.php (.qa-card WhatsApp)",
+     "fix": "Fond vert assombri (#128C7E WhatsApp dark = ~3.5:1) ou texte navy",
+     "section": "S3-entreprise-contact"
+    },
+    {
+     "id": "A11Y-S3-3",
+     "face": "accessibility",
+     "severity": "medium",
+     "title": "Chips «ENTREPRISES STRUCTURÉES»/«COUVERTURE OAPI» 4.21:1 en mode sombre",
+     "evidence": "spans rgb(100,116,139) sur rgb(5,8,15) — même pattern que S1 (texte muted mode sombre)",
+     "location": "qui-sommes-nous.php (badges)",
+     "fix": "Éclaircir la palette muted dark-mode",
+     "section": "S3-entreprise-contact"
+    },
+    {
+     "id": "SEO-S3-1",
+     "face": "seo-perf",
+     "severity": "medium",
+     "title": "Titles > 60 chars (qui-sommes FR 74c, EN 78c)",
+     "evidence": "FR 74c / EN 78c — tronqués en SERP",
+     "location": "$title pages",
+     "fix": "Raccourcir",
+     "section": "S3-entreprise-contact"
+    },
+    {
+     "id": "FE-S3-1",
+     "face": "front-end",
+     "severity": "low",
+     "title": "NAV débordante à 375px (right=683px) — mais scrollWidth=375 (pas de scroll global)",
+     "evidence": "Éléments nav A right=683px sur les 4 pages mobiles: le menu mobile est hors écran (drawer caché par design) mais nos outils le mesurent comme débordant — À CONFIRMER visuellement: si le drawer s'ouvre bien, faux positif",
+     "location": "nav mobile (toutes pages)",
+     "fix": "Vérifier le rendu du menu hamburger — si OK, ignorer",
+     "section": "S3-entreprise-contact"
+    }
+   ],
+   "checked": {
+    "front-end": [
+     "0 erreur console EN/FR (sauf favicon global)",
+     "0 requête échouée",
+     "0 image cassée",
+     "mobile: pas de débordement global (scrollWidth=375)"
+    ],
+    "ux-content": [
+     "title/desc contact conformes (37c/140c)",
+     "h1 unique 4/4 pages",
+     "lang correct 4/4",
+     "formulaire: labels présents 5/5 champs, required OK"
+    ],
+    "accessibility": [
+     "focus clavier 25 éléments/page",
+     "contrastes ~60 blocs/page",
+     "alt 100%"
+    ],
+    "security": [
+     "formulaire contact = le principal point d'entrée — testé (voir finding critical)"
+    ]
+   },
+   "not_checked": {
+    "security": [
+     "endpoint de soumission inexistant — rien à fuzz côté réseau (le form est JS-only)"
+    ],
+    "ux-content": [
+     "horaires adresse vérifiés visuellement sur texte: Immeuble Pharmacie de Logpom, Lun-Ven 8h-18h, Sam 9h-14h — cohérents"
+    ]
+   }
+  },
+  {
+   "section": "S4-auth-espaces",
+   "pages": [
+    "authentification",
+    "mot_de_passe_oublie",
+    "espace_client",
+    "admin_dashboard"
+   ],
+   "findings": [
+    {
+     "id": "SEC-S4-1",
+     "face": "security",
+     "severity": "critical",
+     "title": "FAILLE: code OTP de reset renvoyé dans la réponse HTTP (debug_otp)",
+     "evidence": "POST /api/password/request avec un email valide → 200 {\"message\":\"Code OTP envoyé avec succès\",\"debug_otp\":\"376439\"} — le code de réinitialisation est lisible par l'appelant. N'importe qui peut: 1) demander un reset pour le compte d'un autre, 2) lire le code dans la réponse, 3) reset son mot de passe = PRISE DE COMPTE TOTALE. Le commentaire du code dit 'NOTE (démo): aucun e-mail configuré' — mais la prod est déployée avec cette faille",
+     "location": "src/Controller/AuthController.php:144 (requestPasswordReset)",
+     "fix": "Retirer debug_otp de la réponse IMMÉDIATEMENT en prod (le garder derrière un if(getenv('APP_ENV')==='dev')); uniformiser la réponse pour email existant/inexistant",
+     "section": "S4-auth-espaces"
+    },
+    {
+     "id": "SEC-S4-2",
+     "face": "security",
+     "severity": "high",
+     "title": "Énumération d'emails possible via réponses différenciées",
+     "evidence": "email inexistant → \"Si cet e-mail existe, un code de réinitialisation a été envoyé.\" / email valide → \"Code OTP envoyé avec succès\" — un attaquant peut dresser la liste des emails inscrits (combined avec la faille SEC-S4-1: ciblage précis)",
+     "location": "AuthController requestPasswordReset",
+     "fix": "Toujours retourner le même message générique quel que soit le résultat",
+     "section": "S4-auth-espaces"
+    },
+    {
+     "id": "A11Y-S4-1",
+     "face": "accessibility",
+     "severity": "medium",
+     "title": "Input email (page auth): contraste 1.23:1",
+     "evidence": "INPUT fg=rgb(0,0,0) sur bg=rgb(17,28,46) = 1.23:1 (texte noir sur fond navy foncé) — champ quasi invisible",
+     "location": "authentification.html (inputs)",
+     "fix": "Couleur de texte input claire en mode sombre",
+     "section": "S4-auth-espaces"
+    },
+    {
+     "id": "A11Y-S4-2",
+     "face": "accessibility",
+     "severity": "medium",
+     "title": "Mot de passe oublié: 3 forms sans labels (champs non identifiables)",
+     "evidence": "requestForm/otpForm/newPwdForm: champs sans labels ni aria-label (label=False sur 9 champs)",
+     "location": "mot_de_passe_oublie.html",
+     "fix": "Ajouter <label for> ou aria-label sur chaque champ",
+     "section": "S4-auth-espaces"
+    },
+    {
+     "id": "FE-S4-1",
+     "face": "front-end",
+     "severity": "low",
+     "title": "Console auth: favicon 404 + 403 /api/login au chargement",
+     "evidence": "Au chargement de authentification.html: une requête /api/login part et reçoit 403 (CSRF manquant au boot) — erreur console visible; probablement un appel de garde déclenché trop tôt",
+     "location": "authentification.html + api.js",
+     "fix": "Ne pas appeler /api/login au chargement; vérifier le handler d'initialisation",
+     "section": "S4-auth-espaces"
+    },
+    {
+     "id": "UX-S4-1",
+     "face": "ux-content",
+     "severity": "medium",
+     "title": "Champ téléphone non required dans le register (incohérence avec tunnel)",
+     "evidence": "Le formulaire d'inscription n'exige pas le téléphone alors que le tunnel l'exige à l'étape coordonnées — incohérence de données collectées",
+     "location": "authentification.html (form register)",
+     "fix": "Uniformiser la politique de collecte (recommandé: required des deux côtés)",
+     "section": "S4-auth-espaces"
+    }
+   ],
+   "checked": {
+    "security": [
+     "login/register sans CSRF → 403 propre (2/2)",
+     "3 logins invalides → 401 x3, pas de lockout visible (acceptable)",
+     "client → /api/admin/lists → 403",
+     "admin → espace_client → redirigé admin_dashboard",
+     "CSRF présent sur toutes les POST testées",
+     "reset 3 états (request/verify/reset) fonctionnels"
+    ],
+    "front-end": [
+     "0 image cassée",
+     "espace client + admin: 0 erreur console bloquante",
+     "données réelles affichées (Client Test, standard, sans engagement)"
+    ],
+    "accessibility": [
+     "contrastes espace client + admin: OK",
+     "h1 unique, theme navy cohérent"
+    ],
+    "seo": [
+     "titles conformes (auth 43c, mdp 49c)"
+    ]
+   },
+   "not_checked": {
+    "security": [
+     "rate limiting /api/password/request (nécessiterait >10 essais = brute force, hors politique)",
+     "expiration OTP (vérifié en code: expires_at défini, non testé en runtime)"
+    ]
+   }
+  },
+  {
+   "section": "S5-tunnel-seo-global",
+   "pages": [
+    "tunnel_souscription.php",
+    "souscription_domiciliation.php",
+    "sitemap.xml",
+    "robots.txt"
+   ],
+   "findings": [
+    {
+     "id": "SEC-S5-1",
+     "face": "security",
+     "severity": "high",
+     "title": "Tunnel: le saut d'étape VIDE ne passe pas (bonne nouvelle) MAIS aucun message d'erreur affiché",
+     "evidence": "Clic CONTINUER sur step-1 vide → reste sur step-1, mais errors=[] : aucun feedback visuel pour l'utilisateur (validateStep bloque silencieusement — l'utilisateur clique sans comprendre)",
+     "location": "tunnel.js validateStep + step-validation-hint",
+     "fix": "Afficher le message d'erreur du hint (step-validation-hint semble masqué: visible dans le DOM mais pas de message d'aide actif)",
+     "section": "S5-tunnel-seo-global"
+    },
+    {
+     "id": "UX-S5-1",
+     "face": "ux-content",
+     "severity": "medium",
+     "title": "Tunnel contrats: montant affiché 50 000 FCFA (step-1) puis 100 000 FCFA (step-3)",
+     "evidence": "init amount=50 000 FCFA; après step-2 le récap affiche 100 000 FCFA — cohérent si 50k=acompte et 100k=total, mais sans libellé explicite l'utilisateur voit un montant doubler sans explication",
+     "location": "tunnel_souscription.php (récap step-3)",
+     "fix": "Libeller: 'Acompte: 50 000 FCFA — Total: 100 000 FCFA' (ou afficher la ventilation)",
+     "section": "S5-tunnel-seo-global"
+    },
+    {
+     "id": "UX-S5-2",
+     "face": "ux-content",
+     "severity": "high",
+     "title": "step-3 (documents) BLOQUANT sans explication: 0 champ visible, aucun bouton",
+     "evidence": "Étape documents: filled=[] et noBtn=true — l'étape n'expose ni champ ni bouton Continuer au DOM visible pour les service=contrats (les uploads sont conditionnels?) — le parcours s'arrête là sans indication",
+     "location": "tunnel_souscription.php step-3 (documents conditionnels)",
+     "fix": "Pour contrats: soit masquer step-3 si aucun document requis, soit afficher 'Aucun document requis pour ce service' + bouton Continuer",
+     "section": "S5-tunnel-seo-global"
+    },
+    {
+     "id": "SEO-S5-1",
+     "face": "seo-perf",
+     "severity": "high",
+     "title": "sitemap.xml pointe vers www.fedpawacorporatesolutions.com — DOMAINE DIFFÉRENT du site déployé",
+     "evidence": "9 URLs https://www.fedpawacorporatesolutions.com/... alors que le site réel est https://api.fedpawa.com — Google indexera un domaine inexistant/autre; le sitemap est inutile voire nuisible",
+     "location": "public/sitemap.xml",
+     "fix": "Régénérer avec https://api.fedpawa.com (ou le vrai domaine final s'il change) + URLs /en/ avec hreflang",
+     "section": "S5-tunnel-seo-global"
+    },
+    {
+     "id": "SEO-S5-2",
+     "face": "seo-perf",
+     "severity": "medium",
+     "title": "robots.txt absent (404)",
+     "evidence": "GET /robots.txt → 404 — ni bloquage ni sitemap déclarés aux crawlers",
+     "location": "public/robots.txt (manquant)",
+     "fix": "Créer: User-agent: * / Allow: / + Sitemap: https://api.fedpawa.com/sitemap.xml + Disallow: /api/ /espace_client /admin",
+     "section": "S5-tunnel-seo-global"
+    },
+    {
+     "id": "FE-S5-1",
+     "face": "front-end",
+     "severity": "low",
+     "title": "404 favicon persistant sur tunnel",
+     "evidence": "console: 404 (favicon) — cosmétique, global au site",
+     "location": "public/favicon.ico",
+     "fix": "Ajouter favicon",
+     "section": "S5-tunnel-seo-global"
+    }
+   ],
+   "checked": {
+    "security": [
+     "saut d'étape: step-1 vide → reste bloqué (validation obligatoire effective)",
+     "données hostiles (XSS+SQLi dans ~75 champs) → aucune erreur serveur, aucune soumission fantôme, page reste sur step-1",
+     "0 requête échouée côté réseau pendant les tests hostiles"
+    ],
+    "ux-content": [
+     "montant 100 000 FCFA conforme au pricing contrats (forfait)",
+     "4 étapes structurelles v3 détectées (step-1..4)"
+    ],
+    "seo": [
+     "sitemap.xml existant (9 URLs) mais domaine erroné",
+     "robots.txt absent"
+    ],
+    "front-end": [
+     "tunnel chargé sans erreur JS bloquante (favicon 404 excepté)"
+    ]
+   },
+   "not_checked": {
+    "security": [
+     "paiement Mobile Money réel: CAMPAY_ENABLED=0 en test — flux jusqu'au paiement vérifié (100 000 FCFA affiché), soumission paiement non exécutée volontairement (prod uniquement)",
+     "upload fichiers hostiles (step-3 contrats n'expose pas d'upload) — couvert partiellement par S4 KYC"
+    ],
+    "ux-content": [
+     "parcours domiciliation dédié (souscription_domiciliation.php) déjà couvert par 17/17 tests E2E existants (stepper, etape4-packs)"
+    ]
+   }
+  }
+ ],
+ "findings": [
+  {
+   "id": "UX-S3-1",
+   "face": "ux-content",
+   "severity": "critical",
+   "title": "Formulaire de contact: FAUX — il n'envoie rien (simulateur JS)",
+   "evidence": "<form onsubmit=\"event.preventDefault(); alert('Merci ! Votre message a bien été envoyé.'); this.reset();\"> — aucune requête réseau part, aucun backend, l'utilisateur croit avoir écrit à l'entreprise et son message est perdu. Method GET affiché mais aucun traitement $_GET/$_POST dans contact.php",
+   "location": "public/contact.php (form tag)",
+   "fix": "Brancher sur un endpoint réel (ex: /api/contact -> table messages + mail notification) avec feedback honnête; en attendant, remplacer le form par mailto: + numéro WhatsApp",
+   "section": "S3-entreprise-contact"
+  },
+  {
+   "id": "SEC-S4-1",
+   "face": "security",
+   "severity": "critical",
+   "title": "FAILLE: code OTP de reset renvoyé dans la réponse HTTP (debug_otp)",
+   "evidence": "POST /api/password/request avec un email valide → 200 {\"message\":\"Code OTP envoyé avec succès\",\"debug_otp\":\"376439\"} — le code de réinitialisation est lisible par l'appelant. N'importe qui peut: 1) demander un reset pour le compte d'un autre, 2) lire le code dans la réponse, 3) reset son mot de passe = PRISE DE COMPTE TOTALE. Le commentaire du code dit 'NOTE (démo): aucun e-mail configuré' — mais la prod est déployée avec cette faille",
+   "location": "src/Controller/AuthController.php:144 (requestPasswordReset)",
+   "fix": "Retirer debug_otp de la réponse IMMÉDIATEMENT en prod (le garder derrière un if(getenv('APP_ENV')==='dev')); uniformiser la réponse pour email existant/inexistant",
+   "section": "S4-auth-espaces"
+  },
+  {
+   "id": "UX-1",
+   "face": "ux-content",
+   "severity": "high",
+   "title": "Page EN: la majorité des liens internes retombent sur les pages FR",
+   "evidence": "22 liens EN mènent aux pages sans préfixe /en/: «Domiciliation»→/domiciliation.php, «Company Formation»→/creation_entreprise.php, «Tax & Legal Advisory»→/fiscalite.php, «OAPI Protection»→/oapi.php, «Contracts»→/contrats.php, «ABOUT US»→/qui-sommes-nous.php… (logo, nav principale, footer, SUBSCRIBE)",
+   "location": "/en/index.php: nav header, footer, bouton SUBSCRIBE",
+   "fix": "Préfixer tous les href des pages EN avec /en/ (ou générer la nav via $langPrefix dans le header/footer partagés)",
+   "section": "S1-accueil"
+  },
+  {
+   "id": "A11Y-1",
+   "face": "accessibility",
+   "severity": "high",
+   "title": "Contraste insuffisant du CTA doré (ratio 2.1:1, requis 4.5:1)",
+   "evidence": "Boutons «JE M'ABONNE»/«SUBSCRIBE»: texte blanc #FFFFFF sur fond doré rgb(212,175,55) = ratio 2.1:1 — échec WCAG AA (identique en mode clair et sombre)",
+   "location": ".btn-primary (composant global)",
+   "fix": "Passer le texte en #0A1424 (navy foncé) sur le doré: ratio ~7:1, conforme AA",
+   "section": "S1-accueil"
+  },
+  {
+   "id": "SEO-1",
+   "face": "seo-perf",
+   "severity": "high",
+   "title": "Aucun tag canonical ni hreflang FR/EN",
+   "evidence": "FR et EN: link[rel=canonical] absent, link[rel=hreflang] absents (0) — risque de contenu dupliqué / confusion géolinguistique pour Google",
+   "location": "site-header.php (head)",
+   "fix": "<link rel='canonical' href='https://api.fedpawa.com{page}'> + hreflang fr/en alternates sur chaque page",
+   "section": "S1-accueil"
+  },
+  {
+   "id": "SEO-2",
+   "face": "seo-perf",
+   "severity": "high",
+   "title": "Aucun tag Open Graph / Twitter Card",
+   "evidence": "og:title, og:description, og:image, og:url: tous absents des 2 pages — aperçu lien nu sur WhatsApp/LinkedIn (canal principal B2B Cameroun)",
+   "location": "site-header.php (head)",
+   "fix": "OG complet avec og:image dédié (ex: home_hero.jpg 1000x750) + twitter:card summary_large_image",
+   "section": "S1-accueil"
+  },
+  {
+   "id": "UX-S2-1",
+   "face": "ux-content",
+   "severity": "high",
+   "title": "Pages EN: ~26 liens internes par page retombent en FR (nav, logo, footer)",
+   "evidence": "Sur les 5 pages services EN: nav header (HOME, Domiciliation, Company Formation, Tax & Legal Advisory, OAPI Protection, Contracts), logo, footer complet et certains CTA pointent vers les versions FR sans /en/ — ex: /en/domiciliation.php contient HOME -> /index.php",
+   "location": "includes header/footer sur pages EN (toutes)",
+   "fix": "Utiliser $langPrefix dynamique pour TOUS les liens internes du header/footer/CTA (le même mécanisme que les assets)",
+   "section": "S2-services"
+  },
+  {
+   "id": "A11Y-S3-1",
+   "face": "accessibility",
+   "severity": "high",
+   "title": "Focus invisible: 6/25 éléments focusables sans indicateur (outline: none)",
+   "evidence": "Links nav (Domiciliation, Création d'entreprise…) ont outline:none et box-shadow:none — un utilisateur clavier ne sait pas où il est (reproduit sur les 4 pages testées)",
+   "location": "reset CSS / nav links (global)",
+   "fix": ":focus-visible { outline: 2px solid var(--color-gold); outline-offset: 2px; }",
+   "section": "S3-entreprise-contact"
+  },
+  {
+   "id": "SEC-S4-2",
+   "face": "security",
+   "severity": "high",
+   "title": "Énumération d'emails possible via réponses différenciées",
+   "evidence": "email inexistant → \"Si cet e-mail existe, un code de réinitialisation a été envoyé.\" / email valide → \"Code OTP envoyé avec succès\" — un attaquant peut dresser la liste des emails inscrits (combined avec la faille SEC-S4-1: ciblage précis)",
+   "location": "AuthController requestPasswordReset",
+   "fix": "Toujours retourner le même message générique quel que soit le résultat",
+   "section": "S4-auth-espaces"
+  },
+  {
+   "id": "SEC-S5-1",
+   "face": "security",
+   "severity": "high",
+   "title": "Tunnel: le saut d'étape VIDE ne passe pas (bonne nouvelle) MAIS aucun message d'erreur affiché",
+   "evidence": "Clic CONTINUER sur step-1 vide → reste sur step-1, mais errors=[] : aucun feedback visuel pour l'utilisateur (validateStep bloque silencieusement — l'utilisateur clique sans comprendre)",
+   "location": "tunnel.js validateStep + step-validation-hint",
+   "fix": "Afficher le message d'erreur du hint (step-validation-hint semble masqué: visible dans le DOM mais pas de message d'aide actif)",
+   "section": "S5-tunnel-seo-global"
+  },
+  {
+   "id": "UX-S5-2",
+   "face": "ux-content",
+   "severity": "high",
+   "title": "step-3 (documents) BLOQUANT sans explication: 0 champ visible, aucun bouton",
+   "evidence": "Étape documents: filled=[] et noBtn=true — l'étape n'expose ni champ ni bouton Continuer au DOM visible pour les service=contrats (les uploads sont conditionnels?) — le parcours s'arrête là sans indication",
+   "location": "tunnel_souscription.php step-3 (documents conditionnels)",
+   "fix": "Pour contrats: soit masquer step-3 si aucun document requis, soit afficher 'Aucun document requis pour ce service' + bouton Continuer",
+   "section": "S5-tunnel-seo-global"
+  },
+  {
+   "id": "SEO-S5-1",
+   "face": "seo-perf",
+   "severity": "high",
+   "title": "sitemap.xml pointe vers www.fedpawacorporatesolutions.com — DOMAINE DIFFÉRENT du site déployé",
+   "evidence": "9 URLs https://www.fedpawacorporatesolutions.com/... alors que le site réel est https://api.fedpawa.com — Google indexera un domaine inexistant/autre; le sitemap est inutile voire nuisible",
+   "location": "public/sitemap.xml",
+   "fix": "Régénérer avec https://api.fedpawa.com (ou le vrai domaine final s'il change) + URLs /en/ avec hreflang",
+   "section": "S5-tunnel-seo-global"
+  },
+  {
+   "id": "UX-2",
+   "face": "ux-content",
+   "severity": "medium",
+   "title": "FR: CTA principal «JE M'ABONNE» mène au tunnel sans présélection",
+   "evidence": "Bouton hero «JE M'ABONNE» -> /tunnel_souscription.php (sans ?service=) → l'utilisateur est immédiatement rebasculé vers index.php#services",
+   "location": "templates/pages/home.php (hero)",
+   "fix": "Soit pointer directement vers #services (sans rebond), soit présélectionner un service par défaut",
+   "section": "S1-accueil"
+  },
+  {
+   "id": "A11Y-2",
+   "face": "accessibility",
+   "severity": "medium",
+   "title": "Texte muted sur fond sombre sous le seuil AA (4.21:1)",
+   "evidence": "span rgb(100,116,139) sur rgb(5,8,15): ratio 4.21:1 < 4.5:1 requis — «Adresse, démarches et suivi au même endroit» (hero, mode sombre)",
+   "location": ".hero (mode sombre), texte secondaire",
+   "fix": "Éclaircir la couleur muted en mode sombre (ex: #7C8AA5 → ~5:1)",
+   "section": "S1-accueil"
+  },
+  {
+   "id": "SEC-1",
+   "face": "security",
+   "severity": "medium",
+   "title": "Headers de sécurité manquants: CSP, X-Frame-Options, Referrer-Policy",
+   "evidence": "Réponse / (prod, via Cloudflare): seulement HSTS + X-Content-Type-Options présents; ni Content-Security-Policy, ni X-Frame-Options, ni Referrer-Policy",
+   "location": "Caddy + conteneur PHP",
+   "fix": "Ajouter dans Caddy: X-Frame-Options DENY, Referrer-Policy strict-origin-when-cross-origin, et une CSP permissive-résiliente (self + fonts.googleapis + images)",
+   "section": "S1-accueil"
+  },
+  {
+   "id": "SEO-3",
+   "face": "seo-perf",
+   "severity": "medium",
+   "title": "Title > 60 chars (tronqué par Google)",
+   "evidence": "FR: 'FEDPAWA CORPORATE SOLUTIONS | Infrastruc…' = 72 chars; EN = 71 — le nom de marque + 2 segments prioritaires suffisent",
+   "location": "site-header.php ($title)",
+   "fix": "Raccourcir: 'FEDPAWA | Domiciliation & Business Hub Douala' (~50 chars)",
+   "section": "S1-accueil"
+  },
+  {
+   "id": "SEO-4",
+   "face": "seo-perf",
+   "severity": "medium",
+   "title": "Meta description > 160 chars",
+   "evidence": "FR: 191 chars; EN: 187 — le tail sera tronqué dans les SERPs",
+   "location": "site-header.php ($description)",
+   "fix": "Compresser à ~150-155 chars avec les mots-clés en tête",
+   "section": "S1-accueil"
+  },
+  {
+   "id": "SEO-5",
+   "face": "seo-perf",
+   "severity": "medium",
+   "title": "Poids images: 503KB (FR) pour 7 images",
+   "evidence": "Ressources totales 783KB dont images 503KB — les home_*.jpg font 55-101KB chacun; conversion WebP = -40%",
+   "location": "assets/images/home_*.jpg",
+   "fix": "Convertir en WebP (PIL/cwebp) + <picture> avec fallback JPG; viser <50KB/image",
+   "section": "S1-accueil"
+  },
+  {
+   "id": "UX-S2-2",
+   "face": "ux-content",
+   "severity": "medium",
+   "title": "Packs domiciliation EN: intitulés traduits mais l'architecture des cards n'est pas vérifiable visuellement (6 prix identiques FR/EN)",
+   "evidence": "FR: 6 prix (25k/45k/70k/50k/110k/175k), EN: 6 prix identiques — cohérent. Mais les libellés des packs EN sont restés en partie en français: source contient 'Pack ESSENTIAL', 'Pack BUSINESS', 'Pack PREMIUM'",
+   "location": "/en/domiciliation.php (cards packs)",
+   "fix": "Vérifier les libellés EN: 'Pack' est acceptable en EN mais 'domicile' vs 'address' mérite relecture",
+   "section": "S2-services"
+  },
+  {
+   "id": "UX-S2-3",
+   "face": "ux-content",
+   "severity": "medium",
+   "title": "CTA 'Je m'abonne' des pages création/fiscalité/OAPI/contrats mènent au tunnel SANS service présélectionné",
+   "evidence": "creation/fiscalite/oapi/contrats FR: unique CTA abonnement -> /tunnel_souscription.php (sans ?service=) → rebond #services. Seule domiciliation a 2 CTA avec ?pack= (essential, business) et 5 autres vides",
+   "location": "creation_entreprise.php, fiscalite.php, oapi.php, contrats.php",
+   "fix": "Préfixer chaque CTA avec ?service=creation|fiscalite|oapi|contrats pour entrer directement dans le tunnel présélectionné",
+   "section": "S2-services"
+  },
+  {
+   "id": "A11Y-S2-1",
+   "face": "accessibility",
+   "severity": "medium",
+   "title": "Toutes les pages services: titles 86-140 chars et descriptions 165-228 chars (troncature SERP)",
+   "evidence": "domiciliation FR 102c/228c, creation 105c/177c, fiscalite 86c/170c, oapi 125c/208c, contrats 140c/194c — toutes au-dessus des seuils 60/160",
+   "location": "$title/$description de chaque page",
+   "fix": "Raccourcir à <60c/<160c — le SEO repose sur les mots-clés en tête",
+   "section": "S2-services"
+  },
+  {
+   "id": "SEO-S2-1",
+   "face": "seo-perf",
+   "severity": "medium",
+   "title": "Poids ressources domiciliation: 803KB (FR) dont ~700KB images",
+   "evidence": "domiciliation FR res=803KB pour 6 photos 810x1080/1080x810 + logo + gratte-ciel 177KB; les autres pages ~428KB stables",
+   "location": "assets/images/domi_*.jpg (6 fichiers 85-141KB)",
+   "fix": "Convertir domi_*.jpg en WebP ~60-70KB (-45%) + lazy loading déjà présent",
+   "section": "S2-services"
+  },
+  {
+   "id": "A11Y-S3-2",
+   "face": "accessibility",
+   "severity": "medium",
+   "title": "Carte WhatsApp contact: ratio 1.98:1 (blanc sur vert WhatsApp)",
+   "evidence": "«WhatsApp — Discutez avec nous» blanc #FFF sur rgb(37,211,102) = 1.98:1 < 4.5:1 (h3 aussi à 1.98 < 3:1 large)",
+   "location": "contact.php (.qa-card WhatsApp)",
+   "fix": "Fond vert assombri (#128C7E WhatsApp dark = ~3.5:1) ou texte navy",
+   "section": "S3-entreprise-contact"
+  },
+  {
+   "id": "A11Y-S3-3",
+   "face": "accessibility",
+   "severity": "medium",
+   "title": "Chips «ENTREPRISES STRUCTURÉES»/«COUVERTURE OAPI» 4.21:1 en mode sombre",
+   "evidence": "spans rgb(100,116,139) sur rgb(5,8,15) — même pattern que S1 (texte muted mode sombre)",
+   "location": "qui-sommes-nous.php (badges)",
+   "fix": "Éclaircir la palette muted dark-mode",
+   "section": "S3-entreprise-contact"
+  },
+  {
+   "id": "SEO-S3-1",
+   "face": "seo-perf",
+   "severity": "medium",
+   "title": "Titles > 60 chars (qui-sommes FR 74c, EN 78c)",
+   "evidence": "FR 74c / EN 78c — tronqués en SERP",
+   "location": "$title pages",
+   "fix": "Raccourcir",
+   "section": "S3-entreprise-contact"
+  },
+  {
+   "id": "A11Y-S4-1",
+   "face": "accessibility",
+   "severity": "medium",
+   "title": "Input email (page auth): contraste 1.23:1",
+   "evidence": "INPUT fg=rgb(0,0,0) sur bg=rgb(17,28,46) = 1.23:1 (texte noir sur fond navy foncé) — champ quasi invisible",
+   "location": "authentification.html (inputs)",
+   "fix": "Couleur de texte input claire en mode sombre",
+   "section": "S4-auth-espaces"
+  },
+  {
+   "id": "A11Y-S4-2",
+   "face": "accessibility",
+   "severity": "medium",
+   "title": "Mot de passe oublié: 3 forms sans labels (champs non identifiables)",
+   "evidence": "requestForm/otpForm/newPwdForm: champs sans labels ni aria-label (label=False sur 9 champs)",
+   "location": "mot_de_passe_oublie.html",
+   "fix": "Ajouter <label for> ou aria-label sur chaque champ",
+   "section": "S4-auth-espaces"
+  },
+  {
+   "id": "UX-S4-1",
+   "face": "ux-content",
+   "severity": "medium",
+   "title": "Champ téléphone non required dans le register (incohérence avec tunnel)",
+   "evidence": "Le formulaire d'inscription n'exige pas le téléphone alors que le tunnel l'exige à l'étape coordonnées — incohérence de données collectées",
+   "location": "authentification.html (form register)",
+   "fix": "Uniformiser la politique de collecte (recommandé: required des deux côtés)",
+   "section": "S4-auth-espaces"
+  },
+  {
+   "id": "UX-S5-1",
+   "face": "ux-content",
+   "severity": "medium",
+   "title": "Tunnel contrats: montant affiché 50 000 FCFA (step-1) puis 100 000 FCFA (step-3)",
+   "evidence": "init amount=50 000 FCFA; après step-2 le récap affiche 100 000 FCFA — cohérent si 50k=acompte et 100k=total, mais sans libellé explicite l'utilisateur voit un montant doubler sans explication",
+   "location": "tunnel_souscription.php (récap step-3)",
+   "fix": "Libeller: 'Acompte: 50 000 FCFA — Total: 100 000 FCFA' (ou afficher la ventilation)",
+   "section": "S5-tunnel-seo-global"
+  },
+  {
+   "id": "SEO-S5-2",
+   "face": "seo-perf",
+   "severity": "medium",
+   "title": "robots.txt absent (404)",
+   "evidence": "GET /robots.txt → 404 — ni bloquage ni sitemap déclarés aux crawlers",
+   "location": "public/robots.txt (manquant)",
+   "fix": "Créer: User-agent: * / Allow: / + Sitemap: https://api.fedpawa.com/sitemap.xml + Disallow: /api/ /espace_client /admin",
+   "section": "S5-tunnel-seo-global"
+  },
+  {
+   "id": "FE-1",
+   "face": "front-end",
+   "severity": "low",
+   "title": "favicon.ico absent (404 console sur toutes les pages)",
+   "evidence": "Console FR: 'Failed to load resource: 404' sur /favicon.ico — aucune icône d'onglet navigateur",
+   "location": "site-wide (toutes pages)",
+   "fix": "Ajouter un favicon.ico 32x32 (peut dériver du logo.jpg) à la racine de public/",
+   "section": "S1-accueil"
+  },
+  {
+   "id": "UX-3",
+   "face": "ux-content",
+   "severity": "low",
+   "title": "Aucun prix visible sur l'accueil FR/EN",
+   "evidence": "0 occurrence de 'FCFA' dans le texte visible de l'accueil FR et EN; les packs chiffrés n'apparaissent que sur domiciliation.php",
+   "location": "templates/pages/home.php",
+   "fix": "Optionnel: afficher 'dès 25 000 FCFA/mois' sur la card Domiciliation pour ancrer le proposition de valeur",
+   "section": "S1-accueil"
+  },
+  {
+   "id": "A11Y-3",
+   "face": "accessibility",
+   "severity": "low",
+   "title": "Éléments < 24px de hauteur (cibles tactiles)",
+   "evidence": "Lien mailto contact@fedpawa.com: h=16px; items nav footer: h=23px — sous le seuil WCAG 2.2 (24px min)",
+   "location": "footer + contact bar",
+   "fix": "Ajouter padding vertical pour atteindre 24px minimum",
+   "section": "S1-accueil"
+  },
+  {
+   "id": "A11Y-4",
+   "face": "accessibility",
+   "severity": "low",
+   "title": "Polices < 12px",
+   "evidence": "'CORPORATE SOLUTIONS' 10.56px (small), expertise-kicker 11.52px, lang-toggle 11.52px",
+   "location": "brand small, kickers, toggle langue",
+   "fix": "Monter à 12px minimum",
+   "section": "S1-accueil"
+  },
+  {
+   "id": "SEO-6",
+   "face": "seo-perf",
+   "severity": "low",
+   "title": "Gratte-ciel Unsplash 177KB chargé sur mobile",
+   "evidence": "photo-1486406 (hero CSS ::before) chargé sur toutes les pages/tailles d'écran: 177KB pour un effet d'arrière-plan opacité 0.18",
+   "location": "components.css .hero::before",
+   "fix": "Servir une version réduite (~700px, WebP) ou le limiter aux grands écrans",
+   "section": "S1-accueil"
+  },
+  {
+   "id": "FE-S2-1",
+   "face": "front-end",
+   "severity": "low",
+   "title": "Lightbox domiciliation: <img src=\"\"> déclenche une requête fantôme vers la page",
+   "evidence": "<img src=\"\" id=\"lightboxImg\"> génère une requête GET domiciliation.php (200, HTML rendu comme image échouée) — visible dans les outils réseau, src vide au chargement",
+   "location": "domiciliation.php:211 (lightbox)",
+   "fix": "src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' ou src='assets/images/domi_accueil_1.jpg' par défaut",
+   "section": "S2-services"
+  },
+  {
+   "id": "SEO-S2-2",
+   "face": "seo-perf",
+   "severity": "low",
+   "title": "H1 manquant ou multiple à vérifier sur les 5 pages",
+   "evidence": "Aucune page service n'a signalé de h1_count==0 ni >1 — OK sur ce point (vérifié: h1 unique partout)",
+   "location": "—",
+   "fix": "— (point positif documenté)",
+   "section": "S2-services"
+  },
+  {
+   "id": "FE-S3-1",
+   "face": "front-end",
+   "severity": "low",
+   "title": "NAV débordante à 375px (right=683px) — mais scrollWidth=375 (pas de scroll global)",
+   "evidence": "Éléments nav A right=683px sur les 4 pages mobiles: le menu mobile est hors écran (drawer caché par design) mais nos outils le mesurent comme débordant — À CONFIRMER visuellement: si le drawer s'ouvre bien, faux positif",
+   "location": "nav mobile (toutes pages)",
+   "fix": "Vérifier le rendu du menu hamburger — si OK, ignorer",
+   "section": "S3-entreprise-contact"
+  },
+  {
+   "id": "FE-S4-1",
+   "face": "front-end",
+   "severity": "low",
+   "title": "Console auth: favicon 404 + 403 /api/login au chargement",
+   "evidence": "Au chargement de authentification.html: une requête /api/login part et reçoit 403 (CSRF manquant au boot) — erreur console visible; probablement un appel de garde déclenché trop tôt",
+   "location": "authentification.html + api.js",
+   "fix": "Ne pas appeler /api/login au chargement; vérifier le handler d'initialisation",
+   "section": "S4-auth-espaces"
+  },
+  {
+   "id": "FE-S5-1",
+   "face": "front-end",
+   "severity": "low",
+   "title": "404 favicon persistant sur tunnel",
+   "evidence": "console: 404 (favicon) — cosmétique, global au site",
+   "location": "public/favicon.ico",
+   "fix": "Ajouter favicon",
+   "section": "S5-tunnel-seo-global"
+  }
+ ],
+ "stats": {
+  "critical": 2,
+  "high": 10,
+  "medium": 18,
+  "low": 10
+ },
+ "faces": {
+  "ux-content": 10,
+  "security": 4,
+  "accessibility": 10,
+  "seo-perf": 11,
+  "front-end": 5
+ }
+}

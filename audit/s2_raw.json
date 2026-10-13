@@ -1,0 +1,3738 @@
+{
+ "domiciliation": {
+  "fr": {
+   "name": "domiciliation-FR",
+   "url": "/domiciliation.php",
+   "console": [
+    "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+   ],
+   "failed": [],
+   "seo": {
+    "title": "Domiciliation de Personnes Morales et d'Entreprises à Douala Logpom | FEDPAWA CORPORATE SOLUTIONS SARL",
+    "title_len": 102,
+    "desc_len": 228,
+    "lang": "fr",
+    "h1": [
+     "Domiciliation de Personnes Morales et d'Entreprises"
+    ],
+    "h1_count": 1,
+    "imgs_no_alt": 0
+   },
+   "perf": {
+    "dcl": 293,
+    "htmlKB": 22,
+    "resCount": 16,
+    "resKB": 803
+   },
+   "broken_imgs": [
+    "domiciliation.php"
+   ],
+   "links": [
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "FEDPAWA\nCORPORATE SOLUTIONS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "ACCUEIL"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php#",
+     "text": "SERVICES ▾"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "Domiciliation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "Création d'entreprise"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "Conseils & Suivi Fiscal"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "Protection OAPI"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "Contrats"
+    },
+    {
+     "href": "http://127.0.0.1:18081/qui-sommes-nous.php",
+     "text": "QUI SOMMES-NOUS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "CONTACT"
+    },
+    {
+     "href": "http://127.0.0.1:18081/authentification.html",
+     "text": "SE CONNECTER"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "ACCUEIL"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "DOMICILIATION"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "CRÉATION D'ENTREPRISE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "CONSEILS & SUIVI FISCAL"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "PROTECTION OAPI"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "CONTRATS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/qui-sommes-nous.php",
+     "text": "QUI SOMMES-NOUS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "CONTACT"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php",
+     "text": "JE M'ABONNE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php#packs-nationaux",
+     "text": "DÉCOUVRIR NOS PACKS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "VISITER LES LOCAUX"
+    },
+    {
+     "href": "http://127.0.0.1:18081/souscription_domiciliation.php?pack=national-essential",
+     "text": "JE M'ABONNE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/souscription_domiciliation.php?pack=national-business",
+     "text": "JE M'ABONNE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/souscription_domiciliation.php?pack=national-premium",
+     "text": "JE M'ABONNE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/souscription_domiciliation.php?pack=international-essential",
+     "text": "JE M'ABONNE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/souscription_domiciliation.php?pack=international-business",
+     "text": "JE M'ABONNE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/souscription_domiciliation.php?pack=international-premium",
+     "text": "JE M'ABONNE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "FEDPAWA\nCORPORATE SOLUTIONS"
+    },
+    {
+     "href": "mailto:contact@fedpawa.com",
+     "text": "contact@fedpawa.com"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "Accueil"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "Domiciliation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "Création d'entreprise"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "Conseils & Suivi Fiscal"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "Protection OAPI"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "Contrats"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "Contact"
+    }
+   ],
+   "prices": [
+    "25 000 FCFA",
+    "45 000 FCFA",
+    "70 000 FCFA",
+    "50 000 FCFA",
+    "110 000 FCFA",
+    "175 000 FCFA"
+   ],
+   "contrast": [
+    {
+     "sel": ".price",
+     "text": "25 000 FCFA / mois",
+     "ratio": 8.19,
+     "need": 3,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": ".price",
+     "text": "45 000 FCFA / mois",
+     "ratio": 8.19,
+     "need": 3,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": ".price",
+     "text": "70 000 FCFA / mois",
+     "ratio": 8.19,
+     "need": 3,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h1",
+     "text": "Domiciliation de Personnes Morales et d'",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "Galerie de nos espaces",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "Packs pour les entreprises locales",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h3",
+     "text": "🛑 Cadre Contractuel & Sécurité Juridiqu",
+     "ratio": 17.46,
+     "need": 3,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(13,21,66)"
+    },
+    {
+     "sel": "h3",
+     "text": "🔹 Pack ESSENTIAL",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "🔹 Pack BUSINESS",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "👑 Pack PREMIUM",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": ".btn-primary",
+     "text": "DÉCOUVRIR NOS PACKS",
+     "ratio": 8.77,
+     "need": 4.5,
+     "fg": "rgb(10, 20, 36)",
+     "bg": "rgb(212,175,55)"
+    },
+    {
+     "sel": ".btn-primary",
+     "text": "JE M'ABONNE",
+     "ratio": 8.77,
+     "need": 4.5,
+     "fg": "rgb(10, 20, 36)",
+     "bg": "rgb(212,175,55)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "TOUR VIRTUEL",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "🇨🇲 GAMME NATIONALE",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".pricing-card .card-header h3",
+     "text": "🔹 Pack ESSENTIAL",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": ".pricing-card .card-header h3",
+     "text": "🔹 Pack BUSINESS",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": ".pricing-card .card-header h3",
+     "text": "👑 Pack PREMIUM",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "button",
+     "text": "TOUT",
+     "ratio": 8.77,
+     "need": 4.5,
+     "fg": "rgb(10, 20, 36)",
+     "bg": "rgb(212,175,55)"
+    },
+    {
+     "sel": "button",
+     "text": "ACCUEIL",
+     "ratio": 6.66,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "button",
+     "text": "BUREAUX PRIVÉS",
+     "ratio": 6.66,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "button",
+     "text": "SALLE DE RÉUNION",
+     "ratio": 6.66,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".gallery-caption",
+     "text": "Accueil & Réception",
+     "ratio": 17.08,
+     "need": 4.5,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".gallery-caption",
+     "text": "Accueil & Réception",
+     "ratio": 17.08,
+     "need": 4.5,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".gallery-caption",
+     "text": "Bureau Privé Executive",
+     "ratio": 17.08,
+     "need": 4.5,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".gallery-caption",
+     "text": "Bureau Privé & Connexion Haut Débit",
+     "ratio": 17.08,
+     "need": 4.5,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".gallery-caption",
+     "text": "Salle de Réunion & Hub",
+     "ratio": 17.08,
+     "need": 4.5,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".gallery-caption",
+     "text": "Salle de Réunion Stratégique",
+     "ratio": 17.08,
+     "need": 4.5,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(17,28,46)"
+    }
+   ],
+   "text": "Immeuble Pharmacie de Logpom, Douala\nLun–Ven 8h00–18h00 · Sam 9h00–14h00\ncontact@fedpawa.com\nFEDPAWA\nCORPORATE SOLUTIONS\nACCUEIL\nSERVICES ▾\nQUI SOMMES-NOUS\nCONTACT\nSE CONNECTER\nACCUEIL\nDOMICILIATION\nCRÉATION D'ENTREPRISE\nCONSEILS & SUIVI FISCAL\nPROTECTION OAPI\nCONTRATS\nQUI SOMMES-NOUS\nCONTACT\nJE M'ABONNE\nEN\n×\nLOCAUX CERTIFIÉS À LOGPOM\nDomiciliation de Personnes Morales et d'Entreprises\n\nVotre Infrastructure d'Affaires & Hub Opérationnel à Douala (Logpom)\n\nQue vous soyez un entrepreneur local lançant votre première activité au Cameroun, une PME nationale en pleine croissance, ou une multinationale ouvrant sa filiale en Afrique Centrale, l'immobilier classique ne doit plus être un frein à vos ambitions. Évitez les coûts étouffants d'un bail commercial traditionnel, les immobilisations financières de cautions pluriannuelles et la gestion quotidienne des infrastructures d'énergie ou de connectivité.\n\nFEDPAWA CORPORATE SOLUTIONS SARL met à la disposition de toutes les entreprises, sans distinction de taille ou de localisation, une infrastructure d'affaires de premier ordre au cœur de Douala, Logpom.\n\nBien plus qu'une simple adresse administrative, notre centre fournit à chaque dirigeant un écosystème de confiance : la permanence d'une équipe sur place pour sécuriser vos flux documentaires et vos colis, un secrétariat téléphonique interconnecté pour ne rater aucun client, et l'accès exclusif à un bureau de direction Executive haut de gamme pour vos séances de travail ou vos rendez-vous stratégiques.\n\nDÉCOUVRIR NOS PACKS\nVISITER LES LOCAUX\n🛑 Cadre Contractuel & Sécurité Juridique\n\nAfin de garantir une flexibilité totale à nos clients, l'intégralité de nos solutions d'hébergement est régie de manière exclusive par une Convention de mise à disposition d'infrastructures et de prestations de services.\n\nCet acte juridique exclut expressément le statut des baux commerciaux au sens du droit Uniforme OHADA. En conséquence, cette convention n'accorde aucun droit au renouvellement, aucune propriété commerciale ni aucun droit de maintien dans les lieux au profit du souscripteur. Il s'agit d'une mise à disposition de services matériels, logistiques et technologiques, entièrement flexible et révocable, assurant une parfaite sécurité juridique et une liberté totale aux deux parties.\n\nTOUR VIRTUEL\nGalerie de nos espaces\n\nDécouvrez l'environnement haut standing que nous mettons à votre disposition à Logpom.\n\nTOUT\nACCUEIL\nBUREAUX PRIVÉS\nSALLE DE RÉUNION\nAccueil & Réception\nAccueil & Réception\nBureau Privé Executive\nBureau Privé & Connexion Haut Débit\nSalle de Réunion & Hub\nSalle de Réunion Stratégique\n🇨🇲 GAMME NATIONALE\nPacks pour les entreprises locales\n🔹 Pack ESSENTIAL\n25 000 FCFA / mois\nAdresse de siège social à Logpom, Douala\nRéception du courrier\nScan systématique de chaque courrier\nArchivage numérique (1 mois)\nNotification par email et WhatsApp à chaque réception\n6 heures de bureau privé par mois incluses\nJE M'ABONNE\n🔹 Pack BUSINESS\n45 000 FCFA / mois\nAdresse de siège social à Logpom, Douala\nRéception du courrier\nScan systématique de chaque courrier\nArchivage numérique (1 mois)\nNotification par email et WhatsApp à chaque réception\nRéexpédition physique mensuelle du courrier\n10 heures de bureau privé par mois incluses\n(avec Connexion Wifi Haute Performance)\nJE M'ABONNE\nPOPULAIRE\n👑 Pack PREMIUM\n70 000 FCFA / mois\nAdresse de siège social à Logpom, Douala\nRéception du courrier\nScan systématique de chaque courrier\nArchivage numérique (1 mois)\nNotification par email et WhatsApp à chaque réception\nRéexpédition physique instantanée du courrier\n📞 Réceptionniste Dédiée bilingue (Français & Anglais)\n: réponses aux appels entrants au nom exclusif de votre entreprise et transfert instantané des messages\nAttribution d'un numéro de téléphone local\n15 heures de bureau privé par mois incluses\n(avec Connexion Wifi Haute Performance)\nJE M'ABONNE\n🌍 GAMME INTERNATIONALE & DIASPORA\nPacks Diaspora & Multinationales\n✈️ ESSENTIAL DIGITAL\n50 000 FCFA / mois\n~88 USD\nAdresse officielle du siège social à Logpom\nRéception physique des plis et des colis à l'accueil\nNumérisation et scan instantané de chaque courrier reçu\nEnvoi immédiat des documents scannés par e-mail ou WhatsApp\nService de réexpédition physique des colis vers l'étranger (frais de port au réel)\nJE M'ABONNE\n📞 BUSINESS VIRTUAL\n110 000 FCFA / mois\n~180 USD\nAdresse officielle du siège social à Logpom\nRéception physique des plis et des colis à l'accueil\nNumérisation et scan instantané de chaque courrier reçu\nEnvoi immédiat des documents scannés par e-mail ou WhatsApp\nService de réexpédition physique des colis vers l'étranger (frais de port au réel)\nAttribution d'un numéro de téléphone local camerounais dédié\nRéponse téléphonique personnalisée au nom de votre entreprise par la réceptionniste bilingue\nPrise de message et transmission immédiate des appels par WhatsApp ou e-mail\nJE M'ABONNE\nPRESTIGE\n🌟 PREMIUM EXECUTIVE\n175 000 FCFA / mois\n~290 USD\nAdresse officielle du siège social à Logpom\nRéception physique des plis et des colis à l'accueil\nNumérisation et scan instantané de chaque courrier reçu\nEnvoi immédiat des documents scannés par e-mail ou WhatsApp\nService de réexpédition physique des colis vers l'étranger (frais de port au réel)\nAttribution d'un numéro de téléphone local camerounais dédié\nRéponse téléphonique personnalisée au nom de votre entreprise par la réceptionniste bilingue\nPrise de message et transmission immédiate des appels par WhatsApp ou e-mail\nQuota de 20 heures par mois dans un bureau privé climatisé de haut standing\n(sur réservation)\nConnexion Internet haut débit incluse pendant vos heures de session\nAccueil de prestige de vos délégations d'affaires par la réceptionniste\nCafé inclus à volonté pour toute l'équipe pendant les sessions\nJE M'ABONNE\n🔒 Charte de Conformité & Dispositif KYC (Know Your Customer)\n\n« En conformité stricte avec les réglementations nationales et les standards internationaux de transparence, l'accès à l'ensemble de nos infrastructures et services de gestion documentaire est soumis à une procédure obligatoire de vérification d'identité. Chaque souscripteur, qu'il soit national ou international, doit fournir une copie certifiée conforme des pièces d'identité des dirigeants, les statuts de la structure (ou projets de statuts), un justificatif de domicile et une description transparente des activités économiques réelles. FEDPAWA CORPORATE SOLUTIONS SARL se réserve le droit de refuser toute souscription ne répondant pas à ces critères de transparence et de sécurité légale. »\n\nFEDPAWA\nCORPORATE SOLUTIONS\n\nUne infrastructure d'affaires de premier ordre au cœur de Douala, Logpom. Espace pour s'installer, espace pour grandir.\n\nNous trouver\n\nImmeuble Pharmacie de Logpom, en bordure de route, Logpom, Douala, Cameroun\n\nLundi–Vendredi 8h00 – 18h00\nSamedi 9h00 – 14h00\n\ncontact@fedpawa.com\n\nNavigation\nAccueil\nDomiciliation\nCréation d'entreprise\nConseils & Suivi Fiscal\nProtection OAPI\nContrats\nContact\nInformations légales\n\nRC : à compléter\nIFU : à compléter\nCNPS : à compléter\n\n© 2026 FEDPAWA CORPORATE SOLUTIONS. Tous droits réservés.\nDouala · Logpom · Cameroun",
+   "mobile": {
+    "scrollWidth": 375,
+    "overflows": [
+     {
+      "tag": "NAV",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "mobile-cta",
+      "right": 683
+     },
+     {
+      "tag": "DIV",
+      "cls": "mobile-nav-toggles",
+      "right": 689
+     },
+     {
+      "tag": "BUTTON",
+      "cls": "mode-toggle mobile-mode-toggle",
+      "right": 585
+     }
+    ]
+   }
+  },
+  "en": {
+   "name": "domiciliation-EN",
+   "url": "/en/domiciliation.php",
+   "console": [],
+   "failed": [],
+   "seo": {
+    "title": "Domiciliation for Legal Entities & Companies in Douala Logpom | FEDPAWA CORPORATE SOLUTIONS SARL",
+    "title_len": 96,
+    "desc_len": 205,
+    "lang": "en",
+    "h1": [
+     "Domiciliation for Legal Entities & Companies"
+    ],
+    "h1_count": 1,
+    "imgs_no_alt": 0
+   },
+   "perf": {
+    "dcl": 345,
+    "htmlKB": 21,
+    "resCount": 16,
+    "resKB": 705
+   },
+   "broken_imgs": [
+    "domiciliation.php"
+   ],
+   "links": [
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "FEDPAWA\nCORPORATE SOLUTIONS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "HOME"
+    },
+    {
+     "href": "http://127.0.0.1:18081/en/domiciliation.php#",
+     "text": "SERVICES ▾"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "Domiciliation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "Company Formation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "Tax & Legal Advisory"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "OAPI Protection"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "Contracts"
+    },
+    {
+     "href": "http://127.0.0.1:18081/qui-sommes-nous.php",
+     "text": "ABOUT US"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "CONTACT"
+    },
+    {
+     "href": "http://127.0.0.1:18081/authentification.html",
+     "text": "SIGN IN"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "HOME"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "DOMICILIATION"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "COMPANY FORMATION"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "TAX & LEGAL ADVISORY"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "OAPI PROTECTION"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "CONTRACTS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/qui-sommes-nous.php",
+     "text": "ABOUT US"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "CONTACT"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php",
+     "text": "SUBSCRIBE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/en/domiciliation.php#packs-nationaux",
+     "text": "DISCOVER OUR PLANS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "VISIT THE PREMISES"
+    },
+    {
+     "href": "http://127.0.0.1:18081/souscription_domiciliation.php?pack=national-essential",
+     "text": "SUBSCRIBE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/souscription_domiciliation.php?pack=national-business",
+     "text": "SUBSCRIBE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/souscription_domiciliation.php?pack=national-premium",
+     "text": "SUBSCRIBE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/souscription_domiciliation.php?pack=international-essential",
+     "text": "SUBSCRIBE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/souscription_domiciliation.php?pack=international-business",
+     "text": "SUBSCRIBE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/souscription_domiciliation.php?pack=international-premium",
+     "text": "SUBSCRIBE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "FEDPAWA\nCORPORATE SOLUTIONS"
+    },
+    {
+     "href": "mailto:contact@fedpawa.com",
+     "text": "contact@fedpawa.com"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "Home"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "Domiciliation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "Company Formation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "Tax & Legal Advisory"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "OAPI Protection"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "Contracts"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "Contact"
+    }
+   ],
+   "prices": [
+    "25 000 FCFA",
+    "45 000 FCFA",
+    "70 000 FCFA",
+    "50 000 FCFA",
+    "110 000 FCFA",
+    "175 000 FCFA"
+   ],
+   "contrast": [
+    {
+     "sel": ".price",
+     "text": "25 000 FCFA / month",
+     "ratio": 8.19,
+     "need": 3,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": ".price",
+     "text": "45 000 FCFA / month",
+     "ratio": 8.19,
+     "need": 3,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": ".price",
+     "text": "70 000 FCFA / month",
+     "ratio": 8.19,
+     "need": 3,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h1",
+     "text": "Domiciliation for Legal Entities & Compa",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "Gallery of our spaces",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "Plans for local companies",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "Diaspora & Multinational Plans",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h3",
+     "text": "🛑 Contractual Framework & Legal Securit",
+     "ratio": 17.46,
+     "need": 3,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(13,21,66)"
+    },
+    {
+     "sel": "h3",
+     "text": "🔹 ESSENTIAL Plan",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "🔹 BUSINESS Plan",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "👑 PREMIUM Plan",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": ".btn-primary",
+     "text": "DISCOVER OUR PLANS",
+     "ratio": 8.77,
+     "need": 4.5,
+     "fg": "rgb(10, 20, 36)",
+     "bg": "rgb(212,175,55)"
+    },
+    {
+     "sel": ".btn-primary",
+     "text": "SUBSCRIBE",
+     "ratio": 8.77,
+     "need": 4.5,
+     "fg": "rgb(10, 20, 36)",
+     "bg": "rgb(212,175,55)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "VIRTUAL TOUR",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "🇨🇲 NATIONAL RANGE",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "🌍 INTERNATIONAL RANGE & DIASPORA",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".pricing-card .card-header h3",
+     "text": "🔹 ESSENTIAL Plan",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": ".pricing-card .card-header h3",
+     "text": "🔹 BUSINESS Plan",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": ".pricing-card .card-header h3",
+     "text": "👑 PREMIUM Plan",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "button",
+     "text": "ALL",
+     "ratio": 8.77,
+     "need": 4.5,
+     "fg": "rgb(10, 20, 36)",
+     "bg": "rgb(212,175,55)"
+    },
+    {
+     "sel": "button",
+     "text": "RECEPTION",
+     "ratio": 6.66,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "button",
+     "text": "PRIVATE OFFICES",
+     "ratio": 6.66,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "button",
+     "text": "MEETING ROOM",
+     "ratio": 6.66,
+     "need": 4.5,
+     "fg": "rgb(148, 163, 184)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".gallery-caption",
+     "text": "Reception & Welcome",
+     "ratio": 17.08,
+     "need": 4.5,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".gallery-caption",
+     "text": "Executive Private Office",
+     "ratio": 17.08,
+     "need": 4.5,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".gallery-caption",
+     "text": "Meeting Room & Hub",
+     "ratio": 17.08,
+     "need": 4.5,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".gallery-caption",
+     "text": "High-speed workspace",
+     "ratio": 17.08,
+     "need": 4.5,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".gallery-caption",
+     "text": "Coffee & Lounge Area",
+     "ratio": 17.08,
+     "need": 4.5,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(17,28,46)"
+    }
+   ],
+   "text": "Logpom Pharmacy Building, Douala\nMon–Fri 8:00–18:00 · Sat 9:00–14:00\ncontact@fedpawa.com\nFEDPAWA\nCORPORATE SOLUTIONS\nHOME\nSERVICES ▾\nABOUT US\nCONTACT\nSIGN IN\nHOME\nDOMICILIATION\nCOMPANY FORMATION\nTAX & LEGAL ADVISORY\nOAPI PROTECTION\nCONTRACTS\nABOUT US\nCONTACT\nSUBSCRIBE\nFR\n×\nCERTIFIED PREMISES IN LOGPOM\nDomiciliation for Legal Entities & Companies\n\nYour Business Infrastructure & Operational Hub in Douala (Logpom)\n\nWhether you are a local entrepreneur launching your first business in Cameroon, a fast-growing national SME, or a multinational opening its subsidiary in Central Africa, classic real estate should no longer be a brake on your ambitions. Avoid the stifling costs of a traditional commercial lease, the financial immobilization of multi-year deposits and the daily management of energy or connectivity infrastructures.\n\nFEDPAWA CORPORATE SOLUTIONS SARL makes a first-class business infrastructure available to all companies, regardless of size or location, in the heart of Douala, Logpom.\n\nFar more than a simple administrative address, our centre provides every executive with a trusted ecosystem: the permanence of an on-site team to secure your document flows and parcels, an interconnected telephone secretariat so you never miss a client, and exclusive access to a high-end Executive director's office for your work sessions or strategic meetings.\n\nDISCOVER OUR PLANS\nVISIT THE PREMISES\n🛑 Contractual Framework & Legal Security\n\nTo guarantee total flexibility for our clients, all of our hosting solutions are governed exclusively by an Infrastructure and Services Provision Agreement.\n\nThis legal act expressly excludes the status of commercial leases within the meaning of the Uniform OHADA Law. Consequently, this agreement grants no right to renewal, no commercial property and no right to remain in the premises for the subscriber. It is a provision of material, logistical and technological services, entirely flexible and revocable, ensuring perfect legal security and total freedom for both parties.\n\nVIRTUAL TOUR\nGallery of our spaces\n\nDiscover the high-end environment we provide you in Logpom.\n\nALL\nRECEPTION\nPRIVATE OFFICES\nMEETING ROOM\nReception & Welcome\nExecutive Private Office\nMeeting Room & Hub\nHigh-speed workspace\nCoffee & Lounge Area\n🇨🇲 NATIONAL RANGE\nPlans for local companies\n🔹 ESSENTIAL Plan\n25 000 FCFA / month\nRegistered office address in Logpom, Douala\nMail reception\nSystematic scanning of every letter\nDigital archiving (1 month)\nEmail and WhatsApp notification upon each reception\n6 hours of private office per month included\nSUBSCRIBE\n🔹 BUSINESS Plan\n45 000 FCFA / month\nRegistered office address in Logpom, Douala\nMail reception\nSystematic scanning of every letter\nDigital archiving (1 month)\nEmail and WhatsApp notification upon each reception\nMonthly physical mail forwarding\n10 hours of private office per month included\n(with High-Performance Wi-Fi)\nSUBSCRIBE\nPOPULAR\n👑 PREMIUM Plan\n70 000 FCFA / month\nRegistered office address in Logpom, Douala\nMail reception\nSystematic scanning of every letter\nDigital archiving (1 month)\nEmail and WhatsApp notification upon each reception\nInstant physical mail forwarding\n📞 Dedicated bilingual Receptionist (French & English)\n: answering incoming calls exclusively in your company's name with instant message forwarding\nAssignment of a local phone number\n15 hours of private office per month included\n(with High-Performance Wi-Fi)\nSUBSCRIBE\n🌍 INTERNATIONAL RANGE & DIASPORA\nDiaspora & Multinational Plans\n✈️ ESSENTIAL DIGITAL\n50 000 FCFA / month\n~88 USD\nOfficial registered office address in Logpom\nPhysical reception of mail and parcels at the front desk\nInstant digitization and scanning of every letter received\nImmediate sending of scanned documents by email or WhatsApp\nPhysical parcel forwarding service abroad (postage at actual cost)\nSUBSCRIBE\n📞 BUSINESS VIRTUAL\n110 000 FCFA / month\n~180 USD\nOfficial registered office address in Logpom\nPhysical reception of mail and parcels at the front desk\nInstant digitization and scanning of every letter received\nImmediate sending of scanned documents by email or WhatsApp\nPhysical parcel forwarding service abroad (postage at actual cost)\nAssignment of a dedicated local Cameroonian phone number\nPersonalized telephone answering in your company's name by the bilingual receptionist\nMessage taking and instant call transmission via WhatsApp or email\nSUBSCRIBE\nPRESTIGE\n🌟 PREMIUM EXECUTIVE\n175 000 FCFA / month\n~290 USD\nOfficial registered office address in Logpom\nPhysical reception of mail and parcels at the front desk\nInstant digitization and scanning of every letter received\nImmediate sending of scanned documents by email or WhatsApp\nPhysical parcel forwarding service abroad (postage at actual cost)\nAssignment of a dedicated local Cameroonian phone number\nPersonalized telephone answering in your company's name by the bilingual receptionist\nMessage taking and instant call transmission via WhatsApp or email\nMonthly quota of 20 hours in a high-end air-conditioned private office\n(by reservation)\nHigh-speed Internet connection included during your session hours\nPrestigious welcome of your business delegations by the receptionist\nUnlimited coffee included for the whole team during sessions\nSUBSCRIBE\n🔒 Compliance Charter & KYC (Know Your Customer) Framework\n\n\"In strict compliance with national regulations and international transparency standards, access to all of our infrastructure and document management services is subject to a mandatory identity verification procedure. Every subscriber, whether national or international, must provide a certified true copy of the directors' identity documents, the company's articles of association (or draft articles), proof of address and a transparent description of the actual economic activities. FEDPAWA CORPORATE SOLUTIONS SARL reserves the right to refuse any subscription that does not meet these criteria of transparency and legal security.\"\n\nFEDPAWA\nCORPORATE SOLUTIONS\n\nA first-class business infrastructure in the heart of Douala, Logpom. Room to settle in, room to grow.\n\nFind Us\n\nLogpom Pharmacy Building, roadside, Logpom, Douala, Cameroon\n\nMonday–Friday 8:00 – 18:00\nSaturday 9:00 – 14:00\n\ncontact@fedpawa.com\n\nNavigation\nHome\nDomiciliation\nCompany Formation\nTax & Legal Advisory\nOAPI Protection\nContracts\nContact\nLegal Information\n\nRC: to be completed\nIFU: to be completed\nCNPS: to be completed\n\n© 2026 FEDPAWA CORPORATE SOLUTIONS. All rights reserved.\nDouala · Logpom · Cameroon",
+   "mobile": {
+    "scrollWidth": 375,
+    "overflows": [
+     {
+      "tag": "NAV",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "mobile-cta",
+      "right": 683
+     },
+     {
+      "tag": "DIV",
+      "cls": "mobile-nav-toggles",
+      "right": 689
+     },
+     {
+      "tag": "BUTTON",
+      "cls": "mode-toggle mobile-mode-toggle",
+      "right": 585
+     }
+    ]
+   }
+  }
+ },
+ "creation": {
+  "fr": {
+   "name": "creation-FR",
+   "url": "/creation_entreprise.php",
+   "console": [],
+   "failed": [],
+   "seo": {
+    "title": "Création, Transformation, Restructuration & Légalisation d'Entreprises | FEDPAWA CORPORATE SOLUTIONS SARL",
+    "title_len": 105,
+    "desc_len": 177,
+    "lang": "fr",
+    "h1": [
+     "La Création, la Transformation, la Restructuration et la Légalisation d'Entreprises"
+    ],
+    "h1_count": 1,
+    "imgs_no_alt": 0
+   },
+   "perf": {
+    "dcl": 260,
+    "htmlKB": 21,
+    "resCount": 11,
+    "resKB": 428
+   },
+   "broken_imgs": [],
+   "links": [
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "FEDPAWA\nCORPORATE SOLUTIONS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "ACCUEIL"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php#",
+     "text": "SERVICES ▾"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "Domiciliation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "Création d'entreprise"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "Conseils & Suivi Fiscal"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "Protection OAPI"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "Contrats"
+    },
+    {
+     "href": "http://127.0.0.1:18081/qui-sommes-nous.php",
+     "text": "QUI SOMMES-NOUS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "CONTACT"
+    },
+    {
+     "href": "http://127.0.0.1:18081/authentification.html",
+     "text": "SE CONNECTER"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "ACCUEIL"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "DOMICILIATION"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "CRÉATION D'ENTREPRISE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "CONSEILS & SUIVI FISCAL"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "PROTECTION OAPI"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "CONTRATS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/qui-sommes-nous.php",
+     "text": "QUI SOMMES-NOUS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "CONTACT"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php",
+     "text": "JE M'ABONNE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php?service=creation&pack=standard",
+     "text": "JE CRÉE MON ENTREPRISE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php#process",
+     "text": "DÉCOUVRIR LE PROCESSUS EN 4 ÉTAPES"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php?service=creation&pack=standard",
+     "text": "JE CRÉE MON ENTREPRISE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "FEDPAWA\nCORPORATE SOLUTIONS"
+    },
+    {
+     "href": "mailto:contact@fedpawa.com",
+     "text": "contact@fedpawa.com"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "Accueil"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "Domiciliation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "Création d'entreprise"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "Conseils & Suivi Fiscal"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "Protection OAPI"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "Contrats"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "Contact"
+    }
+   ],
+   "prices": [
+    "100 000 FCFA"
+   ],
+   "contrast": [
+    {
+     "sel": "h1",
+     "text": "La Création, la Transformation, la Restr",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "Plus qu'une Immatriculation : La Fondati",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "Le Processus d'Immatriculation Complet e",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "Un Dossier Prêt pour l'Ouverture de Comp",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "Panorama des Formes Juridiques Principal",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h3",
+     "text": "⚠️\nAttention aux statuts standardisés !",
+     "ratio": 17.46,
+     "need": 3,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(13,21,66)"
+    },
+    {
+     "sel": "h3",
+     "text": "🔍 Étape 1 : L'Audit Préalable et l'Orie",
+     "ratio": 15.72,
+     "need": 4.5,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "✍️ Étape 2 : La Conception et la Rédacti",
+     "ratio": 15.72,
+     "need": 4.5,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "🏛️ Étape 3 : Le Circuit Administratif e",
+     "ratio": 15.72,
+     "need": 4.5,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "💼 Étape 4 : La Livraison du \"Kit Corpor",
+     "ratio": 15.72,
+     "need": 4.5,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "Kit Corporate Exécutif",
+     "ratio": 20.04,
+     "need": 3,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(5,8,15)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "ACCROCHE STRATÉGIQUE",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "NOTRE MÉTHODOLOGIE",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "LIVRAISON FINALE",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "STRUCTURATION",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "CONDITIONS TARIFAIRES",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    }
+   ],
+   "text": "Immeuble Pharmacie de Logpom, Douala\nLun–Ven 8h00–18h00 · Sam 9h00–14h00\ncontact@fedpawa.com\nFEDPAWA\nCORPORATE SOLUTIONS\nACCUEIL\nSERVICES ▾\nQUI SOMMES-NOUS\nCONTACT\nSE CONNECTER\nACCUEIL\nDOMICILIATION\nCRÉATION D'ENTREPRISE\nCONSEILS & SUIVI FISCAL\nPROTECTION OAPI\nCONTRATS\nQUI SOMMES-NOUS\nCONTACT\nJE M'ABONNE\nEN\n×\nLa Création, la Transformation, la Restructuration et la Légalisation d'Entreprises\n\nDonnez une Existence Légale et Inattaquable à Votre Projet au Cameroun\n\nQue vous soyez un entrepreneur local formalisant sa première activité, un investisseur étranger ou un membre de la Diaspora structurant son patrimoine, la création ou la restructuration d'une entreprise ne se résume pas à remplir un formulaire administratif. C'est un acte juridique fondateur qui détermine votre responsabilité, votre gouvernance et votre optimisation fiscale future.\n\nFEDPAWA CORPORATE SOLUTIONS SARL prend en charge l'intégralité de vos démarches de constitution, transformation, restructuration et légalisation auprès des autorités camerounaises.\n\nJE CRÉE MON ENTREPRISE\nDÉCOUVRIR LE PROCESSUS EN 4 ÉTAPES\nACCROCHE STRATÉGIQUE\nPlus qu'une Immatriculation : La Fondation de Votre Patrimoine\n\nUn projet d'entreprise solide repose sur des fondations juridiques rigoureuses. L'utilisation de modèles de statuts génériques ou inadaptés constitue une menace permanente : conflits d'associés d'une gérance non cadrée, blocages lors de l'entrée d'investisseurs ou surimposition fiscale imprévue. Nous ne laissons rien au hasard.\n\nChaque acte est rédigé sur-mesure pour protéger vos intérêts et vous garantir une parfaite conformité avec le droit OHADA.\n\n⚠️\nAttention aux statuts standardisés !\n\nVos statuts fixent les règles du jeu entre associés, la répartition des pouvoirs et les conditions de sortie. Rédiger des statuts bâclés, c'est s'exposer à l'impossibilité de trancher un litige ou de céder ses parts. FEDPAWA personnalise chaque clause pour sécuriser votre contrôle et votre capital.\n\nNOTRE MÉTHODOLOGIE\nLe Processus d'Immatriculation Complet en 4 Étapes\n\nUne prise en charge intégrale de A à Z, sans aucun déplacement de votre part.\n\n01\n🔍 Étape 1 : L'Audit Préalable et l'Orientation Stratégique\n\nAvant de lancer la moindre démarche, nous analysons votre projet pour valider les choix fondamentaux :\n\nSélection de la Forme Juridique : orientation objective entre l'Établissement (Nom propre), la SARL (Société à Responsabilité Limitée), la SAS (Société par Actions Simplifiée) ou la SA (Société Anonyme) selon vos ambitions et le nombre d'associés.\nStructuration du Capital Social : conseil sur la répartition des parts, les apports en numéraire ou en nature, et la protection des associés fondateurs.\nValidation de la Gouvernance : définition des pouvoirs de la gérance ou de la présidence, et des modalités de prise de décision (clauses de blocage, majorité requise).\n02\n✍️ Étape 2 : La Conception et la Rédaction des Actes Juridiques\n\nNous n'utilisons pas de modèles génériques. Vos documents sont rédigés sur-mesure par des experts en droit des affaires :\n\nRédaction des Statuts de la société en stricte conformité avec les Actes Uniformes de l'OHADA.\nRédaction de la Déclaration de Souscription et de Versement (DSV).\nRédaction des procès-verbaux de nomination des premiers dirigeants (Gérants, Présidents, Directeurs Généraux).\n03\n🏛️ Étape 3 : Le Circuit Administratif et l'Immatriculation\n\nNous gérons l'intégralité du parcours auprès des institutions. Vous n'avez aucun déplacement à effectuer :\n\nInterface Notariale : suivi du dossier auprès de nos études de notaires partenaires à Douala et Yaoundé pour la passation et la certification des actes.\nDépôt au Greffe & CFCE / Enregistrement Fiscal : prise en charge des démarches et de l'obtention des registres officiels.\n04\n💼 Étape 4 : La Livraison du \"Kit Corporate\"\n\nÀ l'issue de la procédure, nous vous remettons votre dossier juridique complet, classé et sécurisé, comprenant :\n\nL'exemplaire original des statuts notariés.\nVotre titre de Registre du Commerce (RCCM).\nVotre Numéro d'identifiant unique (NIU) et votre Carte de Contribuable active.\n\nNB : Ce kit complet est immédiatement opérationnel pour l'ouverture de vos comptes bancaires professionnels au Cameroun et la signature de vos premiers contrats.\n\nKit Corporate Exécutif\n\nUn dossier complet, classé et sécurisé, prêt à l'emploi pour le lancement de votre activité.\n\nLIVRAISON FINALE\nUn Dossier Prêt pour l'Ouverture de Compte Bancaire\n\nÀ l'issue du processus, nous vous remettons un \"Kit Corporate\" physique et numérique contenant l'ensemble des originaux de votre entreprise. Ce dossier est immédiatement accepté par toutes les banques camerounaises pour l'ouverture de vos comptes professionnels.\n\nStatuts notariés originaux\nTitre RCCM officiel\nNIU & Carte de Contribuable active\nZéro déplacement requis\nSTRUCTURATION\nPanorama des Formes Juridiques Principales\n\nNous vous orientons objectivement vers la structure la plus adaptée à votre vision.\n\nÉtablissement\n\nIdéal pour les commerçants et indépendants démarrant seuls, sans capital minimal exigeant.\n\nSARL / SARLU\n\nStructure la plus répandue, protégeant le patrimoine personnel avec une gestion encadrée pour 1 ou plusieurs associés.\n\nSAS / SASU\n\nPrisée par les startups et investisseurs pour sa très grande souplesse contractuelle et de gouvernance.\n\nSA (Société Anonyme)\n\nConsacrée aux grands projets d'investissement, nécessitant un conseil d'administration structuré.\n\nCONDITIONS TARIFAIRES\nTarification Claire et Transparente\n\nUn accompagnement d'experts au tarif fixe, sans frais cachés.\n\nFORFAIT UNIQUE\nCréation & Légalisation d'Entreprise\n100 000 FCFA / dossier\nAudit préalable & choix de la structure\nRédaction sur-mesure des statuts OHADA, DSV et PV\nSuivi du circuit notarial, Greffe, CFCE & DGI\nLivraison du Kit Corporate complet (RCCM, NIU, Statuts)\nJE CRÉE MON ENTREPRISE\nTransparence sur les débours officiels : Les frais de notaire, les taxes légales d'enregistrement, les droits de timbre administratifs et les débours officiels varient selon la forme juridique retenue et le montant du capital social. Ils sont facturés au coût réel, sur présentation des justificatifs officiels.\nFEDPAWA\nCORPORATE SOLUTIONS\n\nUne infrastructure d'affaires de premier ordre au cœur de Douala, Logpom. Espace pour s'installer, espace pour grandir.\n\nNous trouver\n\nImmeuble Pharmacie de Logpom, en bordure de route, Logpom, Douala, Cameroun\n\nLundi–Vendredi 8h00 – 18h00\nSamedi 9h00 – 14h00\n\ncontact@fedpawa.com\n\nNavigation\nAccueil\nDomiciliation\nCréation d'entreprise\nConseils & Suivi Fiscal\nProtection OAPI\nContrats\nContact\nInformations légales\n\nRC : à compléter\nIFU : à compléter\nCNPS : à compléter\n\n© 2026 FEDPAWA CORPORATE SOLUTIONS. Tous droits réservés.\nDouala · Logpom · Cameroun",
+   "mobile": {
+    "scrollWidth": 375,
+    "overflows": [
+     {
+      "tag": "NAV",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "mobile-cta",
+      "right": 683
+     },
+     {
+      "tag": "DIV",
+      "cls": "mobile-nav-toggles",
+      "right": 689
+     },
+     {
+      "tag": "BUTTON",
+      "cls": "mode-toggle mobile-mode-toggle",
+      "right": 585
+     }
+    ]
+   }
+  },
+  "en": {
+   "name": "creation-EN",
+   "url": "/en/creation_entreprise.php",
+   "console": [],
+   "failed": [],
+   "seo": {
+    "title": "Company Formation, Transformation, Restructuring & Legalization | FEDPAWA CORPORATE SOLUTIONS SARL",
+    "title_len": 98,
+    "desc_len": 165,
+    "lang": "en",
+    "h1": [
+     "Company Formation, Transformation, Restructuring & Legalization"
+    ],
+    "h1_count": 1,
+    "imgs_no_alt": 0
+   },
+   "perf": {
+    "dcl": 241,
+    "htmlKB": 21,
+    "resCount": 11,
+    "resKB": 428
+   },
+   "broken_imgs": [],
+   "links": [
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "FEDPAWA\nCORPORATE SOLUTIONS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "HOME"
+    },
+    {
+     "href": "http://127.0.0.1:18081/en/creation_entreprise.php#",
+     "text": "SERVICES ▾"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "Domiciliation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "Company Formation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "Tax & Legal Advisory"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "OAPI Protection"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "Contracts"
+    },
+    {
+     "href": "http://127.0.0.1:18081/qui-sommes-nous.php",
+     "text": "ABOUT US"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "CONTACT"
+    },
+    {
+     "href": "http://127.0.0.1:18081/authentification.html",
+     "text": "SIGN IN"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "HOME"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "DOMICILIATION"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "COMPANY FORMATION"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "TAX & LEGAL ADVISORY"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "OAPI PROTECTION"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "CONTRACTS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/qui-sommes-nous.php",
+     "text": "ABOUT US"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "CONTACT"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php",
+     "text": "SUBSCRIBE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php?service=creation&pack=standard",
+     "text": "I CREATE MY COMPANY"
+    },
+    {
+     "href": "http://127.0.0.1:18081/en/creation_entreprise.php#process",
+     "text": "DISCOVER THE 4-STEP PROCESS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php?service=creation&pack=standard",
+     "text": "JE CRÉE MON ENTREPRISE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "FEDPAWA\nCORPORATE SOLUTIONS"
+    },
+    {
+     "href": "mailto:contact@fedpawa.com",
+     "text": "contact@fedpawa.com"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "Home"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "Domiciliation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "Company Formation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "Tax & Legal Advisory"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "OAPI Protection"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "Contracts"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "Contact"
+    }
+   ],
+   "prices": [
+    "100 000 FCFA"
+   ],
+   "contrast": [
+    {
+     "sel": "h1",
+     "text": "Company Formation, Transformation, Restr",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "More Than a Registration: The Foundation",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "The Complete 4-Step Registration Process",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "Un Dossier Prêt pour l'Ouverture de Comp",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "Overview of the Main Legal Forms",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h3",
+     "text": "⚠️\nAttention aux statuts standardisés !",
+     "ratio": 17.46,
+     "need": 3,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(13,21,66)"
+    },
+    {
+     "sel": "h3",
+     "text": "🔍 Step 1: Preliminary Audit & Strategic",
+     "ratio": 15.72,
+     "need": 4.5,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "✍️ Step 2: Design & Drafting of the Lega",
+     "ratio": 15.72,
+     "need": 4.5,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "🏛️ Step 3: The Administrative Circuit &",
+     "ratio": 15.72,
+     "need": 4.5,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "💼 Step 4: Delivery of the \"Corporate Ki",
+     "ratio": 15.72,
+     "need": 4.5,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "Kit Corporate Exécutif",
+     "ratio": 20.04,
+     "need": 3,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(5,8,15)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "STRATEGIC PITCH",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "NOTRE MÉTHODOLOGIE",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "LIVRAISON FINALE",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "STRUCTURATION",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    }
+   ],
+   "text": "Logpom Pharmacy Building, Douala\nMon–Fri 8:00–18:00 · Sat 9:00–14:00\ncontact@fedpawa.com\nFEDPAWA\nCORPORATE SOLUTIONS\nHOME\nSERVICES ▾\nABOUT US\nCONTACT\nSIGN IN\nHOME\nDOMICILIATION\nCOMPANY FORMATION\nTAX & LEGAL ADVISORY\nOAPI PROTECTION\nCONTRACTS\nABOUT US\nCONTACT\nSUBSCRIBE\nFR\n×\n100% COMPLIANT WITH OHADA UNIFORM ACTS & GUCE/CFCE\nCompany Formation, Transformation, Restructuring & Legalization\n\nGive Your Project a Legal and Unassailable Existence in Cameroon\n\nQue vous soyez un entrepreneur local formalisant sa première activité, un investisseur étranger ou un membre de la Diaspora structurant son patrimoine, la création ou la restructuration d'une entreprise ne se résume pas à remplir un formulaire administratif. C'est un acte juridique fondateur qui détermine votre responsabilité, votre gouvernance et votre optimisation fiscale future.\n\nFEDPAWA CORPORATE SOLUTIONS SARL prend en charge l'intégralité de vos démarches de constitution, transformation, restructuration et légalisation auprès des autorités camerounaises.\n\nI CREATE MY COMPANY\nDISCOVER THE 4-STEP PROCESS\nSTRATEGIC PITCH\nMore Than a Registration: The Foundation of Your Estate\n\nUn projet d'entreprise solide repose sur des fondations juridiques rigoureuses. L'utilisation de modèles de statuts génériques ou inadaptés constitue une menace permanente : conflits d'associés d'une gérance non cadrée, blocages lors de l'entrée d'investisseurs ou surimposition fiscale imprévue. Nous ne laissons rien au hasard.\n\nChaque acte est rédigé sur-mesure pour protéger vos intérêts et vous garantir une parfaite conformité avec le droit OHADA.\n\n⚠️\nAttention aux statuts standardisés !\n\nVos statuts fixent les règles du jeu entre associés, la répartition des pouvoirs et les conditions de sortie. Rédiger des statuts bâclés, c'est s'exposer à l'impossibilité de trancher un litige ou de céder ses parts. FEDPAWA personnalise chaque clause pour sécuriser votre contrôle et votre capital.\n\nNOTRE MÉTHODOLOGIE\nThe Complete 4-Step Registration Process\n\nComplete end-to-end handling, with no travel required on your part.\n\n01\n🔍 Step 1: Preliminary Audit & Strategic Orientation\n\nBefore launching any procedure, we analyze your project to validate the fundamental choices:\n\nSélection de la Forme Juridique : orientation objective entre l'Établissement (Nom propre), la SARL (Société à Responsabilité Limitée), la SAS (Société par Actions Simplifiée) ou la SA (Société Anonyme) selon vos ambitions et le nombre d'associés.\nStructuration du Capital Social : conseil sur la répartition des parts, les apports en numéraire ou en nature, et la protection des associés fondateurs.\nValidation de la Gouvernance : définition des pouvoirs de la gérance ou de la présidence, et des modalités de prise de décision (clauses de blocage, majorité requise).\n02\n✍️ Step 2: Design & Drafting of the Legal Instruments\n\nWe do not use generic templates. Your documents are drafted on a tailor-made basis by business law experts:\n\nRédaction des Statuts de la société en stricte conformité avec les Actes Uniformes de l'OHADA.\nRédaction de la Déclaration de Souscription et de Versement (DSV).\nRédaction des procès-verbaux de nomination des premiers dirigeants (Gérants, Présidents, Directeurs Généraux).\n03\n🏛️ Step 3: The Administrative Circuit & Registration\n\nWe handle the entire institutional journey. You have no travel to perform:\n\nInterface Notariale : suivi du dossier auprès de nos études de notaires partenaires à Douala et Yaoundé pour la passation et la certification des actes.\nDépôt au Greffe & CFCE / Enregistrement Fiscal : prise en charge des démarches et de l'obtention des registres officiels.\n04\n💼 Step 4: Delivery of the \"Corporate Kit\"\n\nAt the end of the procedure, we hand over your complete legal file, organized and secured, including:\n\nL'exemplaire original des statuts notariés.\nVotre titre de Registre du Commerce (RCCM).\nVotre Numéro d'identifiant unique (NIU) et votre Carte de Contribuable active.\n\nNB : Ce kit complet est immédiatement opérationnel pour l'ouverture de vos comptes bancaires professionnels au Cameroun et la signature de vos premiers contrats.\n\nKit Corporate Exécutif\n\nUn dossier complet, classé et sécurisé, prêt à l'emploi pour le lancement de votre activité.\n\nLIVRAISON FINALE\nUn Dossier Prêt pour l'Ouverture de Compte Bancaire\n\nÀ l'issue du processus, nous vous remettons un \"Kit Corporate\" physique et numérique contenant l'ensemble des originaux de votre entreprise. Ce dossier est immédiatement accepté par toutes les banques camerounaises pour l'ouverture de vos comptes professionnels.\n\nStatuts notariés originaux\nTitre RCCM officiel\nNIU & Carte de Contribuable active\nZéro déplacement requis\nSTRUCTURATION\nOverview of the Main Legal Forms\n\nNous vous orientons objectivement vers la structure la plus adaptée à votre vision.\n\nÉtablissement\n\nIdéal pour les commerçants et indépendants démarrant seuls, sans capital minimal exigeant.\n\nSARL / SARLU\n\nStructure la plus répandue, protégeant le patrimoine personnel avec une gestion encadrée pour 1 ou plusieurs associés.\n\nSAS / SASU\n\nPrisée par les startups et investisseurs pour sa très grande souplesse contractuelle et de gouvernance.\n\nSA (Société Anonyme)\n\nConsacrée aux grands projets d'investissement, nécessitant un conseil d'administration structuré.\n\nCONDITIONS TARIFAIRES\nClear and Transparent Pricing\n\nExpert guidance at a fixed rate, with no hidden fees.\n\nFORFAIT UNIQUE\nCompany Formation & Legalization\n100 000 FCFA / file\nAudit préalable & choix de la structure\nRédaction sur-mesure des statuts OHADA, DSV et PV\nSuivi du circuit notarial, Greffe, CFCE & DGI\nLivraison du Kit Corporate complet (RCCM, NIU, Statuts)\nJE CRÉE MON ENTREPRISE\nTransparency on official disbursements: Les frais de notaire, les taxes légales d'enregistrement, les droits de timbre administratifs et les débours officiels varient selon la forme juridique retenue et le montant du capital social. Ils sont facturés au coût réel, sur présentation des justificatifs officiels.\nFEDPAWA\nCORPORATE SOLUTIONS\n\nA first-class business infrastructure in the heart of Douala, Logpom. Room to settle in, room to grow.\n\nFind Us\n\nLogpom Pharmacy Building, roadside, Logpom, Douala, Cameroon\n\nMonday–Friday 8:00 – 18:00\nSaturday 9:00 – 14:00\n\ncontact@fedpawa.com\n\nNavigation\nHome\nDomiciliation\nCompany Formation\nTax & Legal Advisory\nOAPI Protection\nContracts\nContact\nLegal Information\n\nRC: to be completed\nIFU: to be completed\nCNPS: to be completed\n\n© 2026 FEDPAWA CORPORATE SOLUTIONS. All rights reserved.\nDouala · Logpom · Cameroon",
+   "mobile": {
+    "scrollWidth": 375,
+    "overflows": [
+     {
+      "tag": "NAV",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "mobile-cta",
+      "right": 683
+     },
+     {
+      "tag": "DIV",
+      "cls": "mobile-nav-toggles",
+      "right": 689
+     },
+     {
+      "tag": "BUTTON",
+      "cls": "mode-toggle mobile-mode-toggle",
+      "right": 585
+     }
+    ]
+   }
+  }
+ },
+ "fiscalite": {
+  "fr": {
+   "name": "fiscalite-FR",
+   "url": "/fiscalite.php",
+   "console": [],
+   "failed": [],
+   "seo": {
+    "title": "Conseil et Suivi Juridique & Fiscal des Entreprises | FEDPAWA CORPORATE SOLUTIONS SARL",
+    "title_len": 86,
+    "desc_len": 170,
+    "lang": "fr",
+    "h1": [
+     "Le Conseil et le Suivi Juridique et Fiscal des Entreprises"
+    ],
+    "h1_count": 1,
+    "imgs_no_alt": 0
+   },
+   "perf": {
+    "dcl": 255,
+    "htmlKB": 20,
+    "resCount": 11,
+    "resKB": 428
+   },
+   "broken_imgs": [],
+   "links": [
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "FEDPAWA\nCORPORATE SOLUTIONS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "ACCUEIL"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php#",
+     "text": "SERVICES ▾"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "Domiciliation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "Création d'entreprise"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "Conseils & Suivi Fiscal"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "Protection OAPI"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "Contrats"
+    },
+    {
+     "href": "http://127.0.0.1:18081/qui-sommes-nous.php",
+     "text": "QUI SOMMES-NOUS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "CONTACT"
+    },
+    {
+     "href": "http://127.0.0.1:18081/authentification.html",
+     "text": "SE CONNECTER"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "ACCUEIL"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "DOMICILIATION"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "CRÉATION D'ENTREPRISE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "CONSEILS & SUIVI FISCAL"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "PROTECTION OAPI"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "CONTRATS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/qui-sommes-nous.php",
+     "text": "QUI SOMMES-NOUS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "CONTACT"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php",
+     "text": "JE M'ABONNE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php?service=fiscalite&pack=simplifie",
+     "text": "JE SÉCURISE MA FISCALITÉ"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php?service=fiscalite-devis",
+     "text": "DEMANDER UN DEVIS SUR-MESURE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php?service=fiscalite&pack=simplifie",
+     "text": "JE SÉCURISE MA FISCALITÉ"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php?service=fiscalite-reel",
+     "text": "DEMANDER UN DEVIS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "FEDPAWA\nCORPORATE SOLUTIONS"
+    },
+    {
+     "href": "mailto:contact@fedpawa.com",
+     "text": "contact@fedpawa.com"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "Accueil"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "Domiciliation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "Création d'entreprise"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "Conseils & Suivi Fiscal"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "Protection OAPI"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "Contrats"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "Contact"
+    }
+   ],
+   "prices": [
+    "35 000 FCFA"
+   ],
+   "contrast": [
+    {
+     "sel": ".price",
+     "text": "35 000 FCFA / mois",
+     "ratio": 8.19,
+     "need": 3,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": ".price",
+     "text": "Sur Devis Personnalisé",
+     "ratio": 8.19,
+     "need": 3,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h1",
+     "text": "Le Conseil et le Suivi Juridique et Fisc",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "L'Externalisation Fiscale : Un Investiss",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "Les 4 Pôles d'Expertise Fiscale & Réglem",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "Le Bouclier Fiscal FEDPAWA : Vous N'êtes",
+     "ratio": 17.46,
+     "need": 3,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(13,21,66)"
+    },
+    {
+     "sel": "h2",
+     "text": "La Sécurité Fiscale au Juste Prix",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h3",
+     "text": "⚠️\nProtégez votre entreprise contre le b",
+     "ratio": 17.46,
+     "need": 3,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(13,21,66)"
+    },
+    {
+     "sel": "h3",
+     "text": "📊 1. Gestion des Déclarations Mensuelle",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "📑 2. Établissement de la Liasse Fiscale",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "🏛️ 3. Représentation Administrative et ",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "Bouclier Fiscal & Contrôles",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "Forfait Régime Simplifié",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "Régime du Réel / Corporate",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "ACCROCHE STRATÉGIQUE",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "NOS EXPERTISES",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "CONDITIONS TARIFAIRES",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".pricing-card .card-header h3",
+     "text": "Forfait Régime Simplifié",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": ".pricing-card .card-header h3",
+     "text": "Régime du Réel / Corporate",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    }
+   ],
+   "text": "Immeuble Pharmacie de Logpom, Douala\nLun–Ven 8h00–18h00 · Sam 9h00–14h00\ncontact@fedpawa.com\nFEDPAWA\nCORPORATE SOLUTIONS\nACCUEIL\nSERVICES ▾\nQUI SOMMES-NOUS\nCONTACT\nSE CONNECTER\nACCUEIL\nDOMICILIATION\nCRÉATION D'ENTREPRISE\nCONSEILS & SUIVI FISCAL\nPROTECTION OAPI\nCONTRATS\nQUI SOMMES-NOUS\nCONTACT\nJE M'ABONNE\nEN\n×\nCONFORMITÉ CODE GÉNÉRAL DES IMPÔTS & SYSCOHADA\nLe Conseil et le Suivi Juridique et Fiscal des Entreprises\n\nSécurisez Votre Croissance et Pilotez Vos Obligations Face à la DGI en Toute Sérénité\n\nLa pérennité d'une entreprise au Cameroun repose sur sa conformité fiscale et juridique. Trop de dirigeants voient leur élan brisé par des redressements ou des blocages administratifs qui auraient pu être évités grâce à une veille rigoureuse. Que vous soyez une PME nationale ou une filiale internationale, externaliser votre suivi juridique et fiscal à des experts du droit des affaires est un investissement stratégique majeur.\n\nFEDPAWA CORPORATE SOLUTIONS SARL prend en charge l'intégralité de vos obligations réglementaires, juridiques et fiscales courantes. Nous assurons l'interface permanente entre votre entreprise et l'administration fiscale camerounaise, vous garantissant une conformité totale tout en optimisant légalement votre charge fiscale.\n\nJE SÉCURISE MA FISCALITÉ\nDEMANDER UN DEVIS SUR-MESURE\nACCROCHE STRATÉGIQUE\nL'Externalisation Fiscale : Un Investissement Stratégique Majeur\n\nFace à la complexification du Code Général des Impôts et à la digitalisation stricte des procédures sur le portail de la Direction Générale des Impôts (DGI), la gestion fiscale d'une entreprise ne tolère aucune improvisation.\n\nExternaliser votre suivi fiscal à des experts du droit des affaires vous évite les erreurs coûteuses, préserve votre trésorerie et garantit à votre structure une réputation irréprochable auprès des institutions.\n\n⚠️\nProtégez votre entreprise contre le blocage fiscal !\n\nUn retard de déclaration ou une omission d'acompte peut entraîner le blocage instantané de votre carte de contribuable, l'impossibilité d'obtenir votre Attestation de Conformité Fiscale (ACF) et le rejet de vos soumissions aux marchés publics. FEDPAWA veille sur vos échéances mois après mois.\n\nNOS EXPERTISES\nLes 4 Pôles d'Expertise Fiscale & Réglementaire\n\nUne prise en charge complète, de la télé-déclaration mensuelle jusqu'à la défense en cas de contrôle.\n\n📊 1. Gestion des Déclarations Mensuelles Courantes\nNOUS PRENONS EN CHARGE L'ENSEMBLE DES OBLIGATIONS PÉRIODIQUES OBLIGATOIRES SUR LE PORTAIL OFFICIEL DE LA DGI :\nCalcul, vérification et télé-déclaration de la Taxe sur la Valeur Ajoutée (TVA).\nDéclaration et liquidation des acomptes d'Impôt sur les Sociétés ou sur le Revenu.\nGestion des retenues à la source sur les loyers, les prestataires locaux et internationaux.\nDéclaration des taxes sur les salaires (IRPP, cotisations sociales CNPS, Crédit Foncier, FNE).\n📑 2. Établissement de la Liasse Fiscale Annuelle (DSF)\nEN FIN D'EXERCICE COMPTABLE, NOUS GÉRONS LA TRANSITION JURIDIQUE ET FISCALE MAJEURE :\nVérification de la conformité des écritures au regard du système comptable OHADA (SYSCOHADA).\nÉlaboration, validation juridique et dépôt de votre Déclaration Statistique et Fiscale (DSF).\nOptimisation des déductions fiscales légales, des amortissements et des reports déficitaires autorisés par le Code Général des Impôts.\n🏛️ 3. Représentation Administrative et Conformité Fiscale\nNOUS GÉRONS VOS RELATIONS QUOTIDIENNES AVEC VOTRE CENTRE DES IMPÔTS DE RATTACHEMENT (CIME, CDI OU DGE) :\nSuivi de la délivrance et du maintien de votre Attestation de Conformité Fiscale (ACF), indispensable pour l'ensemble de vos démarches administratives, commerciales et bancaires.\nSuivi des demandes de remboursement de crédits de TVA ou de compensation fiscale.\nMise à jour permanente de votre dossier fiscal (changement de dirigeant, modification de capital, etc.).\nBouclier Fiscal & Contrôles\nDÉFENSE FACE À L'ADMINISTRATION\nAnalyse juridique approfondie des avis de vérification ou des notifications de redressement.\nRédaction juridique de vos lettres de contestation et observations écrites.\nPrésence physique et assistance technique lors des réunions contradictoires face aux vérificateurs.\nLe Bouclier Fiscal FEDPAWA : Vous N'êtes Plus Seul Face à la DGI\n\nSi l'administration fiscale frappe à votre porte pour une vérification de comptabilité ou un contrôle ponctuel, nos experts prennent immédiatement le relais. Nous faisons écran entre les inspecteurs et votre direction, analysons la régularité des procédures et défendons fermement vos droits pour éviter toute taxation d'office ou redressement abusif.\n\nAnalyse des notifications de redressement\nRédaction de contestations juridiques\nPrésence physique aux réunions contradictoires\nCONDITIONS TARIFAIRES\nLa Sécurité Fiscale au Juste Prix\n\nDes forfaits adaptés à votre régime fiscal et au volume de vos opérations.\n\nPOPULAIRE\nForfait Régime Simplifié\n35 000 FCFA / mois\nDéclarations mensuelles DGI (TVA, Acomptes, Salaires)\nVeille réglementaire permanente\nSuivi de l'Attestation de Conformité Fiscale (ACF)\nJE SÉCURISE MA FISCALITÉ\nRégime du Réel / Corporate\nSur Devis Personnalisé\nDéclarations mensuelles complexes (DGE / CIME)\nGestion des retenues internationales & intégration fiscale\nAccompagnement sur-mesure & Bouclier Fiscal\nDEMANDER UN DEVIS\nNote sur la veille et la liasse fiscale : Nos forfaits mensuels incluent la veille réglementaire et juridique permanente. L'établissement de la Déclaration Statistique et Fiscale (DSF) annuelle fait l'objet d'un forfait d'arrêté des comptes distinct selon la taille de la structure.\nFEDPAWA\nCORPORATE SOLUTIONS\n\nUne infrastructure d'affaires de premier ordre au cœur de Douala, Logpom. Espace pour s'installer, espace pour grandir.\n\nNous trouver\n\nImmeuble Pharmacie de Logpom, en bordure de route, Logpom, Douala, Cameroun\n\nLundi–Vendredi 8h00 – 18h00\nSamedi 9h00 – 14h00\n\ncontact@fedpawa.com\n\nNavigation\nAccueil\nDomiciliation\nCréation d'entreprise\nConseils & Suivi Fiscal\nProtection OAPI\nContrats\nContact\nInformations légales\n\nRC : à compléter\nIFU : à compléter\nCNPS : à compléter\n\n© 2026 FEDPAWA CORPORATE SOLUTIONS. Tous droits réservés.\nDouala · Logpom · Cameroun",
+   "mobile": {
+    "scrollWidth": 375,
+    "overflows": [
+     {
+      "tag": "NAV",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "mobile-cta",
+      "right": 683
+     },
+     {
+      "tag": "DIV",
+      "cls": "mobile-nav-toggles",
+      "right": 689
+     },
+     {
+      "tag": "BUTTON",
+      "cls": "mode-toggle mobile-mode-toggle",
+      "right": 585
+     }
+    ]
+   }
+  },
+  "en": {
+   "name": "fiscalite-EN",
+   "url": "/en/fiscalite.php",
+   "console": [],
+   "failed": [],
+   "seo": {
+    "title": "Legal and Tax Advisory & Monitoring for Companies | FEDPAWA CORPORATE SOLUTIONS SARL",
+    "title_len": 84,
+    "desc_len": 153,
+    "lang": "en",
+    "h1": [
+     "Legal and Tax Advisory & Monitoring for Companies"
+    ],
+    "h1_count": 1,
+    "imgs_no_alt": 0
+   },
+   "perf": {
+    "dcl": 260,
+    "htmlKB": 19,
+    "resCount": 11,
+    "resKB": 428
+   },
+   "broken_imgs": [],
+   "links": [
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "FEDPAWA\nCORPORATE SOLUTIONS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "HOME"
+    },
+    {
+     "href": "http://127.0.0.1:18081/en/fiscalite.php#",
+     "text": "SERVICES ▾"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "Domiciliation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "Company Formation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "Tax & Legal Advisory"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "OAPI Protection"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "Contracts"
+    },
+    {
+     "href": "http://127.0.0.1:18081/qui-sommes-nous.php",
+     "text": "ABOUT US"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "CONTACT"
+    },
+    {
+     "href": "http://127.0.0.1:18081/authentification.html",
+     "text": "SIGN IN"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "HOME"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "DOMICILIATION"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "COMPANY FORMATION"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "TAX & LEGAL ADVISORY"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "OAPI PROTECTION"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "CONTRACTS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/qui-sommes-nous.php",
+     "text": "ABOUT US"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "CONTACT"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php",
+     "text": "SUBSCRIBE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php?service=fiscalite&pack=simplifie",
+     "text": "I SECURE MY TAX AFFAIRS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php?service=fiscalite-devis",
+     "text": "REQUEST A TAILORED QUOTE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php?service=fiscalite&pack=simplifie",
+     "text": "JE SÉCURISE MA FISCALITÉ"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php?service=fiscalite-reel",
+     "text": "DEMANDER UN DEVIS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "FEDPAWA\nCORPORATE SOLUTIONS"
+    },
+    {
+     "href": "mailto:contact@fedpawa.com",
+     "text": "contact@fedpawa.com"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "Home"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "Domiciliation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "Company Formation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "Tax & Legal Advisory"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "OAPI Protection"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "Contracts"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "Contact"
+    }
+   ],
+   "prices": [
+    "35 000 FCFA"
+   ],
+   "contrast": [
+    {
+     "sel": ".price",
+     "text": "35 000 FCFA / month",
+     "ratio": 8.19,
+     "need": 3,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": ".price",
+     "text": "Custom Quote",
+     "ratio": 8.19,
+     "need": 3,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h1",
+     "text": "Legal and Tax Advisory & Monitoring for ",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "Tax Outsourcing: A Major Strategic Inves",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "The 4 Areas of Tax & Regulatory Expertis",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "The FEDPAWA Tax Shield: You Are Never Al",
+     "ratio": 17.46,
+     "need": 3,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(13,21,66)"
+    },
+    {
+     "sel": "h2",
+     "text": "Tax Security at the Right Price",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h3",
+     "text": "⚠️\nProtect your company from tax blockin",
+     "ratio": 17.46,
+     "need": 3,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(13,21,66)"
+    },
+    {
+     "sel": "h3",
+     "text": "📊 1. Management of Current Monthly Decl",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "📑 2. Preparation of the Annual Tax Retu",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "🏛️ 3. Administrative Representation & T",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "Tax Shield & Audits",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "Simplified Regime Plan",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "Real Regime / Corporate",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "ACCROCHE STRATÉGIQUE",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "NOS EXPERTISES",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "CONDITIONS TARIFAIRES",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".pricing-card .card-header h3",
+     "text": "Simplified Regime Plan",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": ".pricing-card .card-header h3",
+     "text": "Real Regime / Corporate",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    }
+   ],
+   "text": "Logpom Pharmacy Building, Douala\nMon–Fri 8:00–18:00 · Sat 9:00–14:00\ncontact@fedpawa.com\nFEDPAWA\nCORPORATE SOLUTIONS\nHOME\nSERVICES ▾\nABOUT US\nCONTACT\nSIGN IN\nHOME\nDOMICILIATION\nCOMPANY FORMATION\nTAX & LEGAL ADVISORY\nOAPI PROTECTION\nCONTRACTS\nABOUT US\nCONTACT\nSUBSCRIBE\nFR\n×\nCOMPLIANCE WITH THE GENERAL TAX CODE & SYSCOHADA\nLegal and Tax Advisory & Monitoring for Companies\n\nSecure Your Growth and Steer Your Obligations Before the DGI with Complete Peace of Mind\n\nLa pérennité d'une entreprise au Cameroun repose sur sa conformité fiscale et juridique. Trop de dirigeants voient leur élan brisé par des redressements ou des blocages administratifs qui auraient pu être évités grâce à une veille rigoureuse. Que vous soyez une PME nationale ou une filiale internationale, externaliser votre suivi juridique et fiscal à des experts du droit des affaires est un investissement stratégique majeur.\n\nFEDPAWA CORPORATE SOLUTIONS SARL prend en charge l'intégralité de vos obligations réglementaires, juridiques et fiscales courantes. Nous assurons l'interface permanente entre votre entreprise et l'administration fiscale camerounaise, vous garantissant une conformité totale tout en optimisant légalement votre charge fiscale.\n\nI SECURE MY TAX AFFAIRS\nREQUEST A TAILORED QUOTE\nACCROCHE STRATÉGIQUE\nTax Outsourcing: A Major Strategic Investment\n\nFace à la complexification du Code Général des Impôts et à la digitalisation stricte des procédures sur le portail de la Direction Générale des Impôts (DGI), la gestion fiscale d'une entreprise ne tolère aucune improvisation.\n\nExternaliser votre suivi fiscal à des experts du droit des affaires vous évite les erreurs coûteuses, préserve votre trésorerie et garantit à votre structure une réputation irréprochable auprès des institutions.\n\n⚠️\nProtect your company from tax blocking!\n\nUn retard de déclaration ou une omission d'acompte peut entraîner le blocage instantané de votre carte de contribuable, l'impossibilité d'obtenir votre Attestation de Conformité Fiscale (ACF) et le rejet de vos soumissions aux marchés publics. FEDPAWA veille sur vos échéances mois après mois.\n\nNOS EXPERTISES\nThe 4 Areas of Tax & Regulatory Expertise\n\nUne prise en charge complète, de la télé-déclaration mensuelle jusqu'à la défense en cas de contrôle.\n\n📊 1. Management of Current Monthly Declarations\nNOUS PRENONS EN CHARGE L'ENSEMBLE DES OBLIGATIONS PÉRIODIQUES OBLIGATOIRES SUR LE PORTAIL OFFICIEL DE LA DGI :\nCalcul, vérification et télé-déclaration de la Taxe sur la Valeur Ajoutée (TVA).\nDéclaration et liquidation des acomptes d'Impôt sur les Sociétés ou sur le Revenu.\nGestion des retenues à la source sur les loyers, les prestataires locaux et internationaux.\nDéclaration des taxes sur les salaires (IRPP, cotisations sociales CNPS, Crédit Foncier, FNE).\n📑 2. Preparation of the Annual Tax Return (DSF)\nEN FIN D'EXERCICE COMPTABLE, NOUS GÉRONS LA TRANSITION JURIDIQUE ET FISCALE MAJEURE :\nVérification de la conformité des écritures au regard du système comptable OHADA (SYSCOHADA).\nÉlaboration, validation juridique et dépôt de votre Déclaration Statistique et Fiscale (DSF).\nOptimisation des déductions fiscales légales, des amortissements et des reports déficitaires autorisés par le Code Général des Impôts.\n🏛️ 3. Administrative Representation & Tax Compliance\nNOUS GÉRONS VOS RELATIONS QUOTIDIENNES AVEC VOTRE CENTRE DES IMPÔTS DE RATTACHEMENT (CIME, CDI OU DGE) :\nSuivi de la délivrance et du maintien de votre Attestation de Conformité Fiscale (ACF), indispensable pour l'ensemble de vos démarches administratives, commerciales et bancaires.\nSuivi des demandes de remboursement de crédits de TVA ou de compensation fiscale.\nMise à jour permanente de votre dossier fiscal (changement de dirigeant, modification de capital, etc.).\nTax Shield & Audits\nDÉFENSE FACE À L'ADMINISTRATION\nAnalyse juridique approfondie des avis de vérification ou des notifications de redressement.\nRédaction juridique de vos lettres de contestation et observations écrites.\nPrésence physique et assistance technique lors des réunions contradictoires face aux vérificateurs.\nThe FEDPAWA Tax Shield: You Are Never Alone Against the DGI\n\nSi l'administration fiscale frappe à votre porte pour une vérification de comptabilité ou un contrôle ponctuel, nos experts prennent immédiatement le relais. Nous faisons écran entre les inspecteurs et votre direction, analysons la régularité des procédures et défendons fermement vos droits pour éviter toute taxation d'office ou redressement abusif.\n\nAnalyse des notifications de redressement\nRédaction de contestations juridiques\nPrésence physique aux réunions contradictoires\nCONDITIONS TARIFAIRES\nTax Security at the Right Price\n\nPlans adapted to your tax regime and your business volume.\n\nPOPULAIRE\nSimplified Regime Plan\n35 000 FCFA / month\nDéclarations mensuelles DGI (TVA, Acomptes, Salaires)\nVeille réglementaire permanente\nSuivi de l'Attestation de Conformité Fiscale (ACF)\nJE SÉCURISE MA FISCALITÉ\nReal Regime / Corporate\nCustom Quote\nDéclarations mensuelles complexes (DGE / CIME)\nGestion des retenues internationales & intégration fiscale\nAccompagnement sur-mesure & Bouclier Fiscal\nDEMANDER UN DEVIS\nNote on monitoring and the tax return: Nos forfaits mensuels incluent la veille réglementaire et juridique permanente. L'établissement de la Déclaration Statistique et Fiscale (DSF) annuelle fait l'objet d'un forfait d'arrêté des comptes distinct selon la taille de la structure.\nFEDPAWA\nCORPORATE SOLUTIONS\n\nA first-class business infrastructure in the heart of Douala, Logpom. Room to settle in, room to grow.\n\nFind Us\n\nLogpom Pharmacy Building, roadside, Logpom, Douala, Cameroon\n\nMonday–Friday 8:00 – 18:00\nSaturday 9:00 – 14:00\n\ncontact@fedpawa.com\n\nNavigation\nHome\nDomiciliation\nCompany Formation\nTax & Legal Advisory\nOAPI Protection\nContracts\nContact\nLegal Information\n\nRC: to be completed\nIFU: to be completed\nCNPS: to be completed\n\n© 2026 FEDPAWA CORPORATE SOLUTIONS. All rights reserved.\nDouala · Logpom · Cameroon",
+   "mobile": {
+    "scrollWidth": 375,
+    "overflows": [
+     {
+      "tag": "NAV",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "mobile-cta",
+      "right": 683
+     },
+     {
+      "tag": "DIV",
+      "cls": "mobile-nav-toggles",
+      "right": 689
+     },
+     {
+      "tag": "BUTTON",
+      "cls": "mode-toggle mobile-mode-toggle",
+      "right": 585
+     }
+    ]
+   }
+  }
+ },
+ "oapi": {
+  "fr": {
+   "name": "oapi-FR",
+   "url": "/oapi.php",
+   "console": [],
+   "failed": [],
+   "seo": {
+    "title": "Enregistrement des Marques, Logos, Applications, Logiciels & Propriété Intellectuelle OAPI | FEDPAWA CORPORATE SOLUTIONS SARL",
+    "title_len": 125,
+    "desc_len": 208,
+    "lang": "fr",
+    "h1": [
+     "L'Enregistrement des Marques, Logos, Applications, Logiciels et autres droits de Propriété Intellect"
+    ],
+    "h1_count": 1,
+    "imgs_no_alt": 0
+   },
+   "perf": {
+    "dcl": 200,
+    "htmlKB": 20,
+    "resCount": 11,
+    "resKB": 428
+   },
+   "broken_imgs": [],
+   "links": [
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "FEDPAWA\nCORPORATE SOLUTIONS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "ACCUEIL"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php#",
+     "text": "SERVICES ▾"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "Domiciliation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "Création d'entreprise"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "Conseils & Suivi Fiscal"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "Protection OAPI"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "Contrats"
+    },
+    {
+     "href": "http://127.0.0.1:18081/qui-sommes-nous.php",
+     "text": "QUI SOMMES-NOUS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "CONTACT"
+    },
+    {
+     "href": "http://127.0.0.1:18081/authentification.html",
+     "text": "SE CONNECTER"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "ACCUEIL"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "DOMICILIATION"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "CRÉATION D'ENTREPRISE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "CONSEILS & SUIVI FISCAL"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "PROTECTION OAPI"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "CONTRATS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/qui-sommes-nous.php",
+     "text": "QUI SOMMES-NOUS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "CONTACT"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php",
+     "text": "JE M'ABONNE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php?service=oapi&pack=protect_brand",
+     "text": "PROTÉGER MON ACTIF MAINTENANT"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php#poles",
+     "text": "VÉRIFIER LA DISPONIBILITÉ (ANTÉRIORITÉ)"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php?service=oapi-recherche",
+     "text": "LANCER UNE RECHERCHE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php?service=oapi&pack=protect_brand",
+     "text": "PROTÉGER MON ACTIF"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php?service=oapi-brevet",
+     "text": "DEMANDER UN DEVIS BREVET"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "FEDPAWA\nCORPORATE SOLUTIONS"
+    },
+    {
+     "href": "mailto:contact@fedpawa.com",
+     "text": "contact@fedpawa.com"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "Accueil"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "Domiciliation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "Création d'entreprise"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "Conseils & Suivi Fiscal"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "Protection OAPI"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "Contrats"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "Contact"
+    }
+   ],
+   "prices": [
+    "100 000 FCFA",
+    "900 000 FCFA"
+   ],
+   "contrast": [
+    {
+     "sel": "h1",
+     "text": "L'Enregistrement des Marques, Logos, App",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "Pourquoi Sécuriser Vos Actifs Avant Tout",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "Les 4 Pôles d'Expertise OAPI",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "Un Seul Dépôt pour Une Protection dans 1",
+     "ratio": 17.46,
+     "need": 3,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(13,21,66)"
+    },
+    {
+     "sel": "h3",
+     "text": "⚠️\nAttention au principe du premier dépo",
+     "ratio": 17.46,
+     "need": 3,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(13,21,66)"
+    },
+    {
+     "sel": "h3",
+     "text": "🔍 1. Recherche d'Antériorité",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "🏷️ 2. Dépôt et Enregistrement de Marque",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "💻 3. Enregistrement d'Applications, Sof",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "🛡️ 4. Suivi de Procédure, Revendication",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "ACCROCHE STRATÉGIQUE",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "NOS EXPERTISES",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "ACCORD DE BANGUI",
+     "ratio": 8.86,
+     "need": 4.5,
+     "fg": "rgb(249, 168, 37)",
+     "bg": "rgb(13,21,66)"
+    }
+   ],
+   "text": "Immeuble Pharmacie de Logpom, Douala\nLun–Ven 8h00–18h00 · Sam 9h00–14h00\ncontact@fedpawa.com\nFEDPAWA\nCORPORATE SOLUTIONS\nACCUEIL\nSERVICES ▾\nQUI SOMMES-NOUS\nCONTACT\nSE CONNECTER\nACCUEIL\nDOMICILIATION\nCRÉATION D'ENTREPRISE\nCONSEILS & SUIVI FISCAL\nPROTECTION OAPI\nCONTRATS\nQUI SOMMES-NOUS\nCONTACT\nJE M'ABONNE\nEN\n×\nPROTECTION PROPRIÉTÉ INTELLECTUELLE • ACCORD DE BANGUI\nL'Enregistrement des Marques, Logos, Applications, Logiciels et autres droits de Propriété Intellectuelle auprès de l'OAPI\n\nSécurisez Vos Innovations, Protégez Vos Marques et Valorisez Vos Actifs Tech\n\nVotre nom commercial, votre logo, votre logiciel ou votre application mobile constituent la signature unique de votre réussite. Si vous exploitez ces actifs sans les enregistrer officiellement, n'importe quel tiers peut les déposer à votre place, bloquer votre activité et détruire la valeur de votre marque. Protéger vos créations auprès de l'OAPI (Organisation Africaine de la Propriété Intellectuelle) vous confère un titre de propriété exclusif et opposable dans 17 pays d'Afrique subsaharienne.\n\nFEDPAWA CORPORATE SOLUTIONS SARL met à votre disposition son expertise pointue en droit de la propriété intellectuelle. Nous analysons la disponibilité de vos actifs, structurons vos dossiers de dépôt selon les normes de l'Accord de Bangui et assurons un suivi juridique rigoureux jusqu'à l'obtention de votre certificat d'enregistrement officiel.\n\nPROTÉGER MON ACTIF MAINTENANT\nVÉRIFIER LA DISPONIBILITÉ (ANTÉRIORITÉ)\nACCROCHE STRATÉGIQUE\nPourquoi Sécuriser Vos Actifs Avant Tout Lancement Commercial ?\n\nDans une économie fondée sur le numérique et l'image de marque, le patrimoine d'une entreprise se mesure à la force de ses actifs immatériels. En enregistrant vos marques, vos interfaces web/mobiles et vos codes sources auprès de l'Organisation Africaine de la Propriété Intellectuelle (OAPI), vous obtenez un monopole d'exploitation exclusif.\n\nCela vous permet non seulement d'interdire toute contrefaçon, mais également de valoriser votre entreprise lors de levées de fonds, de cessions ou de partenariats de franchise.\n\n⚠️\nAttention au principe du premier déposant !\n\nEn droit OAPI, la propriété appartient à celui qui dépose en premier, et non à celui qui a créé ou utilisé l'actif le premier. Attendre d'avoir du succès pour déposer votre marque, c'est prendre le risque qu'un concurrent ou un tiers de mauvaise foi l'enregistre à votre place et vous réclame des redevances ou l'interdiction d'utiliser votre propre nom.\n\nNOS EXPERTISES\nLes 4 Pôles d'Expertise OAPI\n\nUne prise en charge complète de la recherche d'antériorité jusqu'au renouvellement décennal de vos titres.\n\n🔍 1. Recherche d'Antériorité\nAVANT D'INVESTIR DANS VOTRE COMMUNICATION OU DE LANCER UN PRODUIT, NOUS VÉRIFIONS LA VIABILITÉ DU DÉPÔT :\nAnalyse approfondie des bases de données officielles de l'OAPI pour s'assurer que le nom, la marque ou le logo choisi n'est pas déjà détenu par un tiers.\nÉvaluation des risques de rejet administratif ou de litige pour contrefaçon.\nRapport de disponibilité et conseils stratégiques d'ajustement en cas de similitude constatée.\n🏷️ 2. Dépôt et Enregistrement de Marques, Logos & Noms Commerciaux\nNOUS CRÉONS VOTRE BOUCLIER COMMERCIAL SUR LE MARCHÉ AFRICAIN :\nClassification rigoureuse de vos produits et services selon les standards internationaux (Classification de Nice).\nRédaction et constitution du dossier officiel de dépôt de marque (marques de fabrique, de commerce ou de service) ou de nom commercial.\nDépôt de votre dossier auprès de la structure nationale de liaison et suivi en direct avec le siège de l'OAPI.\n💻 3. Enregistrement d'Applications, Software, Logiciels & Actifs Tech\nUNE SPÉCIALITÉ ESSENTIELLE POUR LES STARTUPS, LES ÉDITEURS ET LES CRÉATEURS DE SOLUTIONS NUMÉRIQUES :\nDépôt et sécurisation de vos logiciels, codes sources et bases de données pour acter légalement votre antériorité.\nProtection des interfaces visuelles, des chartes graphiques et du design d'applications mobiles ou de plateformes web (Dessins et Modèles industriels).\n🛡️ 4. Suivi de Procédure, Revendications & Renouvellements\nNOUS VEILLONS SUR VOS DROITS TOUT AU LONG DE LA VIE DE VOS TITRES DE PROPRIÉTÉ :\nGestion des examens de fond, réponses aux objections des examinateurs de l'OAPI et correction des dossiers.\nSurveillance des publications officielles et introduction d'oppositions si un concurrent tente d'enregistrer une marque trop proche de la vôtre.\nSuivi des échéances et procédures de renouvellement de vos titres (valables 10 ans).\nACCORD DE BANGUI\nUn Seul Dépôt pour Une Protection dans 17 Pays\n\nGrâce à l'Accord de Bangui, un enregistrement unique auprès de l'OAPI produit ses effets de plein droit dans l'ensemble des 17 États membres, représentant un marché unifié de plus de 300 millions de consommateurs.\n\n🇧🇯\nBénin\n🇧🇫\nBurkina Faso\n🇨🇲\nCameroun\n🇨🇫\nCentrafrique\n🇰🇲\nComores\n🇨🇬\nCongo\n🇨🇮\nCôte d'Ivoire\n🇬🇦\nGabon\n🇬🇳\nGuinée\n🇬🇼\nGuinée-Bissau\n🇬🇶\nGuinée Équatoriale\n🇲🇱\nMali\n🇲🇷\nMauritanie\n🇳🇪\nNiger\n🇸🇳\nSénégal\n🇹🇩\nTchad\n🇹🇬\nTogo\nCONDITIONS TARIFAIRES\nTarification Claire et Sans Surprise\n\nUn accompagnement d'experts combiné à une transparence totale sur les taxes officielles.\n\nRecherche d'Antériorité\n50 000 - 100 000 FCFA / dossier\nRecherche dans la base OAPI\nAnalyse des similitudes\nRapport juridique sous 48h\nLANCER UNE RECHERCHE\nRECOMMANDÉ\nForfait Protect Brand & Tech\n200 000 - 900 000 FCFA / dossier\nClassification de Nice\nRédaction sur-mesure du dossier\nConstitution et dépôt officiel\nSuivi complet jusqu'au certificat\nPROTÉGER MON ACTIF\nBrevets d'Invention\nSur Devis Personnalisé\nÉtude de brevetabilité\nRédaction des revendications techniques\nSuivi des examens de brevets\nDEMANDER UN DEVIS BREVET\nNote sur les débours et taxes officielles : Les taxes officielles de dépôt perçues par l'OAPI, la recherche d'antériorité complète, les frais de publication obligatoire et les débours administratifs varient selon la nature de l'actif (marque, logiciel, etc.) et le nombre de classes de protection retenues. Ils vous sont facturés au coût réel. Les brevets d'invention font l'objet d'un devis personnalisé spécifique en raison de la complexité technique du dossier.\nFEDPAWA\nCORPORATE SOLUTIONS\n\nUne infrastructure d'affaires de premier ordre au cœur de Douala, Logpom. Espace pour s'installer, espace pour grandir.\n\nNous trouver\n\nImmeuble Pharmacie de Logpom, en bordure de route, Logpom, Douala, Cameroun\n\nLundi–Vendredi 8h00 – 18h00\nSamedi 9h00 – 14h00\n\ncontact@fedpawa.com\n\nNavigation\nAccueil\nDomiciliation\nCréation d'entreprise\nConseils & Suivi Fiscal\nProtection OAPI\nContrats\nContact\nInformations légales\n\nRC : à compléter\nIFU : à compléter\nCNPS : à compléter\n\n© 2026 FEDPAWA CORPORATE SOLUTIONS. Tous droits réservés.\nDouala · Logpom · Cameroun",
+   "mobile": {
+    "scrollWidth": 375,
+    "overflows": [
+     {
+      "tag": "NAV",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "mobile-cta",
+      "right": 683
+     },
+     {
+      "tag": "DIV",
+      "cls": "mobile-nav-toggles",
+      "right": 689
+     },
+     {
+      "tag": "BUTTON",
+      "cls": "mode-toggle mobile-mode-toggle",
+      "right": 585
+     }
+    ]
+   }
+  },
+  "en": {
+   "name": "oapi-EN",
+   "url": "/en/oapi.php",
+   "console": [],
+   "failed": [],
+   "seo": {
+    "title": "Registration of Trademarks, Logos, Applications, Software & IP Rights with OAPI | FEDPAWA CORPORATE SOLUTIONS SARL",
+    "title_len": 114,
+    "desc_len": 193,
+    "lang": "en",
+    "h1": [
+     "Registration of Trademarks, Logos, Applications, Software and other Intellectual Property Rights wit"
+    ],
+    "h1_count": 1,
+    "imgs_no_alt": 0
+   },
+   "perf": {
+    "dcl": 228,
+    "htmlKB": 20,
+    "resCount": 11,
+    "resKB": 428
+   },
+   "broken_imgs": [],
+   "links": [
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "FEDPAWA\nCORPORATE SOLUTIONS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "HOME"
+    },
+    {
+     "href": "http://127.0.0.1:18081/en/oapi.php#",
+     "text": "SERVICES ▾"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "Domiciliation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "Company Formation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "Tax & Legal Advisory"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "OAPI Protection"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "Contracts"
+    },
+    {
+     "href": "http://127.0.0.1:18081/qui-sommes-nous.php",
+     "text": "ABOUT US"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "CONTACT"
+    },
+    {
+     "href": "http://127.0.0.1:18081/authentification.html",
+     "text": "SIGN IN"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "HOME"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "DOMICILIATION"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "COMPANY FORMATION"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "TAX & LEGAL ADVISORY"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "OAPI PROTECTION"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "CONTRACTS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/qui-sommes-nous.php",
+     "text": "ABOUT US"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "CONTACT"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php",
+     "text": "SUBSCRIBE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php?service=oapi&pack=protect_brand",
+     "text": "PROTECT MY ASSET NOW"
+    },
+    {
+     "href": "http://127.0.0.1:18081/en/oapi.php#poles",
+     "text": "CHECK AVAILABILITY (PRIOR ART)"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php?service=oapi-recherche",
+     "text": "START A SEARCH"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php?service=oapi&pack=protect_brand",
+     "text": "PROTECT MY ASSET"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php?service=oapi-brevet",
+     "text": "REQUEST A PATENT QUOTE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "FEDPAWA\nCORPORATE SOLUTIONS"
+    },
+    {
+     "href": "mailto:contact@fedpawa.com",
+     "text": "contact@fedpawa.com"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "Home"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "Domiciliation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "Company Formation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "Tax & Legal Advisory"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "OAPI Protection"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "Contracts"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "Contact"
+    }
+   ],
+   "prices": [
+    "100 000 FCFA",
+    "900 000 FCFA"
+   ],
+   "contrast": [
+    {
+     "sel": "h1",
+     "text": "Registration of Trademarks, Logos, Appli",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "Why Secure Your Assets Before Any Commer",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "The 4 Areas of OAPI Expertise",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "A Single Filing for Protection in 17 Cou",
+     "ratio": 17.46,
+     "need": 3,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(13,21,66)"
+    },
+    {
+     "sel": "h3",
+     "text": "⚠️\nBeware of the first-to-file principle",
+     "ratio": 17.46,
+     "need": 3,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(13,21,66)"
+    },
+    {
+     "sel": "h3",
+     "text": "🔍 1. Prior Art Search",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "🏷️ 2. Filing and Registration of Tradem",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "💻 3. Registration of Applications, Soft",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "🛡️ 4. Procedure Monitoring, Claims & Re",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "ACCROCHE STRATÉGIQUE",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "NOS EXPERTISES",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "ACCORD DE BANGUI",
+     "ratio": 8.86,
+     "need": 4.5,
+     "fg": "rgb(249, 168, 37)",
+     "bg": "rgb(13,21,66)"
+    }
+   ],
+   "text": "Logpom Pharmacy Building, Douala\nMon–Fri 8:00–18:00 · Sat 9:00–14:00\ncontact@fedpawa.com\nFEDPAWA\nCORPORATE SOLUTIONS\nHOME\nSERVICES ▾\nABOUT US\nCONTACT\nSIGN IN\nHOME\nDOMICILIATION\nCOMPANY FORMATION\nTAX & LEGAL ADVISORY\nOAPI PROTECTION\nCONTRACTS\nABOUT US\nCONTACT\nSUBSCRIBE\nFR\n×\nINTELLECTUAL PROPERTY PROTECTION • BANGUI AGREEMENT\nRegistration of Trademarks, Logos, Applications, Software and other Intellectual Property Rights with OAPI\n\nSecure Your Innovations, Protect Your Trademarks and Grow Your Tech Assets\n\nVotre nom commercial, votre logo, votre logiciel ou votre application mobile constituent la signature unique de votre réussite. Si vous exploitez ces actifs sans les enregistrer officiellement, n'importe quel tiers peut les déposer à votre place, bloquer votre activité et détruire la valeur de votre marque. Protéger vos créations auprès de l'OAPI (Organisation Africaine de la Propriété Intellectuelle) vous confère un titre de propriété exclusif et opposable dans 17 pays d'Afrique subsaharienne.\n\nFEDPAWA CORPORATE SOLUTIONS SARL met à votre disposition son expertise pointue en droit de la propriété intellectuelle. Nous analysons la disponibilité de vos actifs, structurons vos dossiers de dépôt selon les normes de l'Accord de Bangui et assurons un suivi juridique rigoureux jusqu'à l'obtention de votre certificat d'enregistrement officiel.\n\nPROTECT MY ASSET NOW\nCHECK AVAILABILITY (PRIOR ART)\nACCROCHE STRATÉGIQUE\nWhy Secure Your Assets Before Any Commercial Launch?\n\nDans une économie fondée sur le numérique et l'image de marque, le patrimoine d'une entreprise se mesure à la force de ses actifs immatériels. En enregistrant vos marques, vos interfaces web/mobiles et vos codes sources auprès de l'Organisation Africaine de la Propriété Intellectuelle (OAPI), vous obtenez un monopole d'exploitation exclusif.\n\nCela vous permet non seulement d'interdire toute contrefaçon, mais également de valoriser votre entreprise lors de levées de fonds, de cessions ou de partenariats de franchise.\n\n⚠️\nBeware of the first-to-file principle!\n\nEn droit OAPI, la propriété appartient à celui qui dépose en premier, et non à celui qui a créé ou utilisé l'actif le premier. Attendre d'avoir du succès pour déposer votre marque, c'est prendre le risque qu'un concurrent ou un tiers de mauvaise foi l'enregistre à votre place et vous réclame des redevances ou l'interdiction d'utiliser votre propre nom.\n\nNOS EXPERTISES\nThe 4 Areas of OAPI Expertise\n\nUne prise en charge complète de la recherche d'antériorité jusqu'au renouvellement décennal de vos titres.\n\n🔍 1. Prior Art Search\nAVANT D'INVESTIR DANS VOTRE COMMUNICATION OU DE LANCER UN PRODUIT, NOUS VÉRIFIONS LA VIABILITÉ DU DÉPÔT :\nAnalyse approfondie des bases de données officielles de l'OAPI pour s'assurer que le nom, la marque ou le logo choisi n'est pas déjà détenu par un tiers.\nÉvaluation des risques de rejet administratif ou de litige pour contrefaçon.\nRapport de disponibilité et conseils stratégiques d'ajustement en cas de similitude constatée.\n🏷️ 2. Filing and Registration of Trademarks, Logos & Trade Names\nNOUS CRÉONS VOTRE BOUCLIER COMMERCIAL SUR LE MARCHÉ AFRICAIN :\nClassification rigoureuse de vos produits et services selon les standards internationaux (Classification de Nice).\nRédaction et constitution du dossier officiel de dépôt de marque (marques de fabrique, de commerce ou de service) ou de nom commercial.\nDépôt de votre dossier auprès de la structure nationale de liaison et suivi en direct avec le siège de l'OAPI.\n💻 3. Registration of Applications, Software & Tech Assets\nUNE SPÉCIALITÉ ESSENTIELLE POUR LES STARTUPS, LES ÉDITEURS ET LES CRÉATEURS DE SOLUTIONS NUMÉRIQUES :\nDépôt et sécurisation de vos logiciels, codes sources et bases de données pour acter légalement votre antériorité.\nProtection des interfaces visuelles, des chartes graphiques et du design d'applications mobiles ou de plateformes web (Dessins et Modèles industriels).\n🛡️ 4. Procedure Monitoring, Claims & Renewals\nNOUS VEILLONS SUR VOS DROITS TOUT AU LONG DE LA VIE DE VOS TITRES DE PROPRIÉTÉ :\nGestion des examens de fond, réponses aux objections des examinateurs de l'OAPI et correction des dossiers.\nSurveillance des publications officielles et introduction d'oppositions si un concurrent tente d'enregistrer une marque trop proche de la vôtre.\nSuivi des échéances et procédures de renouvellement de vos titres (valables 10 ans).\nACCORD DE BANGUI\nA Single Filing for Protection in 17 Countries\n\nGrâce à l'Accord de Bangui, un enregistrement unique auprès de l'OAPI produit ses effets de plein droit dans l'ensemble des 17 États membres, représentant un marché unifié de plus de 300 millions de consommateurs.\n\n🇧🇯\nBénin\n🇧🇫\nBurkina Faso\n🇨🇲\nCameroun\n🇨🇫\nCentrafrique\n🇰🇲\nComores\n🇨🇬\nCongo\n🇨🇮\nCôte d'Ivoire\n🇬🇦\nGabon\n🇬🇳\nGuinée\n🇬🇼\nGuinée-Bissau\n🇬🇶\nGuinée Équatoriale\n🇲🇱\nMali\n🇲🇷\nMauritanie\n🇳🇪\nNiger\n🇸🇳\nSénégal\n🇹🇩\nTchad\n🇹🇬\nTogo\nCONDITIONS TARIFAIRES\nClear, No-Surprise Pricing\n\nUn accompagnement d'experts combiné à une transparence totale sur les taxes officielles.\n\nPrior Art Search\n50 000 - 100 000 FCFA / file\nRecherche dans la base OAPI\nAnalyse des similitudes\nRapport juridique sous 48h\nSTART A SEARCH\nRECOMMANDÉ\nProtect Brand & Tech Package\n200 000 - 900 000 FCFA / file\nClassification de Nice\nRédaction sur-mesure du dossier\nConstitution et dépôt officiel\nSuivi complet jusqu'au certificat\nPROTECT MY ASSET\nInvention Patents\nCustom Quote\nÉtude de brevetabilité\nRédaction des revendications techniques\nSuivi des examens de brevets\nREQUEST A PATENT QUOTE\nNote on disbursements and official taxes: Les taxes officielles de dépôt perçues par l'OAPI, la recherche d'antériorité complète, les frais de publication obligatoire et les débours administratifs varient selon la nature de l'actif (marque, logiciel, etc.) et le nombre de classes de protection retenues. Ils vous sont facturés au coût réel. Les brevets d'invention font l'objet d'un devis personnalisé spécifique en raison de la complexité technique du dossier.\nFEDPAWA\nCORPORATE SOLUTIONS\n\nA first-class business infrastructure in the heart of Douala, Logpom. Room to settle in, room to grow.\n\nFind Us\n\nLogpom Pharmacy Building, roadside, Logpom, Douala, Cameroon\n\nMonday–Friday 8:00 – 18:00\nSaturday 9:00 – 14:00\n\ncontact@fedpawa.com\n\nNavigation\nHome\nDomiciliation\nCompany Formation\nTax & Legal Advisory\nOAPI Protection\nContracts\nContact\nLegal Information\n\nRC: to be completed\nIFU: to be completed\nCNPS: to be completed\n\n© 2026 FEDPAWA CORPORATE SOLUTIONS. All rights reserved.\nDouala · Logpom · Cameroon",
+   "mobile": {
+    "scrollWidth": 375,
+    "overflows": [
+     {
+      "tag": "NAV",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "mobile-cta",
+      "right": 683
+     },
+     {
+      "tag": "DIV",
+      "cls": "mobile-nav-toggles",
+      "right": 689
+     },
+     {
+      "tag": "BUTTON",
+      "cls": "mode-toggle mobile-mode-toggle",
+      "right": 585
+     }
+    ]
+   }
+  }
+ },
+ "contrats": {
+  "fr": {
+   "name": "contrats-FR",
+   "url": "/contrats.php",
+   "console": [],
+   "failed": [],
+   "seo": {
+    "title": "Rédaction de Tous Types de Contrats (Sociaux, Commerciaux, de Travail, de Prestation, de Confidentialité) | FEDPAWA CORPORATE SOLUTIONS SARL",
+    "title_len": 140,
+    "desc_len": 194,
+    "lang": "fr",
+    "h1": [
+     "La Rédaction de Tous Types de Contrats (Sociaux, Commerciaux, de Travail, de Prestation, de Confiden"
+    ],
+    "h1_count": 1,
+    "imgs_no_alt": 0
+   },
+   "perf": {
+    "dcl": 239,
+    "htmlKB": 20,
+    "resCount": 11,
+    "resKB": 428
+   },
+   "broken_imgs": [],
+   "links": [
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "FEDPAWA\nCORPORATE SOLUTIONS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "ACCUEIL"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php#",
+     "text": "SERVICES ▾"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "Domiciliation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "Création d'entreprise"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "Conseils & Suivi Fiscal"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "Protection OAPI"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "Contrats"
+    },
+    {
+     "href": "http://127.0.0.1:18081/qui-sommes-nous.php",
+     "text": "QUI SOMMES-NOUS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "CONTACT"
+    },
+    {
+     "href": "http://127.0.0.1:18081/authentification.html",
+     "text": "SE CONNECTER"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "ACCUEIL"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "DOMICILIATION"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "CRÉATION D'ENTREPRISE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "CONSEILS & SUIVI FISCAL"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "PROTECTION OAPI"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "CONTRATS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/qui-sommes-nous.php",
+     "text": "QUI SOMMES-NOUS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "CONTACT"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php",
+     "text": "JE M'ABONNE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php#pricing",
+     "text": "VOIR LES FORFAITS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "DEMANDER UN DEVIS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php?service=contrats&pack=standard",
+     "text": "JE SÉCURISE MES CONTRATS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php?service=contrats&pack=complexe",
+     "text": "JE SÉCURISE MES CONTRATS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php?service=audit-juridique",
+     "text": "DEMANDER UN DEVIS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "FEDPAWA\nCORPORATE SOLUTIONS"
+    },
+    {
+     "href": "mailto:contact@fedpawa.com",
+     "text": "contact@fedpawa.com"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "Accueil"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "Domiciliation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "Création d'entreprise"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "Conseils & Suivi Fiscal"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "Protection OAPI"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "Contrats"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "Contact"
+    }
+   ],
+   "prices": [
+    "150 000 FCFA",
+    "500 000 FCFA"
+   ],
+   "contrast": [
+    {
+     "sel": "h1",
+     "text": "La Rédaction de Tous Types de Contrats (",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "Nos Solutions Contractuelles et Disposit",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "Votre Coffre-Fort Numérique Sécurisé",
+     "ratio": 17.46,
+     "need": 3,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(13,21,66)"
+    },
+    {
+     "sel": "h3",
+     "text": "Une Protection Maximale et Sur-Mesure",
+     "ratio": 17.46,
+     "need": 3,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(13,21,66)"
+    },
+    {
+     "sel": "h3",
+     "text": "📝 1. Contrats Commerciaux, de Prestatio",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "👥 2. Contrats de Travail & Contrats Soc",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "🔒 3. Engagements de Confidentialité (ND",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "🔍 4. Audit Contractuel & Gestion des Ri",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "🔐 5. Sécurité Documentaire & Archivage ",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": ".btn-primary",
+     "text": "VOIR LES FORFAITS",
+     "ratio": 8.77,
+     "need": 4.5,
+     "fg": "rgb(10, 20, 36)",
+     "bg": "rgb(212,175,55)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "NOS EXPERTISES",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    }
+   ],
+   "text": "Immeuble Pharmacie de Logpom, Douala\nLun–Ven 8h00–18h00 · Sam 9h00–14h00\ncontact@fedpawa.com\nFEDPAWA\nCORPORATE SOLUTIONS\nACCUEIL\nSERVICES ▾\nQUI SOMMES-NOUS\nCONTACT\nSE CONNECTER\nACCUEIL\nDOMICILIATION\nCRÉATION D'ENTREPRISE\nCONSEILS & SUIVI FISCAL\nPROTECTION OAPI\nCONTRATS\nQUI SOMMES-NOUS\nCONTACT\nJE M'ABONNE\nEN\n×\nINGÉNIERIE CONTRACTUELLE & CONFORMITÉ OHADA\nLa Rédaction de Tous Types de Contrats (Sociaux, Commerciaux, de Travail, de Prestation, de Confidentialité, Etc.)\n\nVerrouillez Vos Partenariats, Protégez Vos Transactions et Éliminez Vos Risques Juridiques\n\nChaque signature engage l'avenir, la trésorerie et la responsabilité de votre entreprise. Qu'il s'agisse de recruter un collaborateur, de signer avec un distributeur, de louer un local ou de nouer un partenariat technologique, le contrat est votre seule véritable assurance. Un document flou ou inadapté aux réalités du droit local est une faille que vos partenaires ou concurrents n'hésiteront pas à exploiter en cas de conflit.\n\nFEDPAWA CORPORATE SOLUTIONS SARL met son expertise en ingénierie contractuelle au service de votre sécurité. Nous concevons, rédigeons et auditons vos actes juridiques pour vous offrir une protection maximale, équilibrer vos relations d'affaires et vous garantir une parfaite conformité avec le Code du travail camerounais et les Actes Uniformes de l'OHADA.\n\nVOIR LES FORFAITS\nDEMANDER UN DEVIS\nUne Protection Maximale et Sur-Mesure\n\nNous concevons, rédigeons et auditons vos actes juridiques pour vous offrir une protection maximale, équilibrer vos relations d'affaires et vous garantir une parfaite conformité avec le Code du travail camerounais et les Actes Uniformes de l'OHADA.\n\nNOS EXPERTISES\nNos Solutions Contractuelles et Dispositifs de Sécurité\n📝 1. Contrats Commerciaux, de Prestation & Partenariats d'Affaires\nNOUS SÉCURISONS VOS RELATIONS AVEC VOTRE ÉCOSYSTÈME COMMERCIAL (CLIENTS, FOURNISSEURS, PRESTATAIRES) :\nRédaction de contrats de prestations de services, de sous-traitance et de co-traitance.\nConception de baux professionnels et commerciaux conformes aux exigences strictes de l'OHADA.\nRédaction de contrats de distribution, de franchise, d'agence commerciale et d'approvisionnement.\nÉtablissement de Conditions Générales de Vente (CGV) et de Conditions Générales d'Utilisation (CGU) pour vos plateformes physiques ou e-commerce.\n👥 2. Contrats de Travail & Contrats Sociaux (Gestion des RH)\nNOUS PROTÉGEONS VOTRE ENTREPRISE CONTRE LE RISQUE DE CONTENTIEUX PRUD'HOMAL (TRIBUNAL DU TRAVAIL) :\nRédaction de contrats de travail sur-mesure (CDI, CDD, contrats d'apprentissage, stagiaires) en parfaite adéquation avec le Code du travail camerounais et les conventions collectives applicables.\nInsertion de clauses protectrices spécifiques : clauses de non-concurrence, clauses de confidentialité strictes (NDA), clauses de dédit-formation ou d'exclusivité.\nAssistance à la rédaction de règlements intérieurs d'entreprise, chartes sociales et avenants contractuels.\n🔒 3. Engagements de Confidentialité (NDA) & Sécurité Spécifique\nPROTÉGER VOS SECRETS D'AFFAIRES AVANT TOUT PARTENARIAT :\nRédaction d'accords unilatéraux ou réciproques de confidentialité (NDA) pour protéger vos secrets d'affaires, concepts et négociations avant tout partenariat.\n🔍 4. Audit Contractuel & Gestion des Risques (Risk Management)\nAVANT DE SIGNER UN DOCUMENT PROPOSÉ PAR UN TIERS (BANQUE, MULTINATIONALE, ÉTAT), NOUS PASSONS L'ACTE AU PEIGNE FIN :\nIdentification des clauses cachées, léonines ou disproportionnées qui déséquilibrent l'accord.\nÉvaluation des mécanismes de responsabilité civile, des clauses pénales (pénalités de retard) et des conditions de résiliation.\nRédaction de contre-propositions juridiques pour rééquilibrer la négociation en votre faveur.\n🔐 5. Sécurité Documentaire & Archivage Cloud Privé\nNOUS PROTÉGEONS VOS ACTES MAJEURS CONTRE LA PERTE, LA FALSIFICATION OU LE VOL :\nContrôle de la validité des signatures et de la chaîne de pouvoirs des signataires.\nNumérisation haute définition et indexation méthodique de vos archives juridiques.\nMise à disposition d'un Coffre-fort Numérique sécurisé (Cloud privé FEDPAWA) pour vous permettre d'accéder à vos contrats stratégiques 24h/24 et 7j/7, où que vous soyez dans le monde, de manière totalement cryptée.\nVotre Coffre-Fort Numérique Sécurisé\n\nAccédez à vos contrats stratégiques et actes juridiques majeurs 24h/24 et 7j/7, où que vous soyez dans le monde. Tous vos documents sont numérisés en haute définition, indexés et stockés dans un espace Cloud privé totalement crypté.\n\nChiffrement de bout en bout\nAccessibilité mondiale 24/7\nAnti-falsification garantie\nSauvegarde redondante\nCONDITIONS TARIFAIRES\nNos Forfaits de Rédaction & Audit\nForfait Acte Standard\n50 000 - 150 000 FCFA / acte\nRédaction de contrats de travail (CDI/CDD)\nAccords de confidentialité (NDA)\nAvenants contractuels\nLettres d'intention (LOI)\nJE SÉCURISE MES CONTRATS\nRECOMMANDÉ\nForfait Acte Complexe\n150 000 - 500 000 FCFA / acte\nRédaction de contrats de partenariat d'affaires\nBaux professionnels et commerciaux OHADA\nContrats de distribution & franchise\nCGV / CGU sur-mesure\nJE SÉCURISE MES CONTRATS\nAudit Juridique Tiers\nSur Devis Personnalisé\nAnalyse complète de contrats proposés par des tiers\nDétection des clauses léonines et réécriture\nConseil et contre-propositions juridiques\nRééquilibrage de la négociation\nDEMANDER UN DEVIS\nFEDPAWA\nCORPORATE SOLUTIONS\n\nUne infrastructure d'affaires de premier ordre au cœur de Douala, Logpom. Espace pour s'installer, espace pour grandir.\n\nNous trouver\n\nImmeuble Pharmacie de Logpom, en bordure de route, Logpom, Douala, Cameroun\n\nLundi–Vendredi 8h00 – 18h00\nSamedi 9h00 – 14h00\n\ncontact@fedpawa.com\n\nNavigation\nAccueil\nDomiciliation\nCréation d'entreprise\nConseils & Suivi Fiscal\nProtection OAPI\nContrats\nContact\nInformations légales\n\nRC : à compléter\nIFU : à compléter\nCNPS : à compléter\n\n© 2026 FEDPAWA CORPORATE SOLUTIONS. Tous droits réservés.\nDouala · Logpom · Cameroun",
+   "mobile": {
+    "scrollWidth": 375,
+    "overflows": [
+     {
+      "tag": "NAV",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "mobile-cta",
+      "right": 683
+     },
+     {
+      "tag": "DIV",
+      "cls": "mobile-nav-toggles",
+      "right": 689
+     },
+     {
+      "tag": "BUTTON",
+      "cls": "mode-toggle mobile-mode-toggle",
+      "right": 585
+     }
+    ]
+   }
+  },
+  "en": {
+   "name": "contrats-EN",
+   "url": "/en/contrats.php",
+   "console": [],
+   "failed": [],
+   "seo": {
+    "title": "Drafting of All Types of Contracts (Corporate, Commercial, Employment, Service, Confidentiality) | FEDPAWA CORPORATE SOLUTIONS SARL",
+    "title_len": 131,
+    "desc_len": 178,
+    "lang": "en",
+    "h1": [
+     "Drafting of All Types of Contracts (Corporate, Commercial, Employment, Service, Confidentiality, Etc"
+    ],
+    "h1_count": 1,
+    "imgs_no_alt": 0
+   },
+   "perf": {
+    "dcl": 220,
+    "htmlKB": 20,
+    "resCount": 11,
+    "resKB": 428
+   },
+   "broken_imgs": [],
+   "links": [
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "FEDPAWA\nCORPORATE SOLUTIONS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "HOME"
+    },
+    {
+     "href": "http://127.0.0.1:18081/en/contrats.php#",
+     "text": "SERVICES ▾"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "Domiciliation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "Company Formation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "Tax & Legal Advisory"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "OAPI Protection"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "Contracts"
+    },
+    {
+     "href": "http://127.0.0.1:18081/qui-sommes-nous.php",
+     "text": "ABOUT US"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "CONTACT"
+    },
+    {
+     "href": "http://127.0.0.1:18081/authentification.html",
+     "text": "SIGN IN"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "HOME"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "DOMICILIATION"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "COMPANY FORMATION"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "TAX & LEGAL ADVISORY"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "OAPI PROTECTION"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "CONTRACTS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/qui-sommes-nous.php",
+     "text": "ABOUT US"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "CONTACT"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php",
+     "text": "SUBSCRIBE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/en/contrats.php#pricing",
+     "text": "SEE THE PLANS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "REQUEST A QUOTE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php?service=contrats&pack=standard",
+     "text": "I SECURE MY CONTRACTS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/tunnel_souscription.php?service=contrats&pack=complexe",
+     "text": "I SECURE MY CONTRACTS"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php?service=audit-juridique",
+     "text": "REQUEST A QUOTE"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "FEDPAWA\nCORPORATE SOLUTIONS"
+    },
+    {
+     "href": "mailto:contact@fedpawa.com",
+     "text": "contact@fedpawa.com"
+    },
+    {
+     "href": "http://127.0.0.1:18081/index.php",
+     "text": "Home"
+    },
+    {
+     "href": "http://127.0.0.1:18081/domiciliation.php",
+     "text": "Domiciliation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/creation_entreprise.php",
+     "text": "Company Formation"
+    },
+    {
+     "href": "http://127.0.0.1:18081/fiscalite.php",
+     "text": "Tax & Legal Advisory"
+    },
+    {
+     "href": "http://127.0.0.1:18081/oapi.php",
+     "text": "OAPI Protection"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contrats.php",
+     "text": "Contracts"
+    },
+    {
+     "href": "http://127.0.0.1:18081/contact.php",
+     "text": "Contact"
+    }
+   ],
+   "prices": [
+    "150 000 FCFA",
+    "500 000 FCFA"
+   ],
+   "contrast": [
+    {
+     "sel": "h1",
+     "text": "Drafting of All Types of Contracts (Corp",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "Our Contractual Solutions and Security M",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h2",
+     "text": "Your Secure Digital Safe",
+     "ratio": 17.46,
+     "need": 3,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(13,21,66)"
+    },
+    {
+     "sel": "h2",
+     "text": "Our Drafting & Audit Plans",
+     "ratio": 15.59,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": "h3",
+     "text": "Maximum Tailored Protection",
+     "ratio": 17.46,
+     "need": 3,
+     "fg": "rgb(255, 255, 255)",
+     "bg": "rgb(13,21,66)"
+    },
+    {
+     "sel": "h3",
+     "text": "📝 1. Commercial, Service & Business Par",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "👥 2. Employment Contracts & Corporate A",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "🔒 3. Non-Disclosure Agreements (NDA) & ",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "🔍 4. Contract Audit & Risk Management",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": "h3",
+     "text": "🔐 5. Document Security & Private Cloud ",
+     "ratio": 15.72,
+     "need": 3,
+     "fg": "rgb(241, 245, 249)",
+     "bg": "rgb(15,27,48)"
+    },
+    {
+     "sel": ".btn-primary",
+     "text": "SEE THE PLANS",
+     "ratio": 8.77,
+     "need": 4.5,
+     "fg": "rgb(10, 20, 36)",
+     "bg": "rgb(212,175,55)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "NOS EXPERTISES",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    },
+    {
+     "sel": ".section-kicker",
+     "text": "CONDITIONS TARIFAIRES",
+     "ratio": 8.12,
+     "need": 4.5,
+     "fg": "rgb(212, 175, 55)",
+     "bg": "rgb(17,28,46)"
+    }
+   ],
+   "text": "Logpom Pharmacy Building, Douala\nMon–Fri 8:00–18:00 · Sat 9:00–14:00\ncontact@fedpawa.com\nFEDPAWA\nCORPORATE SOLUTIONS\nHOME\nSERVICES ▾\nABOUT US\nCONTACT\nSIGN IN\nHOME\nDOMICILIATION\nCOMPANY FORMATION\nTAX & LEGAL ADVISORY\nOAPI PROTECTION\nCONTRACTS\nABOUT US\nCONTACT\nSUBSCRIBE\nFR\n×\nCONTRACTUAL ENGINEERING & OHADA COMPLIANCE\nDrafting of All Types of Contracts (Corporate, Commercial, Employment, Service, Confidentiality, Etc.)\n\nLock In Your Partnerships, Protect Your Transactions and Eliminate Your Legal Risks\n\nChaque signature engage l'avenir, la trésorerie et la responsabilité de votre entreprise. Qu'il s'agisse de recruter un collaborateur, de signer avec un distributeur, de louer un local ou de nouer un partenariat technologique, le contrat est votre seule véritable assurance. Un document flou ou inadapté aux réalités du droit local est une faille que vos partenaires ou concurrents n'hésiteront pas à exploiter en cas de conflit.\n\nFEDPAWA CORPORATE SOLUTIONS SARL met son expertise en ingénierie contractuelle au service de votre sécurité. Nous concevons, rédigeons et auditons vos actes juridiques pour vous offrir une protection maximale, équilibrer vos relations d'affaires et vous garantir une parfaite conformité avec le Code du travail camerounais et les Actes Uniformes de l'OHADA.\n\nSEE THE PLANS\nREQUEST A QUOTE\nMaximum Tailored Protection\n\nNous concevons, rédigeons et auditons vos actes juridiques pour vous offrir une protection maximale, équilibrer vos relations d'affaires et vous garantir une parfaite conformité avec le Code du travail camerounais et les Actes Uniformes de l'OHADA.\n\nNOS EXPERTISES\nOur Contractual Solutions and Security Mechanisms\n📝 1. Commercial, Service & Business Partnership Contracts\nNOUS SÉCURISONS VOS RELATIONS AVEC VOTRE ÉCOSYSTÈME COMMERCIAL (CLIENTS, FOURNISSEURS, PRESTATAIRES) :\nRédaction de contrats de prestations de services, de sous-traitance et de co-traitance.\nConception de baux professionnels et commerciaux conformes aux exigences strictes de l'OHADA.\nRédaction de contrats de distribution, de franchise, d'agence commerciale et d'approvisionnement.\nÉtablissement de Conditions Générales de Vente (CGV) et de Conditions Générales d'Utilisation (CGU) pour vos plateformes physiques ou e-commerce.\n👥 2. Employment Contracts & Corporate Agreements (HR Management)\nNOUS PROTÉGEONS VOTRE ENTREPRISE CONTRE LE RISQUE DE CONTENTIEUX PRUD'HOMAL (TRIBUNAL DU TRAVAIL) :\nRédaction de contrats de travail sur-mesure (CDI, CDD, contrats d'apprentissage, stagiaires) en parfaite adéquation avec le Code du travail camerounais et les conventions collectives applicables.\nInsertion de clauses protectrices spécifiques : clauses de non-concurrence, clauses de confidentialité strictes (NDA), clauses de dédit-formation ou d'exclusivité.\nAssistance à la rédaction de règlements intérieurs d'entreprise, chartes sociales et avenants contractuels.\n🔒 3. Non-Disclosure Agreements (NDA) & Specific Security\nPROTÉGER VOS SECRETS D'AFFAIRES AVANT TOUT PARTENARIAT :\nRédaction d'accords unilatéraux ou réciproques de confidentialité (NDA) pour protéger vos secrets d'affaires, concepts et négociations avant tout partenariat.\n🔍 4. Contract Audit & Risk Management\nAVANT DE SIGNER UN DOCUMENT PROPOSÉ PAR UN TIERS (BANQUE, MULTINATIONALE, ÉTAT), NOUS PASSONS L'ACTE AU PEIGNE FIN :\nIdentification des clauses cachées, léonines ou disproportionnées qui déséquilibrent l'accord.\nÉvaluation des mécanismes de responsabilité civile, des clauses pénales (pénalités de retard) et des conditions de résiliation.\nRédaction de contre-propositions juridiques pour rééquilibrer la négociation en votre faveur.\n🔐 5. Document Security & Private Cloud Archiving\nNOUS PROTÉGEONS VOS ACTES MAJEURS CONTRE LA PERTE, LA FALSIFICATION OU LE VOL :\nContrôle de la validité des signatures et de la chaîne de pouvoirs des signataires.\nNumérisation haute définition et indexation méthodique de vos archives juridiques.\nMise à disposition d'un Coffre-fort Numérique sécurisé (Cloud privé FEDPAWA) pour vous permettre d'accéder à vos contrats stratégiques 24h/24 et 7j/7, où que vous soyez dans le monde, de manière totalement cryptée.\nYour Secure Digital Safe\n\nAccédez à vos contrats stratégiques et actes juridiques majeurs 24h/24 et 7j/7, où que vous soyez dans le monde. Tous vos documents sont numérisés en haute définition, indexés et stockés dans un espace Cloud privé totalement crypté.\n\nChiffrement de bout en bout\nAccessibilité mondiale 24/7\nAnti-falsification garantie\nSauvegarde redondante\nCONDITIONS TARIFAIRES\nOur Drafting & Audit Plans\nStandard Instrument Plan\n50 000 - 150 000 FCFA / instrument\nRédaction de contrats de travail (CDI/CDD)\nAccords de confidentialité (NDA)\nAvenants contractuels\nLettres d'intention (LOI)\nI SECURE MY CONTRACTS\nRECOMMANDÉ\nComplex Instrument Plan\n150 000 - 500 000 FCFA / instrument\nRédaction de contrats de partenariat d'affaires\nBaux professionnels et commerciaux OHADA\nContrats de distribution & franchise\nCGV / CGU sur-mesure\nI SECURE MY CONTRACTS\nThird-Party Legal Audit\nSur Devis Personnalisé\nAnalyse complète de contrats proposés par des tiers\nDétection des clauses léonines et réécriture\nConseil et contre-propositions juridiques\nRééquilibrage de la négociation\nREQUEST A QUOTE\nFEDPAWA\nCORPORATE SOLUTIONS\n\nA first-class business infrastructure in the heart of Douala, Logpom. Room to settle in, room to grow.\n\nFind Us\n\nLogpom Pharmacy Building, roadside, Logpom, Douala, Cameroon\n\nMonday–Friday 8:00 – 18:00\nSaturday 9:00 – 14:00\n\ncontact@fedpawa.com\n\nNavigation\nHome\nDomiciliation\nCompany Formation\nTax & Legal Advisory\nOAPI Protection\nContracts\nContact\nLegal Information\n\nRC: to be completed\nIFU: to be completed\nCNPS: to be completed\n\n© 2026 FEDPAWA CORPORATE SOLUTIONS. All rights reserved.\nDouala · Logpom · Cameroon",
+   "mobile": {
+    "scrollWidth": 375,
+    "overflows": [
+     {
+      "tag": "NAV",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "",
+      "right": 683
+     },
+     {
+      "tag": "A",
+      "cls": "mobile-cta",
+      "right": 683
+     },
+     {
+      "tag": "DIV",
+      "cls": "mobile-nav-toggles",
+      "right": 689
+     },
+     {
+      "tag": "BUTTON",
+      "cls": "mode-toggle mobile-mode-toggle",
+      "right": 585
+     }
+    ]
+   }
+  }
+ }
+}

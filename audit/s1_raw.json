@@ -1,0 +1,2122 @@
+{
+ "fr": {
+  "name": "FR",
+  "url": "http://127.0.0.1:18081/",
+  "console": [
+   "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "failed_requests": [],
+  "seo": {
+   "title": "FEDPAWA CORPORATE SOLUTIONS | Infrastructure d'affaires à Douala, Logpom",
+   "title_len": 72,
+   "description": "FEDPAWA CORPORATE SOLUTIONS — Infrastructure d'affaires et hub opérationnel à Douala, Logpom : domiciliation, création d'entreprise, fiscalité, OAPI, contrats et espace client 100 % en ligne.",
+   "desc_len": 191,
+   "canonical": null,
+   "hreflang": [],
+   "og": {
+    "title": null,
+    "desc": null,
+    "image": null,
+    "url": null
+   },
+   "lang": "fr",
+   "robots": null,
+   "h1": [
+    "Votre Infrastructure\nd'Affaires & Hub Opérationnel"
+   ],
+   "headings": [
+    "H1:Votre Infrastructure\nd'Affaires & Hub Opérationnel",
+    "H2:Cinq services, une seule adresse",
+    "H3:Domiciliation de Personnes Morales et d'Entreprises",
+    "H3:Création, Transformation, Restructuration & Légalisation d'Entreprises",
+    "H3:Conseil et Suivi Juridique & Fiscal des Entreprises",
+    "H3:Enregistrement des Marques, Logos, Applications & Logiciels auprès de l'OAPI",
+    "H3:Rédaction de Tous Types de Contrats (Sociaux, Commerciaux, de Travail, de Presta",
+    "H2:Un partenaire qui connaît le terrain camerounais",
+    "H2:Cinq engagements qui font la différence",
+    "H2:Les témoignages de nos clients",
+    "H3:Nous trouver",
+    "H3:Navigation",
+    "H3:Informations légales"
+   ],
+   "imgs_no_alt": [],
+   "imgs_empty_alt": []
+  },
+  "perf": {
+   "domContentLoaded": 277,
+   "loadEvent": 297,
+   "transferKB": 22,
+   "resources": 18,
+   "resourcesKB": 783,
+   "byTypeKB": {
+    "com/css2": 2,
+    "css": 47,
+    "jpg": 503,
+    "js": 45,
+    "com/photo-1486406146926-c627a92ad1ab": 177,
+    "1:18081/api/me": 0,
+    "ico": 9
+   },
+   "firstPaint": "first-paint=380, first-contentful-paint=380"
+  },
+  "broken_imgs": [],
+  "contrast_light": [
+   {
+    "sel": "h1",
+    "text": "Votre Infrastructure\nd'Affaires & Hub Opérationnel",
+    "ratio": 15.59,
+    "need": 3,
+    "px": 60.8,
+    "fg": "rgb(241, 245, 249)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "h2",
+    "text": "Cinq services, une seule adresse",
+    "ratio": 15.59,
+    "need": 3,
+    "px": 38.4,
+    "fg": "rgb(241, 245, 249)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "h2",
+    "text": "Un partenaire qui connaît le terrain camerounais",
+    "ratio": 15.72,
+    "need": 3,
+    "px": 24,
+    "fg": "rgb(241, 245, 249)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "h2",
+    "text": "Cinq engagements qui font la différence",
+    "ratio": 15.72,
+    "need": 3,
+    "px": 33.6,
+    "fg": "rgb(241, 245, 249)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "h3",
+    "text": "Domiciliation de Personnes Morales et d'Entreprise",
+    "ratio": 15.72,
+    "need": 3,
+    "px": 25.6,
+    "fg": "rgb(241, 245, 249)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "p",
+    "text": "Espace pour s'installer, espace pour grandir.",
+    "ratio": 6.66,
+    "need": 4.5,
+    "px": 20.8,
+    "fg": "rgb(148, 163, 184)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "p",
+    "text": "FEDPAWA CORPORATE SOLUTIONS met à disposition de t",
+    "ratio": 6.66,
+    "need": 4.5,
+    "px": 16.8,
+    "fg": "rgb(148, 163, 184)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "p",
+    "text": "Une offre complète pour installer, protéger et dév",
+    "ratio": 6.66,
+    "need": 4.5,
+    "px": 16.8,
+    "fg": "rgb(148, 163, 184)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "p",
+    "text": "Une adresse professionnelle prestigieuse à Logpom,",
+    "ratio": 6.71,
+    "need": 4.5,
+    "px": 16,
+    "fg": "rgb(148, 163, 184)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "p",
+    "text": "FEDPAWA est née d'un constat simple : les entrepre",
+    "ratio": 6.71,
+    "need": 4.5,
+    "px": 15.36,
+    "fg": "rgb(148, 163, 184)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "p",
+    "text": "Nous nous situons à l'immeuble Pharmacie de Logpom",
+    "ratio": 6.71,
+    "need": 4.5,
+    "px": 15.36,
+    "fg": "rgb(148, 163, 184)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "p",
+    "text": "Chez FEDPAWA, nous ne vendons pas des prestations ",
+    "ratio": 6.71,
+    "need": 4.5,
+    "px": 16.32,
+    "fg": "rgb(148, 163, 184)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "p",
+    "text": "— L'équipe FEDPAWA Corporate Solutions",
+    "ratio": 6.71,
+    "need": 4.5,
+    "px": 14.08,
+    "fg": "rgb(148, 163, 184)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "a",
+    "text": "FEDPAWA\nCORPORATE SOLUTIONS",
+    "ratio": 8.19,
+    "need": 4.5,
+    "px": 16,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "a",
+    "text": "ACCUEIL",
+    "ratio": 8.19,
+    "need": 4.5,
+    "px": 13.12,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "a",
+    "text": "SERVICES ▾",
+    "ratio": 15.72,
+    "need": 4.5,
+    "px": 13.12,
+    "fg": "rgb(241, 245, 249)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "a",
+    "text": "QUI SOMMES-NOUS",
+    "ratio": 15.72,
+    "need": 4.5,
+    "px": 13.12,
+    "fg": "rgb(241, 245, 249)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "a",
+    "text": "CONTACT",
+    "ratio": 15.72,
+    "need": 4.5,
+    "px": 13.12,
+    "fg": "rgb(241, 245, 249)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "a",
+    "text": "SE CONNECTER",
+    "ratio": 15.72,
+    "need": 4.5,
+    "px": 12.8,
+    "fg": "rgb(241, 245, 249)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "a",
+    "text": "DOMICILIATION",
+    "ratio": 13.58,
+    "need": 4.5,
+    "px": 15.2,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "sel": "a",
+    "text": "CRÉATION D'ENTREPRISE",
+    "ratio": 13.58,
+    "need": 4.5,
+    "px": 15.2,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "sel": "a",
+    "text": "CONSEILS & SUIVI FISCAL",
+    "ratio": 13.58,
+    "need": 4.5,
+    "px": 15.2,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "sel": "a",
+    "text": "PROTECTION OAPI",
+    "ratio": 13.58,
+    "need": 4.5,
+    "px": 15.2,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "sel": "a",
+    "text": "CONTRATS",
+    "ratio": 13.58,
+    "need": 4.5,
+    "px": 15.2,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "sel": "a",
+    "text": "JE M'ABONNE",
+    "ratio": 2.1,
+    "need": 4.5,
+    "px": 15.2,
+    "fg": "rgb(255, 255, 255)",
+    "bg": "rgb(212,175,55)"
+   },
+   {
+    "sel": "a",
+    "text": "DÉCOUVRIR NOS SERVICES\n→",
+    "ratio": 8.77,
+    "need": 4.5,
+    "px": 13.12,
+    "fg": "rgb(10, 20, 36)",
+    "bg": "rgb(212,175,55)"
+   },
+   {
+    "sel": "a",
+    "text": "NOUS CONTACTER",
+    "ratio": 8.12,
+    "need": 4.5,
+    "px": 13.12,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "a",
+    "text": "DÉCOUVRIR LA DOMICILIATION\n→",
+    "ratio": 8.19,
+    "need": 4.5,
+    "px": 12.8,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "a",
+    "text": "DISCUTONS DE VOTRE PROJET",
+    "ratio": 8.19,
+    "need": 4.5,
+    "px": 13.12,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "span",
+    "text": "Immeuble Pharmacie de Logpom, Douala",
+    "ratio": 13.58,
+    "need": 4.5,
+    "px": 12.48,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "sel": "span",
+    "text": "Lun–Ven 8h00–18h00 · Sam 9h00–14h00",
+    "ratio": 13.58,
+    "need": 4.5,
+    "px": 12.48,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "sel": "span",
+    "text": "contact@fedpawa.com",
+    "ratio": 13.58,
+    "need": 4.5,
+    "px": 12.48,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "sel": "span",
+    "text": "FEDPAWA\nCORPORATE SOLUTIONS",
+    "ratio": 8.19,
+    "need": 4.5,
+    "px": 16,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "span",
+    "text": "& Hub Opérationnel",
+    "ratio": 8.12,
+    "need": 3,
+    "px": 60.8,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "span",
+    "text": "100 %\nEN LIGNE",
+    "ratio": 6.66,
+    "need": 4.5,
+    "px": 12.8,
+    "fg": "rgb(148, 163, 184)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "span",
+    "text": "4,9★\nAVIS CLIENTS",
+    "ratio": 6.66,
+    "need": 4.5,
+    "px": 12.8,
+    "fg": "rgb(148, 163, 184)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "span",
+    "text": "24/7\nESPACE CLIENT",
+    "ratio": 6.66,
+    "need": 4.5,
+    "px": 12.8,
+    "fg": "rgb(148, 163, 184)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "span",
+    "text": "Adresse, démarches et suivi au même endroit.",
+    "ratio": 4.21,
+    "need": 4.5,
+    "px": 13.12,
+    "fg": "rgb(100, 116, 139)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "sel": "span",
+    "text": "NOS EXPERTISES",
+    "ratio": 8.12,
+    "need": 4.5,
+    "px": 12.48,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "span",
+    "text": "SERVICE 01",
+    "ratio": 8.19,
+    "need": 4.5,
+    "px": 11.52,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "span",
+    "text": "LA DIFFÉRENCE FEDPAWA",
+    "ratio": 8.19,
+    "need": 4.5,
+    "px": 12.48,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "span",
+    "text": "NOTRE APPROCHE",
+    "ratio": 8.19,
+    "need": 4.5,
+    "px": 12.48,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "button",
+    "text": "01\nDOMICILIATION",
+    "ratio": 8.77,
+    "need": 3,
+    "px": 20.8,
+    "fg": "rgb(10, 20, 36)",
+    "bg": "rgb(212,175,55)"
+   },
+   {
+    "sel": "button",
+    "text": "02\nCRÉATION",
+    "ratio": 7.19,
+    "need": 3,
+    "px": 20.8,
+    "fg": "rgb(148, 163, 184)",
+    "bg": "rgb(10,20,36)"
+   },
+   {
+    "sel": "button",
+    "text": "03\nFISCALITÉ",
+    "ratio": 7.19,
+    "need": 3,
+    "px": 20.8,
+    "fg": "rgb(148, 163, 184)",
+    "bg": "rgb(10,20,36)"
+   },
+   {
+    "sel": "button",
+    "text": "04\nOAPI",
+    "ratio": 7.19,
+    "need": 3,
+    "px": 20.8,
+    "fg": "rgb(148, 163, 184)",
+    "bg": "rgb(10,20,36)"
+   },
+   {
+    "sel": "button",
+    "text": "05\nCONTRATS",
+    "ratio": 7.19,
+    "need": 3,
+    "px": 20.8,
+    "fg": "rgb(148, 163, 184)",
+    "bg": "rgb(10,20,36)"
+   },
+   {
+    "sel": "li",
+    "text": "ACCUEIL",
+    "ratio": 13.97,
+    "need": 4.5,
+    "px": 16,
+    "fg": "rgb(226, 232, 240)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "li",
+    "text": "SERVICES ▾",
+    "ratio": 13.97,
+    "need": 4.5,
+    "px": 16,
+    "fg": "rgb(226, 232, 240)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "li",
+    "text": "QUI SOMMES-NOUS",
+    "ratio": 13.97,
+    "need": 4.5,
+    "px": 16,
+    "fg": "rgb(226, 232, 240)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "li",
+    "text": "CONTACT",
+    "ratio": 13.97,
+    "need": 4.5,
+    "px": 16,
+    "fg": "rgb(226, 232, 240)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "li",
+    "text": "Adresse commerciale reconnue",
+    "ratio": 13.97,
+    "need": 4.5,
+    "px": 13.6,
+    "fg": "rgb(226, 232, 240)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "li",
+    "text": "Scan & réexpédition du courrier",
+    "ratio": 13.97,
+    "need": 4.5,
+    "px": 13.6,
+    "fg": "rgb(226, 232, 240)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "li",
+    "text": "Standard téléphonique personnalisé",
+    "ratio": 13.97,
+    "need": 4.5,
+    "px": 13.6,
+    "fg": "rgb(226, 232, 240)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "li",
+    "text": "Salle de réunion à la demande",
+    "ratio": 13.97,
+    "need": 4.5,
+    "px": 13.6,
+    "fg": "rgb(226, 232, 240)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": ".section-kicker",
+    "text": "NOS EXPERTISES",
+    "ratio": 8.12,
+    "need": 4.5,
+    "px": 12.48,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": ".section-kicker",
+    "text": "LA DIFFÉRENCE FEDPAWA",
+    "ratio": 8.19,
+    "need": 4.5,
+    "px": 12.48,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": ".section-kicker",
+    "text": "NOTRE APPROCHE",
+    "ratio": 8.19,
+    "need": 4.5,
+    "px": 12.48,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(15,27,48)"
+   }
+  ],
+  "links": [
+   {
+    "href": "http://127.0.0.1:18081/index.php",
+    "text": "FEDPAWA\nCORPORATE SOLUTIONS"
+   },
+   {
+    "href": "http://127.0.0.1:18081/index.php",
+    "text": "ACCUEIL"
+   },
+   {
+    "href": "http://127.0.0.1:18081/#",
+    "text": "SERVICES ▾"
+   },
+   {
+    "href": "http://127.0.0.1:18081/domiciliation.php",
+    "text": "Domiciliation"
+   },
+   {
+    "href": "http://127.0.0.1:18081/creation_entreprise.php",
+    "text": "Création d'entreprise"
+   },
+   {
+    "href": "http://127.0.0.1:18081/fiscalite.php",
+    "text": "Conseils & Suivi Fiscal"
+   },
+   {
+    "href": "http://127.0.0.1:18081/oapi.php",
+    "text": "Protection OAPI"
+   },
+   {
+    "href": "http://127.0.0.1:18081/contrats.php",
+    "text": "Contrats"
+   },
+   {
+    "href": "http://127.0.0.1:18081/qui-sommes-nous.php",
+    "text": "QUI SOMMES-NOUS"
+   },
+   {
+    "href": "http://127.0.0.1:18081/contact.php",
+    "text": "CONTACT"
+   },
+   {
+    "href": "http://127.0.0.1:18081/authentification.html",
+    "text": "SE CONNECTER"
+   },
+   {
+    "href": "http://127.0.0.1:18081/index.php",
+    "text": "ACCUEIL"
+   },
+   {
+    "href": "http://127.0.0.1:18081/domiciliation.php",
+    "text": "DOMICILIATION"
+   },
+   {
+    "href": "http://127.0.0.1:18081/creation_entreprise.php",
+    "text": "CRÉATION D'ENTREPRISE"
+   },
+   {
+    "href": "http://127.0.0.1:18081/fiscalite.php",
+    "text": "CONSEILS & SUIVI FISCAL"
+   },
+   {
+    "href": "http://127.0.0.1:18081/oapi.php",
+    "text": "PROTECTION OAPI"
+   },
+   {
+    "href": "http://127.0.0.1:18081/contrats.php",
+    "text": "CONTRATS"
+   },
+   {
+    "href": "http://127.0.0.1:18081/qui-sommes-nous.php",
+    "text": "QUI SOMMES-NOUS"
+   },
+   {
+    "href": "http://127.0.0.1:18081/contact.php",
+    "text": "CONTACT"
+   },
+   {
+    "href": "http://127.0.0.1:18081/tunnel_souscription.php",
+    "text": "JE M'ABONNE"
+   },
+   {
+    "href": "http://127.0.0.1:18081/domiciliation.php",
+    "text": "DÉCOUVRIR NOS SERVICES\n→"
+   },
+   {
+    "href": "http://127.0.0.1:18081/contact.php",
+    "text": "NOUS CONTACTER"
+   },
+   {
+    "href": "http://127.0.0.1:18081/domiciliation.php",
+    "text": "DÉCOUVRIR LA DOMICILIATION\n→"
+   },
+   {
+    "href": "http://127.0.0.1:18081/creation_entreprise.php",
+    "text": "Découvrir la création →"
+   },
+   {
+    "href": "http://127.0.0.1:18081/fiscalite.php",
+    "text": "Découvrir la fiscalité →"
+   },
+   {
+    "href": "http://127.0.0.1:18081/oapi.php",
+    "text": "Découvrir OAPI →"
+   },
+   {
+    "href": "http://127.0.0.1:18081/contrats.php",
+    "text": "Découvrir les contrats →"
+   },
+   {
+    "href": "http://127.0.0.1:18081/contact.php",
+    "text": "DISCUTONS DE VOTRE PROJET"
+   },
+   {
+    "href": "http://127.0.0.1:18081/index.php",
+    "text": "FEDPAWA\nCORPORATE SOLUTIONS"
+   },
+   {
+    "href": "mailto:contact@fedpawa.com",
+    "text": "contact@fedpawa.com"
+   },
+   {
+    "href": "http://127.0.0.1:18081/index.php",
+    "text": "Accueil"
+   },
+   {
+    "href": "http://127.0.0.1:18081/domiciliation.php",
+    "text": "Domiciliation"
+   },
+   {
+    "href": "http://127.0.0.1:18081/creation_entreprise.php",
+    "text": "Création d'entreprise"
+   },
+   {
+    "href": "http://127.0.0.1:18081/fiscalite.php",
+    "text": "Conseils & Suivi Fiscal"
+   },
+   {
+    "href": "http://127.0.0.1:18081/oapi.php",
+    "text": "Protection OAPI"
+   },
+   {
+    "href": "http://127.0.0.1:18081/contrats.php",
+    "text": "Contrats"
+   },
+   {
+    "href": "http://127.0.0.1:18081/contact.php",
+    "text": "Contact"
+   },
+   {
+    "href": "https://wa.me/237691704802",
+    "text": ""
+   }
+  ],
+  "ctas": [
+   {
+    "text": "DÉCOUVRIR NOS SERVICES\n→",
+    "href": "http://127.0.0.1:18081/domiciliation.php"
+   },
+   {
+    "text": "NOUS CONTACTER",
+    "href": "http://127.0.0.1:18081/contact.php"
+   },
+   {
+    "text": "DISCUTONS DE VOTRE PROJET",
+    "href": "http://127.0.0.1:18081/contact.php"
+   }
+  ],
+  "text_dump": "Immeuble Pharmacie de Logpom, Douala\nLun–Ven 8h00–18h00 · Sam 9h00–14h00\ncontact@fedpawa.com\nFEDPAWA\nCORPORATE SOLUTIONS\nACCUEIL\nSERVICES ▾\nQUI SOMMES-NOUS\nCONTACT\nSE CONNECTER\nACCUEIL\nDOMICILIATION\nCRÉATION D'ENTREPRISE\nCONSEILS & SUIVI FISCAL\nPROTECTION OAPI\nCONTRATS\nQUI SOMMES-NOUS\nCONTACT\nJE M'ABONNE\nEN\n×\nDOUALA · LOGPOM · CAMEROUN\nVotre Infrastructure\nd'Affaires & Hub Opérationnel\n\nEspace pour s'installer, espace pour grandir.\n\nFEDPAWA CORPORATE SOLUTIONS met à disposition de toutes les entreprises, sans distinction de taille ou de localisation, une infrastructure d'affaires de premier ordre au cœur de Douala, Logpom. Bien plus qu'une simple adresse administrative, notre centre fournit à chaque dirigeant un écosystème de confiance.\n\nDÉCOUVRIR NOS SERVICES\n→\nNOUS CONTACTER\n100 %\nEN LIGNE\n4,9★\nAVIS CLIENTS\n24/7\nESPACE CLIENT\nUn hub pensé pour vous\nAdresse, démarches et suivi au même endroit.\nNOS EXPERTISES\nCinq services, une seule adresse\n\nUne offre complète pour installer, protéger et développer votre entreprise depuis Logpom. Sélectionnez une expertise pour en découvrir les contours.\n\nSERVICE 01\n01\nDomiciliation de Personnes Morales et d'Entreprises\n\nUne adresse professionnelle prestigieuse à Logpom, avec scan de courrier, réexpédition et standard téléphonique. Donnez à votre entreprise une base sérieuse, sans engager les frais d'un bureau physique.\n\nAdresse commerciale reconnue\nScan & réexpédition du courrier\nStandard téléphonique personnalisé\nSalle de réunion à la demande\nDÉCOUVRIR LA DOMICILIATION\n→\n01\nDOMICILIATION\n02\nCRÉATION\n03\nFISCALITÉ\n04\nOAPI\n05\nCONTRATS\n2024\nFONDÉ À LOGPOM, DOUALA\nLA DIFFÉRENCE FEDPAWA\nUn partenaire qui connaît le terrain camerounais\n\nFEDPAWA est née d'un constat simple : les entrepreneurs au Cameroun perdent un temps précieux à multiplier les interlocuteurs, à naviguer entre formalités, fiscalité et protection juridique. Nous avons construit une infrastructure unique où tout se réunit sous un même toit, avec une équipe disponible et rigoureuse.\n\nNous nous situons à l'immeuble Pharmacie de Logpom, en bordure de route, facilement accessible. Nos clients nous confient leur image, nous prenons leurs appels comme s'ils étaient une grande entreprise, et nous leur offrons un espace client 100 % en ligne pour piloter leurs démarches à tout moment, où qu'ils soient.\n\nFEDPAWA Corporate Solutions\nDIRECTION · LOGPOM, DOUALA\nDISCUTONS DE VOTRE PROJET\nNOTRE APPROCHE\nCinq engagements qui font la différence\n\nChez FEDPAWA, nous ne vendons pas des prestations isolées : nous construisons une relation de confiance durable. Chaque engagement ci-contre est appliqué au quotidien, pour chaque client, quelle que soit la taille de son entreprise.\n\n— L'équipe FEDPAWA Corporate Solutions\n\nTout en un seul endroit\nTarifs clairs et transparents\nAncrage local à Logpom\nAccompagnement personnalisé\nEspace client 100 % en ligne\nDiscrétion & confidentialité\nDisponibilité téléphonique\nVeille réglementaire active\n2024\nFONDÉ À LOGPOM\n150+\nMEMBRES ACTIFS\n4,9★\nAVIS CLIENTS\n24/7\nACCÈS ESPACE CLIENT\nILS NOUS FONT CONFIANCE\nLes témoignages de nos clients\n\nDes entrepreneurs accompagnés avec précision, proximité et simplicité.\n\n\"\n★★★★★\nJ'ai essayé plusieurs centres d'affaires avant de trouver FEDPAWA. Ici, c'est différent. Ils me connaissent par mon nom, ils prennent mes appels comme si j'étais une grande entreprise, et j'ai un bureau où je peux venir travailler sans réservation.\nC\nUn client satisfait\nEntreprise accompagnée par FEDPAWA\n\"\n★★★★★\nLe service de création d'entreprise m'a sauvé. J'étais perdu avec le GUCE, les statuts, le capital. Ils ont tout fait pour moi. En une semaine, j'avais mon RC et mon IFU. Un vrai gain de temps et de sérénité.\nE\nUn entrepreneur\nCréation d'entreprise accompagnée\nFEDPAWA\nCORPORATE SOLUTIONS\n\nUne infrastructure d'affaires de premier ordre au cœur de Douala, Logpom. Espace pour s'installer, espace pour grandir.\n\nNous trouver\n\nImmeuble Pharmacie de Logpom, en bordure de route, Logpom, Douala, Cameroun\n\nLundi–Vendredi 8h00 – 18h00\nSamedi 9h00 – 14h00\n\ncontact@fedpawa.com\n\nNavigation\nAccueil\nDomiciliation\nCréation d'entreprise\nConseils & Suivi Fiscal\nProtection OAPI\nContrats\nContact\nInformations légales\n\nRC : à compléter\nIFU : à compléter\nCNPS : à compléter\n\n© 2026 FEDPAWA CORPORATE SOLUTIONS. Tous droits réservés.\nDouala · Logpom · Cameroun",
+  "mobile": {
+   "scrollWidth": 375,
+   "viewport": 375,
+   "overflow_count": 15,
+   "overflows": [
+    {
+     "tag": "NAV",
+     "cls": "",
+     "right": 683,
+     "w": 278
+    },
+    {
+     "tag": "A",
+     "cls": "",
+     "right": 683,
+     "w": 278
+    },
+    {
+     "tag": "A",
+     "cls": "",
+     "right": 683,
+     "w": 278
+    },
+    {
+     "tag": "A",
+     "cls": "",
+     "right": 683,
+     "w": 278
+    },
+    {
+     "tag": "A",
+     "cls": "",
+     "right": 683,
+     "w": 278
+    },
+    {
+     "tag": "A",
+     "cls": "",
+     "right": 683,
+     "w": 278
+    },
+    {
+     "tag": "A",
+     "cls": "",
+     "right": 683,
+     "w": 278
+    },
+    {
+     "tag": "A",
+     "cls": "",
+     "right": 683,
+     "w": 278
+    },
+    {
+     "tag": "A",
+     "cls": "",
+     "right": 683,
+     "w": 278
+    },
+    {
+     "tag": "A",
+     "cls": "mobile-cta",
+     "right": 683,
+     "w": 278
+    },
+    {
+     "tag": "DIV",
+     "cls": "mobile-nav-toggles",
+     "right": 689,
+     "w": 138
+    },
+    {
+     "tag": "BUTTON",
+     "cls": "mode-toggle mobile-mode-toggle",
+     "right": 585,
+     "w": 34
+    },
+    {
+     "tag": "svg",
+     "cls": "[object SVGAnimatedString]",
+     "right": 578,
+     "w": 20
+    },
+    {
+     "tag": "path",
+     "cls": "[object SVGAnimatedString]",
+     "right": 575,
+     "w": 15
+    },
+    {
+     "tag": "BUTTON",
+     "cls": "lang-toggle mobile-lang-toggle",
+     "right": 641,
+     "w": 44
+    }
+   ],
+   "small_targets": [
+    {
+     "tag": "A",
+     "text": "contact@fedpawa.com",
+     "w": 129,
+     "h": 16
+    },
+    {
+     "tag": "A",
+     "text": "Accueil",
+     "w": 327,
+     "h": 23
+    },
+    {
+     "tag": "A",
+     "text": "Domiciliation",
+     "w": 327,
+     "h": 23
+    },
+    {
+     "tag": "A",
+     "text": "Création d'entreprise",
+     "w": 327,
+     "h": 23
+    },
+    {
+     "tag": "A",
+     "text": "Conseils & Suivi Fiscal",
+     "w": 327,
+     "h": 23
+    },
+    {
+     "tag": "A",
+     "text": "Protection OAPI",
+     "w": 327,
+     "h": 23
+    },
+    {
+     "tag": "A",
+     "text": "Contrats",
+     "w": 327,
+     "h": 23
+    },
+    {
+     "tag": "A",
+     "text": "Contact",
+     "w": 327,
+     "h": 23
+    }
+   ],
+   "tiny_fonts": [
+    {
+     "tag": "SMALL",
+     "cls": "",
+     "fs": 10.56,
+     "text": "CORPORATE SOLUTIONS"
+    },
+    {
+     "tag": "BUTTON",
+     "cls": "lang-toggle mobile-lang-toggle",
+     "fs": 11.52,
+     "text": "EN"
+    },
+    {
+     "tag": "SPAN",
+     "cls": "expertise-kicker",
+     "fs": 11.52,
+     "text": "SERVICE 01"
+    },
+    {
+     "tag": "SPAN",
+     "cls": "expertise-kicker",
+     "fs": 11.52,
+     "text": "Service 02"
+    },
+    {
+     "tag": "SPAN",
+     "cls": "expertise-kicker",
+     "fs": 11.52,
+     "text": "Service 03"
+    },
+    {
+     "tag": "SPAN",
+     "cls": "expertise-kicker",
+     "fs": 11.52,
+     "text": "Service 04"
+    },
+    {
+     "tag": "SPAN",
+     "cls": "expertise-kicker",
+     "fs": 11.52,
+     "text": "Service 05"
+    },
+    {
+     "tag": "SMALL",
+     "cls": "",
+     "fs": 9.92,
+     "text": "DOMICILIATION"
+    },
+    {
+     "tag": "SMALL",
+     "cls": "",
+     "fs": 9.92,
+     "text": "CRÉATION"
+    },
+    {
+     "tag": "SMALL",
+     "cls": "",
+     "fs": 9.92,
+     "text": "FISCALITÉ"
+    },
+    {
+     "tag": "SMALL",
+     "cls": "",
+     "fs": 9.92,
+     "text": "OAPI"
+    },
+    {
+     "tag": "SMALL",
+     "cls": "",
+     "fs": 9.92,
+     "text": "CONTRATS"
+    },
+    {
+     "tag": "SMALL",
+     "cls": "",
+     "fs": 10.56,
+     "text": "CORPORATE SOLUTIONS"
+    }
+   ],
+   "errors": []
+  },
+  "contrast_dark_sample": [
+   {
+    "text": "Immeuble Pharmacie de Logpom, Douala",
+    "ratio": 13.58,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "text": "FEDPAWA\nCORPORATE SOLUTIONS",
+    "ratio": 8.19,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "text": "FEDPAWA\nCORPORATE SOLUTIONS",
+    "ratio": 8.19,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "text": "ACCUEIL",
+    "ratio": 13.58,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "text": "DOMICILIATION",
+    "ratio": 13.58,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "text": "CRÉATION D'ENTREPRISE",
+    "ratio": 13.58,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "text": "CONSEILS & SUIVI FISCAL",
+    "ratio": 13.58,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "text": "PROTECTION OAPI",
+    "ratio": 13.58,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "text": "CONTRATS",
+    "ratio": 13.58,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "text": "QUI SOMMES-NOUS",
+    "ratio": 13.58,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "text": "CONTACT",
+    "ratio": 13.58,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "text": "JE M'ABONNE",
+    "ratio": 2.1,
+    "fg": "rgb(255, 255, 255)",
+    "bg": "rgb(212,175,55)"
+   },
+   {
+    "text": "Votre Infrastructure\nd'Affaires & Hub Op",
+    "ratio": 15.59,
+    "fg": "rgb(241, 245, 249)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "text": "& Hub Opérationnel",
+    "ratio": 8.12,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "text": "Espace pour s'installer, espace pour gra",
+    "ratio": 6.66,
+    "fg": "rgb(148, 163, 184)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "text": "FEDPAWA CORPORATE SOLUTIONS met à dispos",
+    "ratio": 6.66,
+    "fg": "rgb(148, 163, 184)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "text": "DÉCOUVRIR NOS SERVICES\n→",
+    "ratio": 8.77,
+    "fg": "rgb(10, 20, 36)",
+    "bg": "rgb(212,175,55)"
+   },
+   {
+    "text": "NOUS CONTACTER",
+    "ratio": 8.12,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "text": "100 %\nEN LIGNE",
+    "ratio": 6.66,
+    "fg": "rgb(148, 163, 184)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "text": "4,9★\nAVIS CLIENTS",
+    "ratio": 6.66,
+    "fg": "rgb(148, 163, 184)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "text": "24/7\nESPACE CLIENT",
+    "ratio": 6.66,
+    "fg": "rgb(148, 163, 184)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "text": "Adresse, démarches et suivi au même endr",
+    "ratio": 4.21,
+    "fg": "rgb(100, 116, 139)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "text": "NOS EXPERTISES",
+    "ratio": 8.12,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "text": "Cinq services, une seule adresse",
+    "ratio": 15.59,
+    "fg": "rgb(241, 245, 249)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "text": "Une offre complète pour installer, proté",
+    "ratio": 6.66,
+    "fg": "rgb(148, 163, 184)",
+    "bg": "rgb(17,28,46)"
+   }
+  ]
+ },
+ "en": {
+  "name": "EN",
+  "url": "http://127.0.0.1:18081/en/index.php",
+  "console": [],
+  "failed_requests": [],
+  "seo": {
+   "title": "FEDPAWA CORPORATE SOLUTIONS | Business Infrastructure in Douala, Logpom",
+   "title_len": 71,
+   "description": "FEDPAWA CORPORATE SOLUTIONS — Business infrastructure and operational hub in Douala, Logpom: domiciliation, company formation, tax advisory, OAPI, contracts and a 100% online client area.",
+   "desc_len": 187,
+   "canonical": null,
+   "hreflang": [],
+   "og": {
+    "title": null,
+    "desc": null,
+    "image": null,
+    "url": null
+   },
+   "lang": "en",
+   "robots": null,
+   "h1": [
+    "Your Business\nInfrastructure & Operational Hub"
+   ],
+   "headings": [
+    "H1:Your Business\nInfrastructure & Operational Hub",
+    "H2:Five services, a single address",
+    "H3:Domiciliation for Legal Entities & Companies",
+    "H3:Company Formation, Transformation, Restructuring & Legalization",
+    "H3:Legal & Tax Advisory and Monitoring for Companies",
+    "H3:Registration of Trademarks, Logos, Applications & Software with OAPI",
+    "H3:Drafting of All Types of Contracts (Corporate, Commercial, Employment, Service, ",
+    "H2:The Strategic Partner for Your Business",
+    "H2:Ready to Structure Your Company on Solid Foundations?",
+    "H3:Find Us",
+    "H3:Navigation",
+    "H3:Legal Information"
+   ],
+   "imgs_no_alt": [],
+   "imgs_empty_alt": []
+  },
+  "perf": {
+   "domContentLoaded": 251,
+   "loadEvent": 252,
+   "transferKB": 16,
+   "resources": 15,
+   "resourcesKB": 722,
+   "byTypeKB": {
+    "com/css2": 2,
+    "css": 47,
+    "jpg": 450,
+    "js": 45,
+    "com/photo-1486406146926-c627a92ad1ab": 177,
+    "1:18081/api/me": 0
+   },
+   "firstPaint": "first-paint=320, first-contentful-paint=320"
+  },
+  "broken_imgs": [],
+  "contrast_light": [
+   {
+    "sel": "h1",
+    "text": "Your Business\nInfrastructure & Operational Hub",
+    "ratio": 15.59,
+    "need": 3,
+    "px": 60.8,
+    "fg": "rgb(241, 245, 249)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "h2",
+    "text": "Five services, a single address",
+    "ratio": 15.59,
+    "need": 3,
+    "px": 38.4,
+    "fg": "rgb(241, 245, 249)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "h3",
+    "text": "Domiciliation for Legal Entities & Companies",
+    "ratio": 15.59,
+    "need": 3,
+    "px": 25.6,
+    "fg": "rgb(241, 245, 249)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "p",
+    "text": "A first-class business infrastructure in the heart",
+    "ratio": 13.86,
+    "need": 4.5,
+    "px": 16,
+    "fg": "rgb(226, 232, 240)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "p",
+    "text": "Whether you are a local entrepreneur, a growing SM",
+    "ratio": 13.86,
+    "need": 4.5,
+    "px": 16,
+    "fg": "rgb(226, 232, 240)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "p",
+    "text": "A prestigious professional address in Logpom, with",
+    "ratio": 6.66,
+    "need": 4.5,
+    "px": 16,
+    "fg": "rgb(148, 163, 184)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "a",
+    "text": "FEDPAWA\nCORPORATE SOLUTIONS",
+    "ratio": 8.19,
+    "need": 4.5,
+    "px": 16,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "a",
+    "text": "HOME",
+    "ratio": 8.19,
+    "need": 4.5,
+    "px": 13.12,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "a",
+    "text": "SERVICES ▾",
+    "ratio": 15.72,
+    "need": 4.5,
+    "px": 13.12,
+    "fg": "rgb(241, 245, 249)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "a",
+    "text": "ABOUT US",
+    "ratio": 15.72,
+    "need": 4.5,
+    "px": 13.12,
+    "fg": "rgb(241, 245, 249)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "a",
+    "text": "CONTACT",
+    "ratio": 15.72,
+    "need": 4.5,
+    "px": 13.12,
+    "fg": "rgb(241, 245, 249)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "a",
+    "text": "SIGN IN",
+    "ratio": 15.72,
+    "need": 4.5,
+    "px": 12.8,
+    "fg": "rgb(241, 245, 249)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "a",
+    "text": "DOMICILIATION",
+    "ratio": 13.58,
+    "need": 4.5,
+    "px": 15.2,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "sel": "a",
+    "text": "COMPANY FORMATION",
+    "ratio": 13.58,
+    "need": 4.5,
+    "px": 15.2,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "sel": "a",
+    "text": "TAX & LEGAL ADVISORY",
+    "ratio": 13.58,
+    "need": 4.5,
+    "px": 15.2,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "sel": "a",
+    "text": "OAPI PROTECTION",
+    "ratio": 13.58,
+    "need": 4.5,
+    "px": 15.2,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "sel": "a",
+    "text": "CONTRACTS",
+    "ratio": 13.58,
+    "need": 4.5,
+    "px": 15.2,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "sel": "a",
+    "text": "SUBSCRIBE",
+    "ratio": 2.1,
+    "need": 4.5,
+    "px": 15.2,
+    "fg": "rgb(255, 255, 255)",
+    "bg": "rgb(212,175,55)"
+   },
+   {
+    "sel": "a",
+    "text": "DISCOVER OUR SERVICES\n→",
+    "ratio": 8.77,
+    "need": 4.5,
+    "px": 13.12,
+    "fg": "rgb(10, 20, 36)",
+    "bg": "rgb(212,175,55)"
+   },
+   {
+    "sel": "a",
+    "text": "CONTACT US",
+    "ratio": 8.12,
+    "need": 4.5,
+    "px": 13.12,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "a",
+    "text": "DISCOVER DOMICILIATION\n→",
+    "ratio": 8.12,
+    "need": 4.5,
+    "px": 12.8,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "span",
+    "text": "Logpom Pharmacy Building, Douala",
+    "ratio": 13.58,
+    "need": 4.5,
+    "px": 12.48,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "sel": "span",
+    "text": "Mon–Fri 8:00–18:00 · Sat 9:00–14:00",
+    "ratio": 13.58,
+    "need": 4.5,
+    "px": 12.48,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "sel": "span",
+    "text": "contact@fedpawa.com",
+    "ratio": 13.58,
+    "need": 4.5,
+    "px": 12.48,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "sel": "span",
+    "text": "FEDPAWA\nCORPORATE SOLUTIONS",
+    "ratio": 8.19,
+    "need": 4.5,
+    "px": 16,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "span",
+    "text": "& Operational Hub",
+    "ratio": 8.12,
+    "need": 3,
+    "px": 60.8,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "span",
+    "text": "OUR EXPERTISE",
+    "ratio": 8.12,
+    "need": 4.5,
+    "px": 12.48,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "span",
+    "text": "SERVICE 01",
+    "ratio": 8.12,
+    "need": 4.5,
+    "px": 11.52,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "button",
+    "text": "01\nDOMICILIATION",
+    "ratio": 8.77,
+    "need": 3,
+    "px": 20.8,
+    "fg": "rgb(10, 20, 36)",
+    "bg": "rgb(212,175,55)"
+   },
+   {
+    "sel": "button",
+    "text": "02\nFORMATION",
+    "ratio": 6.66,
+    "need": 3,
+    "px": 20.8,
+    "fg": "rgb(148, 163, 184)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "li",
+    "text": "HOME",
+    "ratio": 13.97,
+    "need": 4.5,
+    "px": 16,
+    "fg": "rgb(226, 232, 240)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "li",
+    "text": "SERVICES ▾",
+    "ratio": 13.97,
+    "need": 4.5,
+    "px": 16,
+    "fg": "rgb(226, 232, 240)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "li",
+    "text": "ABOUT US",
+    "ratio": 13.97,
+    "need": 4.5,
+    "px": 16,
+    "fg": "rgb(226, 232, 240)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "li",
+    "text": "CONTACT",
+    "ratio": 13.97,
+    "need": 4.5,
+    "px": 16,
+    "fg": "rgb(226, 232, 240)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "sel": "li",
+    "text": "Recognized business address",
+    "ratio": 13.86,
+    "need": 4.5,
+    "px": 13.6,
+    "fg": "rgb(226, 232, 240)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "li",
+    "text": "Mail scanning & forwarding",
+    "ratio": 13.86,
+    "need": 4.5,
+    "px": 13.6,
+    "fg": "rgb(226, 232, 240)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "li",
+    "text": "Personalized phone desk",
+    "ratio": 13.86,
+    "need": 4.5,
+    "px": 13.6,
+    "fg": "rgb(226, 232, 240)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": "li",
+    "text": "Meeting room on demand",
+    "ratio": 13.86,
+    "need": 4.5,
+    "px": 13.6,
+    "fg": "rgb(226, 232, 240)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": ".subtitle",
+    "text": "A first-class business infrastructure in the heart",
+    "ratio": 13.86,
+    "need": 4.5,
+    "px": 16,
+    "fg": "rgb(226, 232, 240)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "sel": ".section-kicker",
+    "text": "OUR EXPERTISE",
+    "ratio": 8.12,
+    "need": 4.5,
+    "px": 12.48,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(17,28,46)"
+   }
+  ],
+  "links": [
+   {
+    "href": "http://127.0.0.1:18081/index.php",
+    "text": "FEDPAWA\nCORPORATE SOLUTIONS"
+   },
+   {
+    "href": "http://127.0.0.1:18081/index.php",
+    "text": "HOME"
+   },
+   {
+    "href": "http://127.0.0.1:18081/en/index.php#",
+    "text": "SERVICES ▾"
+   },
+   {
+    "href": "http://127.0.0.1:18081/domiciliation.php",
+    "text": "Domiciliation"
+   },
+   {
+    "href": "http://127.0.0.1:18081/creation_entreprise.php",
+    "text": "Company Formation"
+   },
+   {
+    "href": "http://127.0.0.1:18081/fiscalite.php",
+    "text": "Tax & Legal Advisory"
+   },
+   {
+    "href": "http://127.0.0.1:18081/oapi.php",
+    "text": "OAPI Protection"
+   },
+   {
+    "href": "http://127.0.0.1:18081/contrats.php",
+    "text": "Contracts"
+   },
+   {
+    "href": "http://127.0.0.1:18081/qui-sommes-nous.php",
+    "text": "ABOUT US"
+   },
+   {
+    "href": "http://127.0.0.1:18081/contact.php",
+    "text": "CONTACT"
+   },
+   {
+    "href": "http://127.0.0.1:18081/authentification.html",
+    "text": "SIGN IN"
+   },
+   {
+    "href": "http://127.0.0.1:18081/index.php",
+    "text": "HOME"
+   },
+   {
+    "href": "http://127.0.0.1:18081/domiciliation.php",
+    "text": "DOMICILIATION"
+   },
+   {
+    "href": "http://127.0.0.1:18081/creation_entreprise.php",
+    "text": "COMPANY FORMATION"
+   },
+   {
+    "href": "http://127.0.0.1:18081/fiscalite.php",
+    "text": "TAX & LEGAL ADVISORY"
+   },
+   {
+    "href": "http://127.0.0.1:18081/oapi.php",
+    "text": "OAPI PROTECTION"
+   },
+   {
+    "href": "http://127.0.0.1:18081/contrats.php",
+    "text": "CONTRACTS"
+   },
+   {
+    "href": "http://127.0.0.1:18081/qui-sommes-nous.php",
+    "text": "ABOUT US"
+   },
+   {
+    "href": "http://127.0.0.1:18081/contact.php",
+    "text": "CONTACT"
+   },
+   {
+    "href": "http://127.0.0.1:18081/tunnel_souscription.php",
+    "text": "SUBSCRIBE"
+   },
+   {
+    "href": "http://127.0.0.1:18081/en/domiciliation.php",
+    "text": "DISCOVER OUR SERVICES\n→"
+   },
+   {
+    "href": "http://127.0.0.1:18081/en/contact.php",
+    "text": "CONTACT US"
+   },
+   {
+    "href": "http://127.0.0.1:18081/en/domiciliation.php",
+    "text": "DISCOVER DOMICILIATION\n→"
+   },
+   {
+    "href": "http://127.0.0.1:18081/en/creation_entreprise.php",
+    "text": "Discover company formation →"
+   },
+   {
+    "href": "http://127.0.0.1:18081/en/fiscalite.php",
+    "text": "Discover tax advisory →"
+   },
+   {
+    "href": "http://127.0.0.1:18081/en/oapi.php",
+    "text": "Discover OAPI →"
+   },
+   {
+    "href": "http://127.0.0.1:18081/en/contrats.php",
+    "text": "Discover contracts →"
+   },
+   {
+    "href": "http://127.0.0.1:18081/en/qui-sommes-nous.php",
+    "text": "ABOUT US\n→"
+   },
+   {
+    "href": "http://127.0.0.1:18081/tunnel_souscription.php",
+    "text": "SUBSCRIBE"
+   },
+   {
+    "href": "http://127.0.0.1:18081/en/contact.php",
+    "text": "CONTACT US"
+   },
+   {
+    "href": "http://127.0.0.1:18081/index.php",
+    "text": "FEDPAWA\nCORPORATE SOLUTIONS"
+   },
+   {
+    "href": "mailto:contact@fedpawa.com",
+    "text": "contact@fedpawa.com"
+   },
+   {
+    "href": "http://127.0.0.1:18081/index.php",
+    "text": "Home"
+   },
+   {
+    "href": "http://127.0.0.1:18081/domiciliation.php",
+    "text": "Domiciliation"
+   },
+   {
+    "href": "http://127.0.0.1:18081/creation_entreprise.php",
+    "text": "Company Formation"
+   },
+   {
+    "href": "http://127.0.0.1:18081/fiscalite.php",
+    "text": "Tax & Legal Advisory"
+   },
+   {
+    "href": "http://127.0.0.1:18081/oapi.php",
+    "text": "OAPI Protection"
+   },
+   {
+    "href": "http://127.0.0.1:18081/contrats.php",
+    "text": "Contracts"
+   },
+   {
+    "href": "http://127.0.0.1:18081/contact.php",
+    "text": "Contact"
+   },
+   {
+    "href": "https://wa.me/237691704802",
+    "text": ""
+   }
+  ],
+  "ctas": [
+   {
+    "text": "DISCOVER OUR SERVICES\n→",
+    "href": "http://127.0.0.1:18081/en/domiciliation.php"
+   },
+   {
+    "text": "CONTACT US",
+    "href": "http://127.0.0.1:18081/en/contact.php"
+   },
+   {
+    "text": "ABOUT US\n→",
+    "href": "http://127.0.0.1:18081/en/qui-sommes-nous.php"
+   },
+   {
+    "text": "SUBSCRIBE",
+    "href": "http://127.0.0.1:18081/tunnel_souscription.php"
+   },
+   {
+    "text": "CONTACT US",
+    "href": "http://127.0.0.1:18081/en/contact.php"
+   }
+  ],
+  "text_dump": "Logpom Pharmacy Building, Douala\nMon–Fri 8:00–18:00 · Sat 9:00–14:00\ncontact@fedpawa.com\nFEDPAWA\nCORPORATE SOLUTIONS\nHOME\nSERVICES ▾\nABOUT US\nCONTACT\nSIGN IN\nHOME\nDOMICILIATION\nCOMPANY FORMATION\nTAX & LEGAL ADVISORY\nOAPI PROTECTION\nCONTRACTS\nABOUT US\nCONTACT\nSUBSCRIBE\nFR\n×\nFEDPAWA CORPORATE SOLUTIONS SARL\nYour Business\nInfrastructure & Operational Hub\n\nA first-class business infrastructure in the heart of Douala, Logpom — for companies of every size.\n\nWhether you are a local entrepreneur, a growing SME or a multinational opening a subsidiary in Central Africa, we provide a registered office, mail management, a telephone secretariat and high-end offices — without the costs of a traditional commercial lease.\n\nDISCOVER OUR SERVICES\n→\nCONTACT US\nOUR EXPERTISE\nFive services, a single address\nSERVICE 01\n01\nDomiciliation for Legal Entities & Companies\n\nA prestigious professional address in Logpom, with mail scanning, forwarding and a personalized phone desk. Give your company a serious base without the costs of a physical office.\n\nRecognized business address\nMail scanning & forwarding\nPersonalized phone desk\nMeeting room on demand\nDISCOVER DOMICILIATION\n→\n01\nDOMICILIATION\n02\nFORMATION\n03\nTAX\n04\nOAPI\n05\nCONTRACTS\nWHY FEDPAWA\nThe Strategic Partner for Your Business\n\nFEDPAWA CORPORATE SOLUTIONS SARL provides every executive with a trusted ecosystem: an on-site team to secure your document flows, an interconnected telephone secretariat so you never miss a client, and exclusive access to high-end Executive offices.\n\nABOUT US\n→\nReady to Structure Your Company on Solid Foundations?\n\nContact us today for personalized guidance with our experts.\n\nSUBSCRIBE\nCONTACT US\nFEDPAWA\nCORPORATE SOLUTIONS\n\nA first-class business infrastructure in the heart of Douala, Logpom. Room to settle in, room to grow.\n\nFind Us\n\nLogpom Pharmacy Building, roadside, Logpom, Douala, Cameroon\n\nMonday–Friday 8:00 – 18:00\nSaturday 9:00 – 14:00\n\ncontact@fedpawa.com\n\nNavigation\nHome\nDomiciliation\nCompany Formation\nTax & Legal Advisory\nOAPI Protection\nContracts\nContact\nLegal Information\n\nRC: to be completed\nIFU: to be completed\nCNPS: to be completed\n\n© 2026 FEDPAWA CORPORATE SOLUTIONS. All rights reserved.\nDouala · Logpom · Cameroon",
+  "mobile": {
+   "scrollWidth": 375,
+   "viewport": 375,
+   "overflow_count": 15,
+   "overflows": [
+    {
+     "tag": "NAV",
+     "cls": "",
+     "right": 683,
+     "w": 278
+    },
+    {
+     "tag": "A",
+     "cls": "",
+     "right": 683,
+     "w": 278
+    },
+    {
+     "tag": "A",
+     "cls": "",
+     "right": 683,
+     "w": 278
+    },
+    {
+     "tag": "A",
+     "cls": "",
+     "right": 683,
+     "w": 278
+    },
+    {
+     "tag": "A",
+     "cls": "",
+     "right": 683,
+     "w": 278
+    },
+    {
+     "tag": "A",
+     "cls": "",
+     "right": 683,
+     "w": 278
+    },
+    {
+     "tag": "A",
+     "cls": "",
+     "right": 683,
+     "w": 278
+    },
+    {
+     "tag": "A",
+     "cls": "",
+     "right": 683,
+     "w": 278
+    },
+    {
+     "tag": "A",
+     "cls": "",
+     "right": 683,
+     "w": 278
+    },
+    {
+     "tag": "A",
+     "cls": "mobile-cta",
+     "right": 683,
+     "w": 278
+    },
+    {
+     "tag": "DIV",
+     "cls": "mobile-nav-toggles",
+     "right": 689,
+     "w": 138
+    },
+    {
+     "tag": "BUTTON",
+     "cls": "mode-toggle mobile-mode-toggle",
+     "right": 585,
+     "w": 34
+    },
+    {
+     "tag": "svg",
+     "cls": "[object SVGAnimatedString]",
+     "right": 578,
+     "w": 20
+    },
+    {
+     "tag": "path",
+     "cls": "[object SVGAnimatedString]",
+     "right": 575,
+     "w": 15
+    },
+    {
+     "tag": "BUTTON",
+     "cls": "lang-toggle mobile-lang-toggle",
+     "right": 641,
+     "w": 44
+    }
+   ],
+   "small_targets": [
+    {
+     "tag": "A",
+     "text": "contact@fedpawa.com",
+     "w": 129,
+     "h": 16
+    },
+    {
+     "tag": "A",
+     "text": "Home",
+     "w": 327,
+     "h": 23
+    },
+    {
+     "tag": "A",
+     "text": "Domiciliation",
+     "w": 327,
+     "h": 23
+    },
+    {
+     "tag": "A",
+     "text": "Company Formation",
+     "w": 327,
+     "h": 23
+    },
+    {
+     "tag": "A",
+     "text": "Tax & Legal Advisory",
+     "w": 327,
+     "h": 23
+    },
+    {
+     "tag": "A",
+     "text": "OAPI Protection",
+     "w": 327,
+     "h": 23
+    },
+    {
+     "tag": "A",
+     "text": "Contracts",
+     "w": 327,
+     "h": 23
+    },
+    {
+     "tag": "A",
+     "text": "Contact",
+     "w": 327,
+     "h": 23
+    }
+   ],
+   "tiny_fonts": [
+    {
+     "tag": "SMALL",
+     "cls": "",
+     "fs": 10.56,
+     "text": "CORPORATE SOLUTIONS"
+    },
+    {
+     "tag": "BUTTON",
+     "cls": "lang-toggle mobile-lang-toggle",
+     "fs": 11.52,
+     "text": "FR"
+    },
+    {
+     "tag": "SPAN",
+     "cls": "expertise-kicker",
+     "fs": 11.52,
+     "text": "SERVICE 01"
+    },
+    {
+     "tag": "SPAN",
+     "cls": "expertise-kicker",
+     "fs": 11.52,
+     "text": "Service 02"
+    },
+    {
+     "tag": "SPAN",
+     "cls": "expertise-kicker",
+     "fs": 11.52,
+     "text": "Service 03"
+    },
+    {
+     "tag": "SPAN",
+     "cls": "expertise-kicker",
+     "fs": 11.52,
+     "text": "Service 04"
+    },
+    {
+     "tag": "SPAN",
+     "cls": "expertise-kicker",
+     "fs": 11.52,
+     "text": "Service 05"
+    },
+    {
+     "tag": "SMALL",
+     "cls": "",
+     "fs": 9.92,
+     "text": "DOMICILIATION"
+    },
+    {
+     "tag": "SMALL",
+     "cls": "",
+     "fs": 9.92,
+     "text": "FORMATION"
+    },
+    {
+     "tag": "SMALL",
+     "cls": "",
+     "fs": 9.92,
+     "text": "TAX"
+    },
+    {
+     "tag": "SMALL",
+     "cls": "",
+     "fs": 9.92,
+     "text": "OAPI"
+    },
+    {
+     "tag": "SMALL",
+     "cls": "",
+     "fs": 9.92,
+     "text": "CONTRACTS"
+    },
+    {
+     "tag": "SMALL",
+     "cls": "",
+     "fs": 10.56,
+     "text": "CORPORATE SOLUTIONS"
+    }
+   ],
+   "errors": []
+  },
+  "contrast_dark_sample": [
+   {
+    "text": "Logpom Pharmacy Building, Douala",
+    "ratio": 13.58,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "text": "FEDPAWA\nCORPORATE SOLUTIONS",
+    "ratio": 8.19,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "text": "FEDPAWA\nCORPORATE SOLUTIONS",
+    "ratio": 8.19,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(15,27,48)"
+   },
+   {
+    "text": "DOMICILIATION",
+    "ratio": 13.58,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "text": "COMPANY FORMATION",
+    "ratio": 13.58,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "text": "TAX & LEGAL ADVISORY",
+    "ratio": 13.58,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "text": "OAPI PROTECTION",
+    "ratio": 13.58,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "text": "CONTRACTS",
+    "ratio": 13.58,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "text": "ABOUT US",
+    "ratio": 13.58,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "text": "CONTACT",
+    "ratio": 13.58,
+    "fg": "rgb(216, 212, 206)",
+    "bg": "rgb(5,8,15)"
+   },
+   {
+    "text": "SUBSCRIBE",
+    "ratio": 2.1,
+    "fg": "rgb(255, 255, 255)",
+    "bg": "rgb(212,175,55)"
+   },
+   {
+    "text": "Your Business\nInfrastructure & Operation",
+    "ratio": 15.59,
+    "fg": "rgb(241, 245, 249)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "text": "& Operational Hub",
+    "ratio": 8.12,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "text": "A first-class business infrastructure in",
+    "ratio": 13.86,
+    "fg": "rgb(226, 232, 240)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "text": "Whether you are a local entrepreneur, a ",
+    "ratio": 13.86,
+    "fg": "rgb(226, 232, 240)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "text": "DISCOVER OUR SERVICES\n→",
+    "ratio": 8.77,
+    "fg": "rgb(10, 20, 36)",
+    "bg": "rgb(212,175,55)"
+   },
+   {
+    "text": "CONTACT US",
+    "ratio": 8.12,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "text": "OUR EXPERTISE",
+    "ratio": 8.12,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "text": "Five services, a single address",
+    "ratio": 15.59,
+    "fg": "rgb(241, 245, 249)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "text": "SERVICE 01",
+    "ratio": 8.12,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "text": "A prestigious professional address in Lo",
+    "ratio": 6.66,
+    "fg": "rgb(148, 163, 184)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "text": "DISCOVER DOMICILIATION\n→",
+    "ratio": 8.12,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "text": "WHY FEDPAWA",
+    "ratio": 8.12,
+    "fg": "rgb(212, 175, 55)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "text": "The Strategic Partner for Your Business",
+    "ratio": 15.59,
+    "fg": "rgb(241, 245, 249)",
+    "bg": "rgb(17,28,46)"
+   },
+   {
+    "text": "FEDPAWA CORPORATE SOLUTIONS SARL provide",
+    "ratio": 13.86,
+    "fg": "rgb(226, 232, 240)",
+    "bg": "rgb(17,28,46)"
+   }
+  ]
+ }
+}

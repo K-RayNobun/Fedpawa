@@ -1,0 +1,92 @@
+{
+ "section": "S5-tunnel-seo-global",
+ "pages": [
+  "tunnel_souscription.php",
+  "souscription_domiciliation.php",
+  "sitemap.xml",
+  "robots.txt"
+ ],
+ "findings": [
+  {
+   "id": "SEC-S5-1",
+   "face": "security",
+   "severity": "high",
+   "title": "Tunnel: le saut d'étape VIDE ne passe pas (bonne nouvelle) MAIS aucun message d'erreur affiché",
+   "evidence": "Clic CONTINUER sur step-1 vide → reste sur step-1, mais errors=[] : aucun feedback visuel pour l'utilisateur (validateStep bloque silencieusement — l'utilisateur clique sans comprendre)",
+   "location": "tunnel.js validateStep + step-validation-hint",
+   "fix": "Afficher le message d'erreur du hint (step-validation-hint semble masqué: visible dans le DOM mais pas de message d'aide actif)"
+  },
+  {
+   "id": "UX-S5-1",
+   "face": "ux-content",
+   "severity": "medium",
+   "title": "Tunnel contrats: montant affiché 50 000 FCFA (step-1) puis 100 000 FCFA (step-3)",
+   "evidence": "init amount=50 000 FCFA; après step-2 le récap affiche 100 000 FCFA — cohérent si 50k=acompte et 100k=total, mais sans libellé explicite l'utilisateur voit un montant doubler sans explication",
+   "location": "tunnel_souscription.php (récap step-3)",
+   "fix": "Libeller: 'Acompte: 50 000 FCFA — Total: 100 000 FCFA' (ou afficher la ventilation)"
+  },
+  {
+   "id": "UX-S5-2",
+   "face": "ux-content",
+   "severity": "high",
+   "title": "step-3 (documents) BLOQUANT sans explication: 0 champ visible, aucun bouton",
+   "evidence": "Étape documents: filled=[] et noBtn=true — l'étape n'expose ni champ ni bouton Continuer au DOM visible pour les service=contrats (les uploads sont conditionnels?) — le parcours s'arrête là sans indication",
+   "location": "tunnel_souscription.php step-3 (documents conditionnels)",
+   "fix": "Pour contrats: soit masquer step-3 si aucun document requis, soit afficher 'Aucun document requis pour ce service' + bouton Continuer"
+  },
+  {
+   "id": "SEO-S5-1",
+   "face": "seo-perf",
+   "severity": "high",
+   "title": "sitemap.xml pointe vers www.fedpawacorporatesolutions.com — DOMAINE DIFFÉRENT du site déployé",
+   "evidence": "9 URLs https://www.fedpawacorporatesolutions.com/... alors que le site réel est https://api.fedpawa.com — Google indexera un domaine inexistant/autre; le sitemap est inutile voire nuisible",
+   "location": "public/sitemap.xml",
+   "fix": "Régénérer avec https://api.fedpawa.com (ou le vrai domaine final s'il change) + URLs /en/ avec hreflang"
+  },
+  {
+   "id": "SEO-S5-2",
+   "face": "seo-perf",
+   "severity": "medium",
+   "title": "robots.txt absent (404)",
+   "evidence": "GET /robots.txt → 404 — ni bloquage ni sitemap déclarés aux crawlers",
+   "location": "public/robots.txt (manquant)",
+   "fix": "Créer: User-agent: * / Allow: / + Sitemap: https://api.fedpawa.com/sitemap.xml + Disallow: /api/ /espace_client /admin"
+  },
+  {
+   "id": "FE-S5-1",
+   "face": "front-end",
+   "severity": "low",
+   "title": "404 favicon persistant sur tunnel",
+   "evidence": "console: 404 (favicon) — cosmétique, global au site",
+   "location": "public/favicon.ico",
+   "fix": "Ajouter favicon"
+  }
+ ],
+ "checked": {
+  "security": [
+   "saut d'étape: step-1 vide → reste bloqué (validation obligatoire effective)",
+   "données hostiles (XSS+SQLi dans ~75 champs) → aucune erreur serveur, aucune soumission fantôme, page reste sur step-1",
+   "0 requête échouée côté réseau pendant les tests hostiles"
+  ],
+  "ux-content": [
+   "montant 100 000 FCFA conforme au pricing contrats (forfait)",
+   "4 étapes structurelles v3 détectées (step-1..4)"
+  ],
+  "seo": [
+   "sitemap.xml existant (9 URLs) mais domaine erroné",
+   "robots.txt absent"
+  ],
+  "front-end": [
+   "tunnel chargé sans erreur JS bloquante (favicon 404 excepté)"
+  ]
+ },
+ "not_checked": {
+  "security": [
+   "paiement Mobile Money réel: CAMPAY_ENABLED=0 en test — flux jusqu'au paiement vérifié (100 000 FCFA affiché), soumission paiement non exécutée volontairement (prod uniquement)",
+   "upload fichiers hostiles (step-3 contrats n'expose pas d'upload) — couvert partiellement par S4 KYC"
+  ],
+  "ux-content": [
+   "parcours domiciliation dédié (souscription_domiciliation.php) déjà couvert par 17/17 tests E2E existants (stepper, etape4-packs)"
+  ]
+ }
+}

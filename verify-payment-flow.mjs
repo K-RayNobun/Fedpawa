@@ -24,7 +24,7 @@ const check = (name, pass, info = '') => out.cases.push({ name, pass, info });
   // login via le formulaire d'auth -> retour au tunnel
   const email = 'pay-' + Date.now() + '@test-fedpawa.cm';
   await anon.evaluate(async (email) => {
-    await fetch(apiUrl('/api/register'), { method: 'POST', credentials: 'include', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ nom: 'Pay Test', entreprise: 'PayCo', email, telephone: '+237****0077', mot_de_passe: 'PayPass123' }) });
+    await window.Api.post('/api/register', { nom: 'Pay Test', entreprise: 'PayCo', email, telephone: '+237699000077', mot_de_passe: 'PayPass123' });
   }, email);
   await anon.fill('#login_email', email);
   await anon.fill('#login_password', 'PayPass123');
@@ -35,19 +35,19 @@ const check = (name, pass, info = '') => out.cases.push({ name, pass, info });
   // étape 2 (skip step1), remplir le minimum, aller à l'étape 5
   await anon.evaluate(() => {
     document.getElementById('emailInput')?.remove; // n/a
-    window.goToStep(5);
+    window.goToStep(4);
   });
   await anon.waitForTimeout(400);
 
   // A. mode de paiement unique: Mobile Money
   check('A1 seule méthode affichée: Mobile Money', await anon.evaluate(() => {
-    const t = document.getElementById('step-5').innerText;
+    const t = document.getElementById('step-4').innerText;
     return t.includes('Mobile Money') && !t.includes('Virement Bancaire') && !t.includes('Carte Bancaire');
   }));
   check('A2 radios payment supprimées', await anon.evaluate(() => document.querySelectorAll('input[name="payment"]').length === 0));
 
   // B. clic Payer (anonyme) -> modal connexion
-  await anon.evaluate(() => window.goToStep(5));
+  await anon.evaluate(() => window.goToStep(4));
   await anon.waitForTimeout(300);
   await anon.click('#finalPayBtn');
   await anon.waitForTimeout(800);
@@ -65,7 +65,7 @@ const check = (name, pass, info = '') => out.cases.push({ name, pass, info });
   });
   check('C2 montant 153 000 FCFA (150 000 + 2%)', (momoState.amount || '').replace(/[\u00A0\u202F,]/g, ' ').trim().startsWith('153 000'), 'amount=' + momoState.amount);
   check('C3 champs numéro + 2 opérateurs', momoState.hasPhone && momoState.hasOps === 2, 'ops=' + momoState.hasOps);
-  check('C4 libellé prestation présent', momoState.desc && momoState.desc.includes('Rédaction de Contrats'), momoState.desc);
+  check('C4 libellé prestation présent', momoState.desc && momoState.desc.includes('Contrats & Rédaction Juridique') || momoState.desc.includes('Contrats & Rédaction Juridique') || momoState.desc.includes('Rédaction de Contrats'), momoState.desc);
 
   // D. soumission -> API souscription -> écran succès avec référence
   await anon.fill('#payMomoPhone', '+237 699 12 34 56');
@@ -73,13 +73,17 @@ const check = (name, pass, info = '') => out.cases.push({ name, pass, info });
   await anon.click('#payMomoSubmit');
   await anon.waitForTimeout(2500);
   const successState = await anon.evaluate(() => {
-    const el = document.querySelector('.pay-momo-success');
-    return { shown: !!el, ref: el ? (el.innerText.match(/SUB_\d+/) || [null])[0] : null, text: el ? el.innerText.slice(0, 120) : null, hasEspaceBtn: el ? !!el.querySelector('a[href="espace_client.html"]') : false };
+    // Lane contrat: « Vérifier Mon Paiement » s'affiche après la soumission (paiement en attente)
+    const verify = document.getElementById('btnVerifyPay');
+    const done = document.querySelector('.pay-momo-success');
+    const el = done || (verify ? verify.closest('.fp-modal') || verify : null);
+    const ref = (document.body.innerText.match(/SUB[-_]\d+/) || [null])[0];
+    return { shown: !!(verify || done), ref, text: verify ? 'Écran Vérifier Mon Paiement' : (done ? done.innerText.slice(0, 120) : null), hasEspaceBtn: !!(done && done.querySelector('a[href="espace_client.html"]')) };
   });
   const souscCalls = out.net.filter(l => l.includes('/api/souscription'));
   check('D1 requête /api/souscription partie (200)', souscCalls.some(l => l.startsWith('200')), souscCalls.join(' | ').slice(0, 120));
   check('D2 écran succès + référence SUB_*', successState.shown && !!successState.ref, JSON.stringify(successState).slice(0, 140));
-  check('D3 bouton Espace Client', successState.hasEspaceBtn);
+  check('D3 écran vérification paiement (flux contrat)', successState.shown && successState.text === 'Écran Vérifier Mon Paiement');
 
   // E. CSRF bien envoyé (si 403 -> raté) — déjà couvert par D1.
 
@@ -94,7 +98,7 @@ const check = (name, pass, info = '') => out.cases.push({ name, pass, info });
   // E1. login -> retour au formulaire
   const email2 = 'dompay-' + Date.now() + '@test-fedpawa.cm';
   await dom.evaluate(async (email2) => {
-    await fetch(apiUrl('/api/register'), { method: 'POST', credentials: 'include', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ nom: 'Pay Dom', entreprise: 'PayDomCo', email: email2, telephone: '+237****0078', mot_de_passe: 'PayPass123' }) });
+    await window.Api.post('/api/register', { nom: 'Pay Dom', entreprise: 'PayDomCo', email: email2, telephone: '+237699000078', mot_de_passe: 'PayPass123' });
   }, email2);
   await dom.fill('#login_email', email2);
   await dom.fill('#login_password', 'PayPass123');

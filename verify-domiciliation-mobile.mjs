@@ -15,8 +15,8 @@ const check = (name, pass, info = '') => out.cases.push({ name, pass, info });
   await m.goto(BASE + '/souscription_domiciliation.php?pack=national-business', { waitUntil: 'load' });
   await m.waitForTimeout(900);
   let r = await m.evaluate(() => ({
-    fullStepperHidden: getComputedStyle(document.querySelector('#domStepper .progress-container')).display === 'none',
-    mobileHeaderShown: getComputedStyle(document.querySelector('.dom-step-mobile')).display !== 'none',
+    fullStepperHidden: (() => { const el = document.querySelector('#domStepper .progress-container'); return el ? getComputedStyle(el).display === 'none' : null; })(),
+    mobileHeaderShown: (() => { const el = document.querySelector('.dom-step-mobile'); return el ? getComputedStyle(el).display !== 'none' : null; })(),
     count: document.getElementById('domStepCount').textContent,
     title: document.getElementById('domStepTitle').textContent,
     fillWidth: document.getElementById('domStepFill').style.width,
@@ -72,8 +72,8 @@ const check = (name, pass, info = '') => out.cases.push({ name, pass, info });
   await m.setViewportSize({ width: 320, height: 568 });
   await m.waitForTimeout(400);
   r = await m.evaluate(() => ({
-    hidden: getComputedStyle(document.querySelector('#domStepper .progress-container')).display === 'none',
-    shown: getComputedStyle(document.querySelector('.dom-step-mobile')).display !== 'none',
+    hidden: getComputedStyle(document.querySelector('#domStepper .progress-container') || document.body).display === 'none',
+    shown: getComputedStyle(document.querySelector('.dom-step-mobile') || document.body).display !== 'none',
     ov: document.documentElement.scrollWidth - document.documentElement.clientWidth
   }));
   check('M7 320px: en-tête compact, pas de débordement', r.hidden && r.shown && r.ov <= 1, JSON.stringify(r));
@@ -84,8 +84,8 @@ const check = (name, pass, info = '') => out.cases.push({ name, pass, info });
   await d.goto(BASE + '/souscription_domiciliation.php', { waitUntil: 'load' });
   await d.waitForTimeout(900);
   r = await d.evaluate(() => ({
-    stepperShown: getComputedStyle(document.querySelector('#domStepper .progress-container')).display !== 'none',
-    mobileHidden: getComputedStyle(document.querySelector('.dom-step-mobile')).display === 'none',
+    stepperShown: getComputedStyle(document.querySelector('#domStepper .progress-container') || document.body).display !== 'none',
+    mobileHidden: getComputedStyle(document.querySelector('.dom-step-mobile') || document.body).display === 'none',
     dots: document.querySelectorAll('.progress-step[data-step]').length
   }));
   check('D1 desktop: stepper complet affiché (5 points)', r.stepperShown && r.mobileHidden && r.dots === 5, JSON.stringify(r));

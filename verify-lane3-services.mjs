@@ -26,7 +26,7 @@ const norm = s => (s || '').replace(/[\u00A0\u202F,]/g, ' ').trim();
   console.log('=== SERVICE 1: CRÉATION ===');
   await gotoSvc('creation', 'standard');
 
-  check('C1 étape 2 active', await page.evaluate(() => document.getElementById('step-2').classList.contains('active')));
+  check('C1 étape 2 active', await page.evaluate(() => document.getElementById('step-1').classList.contains('active')));
   check('C2 bloc création visible', await page.evaluate(() => document.getElementById('form-creation').style.display !== 'none'));
   check('C3 formulaire juridique select', await page.evaluate(() => document.querySelector('#form-creation select[required]') ? 'present' : 'missing') !== 'missing');
   check('C4 dénomination input', await page.evaluate(() => document.querySelector('#form-creation input[placeholder*="Nom"]') ? 'present' : 'missing') !== 'missing');
@@ -43,16 +43,16 @@ const norm = s => (s || '').replace(/[\u00A0\u202F,]/g, ' ').trim();
   // goToStep tests
   await page.evaluate(() => window.goToStep(3));
   check('C10 goToStep(3) -> étape 3 active', await page.evaluate(() => document.getElementById('step-3').classList.contains('active')));
-  await page.evaluate(() => window.goToStep(2));
-  check('C11 goToStep(2) -> étape 2 active', await page.evaluate(() => document.getElementById('step-2').classList.contains('active')));
-  await page.evaluate(() => window.goToStep(5));
+  await page.evaluate(() => window.goToStep(1));
+  check('C11 goToStep(1) -> étape 2 active', await page.evaluate(() => document.getElementById('step-1').classList.contains('active')));
+  await page.evaluate(() => window.goToStep(4));
   check('C12 step 5 invoice-final', await page.evaluate(() => document.querySelector('.order-summary').classList.contains('invoice-final')));
 
   // ==== SERVICE 2: FISCALITÉ ====
   console.log('=== SERVICE 2: FISCALITÉ ===');
   await gotoSvc('fiscalite', 'simplifie');
 
-  check('F1 étape 2 active', await page.evaluate(() => document.getElementById('step-2').classList.contains('active')));
+  check('F1 étape 2 active', await page.evaluate(() => document.getElementById('step-1').classList.contains('active')));
   check('F2 bloc fiscalité visible', await page.evaluate(() => document.getElementById('form-fiscalite').style.display !== 'none'));
   check('F3 régime fiscal select', await page.evaluate(() => document.querySelector('#regime-fiscal') ? 'present' : 'missing') !== 'missing');
   check('F4 centre des impôts select', await page.evaluate(() => Array.from(document.querySelectorAll('#form-fiscalite select option')).some(o => /CIME/.test(o.text)) ? 'present' : 'missing') !== 'missing');
@@ -69,7 +69,7 @@ const norm = s => (s || '').replace(/[\u00A0\u202F,]/g, ' ').trim();
   console.log('=== SERVICE 3: OAPI ===');
   await gotoSvc('oapi', 'protect_brand');
 
-  check('O1 étape 2 active', await page.evaluate(() => document.getElementById('step-2').classList.contains('active')));
+  check('O1 étape 2 active', await page.evaluate(() => document.getElementById('step-1').classList.contains('active')));
   check('O2 bloc OAPI visible', await page.evaluate(() => document.getElementById('form-oapi').style.display !== 'none'));
   check('O3 type actif select', await page.evaluate(() => document.querySelector('#form-oapi select[data-plan-select]') ? 'present' : 'missing') !== 'missing');
   check('O4 nom signe input', await page.evaluate(() => document.querySelector('#form-oapi input[placeholder*="FEDPAWA"]') ? 'present' : 'missing') !== 'missing');
@@ -105,7 +105,7 @@ const norm = s => (s || '').replace(/[\u00A0\u202F,]/g, ' ').trim();
   console.log('=== SERVICE 4: CONTRATS ===');
   await gotoSvc('contrats', 'complexe');
 
-  check('K1 étape 2 active', await page.evaluate(() => document.getElementById('step-2').classList.contains('active')));
+  check('K1 étape 2 active', await page.evaluate(() => document.getElementById('step-1').classList.contains('active')));
   check('K2 bloc contrats visible', await page.evaluate(() => document.getElementById('form-contrats').style.display !== 'none'));
   check('K3 catégorie select present', await page.evaluate(() => document.querySelector('#contrat-type') ? 'present' : 'missing') !== 'missing');
   const contratTypeOptions = await page.evaluate(() => document.querySelectorAll('#contrat-type option').length);

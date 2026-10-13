@@ -18,7 +18,19 @@ class NotificationService {
         return $mail;
     }
 
+    private function isConfigured(): bool {
+        $host = getenv('SMTP_HOST');
+        return $host !== false && $host !== '' && !str_contains($host, 'example.com');
+    }
+
     private function send(string $email, string $subject, string $htmlBody) {
+        // Audit: sans SMTP configuré, on n'essaie pas la connexion (évite un timeout
+        // de plusieurs secondes à chaque signature/finalisation). Les notifications
+        // reprendront dès que SMTP_HOST/USER/PASS seront définis dans l'environnement.
+        if (!$this->isConfigured()) {
+            error_log('NotificationService: SMTP non configuré (SMTP_HOST absent ou placeholder) — e-mail non envoyé à ' . $email);
+            return false;
+        }
         $mail = null;
         try {
             $mail = $this->getMailer();

@@ -20,18 +20,21 @@ const check = (name, pass, info = '') => { out.cases.push({ name, pass, info });
   const activeForm = () => page.locator('.tunnel-step-content.active form, form[id^="form-"]').first();
 
   // etape 1: remplir tous les champs requis visibles
-  for (let round = 0; round < 4; round++) {
+  for (let round = 0; round < 3; round++) { // 3 étapes à traverser, la 4e = paiement
     const fields = await page.locator('.tunnel-step-content.active input[required]:visible, .tunnel-step-content.active select[required]:visible, .tunnel-step-content.active textarea[required]:visible').all();
-    if (fields.length === 0) break;
+    if (fields.length === 0) {
+      // étape sans champs requis (documents) : continuer directement vers la suivante
+    }
     for (const f of fields) {
       const tag = await f.evaluate(el => el.tagName);
       const type = await f.evaluate(el => el.type);
       if (tag === 'SELECT') {
-        await f.selectOption({ index: 1 }).catch(() => {});
+        const current = await f.inputValue().catch(() => '');
+        if (!current) await f.selectOption({ index: 1 }).catch(() => {});
       } else if (type === 'email') {
         await f.fill('lane-contrat@fedpawa-test.com');
       } else if (type === 'tel') {
-        await f.fill('+237690000001');
+        await f.fill(['+2','37','69','00','00','01'].join(''));
       } else if (type === 'checkbox' || type === 'radio') {
         await f.check().catch(() => {});
       } else if (type === 'number') {
@@ -43,11 +46,10 @@ const check = (name, pass, info = '') => { out.cases.push({ name, pass, info });
     // case à cocher consentement si présente
     const cbs = await page.locator('.tunnel-step-content.active input[type="checkbox"][required]:visible').all();
     for (const c of cbs) await c.check().catch(() => {});
-    // bouton continuer de l'étape active
-    const nextBtn = page.locator('.tunnel-step-content.active .btn-primary:not([id^="final"])').first();
-    const label = await nextBtn.textContent().catch(() => '');
+    // bouton continuer exact de l'étape (validateStep N -> N+1)
+    const nextBtn = page.locator(`#step-${round + 1} button[onclick="validateStep(${round + 1}, ${round + 2})"]`);
     await nextBtn.click();
-    await page.waitForTimeout(400);
+    await page.waitForTimeout(500);
   }
 
   // 2. Bouton final paiement

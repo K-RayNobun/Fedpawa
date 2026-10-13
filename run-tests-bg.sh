@@ -8,7 +8,7 @@ BASE=http://127.0.0.1:18081
 cd /root/Fedpawa
 
 SUITES=("$@")
-[ ${#SUITES[@]} -eq 0 ] && SUITES=(lane3-services payment-flow tunnel-v2 domiciliation-stepper domiciliation-mobile etape4-packs tunnel plan-sync smart)
+[ ${#SUITES[@]} -eq 0 ] && SUITES=(lane3-services payment-flow tunnel-v3 contract-flow audit-cross audit-flux2 domiciliation-stepper domiciliation-mobile etape4-packs plan-sync smart)
 
 echo "=== Rapport E2E $TS — base $BASE ===" > "$OUT.txt"
 TOTAL_PASS=0; TOTAL_FAIL=0

@@ -19,7 +19,7 @@ const norm = s => s.replace(/[\u00A0\u202F,]/g, ' ');
     await page.goto(BASE + url, { waitUntil: 'domcontentloaded' });
     const isDedicated = url.includes('souscription_domiciliation');
     await page.waitForTimeout(isDedicated ? 1200 : 300);
-    if (!isDedicated) { try { await page.evaluate(() => goToStep(2)); } catch (e) {} }
+    if (!isDedicated) { try { await page.evaluate(() => goToStep(1)); } catch (e) {} }
   }
 
   async function check(name, fn) {
@@ -105,7 +105,7 @@ const norm = s => s.replace(/[\u00A0\u202F,]/g, ' ');
   // 5. FORT SIGNAL option Assistance création (étape 3) -> modal
   await check('opt-assistance-modal', async () => {
     await openTunnel('/tunnel_souscription.php?service=contrats&pack=standard');
-    await page.evaluate(() => { goToStep(3); });
+    await page.evaluate(() => { goToStep(2); });
     await page.click('#opt-assistance-creation');
     const visible = await page.evaluate(() => document.getElementById('smart-modal-overlay').style.display);
     const text = await page.evaluate(() => document.getElementById('smart-modal-text').innerText);

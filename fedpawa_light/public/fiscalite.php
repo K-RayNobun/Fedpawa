@@ -45,9 +45,8 @@ include __DIR__ . '/../templates/partials/site-header.php';
   <section class="section-padding section-alt">
     <div class="container">
       <div class="section-header">
-        <span class="section-kicker">Nos expertises</span>
-        <h2>Les 4 Pôles d'Expertise Fiscale & Réglementaire</h2>
-        <p>Une prise en charge complète, de la télé-déclaration mensuelle jusqu'à la défense en cas de contrôle.</p>
+        <span class="section-kicker">Nos Champs d'Intervention et Prestations Exhaustives</span>
+        <h2>Nos Champs d'Intervention et Prestations Exhaustives</h2>
       </div>
 
       <div class="solutions-grid">
@@ -125,7 +124,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
       <div class="pricing-intro">
         <span class="section-kicker">Conditions Tarifaires</span>
         <h2>La Sécurité Fiscale au Juste Prix</h2>
-        <p>Des forfaits adaptés à votre régime fiscal et au volume de vos opérations.</p>
+        <p>Parce que chaque entreprise a des réalités différentes, notre tarification s'adapte précisément à votre régime fiscal et au volume de vos opérations.</p>
       </div>
       <div class="pricing-grid" style="grid-template-columns: 1fr 1fr; max-width: 800px; margin: 0 auto;">
         
@@ -140,6 +139,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
             <li>Veille réglementaire permanente</li>
             <li>Suivi de l'Attestation de Conformité Fiscale (ACF)</li>
           </ul>
+          <p style="font-size:0.9rem; color: var(--color-text-muted); margin-top:10px;">Idéal pour les PME locales, commerçants et prestataires de services nationaux.</p>
           <a href="tunnel_souscription.php?service=fiscalite&pack=simplifie" class="btn btn-primary btn-block">Je sécurise ma fiscalité</a>
         </div>
 
@@ -153,7 +153,9 @@ include __DIR__ . '/../templates/partials/site-header.php';
             <li>Gestion des retenues internationales & intégration fiscale</li>
             <li>Accompagnement sur-mesure & représentation administrative</li>
           </ul>
+          <p style="font-size:0.9rem; color: var(--color-text-muted); margin-top:10px;">Calibré pour les grandes structures, les multinationales et les entreprises à fort volume de transactions import/export.</p>
           <a href="contact.php?service=fiscalite-reel" class="btn btn-outline btn-block">Demander un devis</a>
+          <p style="font-size:0.85rem; color: var(--color-text-muted); margin-top:16px;"><em>NB : Nos forfaits mensuels incluent la veille réglementaire et juridique permanente. L'établissement de la Déclaration Statistique et Fiscale (DSF) annuelle fait l'objet d'un forfait d'arrêté des comptes distinct selon la taille de la structure.</em></p>
         </div>
 
       </div>

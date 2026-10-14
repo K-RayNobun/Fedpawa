@@ -1,17 +1,17 @@
 {
-  "maj": "2026-10-14T12:38:10Z",
+  "maj": "2026-10-14T13:35:16Z",
   "lanes": [
     {
       "id": "Lane#1",
-      "tache": "Mode test admin tunnel (préremplissage + saut étapes)",
+      "tache": "Section DGI v2 vs CONTENU.docx",
       "etat": "TERMINEE ✓",
-      "detail": "Bandeau MODE TEST ADMIN (admin connecté) + bouton Préremplir (service contrats, coordonnées test injectées) + bypass validateStep + pas de redirection index. E2E: step-4 récap rempli, email/tel/name test prêts pour paiement"
+      "detail": "Section 'Bouclier Fiscal' (v2, absente du docx) remplacée FR+EN; carte h3 + li renommés 'Représentation Administrative' [111]; page EN: 12 blocs français résiduels traduits; E2E 0 résidu"
     },
     {
       "id": "Lane#2",
-      "tache": "Police inactive",
+      "tache": "Mode test super admin + désactivation www",
       "etat": "TERMINEE ✓",
-      "detail": "Vars --font-*/restaurées (supprimées à tort lors purge bordeaux) + 3 pages standalone restaurées (écrasées en stubs) + style.css?v=3. Playfair/Open Sans chargées 5/5 pages"
+      "detail": "Mode test = session admin_id===1 ET host ne commence pas par www. Vérifié: super admin sur api→true (banner+préremplir+step4 OK), super admin sur www→false, 2e admin→false"
     }
   ]
 }

@@ -47,8 +47,8 @@ include __DIR__ . '/../../templates/partials/site-header.php';
   <section class="section-padding section-alt">
     <div class="container">
       <div class="section-header">
-        <span class="section-kicker">Our expertise</span>
-        <h2>The 4 Areas of Tax & Regulatory Expertise</h2>
+        <span class="section-kicker">Our Fields of Intervention and Comprehensive Services</span>
+        <h2>Our Fields of Intervention and Comprehensive Services</h2>
         <p>Complete coverage, from monthly e-filing to defence in the event of an audit.</p>
       </div>
 
@@ -126,7 +126,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
       <div class="pricing-intro">
         <span class="section-kicker">Conditions Tarifaires</span>
         <h2>Tax Security at the Right Price</h2>
-        <p>Plans adapted to your tax regime and your business volume.</p>
+        <p>Because every company is different, our pricing adapts precisely to your tax regime and your volume of operations.</p>
       </div>
       <div class="pricing-grid" style="grid-template-columns: 1fr 1fr; max-width: 800px; margin: 0 auto;">
         
@@ -137,10 +137,11 @@ include __DIR__ . '/../../templates/partials/site-header.php';
             <div class="price">35 000 FCFA HT<span> / month</span></div>
           </div>
           <ul class="features-list">
-            <li>Déclarations mensuelles DGI (TVA, Acomptes, Salaires)</li>
+            <li>Monthly DGI e-filings (VAT, instalments, payroll)</li>
             <li>Permanent regulatory monitoring</li>
-            <li>Suivi de l'Attestation de Conformité Fiscale (ACF)</li>
+            <li>Tracking of the Tax Compliance Certificate (ACF)</li>
           </ul>
+          <p style="font-size:0.9rem; color: var(--color-text-muted); margin-top:10px;">Ideal for local SMEs, traders and national service providers.</p>
           <a href="../tunnel_souscription.php?service=fiscalite&pack=simplifie" class="btn btn-primary btn-block">Secure my tax compliance</a>
         </div>
 
@@ -154,7 +155,9 @@ include __DIR__ . '/../../templates/partials/site-header.php';
             <li>International withholding management & tax integration</li>
             <li>Tailored support & administrative representation</li>
           </ul>
+          <p style="font-size:0.9rem; color: var(--color-text-muted); margin-top:10px;">Calibrated for large structures, multinationals and companies with a high volume of import/export transactions.</p>
           <a href="../contact.php?service=fiscalite-reel" class="btn btn-outline btn-block">Demander un devis</a>
+          <p style="font-size:0.85rem; color: var(--color-text-muted); margin-top:16px;"><em>NB: Our monthly plans include permanent regulatory and legal monitoring. The preparation of the annual Statistical and Tax Declaration (DSF) is billed as a separate year-end closing package depending on the size of the company.</em></p>
         </div>
 
       </div>

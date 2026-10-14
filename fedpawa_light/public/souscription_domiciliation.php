@@ -32,7 +32,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
 
       <div class="step-header" style="margin-bottom: 28px;">
         <h1 style="font-size: 1.6rem; color: var(--color-surface, #fff);">Renseignez vos informations</h1>
-        <p style="font-size: 1rem; color: var(--color-primary); font-weight: 600;">Domiciliation d'Entreprises — Souscription en ligne</p>
+        <p style="font-size: 1rem; color: var(--color-gold, #D4AF37); font-weight: 600;">Service de Domiciliation d'Entreprises et Mise à Disposition d'Infrastructures</p>
       </div>
 
       <form id="domiciliationForm" novalidate>

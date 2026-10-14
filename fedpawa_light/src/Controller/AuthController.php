@@ -75,30 +75,52 @@ class AuthController extends Controller {
             $email = $input['email'];
             $ip = $_SERVER['REMOTE_ADDR'] ?? null;
 
-            // Anti brute-force : compte verrouillé ?
-            $remaining = LoginThrottler::getRemainingLock($email, 'client');
-            if ($remaining > 0) {
-                $minutes = (int)ceil($remaining / 60);
-                $this->json(['error' => "Trop de tentatives échouées (5). Réessayez dans $minutes minute(s) ou contactez le support."], 429);
+            // Vérifier d'abord si c'est un compte admin (pour ne pas le verrouiller par erreur)
+            $db = Database::getConnection();
+            $stmtAdmin = $db->prepare("SELECT * FROM admins WHERE email = ?");
+            $stmtAdmin->execute([$email]);
+            $admin = $stmtAdmin->fetch();
+
+            if ($admin) {
+                // C'est un compte admin : ne pas enregistrer d'échec throttler, message dédié
+                if (!password_verify($input['mot_de_passe'], $admin['mot_de_passe'])) {
+                    $this->json(["error" => "Ceci est un compte administrateur. Utilisez la page d'accès admin: /admin_dashboard.html"], 401);
+                    return;
+                }
+                // Admin connecté avec succès via le formulaire client
+                LoginThrottler::recordSuccess($email, 'admin');
+                session_regenerate_id(true);
+                $_SESSION['client_id'] = $admin['id'];
+                $_SESSION['client_name'] = $admin['email'];
+                $_SESSION['role'] = 'admin';
+                AuditLogger::log("ADMIN_LOGIN_via_client_form", (int)$admin["id"], "admin", "Login OK from client form");
+                $this->json(["message" => "Connexion réussie", "redirect" => "admin_dashboard.html", "role" => "admin"]);
                 return;
             }
 
-            $db = Database::getConnection();
+            // Ce n'est pas un admin : vérifier le client habituel
+            $remaining = LoginThrottler::getRemainingLock($email, "client");
+            if ($remaining > 0) {
+                $minutes = (int)ceil($remaining / 60);
+                $this->json(["error" => "Trop de tentatives échouées (5). Réessayez dans $minutes minute(s) ou contactez le support."], 429);
+                return;
+            }
+
             $stmt = $db->prepare("SELECT * FROM clients WHERE email = ?");
             $stmt->execute([$email]);
             $client = $stmt->fetch();
 
-            if (!$client || !password_verify($input['mot_de_passe'], $client['mot_de_passe'])) {
-                $justLocked = LoginThrottler::recordFailure($email, 'client', $ip);
+            if (!$client || !password_verify($input['mot_de_passe'], $client["mot_de_passe"])) {
+                $justLocked = LoginThrottler::recordFailure($email, "client", $ip);
                 if ($justLocked) {
-                    AuditLogger::log('LOGIN_LOCKED', null, 'client', "Client $email verrouillé après 5 échecs (30 min)");
+                    AuditLogger::log("LOGIN_LOCKED", null, "client", "Client $email verrouillé après 5 échecs (30 min)");
                     // Notification interne à l'admin
-                    (new MailService())->send(null, 'system', null, 'admin',
+                    (new MailService())->send(null, "system", null, "admin",
                         "L'utilisateur $email a atteint la limite de 5 tentatives de connexion et doit maintenant attendre 30 minutes.");
-                    $this->json(['error' => 'Trop de tentatives échouées (5). Votre compte est bloqué pendant 30 minutes.'], 429);
+                    $this->json(["error" => "Trop de tentatives échouées (5). Votre compte est bloqué pendant 30 minutes."], 429);
                     return;
                 }
-                $this->json(['error' => 'Identifiants invalides'], 401);
+                $this->json(["error" => "Identifiants invalides"], 401);
                 return;
             }
 
@@ -251,50 +273,65 @@ class AuthController extends Controller {
     // ------------------------------------------------------------------
     public function adminLogin() {
         try {
-            $input = json_decode(file_get_contents('php://input'), true);
-            if (!$input || !isset($input['email'], $input['mot_de_passe'])) {
-                $this->json(['error' => 'Champs manquants'], 400);
+            $input = json_decode(file_get_contents("php://input"), true);
+            if (!$input || !isset($input["email"], $input["mot_de_passe"])) {
+                $this->json(["error" => "Champs manquants"], 400);
                 return;
             }
 
-            $email = $input['email'];
-            $ip = $_SERVER['REMOTE_ADDR'] ?? null;
+            $email = $input["email"];
+            $ip = $_SERVER["REMOTE_ADDR"] ?? null;
+
+            // Vérifier d'abord si l'email existe dans la table clients (formulaire client utilisé par erreur)
+            $db = Database::getConnection();
+            $stmtClients = $db->prepare("SELECT * FROM clients WHERE email = ?");
+            $stmtClients->execute([$email]);
+            $client = $stmtClients->fetch();
+
+            if ($client) {
+                // L'email existe dans clients mais on est sur /api/admin/login => message dédié sans compter d'échec
+                $this->json(["error" => "Utilisez la connexion client standard"], 401);
+                return;
+            }
+
+            // L'email n'existe pas dans clients : vérifier la table admins
+            $stmtAdmin = $db->prepare("SELECT * FROM admins WHERE email = ?");
+            $stmtAdmin->execute([$email]);
+            $admin = $stmtAdmin->fetch();
 
             // Anti brute-force : compte verrouillé ?
-            $remaining = LoginThrottler::getRemainingLock($email, 'admin');
+            $remaining = LoginThrottler::getRemainingLock($email, "admin");
             if ($remaining > 0) {
                 $minutes = (int)ceil($remaining / 60);
-                $this->json(['error' => "Trop de tentatives échouées (5). Réessayez dans $minutes minute(s)."], 429);
+                $this->json(["error" => "Trop de tentatives échouées (5). Réessayez dans $minutes minute(s)."], 429);
                 return;
             }
 
-            $db = Database::getConnection();
-            $stmt = $db->prepare("SELECT * FROM admins WHERE email = ?");
-            $stmt->execute([$email]);
-            $admin = $stmt->fetch();
-
-            if (!$admin || !password_verify($input['mot_de_passe'], $admin['mot_de_passe'])) {
-                $justLocked = LoginThrottler::recordFailure($email, 'admin', $ip);
-                AuditLogger::log('ADMIN_LOGIN_FAILED', null, 'admin', 'Email: ' . $email);
+            if (!$admin || !password_verify($input["mot_de_passe"], $admin["mot_de_passe"])) {
+                // Ne pas enregistrer d'échec throttler pour admin qui se trompe de formulaire
+                // (handled above: if email in clients, already returned with dedicated message)
+                // Si on arrive ici, c'est un admin avec mauvais mot de passe
+                $justLocked = LoginThrottler::recordFailure($email, "admin", $ip);
+                AuditLogger::log("ADMIN_LOGIN_FAILED", null, "admin", "Email: " . $email);
                 if ($justLocked) {
-                    AuditLogger::log('LOGIN_LOCKED', null, 'admin', "Admin $email verrouillé après 5 échecs (30 min)");
-                    $this->json(['error' => 'Trop de tentatives échouées (5). Ce compte est bloqué pendant 30 minutes.'], 429);
+                    AuditLogger::log("LOGIN_LOCKED", null, "admin", "Admin $email verrouillé après 5 échecs (30 min)");
+                    $this->json(["error" => "Trop de tentatives échouées (5). Ce compte est bloqué pendant 30 minutes."], 429);
                     return;
                 }
-                $this->json(['error' => 'Identifiants invalides'], 401);
+                $this->json(["error" => "Identifiants invalides"], 401);
                 return;
             }
 
-            LoginThrottler::recordSuccess($email, 'admin');
+            LoginThrottler::recordSuccess($email, "admin");
             session_regenerate_id(true);
-            $_SESSION['admin_logged_in'] = true;
-            $_SESSION['admin_id'] = $admin['id'];
+            $_SESSION["admin_logged_in"] = true;
+            $_SESSION["admin_id"] = $admin["id"];
 
-            AuditLogger::log('ADMIN_LOGIN', (int)$admin['id'], 'admin', 'Login OK');
-            $this->json(['message' => 'Connexion réussie', 'redirect' => '/admin']);
+            AuditLogger::log("ADMIN_LOGIN", (int)$admin["id"], "admin", "Login OK");
+            $this->json(["message" => "Connexion réussie", "redirect" => "/admin"]);
         } catch (\Exception $e) {
-            error_log('Admin login error: ' . $e->getMessage());
-            $this->json(['error' => 'Erreur interne'], 500);
+            error_log("Admin login error: " . $e->getMessage());
+            $this->json(["error" => "Erreur interne"], 500);
         }
     }
 

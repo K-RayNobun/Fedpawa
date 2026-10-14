@@ -40,8 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const res = await fetch(apiUrl('/api/dashboard'), {
                 credentials: 'include'
             });
-            if (res.status === 401) {
-                window.location.href = 'authentification.html';
+            if (res.status === 401 || res.status === 403) {
+                // Non connecté : montrer le formulaire de connexion admin au lieu de rediriger.
+                const loginForm = document.getElementById('admin-login-form');
+                if (loginForm) {
+                    loginForm.style.display = 'flex';
+                }
                 return;
             }
             if (!res.ok) return;

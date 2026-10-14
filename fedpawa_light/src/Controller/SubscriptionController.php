@@ -130,29 +130,46 @@ class SubscriptionController extends Controller {
                 return;
             }
 
-            // Finaliser : générer le PDF, marquer actif, notifier
-            $pdf = $this->pdfService->generateContract([
-                'client_name' => $sub['nom'],
-                'price' => $sub['prix']
-            ]);
-            $dir = __DIR__ . '/../../storage/documents';
-            if (!is_dir($dir)) mkdir($dir, 0755, true);
-            $path = $dir . '/contrat_' . $sub['id'] . '.pdf';
-            file_put_contents($path, $pdf);
+            // Lane#1 : le contrat PDF + signature ne concernent QUE la domiciliation.
+            // Les packs domiciliation sont préfixés 'national-' ou 'international-'.
+            $isDomiciliation = (
+                strpos($sub['pack'], 'national-') === 0 ||
+                strpos($sub['pack'], 'international-') === 0
+            );
 
+            if ($isDomiciliation) {
+                // Finaliser : générer le PDF, marquer actif, notifier
+                $pdf = $this->pdfService->generateContract([
+                    'client_name' => $sub['nom'],
+                    'price' => $sub['prix']
+                ]);
+                $dir = __DIR__ . '/../../storage/documents';
+                if (!is_dir($dir)) mkdir($dir, 0755, true);
+                $path = $dir . '/contrat_' . $sub['id'] . '.pdf';
+                file_put_contents($path, $pdf);
+
+                $db->prepare("UPDATE abonnements SET statut = 'actif' WHERE id = ?")->execute([$sub['id']]);
+                $stmtC = $db->prepare("INSERT INTO contrats (client_id, type, fichier, date_signature) VALUES (?, 'domiciliation', ?, ?)");
+                $stmtC->execute([$clientId, 'documents/contrat_' . $sub['id'] . '.pdf', date('Y-m-d H:i:s')]);
+                $contratId = (int)$db->lastInsertId();
+
+                $this->notifier->sendWelcomeEmail($sub['email'], $sub['nom']);
+
+                OtpService::clear($clientId);
+                AuditLogger::log('SUBSCRIPTION_FINALIZED', $clientId, 'client', 'Sub ID: ' . $sub['id'] . ' (contrat domiciliation)');
+                $this->json([
+                    'message' => 'Souscription finalisée',
+                    'contrat_url' => '/api/document?type=contrat&id=' . $contratId
+                ]);
+            }
+
+            // Autres services : finalisation SANS contrat (dossier en traitement)
             $db->prepare("UPDATE abonnements SET statut = 'actif' WHERE id = ?")->execute([$sub['id']]);
-            $stmtC = $db->prepare("INSERT INTO contrats (client_id, type, fichier, date_signature) VALUES (?, 'domiciliation', ?, ?)");
-            $stmtC->execute([$clientId, 'documents/contrat_' . $sub['id'] . '.pdf', date('Y-m-d H:i:s')]);
-            $contratId = (int)$db->lastInsertId();
-
             $this->notifier->sendWelcomeEmail($sub['email'], $sub['nom']);
-
             OtpService::clear($clientId);
-            AuditLogger::log('SUBSCRIPTION_FINALIZED', $clientId, 'client', 'Sub ID: ' . $sub['id']);
-
+            AuditLogger::log('SUBSCRIPTION_FINALIZED', $clientId, 'client', 'Sub ID: ' . $sub['id'] . ' (sans contrat — service non domiciliation)');
             $this->json([
-                'message' => 'Souscription finalisée',
-                'contrat_url' => '/api/document?type=contrat&id=' . $contratId
+                'message' => 'Paiement confirmé — votre dossier est en traitement. Un juriste FEDPAWA vous recontacte sous 24 heures ouvrées.'
             ]);
         } catch (\Exception $e) {
             error_log('Finalize error: ' . $e->getMessage());

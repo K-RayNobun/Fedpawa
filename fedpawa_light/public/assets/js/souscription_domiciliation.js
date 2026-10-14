@@ -398,6 +398,7 @@
     const openMomo = () => FedpawaPay.momoScreen({
       label: (pack ? pack.label : 'Domiciliation') + (data.get('periodicite') === 'annuel' ? ' — Annuel (12 mois)' : (data.get('periodicite') === 'semestriel' ? ' — Semestriel (6 mois)' : ' — Mensuel')),
       priceFCFA: total,
+      contract: true, // domiciliation : flux contrat + signature
       onSubmit: submitPayload
     });
 

@@ -395,6 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const openMomo = () => FedpawaPay.momoScreen({
                 label: (cart.serviceName || 'Prestation') + (cart.planLabel ? ' — ' + cart.planLabel : ''),
                 priceFCFA: totalAvecFrais,
+                contract: cart.service === 'domiciliation', // seul service avec contrat
                 onSubmit: submitPayload
             });
 

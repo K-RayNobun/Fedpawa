@@ -98,6 +98,21 @@
     // config: { label, priceFCFA, phone, onSubmit(payload) -> Promise<{ok,status,message,subscription_ref}> }
     // Lane contrat : ecran "Verifier Mon Paiement" puis presentation du contrat personnalise a signer.
 // Etat 1: bouton verifier (apres envoi USSD). Etat 2: contrat pre-rempli + OTP signature.
+function simplePaidFlow(m, config) {
+    const body = m.el.querySelector('.fp-modal');
+    body.innerHTML = '' +
+        '<button class="fp-modal-x" aria-label="Fermer">&times;</button>' +
+        '<div class="pay-momo-head"><div class="pay-momo-check">\u2705</div><h3 class="fp-modal-title">Paiement confirm\u00e9</h3></div>' +
+        '<div class="pay-momo-desc" style="text-align:center;">' +
+        '<p>Votre paiement a bien \u00e9t\u00e9 re\u00e7u. Votre dossier est en traitement.</p>' +
+        '<p><strong>Un juriste FEDPAWA vous recontacte sous 24 heures ouvr\u00e9es</strong> pour finaliser votre demande.</p>' +
+        '<p style="font-size:0.85rem;opacity:0.8;">Vous pouvez suivre l\u2019avancement dans votre Espace Client.</p>' +
+        '</div>' +
+        '<a href="espace_client.html" class="btn btn-primary pay-momo-submit">Acc\u00e9der \u00e0 mon Espace Client</a>';
+    const x = body.querySelector('.fp-modal-x');
+    if (x) x.addEventListener('click', () => m.close());
+}
+
 function contractFlowScreen(m, config, sub) {
     const body = m.el.querySelector('.fp-modal');
     const fmt = window.FedpawaPay ? FedpawaPay.fmtFCFA : (n => n + ' FCFA');
@@ -138,7 +153,11 @@ function contractFlowScreen(m, config, sub) {
                 btn.disabled = false; btn.textContent = 'V\u00e9rifier Mon Paiement';
                 return;
             }
-            // Paiement recu : presenter le contrat personnalise
+            // Paiement recu : domiciliation -> contrat personnalise ; autres services -> confirmation simple
+            if (config.contract === false) {
+                simplePaidFlow(m, config);
+                return;
+            }
             contractSignScreen(m, config, sub, data);
         } catch (e2) {
             err.style.display = 'block';
@@ -272,8 +291,12 @@ function momoScreen(config) {
             try {
                 const res = await config.onSubmit({ phone, operator: op.value, price: config.priceFCFA });
                 if (res && res.ok && res.api) {
-                    // Lane contrat : le backend a enregistré la souscription et attend
-                    // la confirmation du paiement -> écran « Vérifier Mon Paiement » puis contrat
+                    // Lane contrat : le flux contrat + signature existe UNIQUEMENT pour la domiciliation.
+                    // Les autres services : confirmation simple, dossier en traitement.
+                    if (config.contract === false) {
+                        simplePaidFlow(m, config);
+                        return;
+                    }
                     contractFlowScreen(m, config, res.api);
                     return;
                 }

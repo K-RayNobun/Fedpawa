@@ -1,23 +1,17 @@
 {
- "maj": "2026-10-14T10:44:29Z",
- "lanes": [
-  {
-   "id": "Lane#1",
-   "tache": "Footer légales + prix HT + wrap nav-item",
-   "statut": "termine",
-   "detail": "3/3 vérifiés E2E"
-  },
-  {
-   "id": "Lane#2",
-   "tache": "OAPI: fond Accord de Bangui + bouton antériorité->tarifs",
-   "statut": "termine",
-   "detail": "fond carte Afrique CC0 1600x900 243KB (corrigé du 13MB initial), overlay contraste, bouton #pricing, E2E FR+EN OK"
-  },
-  {
-   "id": "Lane#3",
-   "tache": "Favicon logo complet + title exact + OG enrichi",
-   "statut": "termine",
-   "detail": "logo entier sur canvas navy (le F venait du crop carré), 16/32/180px + .ico, pages standalone couvertes, title accueil exact, og:image:width/height/alt"
-  }
- ]
+  "maj": "2026-10-14T11:57:11Z",
+  "lanes": [
+    {
+      "id": "Lane#1",
+      "tache": "Contrat réservé à domiciliation + aligné sur CONTRAT.docx",
+      "etat": "TERMINEE ✓",
+      "detail": "PDF 7 pages/14 articles vérifié; gate packs national-*/international-* (serveur) + config.contract (front); simplePaidFlow pour autres services"
+    },
+    {
+      "id": "Lane#2",
+      "tache": "Connexion admin: form dédié + messages distinctifs",
+      "etat": "TERMINEE ✓",
+      "detail": "Form admin sur admin_dashboard.html (CSRF via api.js), login E2E OK, dashboard 8 onglets + données réelles, 0 pageerror; verrou mme.law purgé (test) et expiré (prod)"
+    }
+  ]
 }

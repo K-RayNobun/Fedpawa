@@ -23,7 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 fetch(apiUrl('/api/admin/lists'), { credentials: 'include' }),
                 fetch(apiUrl('/api/admin/overview'), { credentials: 'include' })
             ]);
-            if (r1.status === 403 || r2.status === 403) { window.location.href = 'authentification.html'; return; }
+            if (r1.status === 403 || r2.status === 403) {
+                // Show admin login form instead of redirecting
+                document.getElementById('admin-login-form').style.display = 'flex';
+                return;
+            }
             if (r1.ok) lists = await r1.json();
             if (r2.ok) overview = await r2.json();
         } catch (e) { console.error('Chargement admin:', e); return; }

@@ -87,8 +87,8 @@ include __DIR__ . '/../templates/partials/site-header.php';
 
         <div class="solution-card">
           <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <h3>Bouclier Fiscal & Contrôles</h3>
-          <span class="obj">Défense face à l'administration</span>
+          <h3>Représentation Administrative & Conformité</h3>
+          <span class="obj">Interface permanente avec l'administration fiscale</span>
           <ul class="solution-list">
             <li>Analyse juridique approfondie des avis de vérification ou des notifications de redressement.</li>
             <li>Rédaction juridique de vos lettres de contestation et observations écrites.</li>
@@ -104,8 +104,8 @@ include __DIR__ . '/../templates/partials/site-header.php';
     <div class="container">
       <div class="safe-wrapper">
         <div class="safe-content">
-          <h2>Le Bouclier Fiscal FEDPAWA : Vous N'êtes Plus Seul Face à la DGI</h2>
-          <p>Si l'administration fiscale frappe à votre porte pour une vérification de comptabilité ou un contrôle ponctuel, nos experts prennent immédiatement le relais. Nous faisons écran entre les inspecteurs et votre direction, analysons la régularité des procédures et défendons fermement vos droits pour éviter toute taxation d'office ou redressement abusif.</p>
+          <h2>Faites de la Conformité Fiscale un Atout, Non une Menace</h2>
+          <p>Avec FEDPAWA, votre conformité devient un avantage concurrentiel : nos experts pilotent vos obligations au quotidien, sécurisent vos déclarations et vous accompagnent en permanence face à la DGI — pour que vous puissiez vous consacrer entièrement au développement de votre entreprise.</p>
           <div class="safe-features">
             <div class="safe-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Analyse des notifications de redressement</div>
             <div class="safe-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Rédaction de contestations juridiques</div>
@@ -151,7 +151,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
           <ul class="features-list">
             <li>Déclarations mensuelles complexes (DGE / CIME)</li>
             <li>Gestion des retenues internationales & intégration fiscale</li>
-            <li>Accompagnement sur-mesure & Bouclier Fiscal</li>
+            <li>Accompagnement sur-mesure & représentation administrative</li>
           </ul>
           <a href="contact.php?service=fiscalite-reel" class="btn btn-outline btn-block">Demander un devis</a>
         </div>

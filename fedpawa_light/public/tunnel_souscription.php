@@ -12,7 +12,15 @@ include __DIR__ . '/../templates/partials/site-header.php';
 
 
 <div id="tunnelMeta" data-skip-step1="0"></div>
-<script>window.admin_logged_in = <?= isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] ? 'true' : 'false' ; ?></script>
+<?php
+// Mode test tunnel : réservé au SUPER ADMIN (id=1) et DÉSACTIVÉ sur le domaine www (production publique).
+$__host = strtolower($_SERVER['HTTP_HOST'] ?? '');
+$__isSuperAdmin = isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in']
+    && (int)($_SESSION['admin_id'] ?? 0) === 1;
+$__isWww = (strpos($__host, 'www.') === 0) || strpos($__host, '//www.') !== false;
+$__testMode = $__isSuperAdmin && !$__isWww;
+?>
+<script>window.admin_logged_in = <?= $__testMode ? 'true' : 'false' ; ?>; // mode test: super admin uniquement, jamais sur www</script>
 
 <div class="progress-wrapper">
   <div class="container">

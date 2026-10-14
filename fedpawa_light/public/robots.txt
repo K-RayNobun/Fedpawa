@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /espace_client
+Disallow: /admin_dashboard
+Disallow: /authentification
+Disallow: /mot_de_passe_oublie
+Disallow: /tunnel_souscription
+Disallow: /souscription_domiciliation
+
+Sitemap: https://api.fedpawa.com/sitemap.xml

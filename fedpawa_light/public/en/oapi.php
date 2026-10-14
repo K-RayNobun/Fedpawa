@@ -1,6 +1,6 @@
 <?php
-$title = "Registration of Trademarks, Logos, Applications, Software & IP Rights with OAPI | FEDPAWA CORPORATE SOLUTIONS SARL";
-$description = "Registration of trademarks, logos, applications, software and other intellectual property rights with OAPI. Protection in 17 sub-Saharan African countries with FEDPAWA CORPORATE SOLUTIONS SARL.";
+$title = "FEDPAWA CORPORATE SOLUTIONS | Trademarks & Intellectual Property (OAPI)";
+$description = "Trademark, logo, application and software registration with OAPI. Protect your intellectual property across francophone Africa.";
 $active = 'oapi';
 $extraCss = ['assets/css/pages.css'];
 

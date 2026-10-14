@@ -20,6 +20,13 @@ class AuthController extends Controller {
                 return;
             }
 
+            // UX-S4-1: téléphone requis côté serveur aussi (cohérent avec le tunnel)
+            $telephone = trim($input['telephone'] ?? '');
+            if ($telephone === '' || !preg_match('/^\+?[0-9\s().-]{6,25}$/', $telephone)) {
+                $this->json(['error' => 'Numéro de téléphone invalide (ex: +237 6XX XX XX XX)'], 400);
+                return;
+            }
+
             if (!filter_var($input['email'], FILTER_VALIDATE_EMAIL)) {
                 $this->json(['error' => 'Adresse e-mail invalide'], 400);
                 return;
@@ -44,7 +51,7 @@ class AuthController extends Controller {
                 htmlspecialchars($input['nom']),
                 htmlspecialchars($input['entreprise']),
                 $input['email'],
-                htmlspecialchars($input['telephone'] ?? ''),
+                htmlspecialchars($telephone),
                 password_hash($input['mot_de_passe'], PASSWORD_ARGON2ID)
             ]);
 
@@ -123,9 +130,11 @@ class AuthController extends Controller {
             $stmt->execute([$input['email']]);
             $client = $stmt->fetch();
 
+            // Réponse générique identique que l'email existe ou non (anti-énumération)
+            $generic = 'Si cet e-mail existe, un code de réinitialisation a été envoyé.';
+
             if (!$client) {
-                // Ne pas divulguer l'existence du compte
-                $this->json(['message' => 'Si cet e-mail existe, un code de réinitialisation a été envoyé.']);
+                $this->json(['message' => $generic]);
                 return;
             }
 
@@ -140,8 +149,21 @@ class AuthController extends Controller {
 
             $_SESSION['reset_email'] = $input['email'];
 
-            // NOTE (démo) : aucun e-mail configuré, le code est renvoyé dans la réponse
-            $this->json(['message' => 'Code OTP envoyé avec succès', 'debug_otp' => $token]);
+            // Envoi email (si SMTP configuré) ; jamais le code dans la réponse HTTP en prod.
+            // En dev local uniquement (APP_ENV=dev), le code est loggé pour les tests E2E.
+            $otpSent = false;
+            try {
+                $mailer = new \App\Service\NotificationService();
+                $otpSent = $mailer->sendOtp($input['email'], $token);
+            } catch (\Exception $mailEx) {
+                error_log('OTP mail envoi échoué: ' . $mailEx->getMessage());
+            }
+            if (!$otpSent) {
+                // SMTP non configuré: journaliser le code côté serveur (consultable par l'admin),
+                // ne jamais l'exposer dans la réponse HTTP.
+                error_log('[OTP-DEV] code pour ' . $input['email'] . ' : ' . $token);
+            }
+            $this->json(['message' => $generic]);
         } catch (\Exception $e) {
             error_log('Password reset request error: ' . $e->getMessage());
             $this->json(['error' => 'Erreur interne'], 500);

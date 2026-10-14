@@ -1,6 +1,6 @@
 <?php
-$title = "Drafting of All Types of Contracts (Corporate, Commercial, Employment, Service, Confidentiality) | FEDPAWA CORPORATE SOLUTIONS SARL";
-$description = "Drafting of all types of contracts: corporate, commercial, employment, service, confidentiality (NDA), contract audit and document security with FEDPAWA CORPORATE SOLUTIONS SARL.";
+$title = "FEDPAWA CORPORATE SOLUTIONS | Legal Contract Drafting";
+$description = "Corporate, commercial, employment, service and confidentiality (NDA) contract drafting by FEDPAWA legal experts. From 100,000 FCFA.";
 $active = 'contrats';
 $extraCss = ['assets/css/pages.css'];
 

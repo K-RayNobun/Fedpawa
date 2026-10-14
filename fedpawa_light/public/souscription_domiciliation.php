@@ -1,6 +1,6 @@
 <?php
-$title = "Souscription Domiciliation d'Entreprises | FEDPAWA CORPORATE SOLUTIONS SARL";
-$description = "Formulaire de souscription en ligne au service de domiciliation d'entreprises et mise à disposition d'infrastructures de FEDPAWA CORPORATE SOLUTIONS SARL à Douala Logpom.";
+$title = "FEDPAWA CORPORATE SOLUTIONS | Souscription Domiciliation";
+$description = "Souscription en ligne au service de domiciliation d'entreprises FEDPAWA à Douala Logpom. Adresse, courrier et salles de réunion inclus.";
 $active = 'services';
 $extraCss = ['assets/css/dashboard.css?v=2'];
 

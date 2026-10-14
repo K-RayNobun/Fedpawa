@@ -214,3 +214,18 @@ html[data-theme="navy"] .specialty-item::before { color: var(--color-gold); }
     color: var(--color-primary); 
 }
 .nav-dropdown:hover .dropdown-menu { display: block; }
+
+/* ===== A11Y: focus visible global (WCAG 2.2 — 2.4.7) ===== */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible,
+textarea:focus-visible, [tabindex]:focus-visible, .btn:focus-visible, summary:focus-visible {
+  outline: 3px solid #D4AF37;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+html[data-theme="navy"] a:focus-visible, html[data-theme="navy"] button:focus-visible,
+html[data-theme="navy"] input:focus-visible, html[data-theme="navy"] select:focus-visible,
+html[data-theme="navy"] textarea:focus-visible, html[data-theme="navy"] [tabindex]:focus-visible,
+html[data-theme="navy"] .btn:focus-visible {
+  outline: 3px solid #D4AF37;
+  outline-offset: 2px;
+}

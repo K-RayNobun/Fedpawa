@@ -14,6 +14,7 @@ $langPrefix = $langPrefix ?? ($lang === 'en' ? '/en' : '');
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="<?= htmlspecialchars($description, ENT_QUOTES, 'UTF-8') ?>">
+<link rel="icon" type="image/x-icon" href="<?= $langPrefix ?>favicon.ico">
 <title><?= htmlspecialchars($title, ENT_QUOTES, 'UTF-8') ?></title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,6 +22,39 @@ $langPrefix = $langPrefix ?? ($lang === 'en' ? '/en' : '');
 <link rel="stylesheet" href="<?= $langPrefix ?>assets/css/style.css?v=2">
 <link rel="stylesheet" href="<?= $langPrefix ?>assets/css/components.css?v=2">
 <?php foreach (($extraCss ?? []) as $css): ?><link rel="stylesheet" href="<?= htmlspecialchars($langPrefix . $css, ENT_QUOTES, 'UTF-8') ?>"><?php endforeach; ?>
+<?php
+// ===== SEO: canonical + hreflang + Open Graph (centralisés) =====
+$baseDomain = 'https://api.fedpawa.com';
+// Chemin canonique de la page courante (sans /en pour FR, avec pour EN)
+$canonicalPath = $canonicalPath ?? strtok($_SERVER['REQUEST_URI'] ?? '/', '?');
+// Pour les pages EN, REQUEST_URI commence par /en -> le retirer pour obtenir le chemin canonique FR
+$stripEn = '/en';
+if ($lang === 'en' && strpos($canonicalPath, '/en') === 0) {
+    $canonicalPath = substr($canonicalPath, strlen($stripEn)) ?: '/';
+}
+$canonicalUrl  = rtrim($baseDomain, '/') . ($lang === 'en' ? '/en' : '') . ($canonicalPath === '/' ? '/' : $canonicalPath);
+$frUrl          = rtrim($baseDomain, '/') . $canonicalPath;
+$enUrl          = rtrim($baseDomain, '/') . '/en' . $canonicalPath;
+$ogTitle        = $title ?? 'FEDPAWA CORPORATE SOLUTIONS';
+$ogDesc         = $description ?? "Infrastructure d'affaires à Douala : domiciliation, création d'entreprise, fiscalité, OAPI.";
+$ogImage        = $ogImage ?? ($baseDomain . '/assets/images/og-cover.jpg');
+?>
+<link rel="canonical" href="<?= htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8') ?>">
+<link rel="alternate" hreflang="fr" href="<?= htmlspecialchars($frUrl, ENT_QUOTES, 'UTF-8') ?>">
+<link rel="alternate" hreflang="en" href="<?= htmlspecialchars($enUrl, ENT_QUOTES, 'UTF-8') ?>">
+<link rel="alternate" hreflang="x-default" href="<?= htmlspecialchars($frUrl, ENT_QUOTES, 'UTF-8') ?>">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FEDPAWA CORPORATE SOLUTIONS">
+<meta property="og:title" content="<?= htmlspecialchars($ogTitle, ENT_QUOTES, 'UTF-8') ?>">
+<meta property="og:description" content="<?= htmlspecialchars($ogDesc, ENT_QUOTES, 'UTF-8') ?>">
+<meta property="og:url" content="<?= htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8') ?>">
+<meta property="og:image" content="<?= htmlspecialchars($ogImage, ENT_QUOTES, 'UTF-8') ?>">
+<meta property="og:locale" content="<?= $lang === 'en' ? 'en_US' : 'fr_FR' ?>">
+<meta property="og:locale:alternate" content="<?= $lang === 'en' ? 'fr_FR' : 'en_US' ?>">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<?= htmlspecialchars($ogTitle, ENT_QUOTES, 'UTF-8') ?>">
+<meta name="twitter:description" content="<?= htmlspecialchars($ogDesc, ENT_QUOTES, 'UTF-8') ?>">
+<meta name="twitter:image" content="<?= htmlspecialchars($ogImage, ENT_QUOTES, 'UTF-8') ?>">
 </head>
 <body>
 <!-- ============== TOP BAR ============== -->
@@ -79,7 +113,7 @@ $langPrefix = $langPrefix ?? ($lang === 'en' ? '/en' : '');
     <a href="<?= $langPrefix ?>qui-sommes-nous.php"><?= $lang === "en" ? "About Us" : "Qui sommes-nous" ?></a>
     <a href="<?= $langPrefix ?>contact.php">Contact</a>
 
-    <a class="mobile-cta" href="<?= $langPrefix ?>tunnel_souscription.php"><?= $lang === 'en' ? 'Subscribe' : 'Je m\'abonne' ?></a>
+    <a class="mobile-cta" href="<?= $langPrefix ?>tunnel_souscription.php?service=domiciliation&pack=essentiel"><?= $lang === 'en' ? 'Subscribe' : 'Je m\'abonne' ?></a>
     <!-- Toggles inside mobile menu -->
     <div class="mobile-nav-toggles">
       <button class="mode-toggle mobile-mode-toggle" id="mobileModeToggle" aria-label="Basculer en mode sombre/clair" title="Light / dark mode">

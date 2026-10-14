@@ -1,5 +1,5 @@
 <?php
-$title = "Legal and Tax Advisory & Monitoring for Companies | FEDPAWA CORPORATE SOLUTIONS SARL";
+$title = "FEDPAWA CORPORATE SOLUTIONS | Legal & Tax Advisory";
 $description = "Legal and tax advisory and monitoring for companies in Cameroon. DGI e-filings, annual tax return (DSF), Tax Compliance Certificate (ACF) and Tax Shield.";
 $active = 'fiscalite';
 $extraCss = ['assets/css/pages.css'];
@@ -37,7 +37,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
         </div>
         <div class="oapi-alert-box">
           <h3><span>⚠️</span> Protect your company from tax blocking!</h3>
-          <p>Un retard de déclaration ou une omission d'acompte peut entraîner le blocage instantané de votre carte de contribuable, l'impossibilité d'obtenir votre <strong>Attestation de Conformité Fiscale (ACF)</strong> et le rejet de vos soumissions aux marchés publics. FEDPAWA veille sur vos échéances mois après mois.</p>
+          <p>Un retard de déclaration ou une omission d'acompte peut entraîner le blocage instantané de votre carte de contribuable, l'impossibilité d'obtenir votre <strong>Attestation de Conformité Fiscale (ACF)</strong> et le rejet de vos soumissions aux marchés publics. FEDPAWA watches over your deadlines month after month.</p>
         </div>
       </div>
     </div>

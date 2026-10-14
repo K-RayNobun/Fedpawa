@@ -1,6 +1,6 @@
 <?php
-$title = "Enregistrement des Marques, Logos, Applications, Logiciels & Propriété Intellectuelle OAPI | FEDPAWA CORPORATE SOLUTIONS SARL";
-$description = "Enregistrement des marques, logos, applications, logiciels et autres droits de propriété intellectuelle auprès de l'OAPI. Protection dans 17 pays d'Afrique subsaharienne avec FEDPAWA CORPORATE SOLUTIONS SARL.";
+$title = "FEDPAWA CORPORATE SOLUTIONS | Marques & Propriété Intellectuelle (OAPI)";
+$description = "Enregistrement de vos marques, logos, applications et logiciels auprès de l'OAPI. Protection de votre propriété intellectuelle en zone francophone.";
 $active = 'oapi';
 $extraCss = ['assets/css/pages.css'];
 

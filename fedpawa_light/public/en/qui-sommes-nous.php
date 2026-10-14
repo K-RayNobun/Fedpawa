@@ -1,5 +1,5 @@
 <?php
-$title = "About Us | Legal & Tax Advisory Firm in Cameroon | FEDPAWA CORPORATE SOLUTIONS";
+$title = "FEDPAWA CORPORATE SOLUTIONS | About Us";
 $description = "About FEDPAWA CORPORATE SOLUTIONS - The strategic partner for your business in Cameroon: domiciliation, company formation, tax advisory, OAPI, contracts.";
 $active = 'about';
 $extraCss = ['assets/css/pages.css'];
@@ -35,7 +35,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
           <p>Pour répondre à ce défi, FEDPAWA a structuré une offre globale à 360°, combinant l'expertise de juristes d'affaires, de fiscalistes chevronnés et de spécialistes de la propriété intellectuelle. Nous avons digitalisé les processus administratifs pour offrir à nos clients une transparence totale sur leurs démarches, sans déplacements inutiles et sans frais cachés.</p>
         </div>
         <div class="about-vision-box">
-          <div class="about-vision-photo"><img src="../assets/images/qui_6.jpg" alt="Our premises in Logpom, Douala" loading="lazy"></div>
+          <div class="about-vision-photo"><picture><source type="image/webp" srcset="../assets/images/qui_6.webp"><img src="../assets/images/qui_6.jpg" alt="Our premises in Logpom, Douala" loading="lazy"></picture></div>
           <h3><span>🎯</span> Notre Mission & Ambition</h3>
           <p>Être le guichet unique de référence pour tout entrepreneur ou groupe souhaitant s'implanter, se protéger et se développer au Cameroun et dans l'espace OHADA/OAPI. Nous faisons de la conformité un bouclier protecteur et de la fiscalité un outil d'optimisation légale.</p>
         </div>
@@ -54,43 +54,43 @@ include __DIR__ . '/../../templates/partials/site-header.php';
 
       <div class="gallery-grid">
         <div class="gallery-item w-2 h-2">
-          <img src="../assets/images/qui_1.jpg" alt="Reception and welcome desk" loading="lazy">
+          <picture><source type="image/webp" srcset="../assets/images/qui_1.webp"><img src="../assets/images/qui_1.jpg" alt="Reception and welcome desk" loading="lazy"></picture>
           <span class="gallery-caption">Reception & Welcome</span>
         </div>
         <div class="gallery-item">
-          <img src="../assets/images/qui_7.jpg" alt="Executive private office" loading="lazy">
+          <picture><source type="image/webp" srcset="../assets/images/qui_7.webp"><img src="../assets/images/qui_7.jpg" alt="Executive private office" loading="lazy"></picture>
           <span class="gallery-caption">Executive Private Office</span>
         </div>
         <div class="gallery-item">
-          <img src="../assets/images/qui_8.jpg" alt="Meeting room" loading="lazy">
+          <picture><source type="image/webp" srcset="../assets/images/qui_8.webp"><img src="../assets/images/qui_8.jpg" alt="Meeting room" loading="lazy"></picture>
           <span class="gallery-caption">Meeting Room</span>
         </div>
         <div class="gallery-item">
-          <img src="../assets/images/qui_9.jpg" alt="Workspace" loading="lazy">
+          <picture><source type="image/webp" srcset="../assets/images/qui_9.webp"><img src="../assets/images/qui_9.jpg" alt="Workspace" loading="lazy"></picture>
           <span class="gallery-caption">Workspace</span>
         </div>
         <div class="gallery-item w-2">
-          <img src="../assets/images/qui_10.jpg" alt="Coffee and lounge area" loading="lazy">
+          <picture><source type="image/webp" srcset="../assets/images/qui_10.webp"><img src="../assets/images/qui_10.jpg" alt="Coffee and lounge area" loading="lazy"></picture>
           <span class="gallery-caption">Coffee & Lounge Area</span>
         </div>
         <div class="gallery-item">
-          <img src="../assets/images/qui_11.jpg" alt="Telephone secretariat" loading="lazy">
+          <picture><source type="image/webp" srcset="../assets/images/qui_11.webp"><img src="../assets/images/qui_11.jpg" alt="Telephone secretariat" loading="lazy"></picture>
           <span class="gallery-caption">Telephone Secretariat</span>
         </div>
         <div class="gallery-item">
-          <img src="../assets/images/qui_12.jpg" alt="Mail handling" loading="lazy">
+          <picture><source type="image/webp" srcset="../assets/images/qui_12.webp"><img src="../assets/images/qui_12.jpg" alt="Mail handling" loading="lazy"></picture>
           <span class="gallery-caption">Mail Handling</span>
         </div>
         <div class="gallery-item">
-          <img src="../assets/images/qui_13.jpg" alt="Logpom operational hub" loading="lazy">
+          <picture><source type="image/webp" srcset="../assets/images/qui_13.webp"><img src="../assets/images/qui_13.jpg" alt="Logpom operational hub" loading="lazy"></picture>
           <span class="gallery-caption">Logpom Operational Hub</span>
         </div>
         <div class="gallery-item">
-          <img src="../assets/images/qui_14.jpg" alt="High-end equipped offices" loading="lazy">
+          <picture><source type="image/webp" srcset="../assets/images/qui_14.webp"><img src="../assets/images/qui_14.jpg" alt="High-end equipped offices" loading="lazy"></picture>
           <span class="gallery-caption">High-End Offices</span>
         </div>
         <div class="gallery-item">
-          <img src="../assets/images/qui_15.jpg" alt="High-speed connection" loading="lazy">
+          <picture><source type="image/webp" srcset="../assets/images/qui_15.webp"><img src="../assets/images/qui_15.jpg" alt="High-speed connection" loading="lazy"></picture>
           <span class="gallery-caption">High-Speed Connection</span>
         </div>
       </div>
@@ -264,7 +264,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
 <!-- ============== LIGHTBOX ============== -->
 <div class="lightbox" id="lightbox">
   <span class="lightbox-close">&times;</span>
-  <img src="" id="lightboxImg" alt="Enlarged preview">
+  <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" id="lightboxImg" alt="Enlarged preview">
 </div>
 
 <!-- ============== MODALE RENDEZ-VOUS ============== -->

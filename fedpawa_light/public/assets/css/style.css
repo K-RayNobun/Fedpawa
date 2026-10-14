@@ -289,3 +289,10 @@ html[data-theme="navy"] .pay-login-alt a { color: var(--color-gold); border-bott
   .pay-momo-operators { flex-direction: column; gap: 8px; }
   .pay-op-pill span { padding: 13px 10px; font-size: 0.9rem; }
 }
+
+/* Feedback formulaire de contact */
+.form-feedback { margin: 10px 0 0; font-size: 0.95rem; min-height: 1.2em; }
+.form-feedback.success { color: #2e7d32; }
+html[data-theme="dark"] .form-feedback.success { color: #7fd88f; }
+.form-feedback.error { color: #c62828; font-weight: 600; }
+html[data-theme="dark"] .form-feedback.error { color: #ff9d9d; }

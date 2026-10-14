@@ -1,6 +1,6 @@
 <?php
-$title = "Création, Transformation, Restructuration & Légalisation d'Entreprises | FEDPAWA CORPORATE SOLUTIONS SARL";
-$description = "Création, Transformation, Restructuration et Légalisation d'Entreprises au Cameroun. Conformité OHADA, Kit Corporate complet, sans déplacement. FEDPAWA CORPORATE SOLUTIONS SARL.";
+$title = "FEDPAWA CORPORATE SOLUTIONS | Création d'Entreprises au Cameroun";
+$description = "Création, transformation, restructuration et légalisation d'entreprises au Cameroun. Conformité OHADA par des juristes expérimentés.";
 $active = 'creation';
 $extraCss = ['assets/css/pages.css'];
 

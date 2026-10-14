@@ -44,8 +44,8 @@
 
         <form id="requestForm">
           <div class="form-group" id="emailInput">
-            <label>Adresse E-mail professionnelle</label>
-            <input type="email" class="form-control" placeholder="nom@entreprise.cm" required>
+            <label for="reset_email">Adresse E-mail professionnelle</label>
+            <input type="email" id="reset_email" name="email" class="form-control" placeholder="nom@entreprise.cm" autocomplete="email" required>
           </div>
           
           <button type="submit" class="btn btn-primary btn-block">Envoyer le lien de réinitialisation</button>
@@ -66,13 +66,13 @@
         </div>
 
         <form id="otpForm">
-          <div class="otp-group">
-            <input type="text" class="otp-input" maxlength="1" required>
-            <input type="text" class="otp-input" maxlength="1" required>
-            <input type="text" class="otp-input" maxlength="1" required>
-            <input type="text" class="otp-input" maxlength="1" required>
-            <input type="text" class="otp-input" maxlength="1" required>
-            <input type="text" class="otp-input" maxlength="1" required>
+          <div class="otp-group" role="group" aria-label="Code de vérification à 6 chiffres">
+            <input type="text" inputmode="numeric" autocomplete="one-time-code" class="otp-input" maxlength="1" aria-label="Chiffre 1 sur 6" required>
+            <input type="text" inputmode="numeric" autocomplete="one-time-code" class="otp-input" maxlength="1" aria-label="Chiffre 2 sur 6" required>
+            <input type="text" inputmode="numeric" autocomplete="one-time-code" class="otp-input" maxlength="1" aria-label="Chiffre 3 sur 6" required>
+            <input type="text" inputmode="numeric" autocomplete="one-time-code" class="otp-input" maxlength="1" aria-label="Chiffre 4 sur 6" required>
+            <input type="text" inputmode="numeric" autocomplete="one-time-code" class="otp-input" maxlength="1" aria-label="Chiffre 5 sur 6" required>
+            <input type="text" inputmode="numeric" autocomplete="one-time-code" class="otp-input" maxlength="1" aria-label="Chiffre 6 sur 6" required>
           </div>
           
           <p style="text-align: center; font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 20px;">
@@ -93,9 +93,9 @@
 
         <form id="newPwdForm">
           <div class="form-group">
-            <label>Nouveau mot de passe</label>
+            <label for="newPwd">Nouveau mot de passe</label>
             <div class="pwd-input-wrapper">
-              <input type="password" id="newPwd" class="form-control" required>
+              <input type="password" id="newPwd" name="new_password" class="form-control" autocomplete="new-password" required>
               <button type="button" class="pwd-toggle" onclick="togglePwd('newPwd')">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
               </button>
@@ -112,9 +112,9 @@
           </ul>
 
           <div class="form-group">
-            <label>Confirmer le nouveau mot de passe</label>
+            <label for="confirmPwd">Confirmer le nouveau mot de passe</label>
             <div class="pwd-input-wrapper">
-              <input type="password" id="confirmPwd" class="form-control" required>
+              <input type="password" id="confirmPwd" name="confirm_password" class="form-control" autocomplete="new-password" required>
               <button type="button" class="pwd-toggle" onclick="togglePwd('confirmPwd')">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
               </button>

@@ -1,12 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.fedpawacorporatesolutions.com/</loc><priority>1.0</priority></url>
-  <url><loc>https://www.fedpawacorporatesolutions.com/domiciliation.php</loc><priority>0.8</priority></url>
-  <url><loc>https://www.fedpawacorporatesolutions.com/creation_entreprise.php</loc><priority>0.8</priority></url>
-  <url><loc>https://www.fedpawacorporatesolutions.com/fiscalite.php</loc><priority>0.8</priority></url>
-  <url><loc>https://www.fedpawacorporatesolutions.com/oapi.php</loc><priority>0.8</priority></url>
-  <url><loc>https://www.fedpawacorporatesolutions.com/contrats.php</loc><priority>0.8</priority></url>
-  <url><loc>https://www.fedpawacorporatesolutions.com/qui-sommes-nous.php</loc><priority>0.5</priority></url>
-  <url><loc>https://www.fedpawacorporatesolutions.com/contact.php</loc><priority>0.5</priority></url>
-  <url><loc>https://www.fedpawacorporatesolutions.com/tunnel_souscription.php</loc><priority>0.6</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://api.fedpawa.com/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://api.fedpawa.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://api.fedpawa.com/en/index.php"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://api.fedpawa.com/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://api.fedpawa.com/domiciliation.php</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://api.fedpawa.com/domiciliation.php"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://api.fedpawa.com/en/domiciliation.php"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://api.fedpawa.com/domiciliation.php"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://api.fedpawa.com/creation_entreprise.php</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://api.fedpawa.com/creation_entreprise.php"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://api.fedpawa.com/en/creation_entreprise.php"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://api.fedpawa.com/creation_entreprise.php"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://api.fedpawa.com/fiscalite.php</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://api.fedpawa.com/fiscalite.php"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://api.fedpawa.com/en/fiscalite.php"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://api.fedpawa.com/fiscalite.php"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://api.fedpawa.com/oapi.php</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://api.fedpawa.com/oapi.php"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://api.fedpawa.com/en/oapi.php"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://api.fedpawa.com/oapi.php"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://api.fedpawa.com/contrats.php</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://api.fedpawa.com/contrats.php"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://api.fedpawa.com/en/contrats.php"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://api.fedpawa.com/contrats.php"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://api.fedpawa.com/qui-sommes-nous.php</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://api.fedpawa.com/qui-sommes-nous.php"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://api.fedpawa.com/en/qui-sommes-nous.php"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://api.fedpawa.com/qui-sommes-nous.php"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://api.fedpawa.com/contact.php</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://api.fedpawa.com/contact.php"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://api.fedpawa.com/en/contact.php"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://api.fedpawa.com/contact.php"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://api.fedpawa.com/en/index.php</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://api.fedpawa.com/en/domiciliation.php</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://api.fedpawa.com/en/creation_entreprise.php</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://api.fedpawa.com/en/fiscalite.php</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://api.fedpawa.com/en/oapi.php</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://api.fedpawa.com/en/contrats.php</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://api.fedpawa.com/en/qui-sommes-nous.php</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://api.fedpawa.com/en/contact.php</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>

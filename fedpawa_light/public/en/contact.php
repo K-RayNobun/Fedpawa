@@ -1,5 +1,5 @@
 <?php
-$title = "Contact | FEDPAWA CORPORATE SOLUTIONS SARL";
+$title = "FEDPAWA CORPORATE SOLUTIONS | Contact & Appointments in Douala";
 $description = "Contact FEDPAWA CORPORATE SOLUTIONS SARL - Logpom, Douala. Domiciliation, company formation, tax advisory, OAPI, contracts.";
 $active = 'contact';
 $extraCss = ['assets/css/pages.css'];
@@ -58,25 +58,25 @@ include __DIR__ . '/../../templates/partials/site-header.php';
             <h2>Send us a message</h2>
             <p>Remplissez le formulaire ci-dessous, nous vous recontactons sous 24h.</p>
           </div>
-          <form onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent.'); this.reset();">
+          <form id="contactForm">
             <div class="form-row">
               <div class="form-group">
                 <label for="name">Full name *</label>
-                <input type="text" id="name" class="form-control" required>
+                <input type="text" id="name" name="nom" class="form-control" maxlength="120" required>
               </div>
               <div class="form-group">
                 <label for="email">Email *</label>
-                <input type="email" id="email" class="form-control" required>
+                <input type="email" id="email" name="email" class="form-control" maxlength="190" required>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
                 <label for="phone">Phone</label>
-                <input type="tel" id="phone" class="form-control">
+                <input type="tel" id="phone" name="telephone" class="form-control" maxlength="25">
               </div>
               <div class="form-group">
                 <label for="subject">Subject *</label>
-                <select id="subject" class="form-control" required>
+                <select id="subject" name="sujet" class="form-control" required>
                   <option value="">Sélectionner...</option>
                   <option>Domiciliation</option>
                   <option>Création d'entreprise</option>
@@ -89,8 +89,9 @@ include __DIR__ . '/../../templates/partials/site-header.php';
             </div>
             <div class="form-group full">
               <label for="message">Your message *</label>
-              <textarea id="message" class="form-control" required></textarea>
+              <textarea id="message" name="message" class="form-control" maxlength="5000" required></textarea>
             </div>
+            <p id="contactFeedback" class="form-feedback" role="status" aria-live="polite"></p>
             <button type="submit" class="btn btn-primary btn-block">Send message</button>
           </form>
         </div>
@@ -128,5 +129,5 @@ include __DIR__ . '/../../templates/partials/site-header.php';
   </section>
 
 <?php
-$extraJs = [];
+$extraJs = ['assets/js/api.js', 'assets/js/contact-form-en.js'];
 include __DIR__ . '/../../templates/partials/site-footer.php';

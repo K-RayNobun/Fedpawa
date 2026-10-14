@@ -1,7 +1,7 @@
 <?php
 $lang = 'en';
-$title = "Domiciliation for Legal Entities & Companies in Douala Logpom | FEDPAWA CORPORATE SOLUTIONS SARL";
-$description = "Business domiciliation in Douala Logpom - FEDPAWA CORPORATE SOLUTIONS SARL. Registered office address, mail handling, telephone secretariat and Executive offices for entrepreneurs, SMEs and multinationals.";
+$title = "FEDPAWA CORPORATE SOLUTIONS | Business Domiciliation in Douala";
+$description = "Business domiciliation in Douala Logpom: prestigious business address, mail handling, meeting rooms. From 35,000 FCFA/month.";
 $active = 'domiciliation';
 $extraCss = ['assets/css/pages.css'];
 $langPrefix = '../';
@@ -58,23 +58,23 @@ include __DIR__ . '/../../templates/partials/site-header.php';
 
       <div class="gallery-grid">
         <div class="gallery-item w-2 h-2" data-category="accueil">
-          <img src="../assets/images/photo_1.jpg" alt="Reception and welcome desk" loading="lazy">
+          <picture><source type="image/webp" srcset="../assets/images/photo_1.webp"><img src="../assets/images/photo_1.jpg" alt="Reception and welcome desk" loading="lazy"></picture>
           <span class="gallery-caption">Reception & Welcome</span>
         </div>
         <div class="gallery-item" data-category="bureau">
-          <img src="../assets/images/photo_2.jpg" alt="Private office" loading="lazy">
+          <picture><source type="image/webp" srcset="../assets/images/photo_2.webp"><img src="../assets/images/photo_2.jpg" alt="Private office" loading="lazy"></picture>
           <span class="gallery-caption">Executive Private Office</span>
         </div>
         <div class="gallery-item" data-category="reunion">
-          <img src="../assets/images/photo_3.jpg" alt="Meeting room" loading="lazy">
+          <picture><source type="image/webp" srcset="../assets/images/photo_3.webp"><img src="../assets/images/photo_3.jpg" alt="Meeting room" loading="lazy"></picture>
           <span class="gallery-caption">Meeting Room & Hub</span>
         </div>
         <div class="gallery-item" data-category="bureau">
-          <img src="../assets/images/photo_4.jpg" alt="Equipped office" loading="lazy">
+          <picture><source type="image/webp" srcset="../assets/images/photo_4.webp"><img src="../assets/images/photo_4.jpg" alt="Equipped office" loading="lazy"></picture>
           <span class="gallery-caption">High-speed workspace</span>
         </div>
         <div class="gallery-item w-2" data-category="accueil">
-          <img src="../assets/images/photo_5.jpg" alt="Coffee area" loading="lazy">
+          <picture><source type="image/webp" srcset="../assets/images/photo_5.webp"><img src="../assets/images/photo_5.jpg" alt="Coffee area" loading="lazy"></picture>
           <span class="gallery-caption">Coffee & Lounge Area</span>
         </div>
       </div>
@@ -206,7 +206,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
 <!-- ============== LIGHTBOX ============== -->
 <div class="lightbox" id="lightbox">
   <span class="lightbox-close">&times;</span>
-  <img src="" id="lightboxImg" alt="Enlarged preview">
+  <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" id="lightboxImg" alt="Enlarged preview">
 </div>
 
 <?php

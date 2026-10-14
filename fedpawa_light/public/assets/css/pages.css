@@ -121,6 +121,8 @@ html[data-theme="navy"] .info-icon { background: rgba(212, 175, 55, 0.1); color:
 .qa-card { display: flex; align-items: center; gap: 20px; padding: 30px; color: #fff; text-decoration: none; transition: var(--transition-normal); position: relative; overflow: hidden; }
 .qa-card:hover { transform: translateY(-4px); box-shadow: 0 15px 40px rgba(0,0,0,0.2); color: #fff; }
 .qa-card.whatsapp { background-color: #25d366; }
+.qa-card.whatsapp, .qa-card.whatsapp a, .qa-card.whatsapp strong { color: #0A1424; }
+.qa-card.whatsapp .qa-icon { color: #0A1424; }
 .qa-card.email { background-color: var(--color-primary); }
 html[data-theme="navy"] .qa-card.email { background-color: #15294D; }
 .qa-card .qa-icon { width: 50px; height: 50px; background: rgba(255,255,255,0.2); display: grid; place-items: center; flex-shrink: 0; }

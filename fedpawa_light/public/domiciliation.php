@@ -1,6 +1,6 @@
 <?php
-$title = "Domiciliation de Personnes Morales et d'Entreprises à Douala Logpom | FEDPAWA CORPORATE SOLUTIONS SARL";
-$description = "Domiciliation de personnes morales et d'entreprises à Douala Logpom - FEDPAWA CORPORATE SOLUTIONS SARL. Siège social, gestion de courrier, secrétariat téléphonique et bureaux Executive pour entrepreneurs, PME et multinationales.";
+$title = "FEDPAWA CORPORATE SOLUTIONS | Domiciliation d'Entreprises à Douala";
+$description = "Domiciliation d'entreprises à Douala Logpom : adresse commerciale prestigieuse, gestion du courrier, salles de réunion. Dès 35 000 FCFA/mois.";
 $active = 'domiciliation';
 $extraCss = ['assets/css/pages.css'];
 
@@ -56,27 +56,27 @@ include __DIR__ . '/../templates/partials/site-header.php';
 
       <div class="gallery-grid">
         <div class="gallery-item w-2 h-2" data-category="accueil">
-          <img src="assets/images/domi_accueil_1.jpg" alt="Accueil et réception FEDPAWA" loading="lazy">
+          <picture><source type="image/webp" srcset="assets/images/domi_accueil_1.webp"><img src="assets/images/domi_accueil_1.jpg" alt="Accueil et réception FEDPAWA" loading="lazy"></picture>
           <span class="gallery-caption">Accueil & Réception</span>
         </div>
         <div class="gallery-item" data-category="accueil">
-          <img src="assets/images/domi_accueil_2.jpg" alt="Espace d'accueil et réception" loading="lazy">
+          <picture><source type="image/webp" srcset="assets/images/domi_accueil_2.webp"><img src="assets/images/domi_accueil_2.jpg" alt="Espace d'accueil et réception" loading="lazy"></picture>
           <span class="gallery-caption">Accueil & Réception</span>
         </div>
         <div class="gallery-item" data-category="bureau">
-          <img src="assets/images/domi_bureau_1.jpg" alt="Bureau privé Executive" loading="lazy">
+          <picture><source type="image/webp" srcset="assets/images/domi_bureau_1.webp"><img src="assets/images/domi_bureau_1.jpg" alt="Bureau privé Executive" loading="lazy"></picture>
           <span class="gallery-caption">Bureau Privé Executive</span>
         </div>
         <div class="gallery-item" data-category="bureau">
-          <img src="assets/images/domi_bureau_2.jpg" alt="Bureau privé équipé" loading="lazy">
+          <picture><source type="image/webp" srcset="assets/images/domi_bureau_2.webp"><img src="assets/images/domi_bureau_2.jpg" alt="Bureau privé équipé" loading="lazy"></picture>
           <span class="gallery-caption">Bureau Privé & Connexion Haut Débit</span>
         </div>
         <div class="gallery-item" data-category="reunion">
-          <img src="assets/images/domi_reunion_1.jpg" alt="Salle de réunion" loading="lazy">
+          <picture><source type="image/webp" srcset="assets/images/domi_reunion_1.webp"><img src="assets/images/domi_reunion_1.jpg" alt="Salle de réunion" loading="lazy"></picture>
           <span class="gallery-caption">Salle de Réunion & Hub</span>
         </div>
         <div class="gallery-item w-2" data-category="reunion">
-          <img src="assets/images/domi_reunion_2.jpg" alt="Salle de réunion stratégique" loading="lazy">
+          <picture><source type="image/webp" srcset="assets/images/domi_reunion_2.webp"><img src="assets/images/domi_reunion_2.jpg" alt="Salle de réunion stratégique" loading="lazy"></picture>
           <span class="gallery-caption">Salle de Réunion Stratégique</span>
         </div>
       </div>
@@ -208,7 +208,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
 <!-- ============== LIGHTBOX ============== -->
 <div class="lightbox" id="lightbox">
   <span class="lightbox-close">&times;</span>
-  <img src="" id="lightboxImg" alt="Aperçu agrandi">
+  <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" id="lightboxImg" alt="Aperçu agrandi">
 </div>
 
 <?php

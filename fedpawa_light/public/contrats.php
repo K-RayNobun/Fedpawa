@@ -1,6 +1,6 @@
 <?php
-$title = "Rédaction de Tous Types de Contrats (Sociaux, Commerciaux, de Travail, de Prestation, de Confidentialité) | FEDPAWA CORPORATE SOLUTIONS SARL";
-$description = "Rédaction de tous types de contrats : sociaux, commerciaux, de travail, de prestation, de confidentialité (NDA), audit contractuel et sécurité documentaire avec FEDPAWA CORPORATE SOLUTIONS SARL.";
+$title = "FEDPAWA CORPORATE SOLUTIONS | Rédaction de Contrats Juridiques";
+$description = "Rédaction de contrats sociaux, commerciaux, de travail, NDAs et conventionnels par des juristes FEDPAWA. Souscription en ligne dès 100 000 FCFA.";
 $active = 'contrats';
 $extraCss = ['assets/css/pages.css'];
 

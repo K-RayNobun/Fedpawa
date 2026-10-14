@@ -1,6 +1,6 @@
 <?php
-$title = "Tunnel de Souscription | FEDPAWA CORPORATE SOLUTIONS";
-$description = "Souscrivez en ligne aux services FEDPAWA Corporate Solutions : création d'entreprise, protection OAPI, suivi fiscal, contrats et domiciliation. Paiement sécurisé Mobile Money, carte ou virement.";
+$title = "FEDPAWA CORPORATE SOLUTIONS | Souscription en ligne";
+$description = "Souscrivez en ligne aux services FEDPAWA : création d'entreprise, OAPI, contrats, fiscalité. Paiement Mobile Money sécurisé.";
 $active = 'services';
 $extraCss = ['assets/css/dashboard.css?v=2'];
 
@@ -30,7 +30,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
       <div class="tunnel-card" style="padding: 40px; box-shadow: none; border: 1px solid var(--color-border);">
 
         <!-- ÉTAPE 1 -->
-        <div id="step-validation-hint" style="display: none; margin-bottom: 14px; padding: 12px 16px; border-radius: 8px; border: 1px solid var(--color-primary); background: var(--color-bg-alt); font-size: 0.88rem;"></div>
+        <div id="step-validation-hint" role="alert" aria-live="assertive" style="display: none; margin-bottom: 14px; padding: 12px 16px; border-radius: 8px; border: 1px solid var(--color-primary); background: var(--color-bg-alt); font-size: 0.88rem;"></div>
 <div class="tunnel-step-content" id="step-1">
                   <div class="step-header">
                     <h2>1. Vos informations & détails du projet</h2>
@@ -554,8 +554,9 @@ include __DIR__ . '/../templates/partials/site-header.php';
               <tr><th>Désignation</th><th style="text-align: right;">Montant</th></tr>
             </thead>
             <tbody>
-              <tr><td>Prestation Principale (Voir sidebar)</td><td style="text-align: right;">Variable</td></tr>
-              <tr><td>Options Complémentaires (Voir sidebar)</td><td style="text-align: right;">Variable</td></tr>
+              <tr><td>Prestation Principale</td><td style="text-align: right;" id="tableMain">—</td></tr>
+              <tr><td>Options Complémentaires</td><td style="text-align: right;" id="tableOptions">—</td></tr>
+              <tr><td>Frais de service (2%, inclus)</td><td style="text-align: right;" id="tableFees">—</td></tr>
               <tr style="background: var(--color-bg-alt);"><td colspan="2" style="font-size: 0.8rem; color: var(--color-text-muted); font-style: italic;">Estimation des débours officiels (Notaire, Greffe, DGI) facturés au coût réel sur justificatifs.</td></tr>
               <tr class="total-row"><td>TOTAL GÉNÉRAL À REGLER</td><td style="text-align: right;" id="tableTotal">0 FCFA</td></tr>
             </tbody>

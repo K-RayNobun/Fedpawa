@@ -271,6 +271,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
         summaryTotal.innerText = finalTotal.toLocaleString('fr-FR') + ' FCFA';
 
+        // ===== Synchro table de récap (step-4) — UX-S5-1: ventilation explicite =====
+        const tableMain = document.getElementById('tableMain');
+        const tableOptions = document.getElementById('tableOptions');
+        const tableFees = document.getElementById('tableFees');
+        const tableTotal = document.getElementById('tableTotal');
+        const fmt = v => v.toLocaleString('fr-FR') + ' FCFA';
+        if (tableMain) {
+            const mainLine = cart.serviceName ? (cart.planLabel ? `${cart.serviceName} — ${cart.planLabel}` : cart.serviceName) : '—';
+            tableMain.innerText = cart.price > 0 ? fmt(cart.price) + ' HT' : (devisOnly ? 'Sur devis' : '—');
+            if (tableMain.parentElement && tableMain.parentElement.children[0]) {
+                tableMain.parentElement.children[0].innerText = mainLine;
+            }
+        }
+        if (tableOptions) {
+            const optTotal = cart.options.reduce((s, o) => s + (o.price || 0), 0);
+            tableOptions.innerText = optTotal > 0 ? fmt(optTotal) : (cart.options.length ? 'Sur devis' : 'Aucune');
+        }
+        if (tableFees) tableFees.innerText = fee > 0 ? fmt(fee) : '—';
+        if (tableTotal) tableTotal.innerText = fmt(finalTotal);
+
         const finalBtn = document.getElementById('finalPayBtn');
         if (finalBtn) finalBtn.innerText = `🔒 Procéder au paiement sécurisé (${finalTotal.toLocaleString('fr-FR')} FCFA)`;
     }

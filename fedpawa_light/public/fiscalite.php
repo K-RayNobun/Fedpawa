@@ -1,6 +1,6 @@
 <?php
-$title = "Conseil et Suivi Juridique & Fiscal des Entreprises | FEDPAWA CORPORATE SOLUTIONS SARL";
-$description = "Conseil et Suivi Juridique et Fiscal des Entreprises au Cameroun. Télé-déclarations DGI, Liasse Fiscale (DSF), Attestation de Conformité Fiscale (ACF) et Bouclier Fiscal.";
+$title = "FEDPAWA CORPORATE SOLUTIONS | Conseil Juridique & Fiscal";
+$description = "Conseil et suivi juridique et fiscal des entreprises au Cameroun : télé-déclarations DGI, liasse fiscale, optimisation et représentation.";
 $active = 'fiscalite';
 $extraCss = ['assets/css/pages.css'];
 

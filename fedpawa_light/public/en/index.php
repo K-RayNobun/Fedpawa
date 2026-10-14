@@ -32,7 +32,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
         <h2>Five services, a single address</h2>
       </div>
       <div class="expertise-slider">
-        <div class="expertise-media"><img src="../assets/images/photo_1.jpg" alt="Domiciliation"></div>
+        <div class="expertise-media"><picture><source type="image/webp" srcset="../assets/images/photo_1.webp"><img src="../assets/images/photo_1.jpg" alt="Domiciliation"></picture></div>
         <div class="expertise-body expertise-content active" data-service="01">
           <span class="expertise-kicker">Service 01</span>
           <div class="expertise-title-group"><span class="expertise-number-inline">01</span><h3 class="expertise-title">Domiciliation for Legal Entities & Companies</h3></div>
@@ -40,7 +40,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
           <ul class="expertise-features"><li>Recognized business address</li><li>Mail scanning & forwarding</li><li>Personalized phone desk</li><li>Meeting room on demand</li></ul>
           <a class="text-link" href="domiciliation.php">Discover domiciliation <span aria-hidden="true">→</span></a>
         </div>
-        <div class="expertise-media" style="display:none"><img src="../assets/images/photo_2.jpg" alt="Company formation"></div>
+        <div class="expertise-media" style="display:none"><picture><source type="image/webp" srcset="../assets/images/photo_2.webp"><img src="../assets/images/photo_2.jpg" alt="Company formation"></picture></div>
         <div class="expertise-body expertise-content" data-service="02" style="display:none">
           <span class="expertise-kicker">Service 02</span>
           <div class="expertise-title-group"><span class="expertise-number-inline">02</span><h3 class="expertise-title">Company Formation, Transformation, Restructuring & Legalization</h3></div>
@@ -48,7 +48,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
           <ul class="expertise-features"><li>Articles & legal instruments</li><li>RC, IFU & CNPS obtained for you</li><li>Complete GUCE support</li><li>Managed, transparent timelines</li></ul>
           <a class="text-link" href="creation_entreprise.php">Discover company formation <span aria-hidden="true">→</span></a>
         </div>
-        <div class="expertise-media" style="display:none"><img src="../assets/images/photo_3.jpg" alt="Tax advisory"></div>
+        <div class="expertise-media" style="display:none"><picture><source type="image/webp" srcset="../assets/images/photo_3.webp"><img src="../assets/images/photo_3.jpg" alt="Tax advisory"></picture></div>
         <div class="expertise-body expertise-content" data-service="03" style="display:none">
           <span class="expertise-kicker">Service 03</span>
           <div class="expertise-title-group"><span class="expertise-number-inline">03</span><h3 class="expertise-title">Legal & Tax Advisory and Monitoring for Companies</h3></div>
@@ -56,7 +56,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
           <ul class="expertise-features"><li>Monthly & annual declarations</li><li>Compliant tax filings</li><li>DGI support</li><li>Continuous regulatory watch</li></ul>
           <a class="text-link" href="fiscalite.php">Discover tax advisory <span aria-hidden="true">→</span></a>
         </div>
-        <div class="expertise-media" style="display:none"><img src="../assets/images/photo_4.jpg" alt="OAPI"></div>
+        <div class="expertise-media" style="display:none"><picture><source type="image/webp" srcset="../assets/images/photo_4.webp"><img src="../assets/images/photo_4.jpg" alt="OAPI"></picture></div>
         <div class="expertise-body expertise-content" data-service="04" style="display:none">
           <span class="expertise-kicker">Service 04</span>
           <div class="expertise-title-group"><span class="expertise-number-inline">04</span><h3 class="expertise-title">Registration of Trademarks, Logos, Applications & Software with OAPI</h3></div>
@@ -64,7 +64,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
           <ul class="expertise-features"><li>Trademark & patent filings</li><li>Software & works protection</li><li>17-country OAPI coverage</li><li>Counterfeit watch</li></ul>
           <a class="text-link" href="oapi.php">Discover OAPI <span aria-hidden="true">→</span></a>
         </div>
-        <div class="expertise-media" style="display:none"><img src="../assets/images/photo_5.jpg" alt="Contracts"></div>
+        <div class="expertise-media" style="display:none"><picture><source type="image/webp" srcset="../assets/images/photo_5.webp"><img src="../assets/images/photo_5.jpg" alt="Contracts"></picture></div>
         <div class="expertise-body expertise-content" data-service="05" style="display:none">
           <span class="expertise-kicker">Service 05</span>
           <div class="expertise-title-group"><span class="expertise-number-inline">05</span><h3 class="expertise-title">Drafting of All Types of Contracts (Corporate, Commercial, Employment, Service, Confidentiality)</h3></div>
@@ -103,7 +103,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
       <h2>Ready to Structure Your Company on Solid Foundations?</h2>
       <p>Contact us today for personalized guidance with our experts.</p>
       <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-        <a class="btn btn-primary" href="../tunnel_souscription.php">Subscribe</a>
+        <a class="btn btn-primary" href="../tunnel_souscription.php?service=domiciliation&pack=essentiel">Subscribe</a>
         <a class="btn btn-outline" href="contact.php">Contact us</a>
       </div>
     </div>

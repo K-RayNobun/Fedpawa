@@ -62,4 +62,22 @@ class NotificationService {
             "Bonjour <strong>" . htmlspecialchars($clientName) . "</strong>,<br>Bienvenue chez FEDPAWA Corporate Solutions. Votre souscription est en cours de finalisation."
         );
     }
+
+    public function sendOtp(string $email, string $code) {
+        return $this->send(
+            $email,
+            'Votre code de réinitialisation FEDPAWA',
+            "Votre code de réinitialisation est : <strong>" . htmlspecialchars($code) . "</strong><br>Il expire dans 15 minutes. Si vous n'êtes pas à l'origine de cette demande, ignorez cet e-mail."
+        );
+    }
+
+    public function sendContactNotification(string $dest, string $sujet, string $nom, string $email, string $telephone, string $message) {
+        return $this->send(
+            $dest,
+            'Nouveau message de contact — ' . $sujet,
+            "Nom : " . htmlspecialchars($nom) . "<br>E-mail : " . htmlspecialchars($email) .
+            "<br>Téléphone : " . htmlspecialchars($telephone) .
+            "<br><br>" . nl2br(htmlspecialchars($message))
+        );
+    }
 }

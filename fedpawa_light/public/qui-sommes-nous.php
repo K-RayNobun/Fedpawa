@@ -33,7 +33,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
           <p>Pour répondre à ce défi, FEDPAWA a structuré une offre globale à 360°, combinant l'expertise de juristes d'affaires, de fiscalistes chevronnés et de spécialistes de la propriété intellectuelle. Nous avons digitalisé les processus administratifs pour offrir à nos clients une transparence totale sur leurs démarches, sans déplacements inutiles et sans frais cachés.</p>
         </div>
         <div class="about-vision-box">
-          <div class="about-vision-photo"><picture><source type="image/webp" srcset="assets/images/qui_6.webp"><img src="assets/images/qui_6.jpg" alt="Nos locaux à Logpom, Douala" loading="lazy"></picture></div>
+          <div class="about-vision-photo"><picture><source type="image/webp" srcset="assets/images/qui_6.webp"><img src="assets/images/qui_6.jpg" alt="Locaux à Logpom, Douala" loading="lazy"></picture></div>
           <h3><span>🎯</span> Notre Mission & Ambition</h3>
           <p>Être le guichet unique de référence pour tout entrepreneur ou groupe souhaitant s'implanter, se protéger et se développer au Cameroun et dans l'espace OHADA/OAPI. Nous faisons de la conformité un bouclier protecteur et de la fiscalité un outil d'optimisation légale.</p>
         </div>
@@ -51,48 +51,44 @@ include __DIR__ . '/../templates/partials/site-header.php';
       </div>
 
       <div class="gallery-grid">
-        <div class="gallery-item w-2 h-2">
-          <picture><source type="image/webp" srcset="assets/images/qui_1.webp"><img src="assets/images/qui_1.jpg" alt="Accueil et réception FEDPAWA" loading="lazy"></picture>
-          <span class="gallery-caption">Accueil & Réception</span>
-        </div>
-        <div class="gallery-item">
-          <picture><source type="image/webp" srcset="assets/images/qui_7.webp"><img src="assets/images/qui_7.jpg" alt="Bureau privé Executive" loading="lazy"></picture>
-          <span class="gallery-caption">Bureau Privé Executive</span>
-        </div>
-        <div class="gallery-item">
-          <picture><source type="image/webp" srcset="assets/images/qui_8.webp"><img src="assets/images/qui_8.jpg" alt="Salle de réunion" loading="lazy"></picture>
-          <span class="gallery-caption">Salle de Réunion</span>
-        </div>
-        <div class="gallery-item">
-          <picture><source type="image/webp" srcset="assets/images/qui_9.webp"><img src="assets/images/qui_9.jpg" alt="Espace de travail" loading="lazy"></picture>
-          <span class="gallery-caption">Espace de Travail</span>
-        </div>
-        <div class="gallery-item w-2">
-          <picture><source type="image/webp" srcset="assets/images/qui_10.webp"><img src="assets/images/qui_10.jpg" alt="Espace café et détente" loading="lazy"></picture>
-          <span class="gallery-caption">Espace Café & Détente</span>
-        </div>
-        <div class="gallery-item">
-          <picture><source type="image/webp" srcset="assets/images/qui_11.webp"><img src="assets/images/qui_11.jpg" alt="Secrétariat téléphonique" loading="lazy"></picture>
-          <span class="gallery-caption">Secrétariat Téléphonique</span>
-        </div>
-        <div class="gallery-item">
-          <picture><source type="image/webp" srcset="assets/images/qui_12.webp"><img src="assets/images/qui_12.jpg" alt="Gestion du courrier" loading="lazy"></picture>
-          <span class="gallery-caption">Gestion du Courrier</span>
-        </div>
-        <div class="gallery-item">
-          <picture><source type="image/webp" srcset="assets/images/qui_13.webp"><img src="assets/images/qui_13.jpg" alt="Hub opérationnel Logpom" loading="lazy"></picture>
-          <span class="gallery-caption">Hub Opérationnel Logpom</span>
-        </div>
-        <div class="gallery-item">
-          <picture><source type="image/webp" srcset="assets/images/qui_14.webp"><img src="assets/images/qui_14.jpg" alt="Bureaux équipés haut standing" loading="lazy"></picture>
-          <span class="gallery-caption">Bureaux Haut Standing</span>
-        </div>
-        <div class="gallery-item">
-          <picture><source type="image/webp" srcset="assets/images/qui_15.webp"><img src="assets/images/qui_15.jpg" alt="Connexion haut débit" loading="lazy"></picture>
-          <span class="gallery-caption">Connexion Haut Débit</span>
-        </div>
+              <div class="gallery-item w-2 h-2">
+                        <picture><source type="image/webp" srcset="assets/images/qui_1.webp"><img src="assets/images/qui_1.jpg" alt="Accueil et réception FEDPAWA" loading="lazy"></picture>
+                        <span class="gallery-caption">Accueil & Réception</span>
+                      </div>
+                      <div class="gallery-item">
+                        <picture><source type="image/webp" srcset="assets/images/qui_7.webp"><img src="assets/images/qui_7.jpg" alt="Bureau privé Executive" loading="lazy"></picture>
+                        <span class="gallery-caption">Bureau Privé Executive</span>
+                      </div>
+                      <div class="gallery-item">
+                        <picture><source type="image/webp" srcset="assets/images/qui_8.webp"><img src="assets/images/qui_8.jpg" alt="Salle de réunion" loading="lazy"></picture>
+                        <span class="gallery-caption">Salle de Réunion</span>
+                      </div>
+                      <div class="gallery-item">
+                        <picture><source type="image/webp" srcset="assets/images/qui_9.webp"><img src="assets/images/qui_9.jpg" alt="Espace de travail" loading="lazy"></picture>
+                        <span class="gallery-caption">Espace de Travail</span>
+                      </div>
+                      <div class="gallery-item">
+                        <picture><source type="image/webp" srcset="assets/images/qui_10.webp"><img src="assets/images/qui_10.jpg" alt="Espace café et détente" loading="lazy"></picture>
+                        <span class="gallery-caption">Espace Café & Détente</span>
+                      </div>
+                      <div class="gallery-item w-2">
+                        <picture><source type="image/webp" srcset="assets/images/qui_12.webp"><img src="assets/images/qui_12.jpg" alt="Gestion du courrier" loading="lazy"></picture>
+                        <span class="gallery-caption">Gestion du Courrier</span>
+                      </div>
+                      <div class="gallery-item">
+                        <picture><source type="image/webp" srcset="assets/images/qui_13.webp"><img src="assets/images/qui_13.jpg" alt="Hub opérationnel Logpom" loading="lazy"></picture>
+                        <span class="gallery-caption">Hub Opérationnel Logpom</span>
+                      </div>
+                      <div class="gallery-item">
+                        <picture><source type="image/webp" srcset="assets/images/qui_14.webp"><img src="assets/images/qui_14.jpg" alt="Bureaux équipés haut standing" loading="lazy"></picture>
+                        <span class="gallery-caption">Bureaux Haut Standing</span>
+                      </div>
+                      <div class="gallery-item">
+                        <picture><source type="image/webp" srcset="assets/images/qui_15.webp"><img src="assets/images/qui_15.jpg" alt="Connexion haut débit" loading="lazy"></picture>
+                        <span class="gallery-caption">Connexion Haut Débit</span>
+                      </div>
+              </div>
       </div>
-    </div>
   </section>
 
   <!-- ============== CHIFFRES CLÉS ============== -->

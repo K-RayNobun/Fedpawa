@@ -1,4 +1,6 @@
 <?php
+// Session nécessaire pour détecter le mode admin (saut rapide des étapes pour tests).
+if (session_status() === PHP_SESSION_NONE) { session_start(); }
 $title = "FEDPAWA CORPORATE SOLUTIONS | Souscription en ligne";
 $description = "Souscrivez en ligne aux services FEDPAWA : création d'entreprise, OAPI, contrats, fiscalité. Paiement Mobile Money sécurisé.";
 $active = 'services';

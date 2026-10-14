@@ -569,9 +569,82 @@ document.addEventListener('DOMContentLoaded', () => {
         // L'utilisateur arrive déjà ciblé (bouton d'une page service) :
         // la prestation est connue -> on ouvre directement le formulaire (étape 1)
         goToStep(1);
+    } else if (window.admin_logged_in) {
+        // Mode test admin : pas de redirection — l'admin peut préremplir via le bandeau de test.
     } else {
         // Aucun service ciblé (bouton neutre) -> renvoyer vers la section services de l'accueil
         window.location.replace('index.php#services');
     }
     updateSummary();
 });
+
+// =========================================================
+// MODE TEST ADMIN — préremplissage rapide pour vérifier le tunnel
+// =========================================================
+if (window.admin_logged_in) {
+    const banner = document.createElement('div');
+    banner.id = 'admin-test-banner';
+    banner.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:9998;background:linear-gradient(90deg,#15294D,#D4AF37);color:#fff;padding:8px 16px;font-size:0.85rem;display:flex;gap:12px;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,.3);flex-wrap:wrap;';
+    banner.innerHTML = '<strong style="white-space:nowrap;">🧪 MODE TEST ADMIN</strong><span style="white-space:nowrap;">— validation désactivée</span>' +
+        '<button id="admin-fill-test" type="button" style="background:#D4AF37;color:#0A1424;border:none;padding:5px 14px;border-radius:6px;font-weight:700;cursor:pointer;white-space:nowrap;">Préremplir (Contrats)</button>' +
+        '<button id="admin-jump-4" type="button" style="background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.4);padding:5px 14px;border-radius:6px;cursor:pointer;white-space:nowrap;">Étape 4 (récap)</button>';
+    document.body.appendChild(banner);
+    document.body.style.paddingTop = '42px';
+
+    const TEST = {
+        nom: 'Client Test', email: 'client-test@fedpawa.com', telephone: '+237690000001',
+        entreprise: 'Entreprise Test SARL', niu: 'M09261890362B', adresse: 'Bonanjo, Douala',
+        description: 'Dossier de test généré par le mode admin.'
+    };
+
+    function fillVisibleFields(root) {
+        root.querySelectorAll('input:not([type=radio]):not([type=checkbox]):not([type=hidden]):not([type=submit]):not([type=file]), textarea, select').forEach(el => {
+            if (el.disabled) return;
+            const k = ((el.name || '') + ' ' + (el.id || '') + ' ' + (el.placeholder || '')).toLowerCase();
+            const v = el.tagName === 'SELECT' ? (el.options[1] ? el.options[1].value : el.value) : null;
+            if (el.tagName === 'SELECT') { if (el.options.length > 1) { el.value = el.options[1].value; el.dispatchEvent(new Event('change', { bubbles: true })); } return; }
+            if (k.includes('email')) el.value = TEST.email;
+            else if (k.includes('tel') || k.includes('phone') || k.includes('mobile')) el.value = TEST.telephone;
+            else if (k.includes('entreprise') || k.includes('company') || k.includes('societe') || k.includes('denomination')) el.value = TEST.entreprise;
+            else if (k.includes('niu')) el.value = TEST.niu;
+            else if (k.includes('adresse')) el.value = TEST.adresse;
+            else if (k.includes('description') || k.includes('detail') || k.includes('message') || k.includes('objet')) el.value = TEST.description;
+            else if (!el.value) el.value = TEST.nom;
+            el.dispatchEvent(new Event('input', { bubbles: true }));
+        });
+        // radios: prendre le premier de chaque groupe
+        const groups = {};
+        root.querySelectorAll('input[type=radio]').forEach(r => { groups[r.name] = groups[r.name] || r; });
+        Object.values(groups).forEach(r => { r.checked = true; r.dispatchEvent(new Event('change', { bubbles: true })); });
+        // checkboxes optionnelles (pas data-smart-signal): cocher
+        root.querySelectorAll('input[type=checkbox]:not([data-smart-signal])').forEach(c => { c.checked = true; c.dispatchEvent(new Event('change', { bubbles: true })); });
+    }
+
+    document.getElementById('admin-fill-test').addEventListener('click', () => {
+        // Service contrats (représentatif, pas de redirection comme domiciliation)
+        const target = 'contrats';
+        if (typeof selectService === 'function') { selectService(target); }
+        setTimeout(() => {
+            const form = document.getElementById('form-' + target);
+            if (form) {
+                fillVisibleFields(form);
+                // Injecter les coordonnées de test que submitPayload lit depuis #form-{service}
+                const ensure = (selector, attrs) => {
+                    let el = form.querySelector(selector);
+                    if (!el) { el = document.createElement('input'); el.type = attrs.type; el.name = attrs.name; el.style.display = 'none'; form.appendChild(el); }
+                    el.value = attrs.value;
+                };
+                ensure('input[type="email"]', { type: 'email', name: 'email', value: TEST.email });
+                ensure('input[type="tel"]', { type: 'tel', name: 'telephone', value: TEST.telephone });
+                ensure('input[name="name"]', { type: 'text', name: 'name', value: TEST.nom });
+            }
+            const step1 = document.getElementById('step-1');
+            if (step1) fillVisibleFields(step1);
+            if (typeof updateSummary === 'function') updateSummary();
+            goToStep(4);
+            alert('Données test appliquées (service Contrats & Rédaction Juridique). Vous êtes à l\u2019étape récapitulative — vérifiez puis cliquez Payer pour tester le paiement.');
+        }, 400);
+    });
+
+    document.getElementById('admin-jump-4').addEventListener('click', () => goToStep(4));
+}

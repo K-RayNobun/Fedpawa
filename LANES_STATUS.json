@@ -1,17 +1,17 @@
 {
-  "maj": "2026-10-14T11:57:11Z",
+  "maj": "2026-10-14T12:38:10Z",
   "lanes": [
     {
       "id": "Lane#1",
-      "tache": "Contrat réservé à domiciliation + aligné sur CONTRAT.docx",
+      "tache": "Mode test admin tunnel (préremplissage + saut étapes)",
       "etat": "TERMINEE ✓",
-      "detail": "PDF 7 pages/14 articles vérifié; gate packs national-*/international-* (serveur) + config.contract (front); simplePaidFlow pour autres services"
+      "detail": "Bandeau MODE TEST ADMIN (admin connecté) + bouton Préremplir (service contrats, coordonnées test injectées) + bypass validateStep + pas de redirection index. E2E: step-4 récap rempli, email/tel/name test prêts pour paiement"
     },
     {
       "id": "Lane#2",
-      "tache": "Connexion admin: form dédié + messages distinctifs",
+      "tache": "Police inactive",
       "etat": "TERMINEE ✓",
-      "detail": "Form admin sur admin_dashboard.html (CSRF via api.js), login E2E OK, dashboard 8 onglets + données réelles, 0 pageerror; verrou mme.law purgé (test) et expiré (prod)"
+      "detail": "Vars --font-*/restaurées (supprimées à tort lors purge bordeaux) + 3 pages standalone restaurées (écrasées en stubs) + style.css?v=3. Playfair/Open Sans chargées 5/5 pages"
     }
   ]
 }

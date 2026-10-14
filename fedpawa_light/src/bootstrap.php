@@ -85,9 +85,13 @@ register_shutdown_function(function () {
 // ==========================================================
 if (session_status() === PHP_SESSION_NONE) {
     ini_set('session.cookie_httponly', '1');
-    // API cross-site (GitHub Pages -> api.fedpawa.com) : cookie SameSite=None; Secure, sinon le navigateur ne renvoie pas la session
-    ini_set('session.cookie_samesite', 'None');
-    ini_set('session.cookie_secure', '1');
+    // Site et API same-origin (api.fedpawa.com) : Lax suffit et fonctionne aussi en http local de test.
+    // (SameSite=None; Secure cassait la session sur le conteneur de test http://127.0.0.1:18081)
+    ini_set('session.cookie_samesite', 'Lax');
+    // Secure uniquement si la requête est servie en https (prod) — pas en local http.
+    if (($_SERVER['HTTPS'] ?? '') === 'on' || ($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https') {
+        ini_set('session.cookie_secure', '1');
+    }
     ini_set('session.use_strict_mode', '1');
     session_start();
 }

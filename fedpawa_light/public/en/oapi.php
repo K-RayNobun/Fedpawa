@@ -2,7 +2,7 @@
 $title = "FEDPAWA CORPORATE SOLUTIONS | Trademarks & Intellectual Property (OAPI)";
 $description = "Trademark, logo, application and software registration with OAPI. Protect your intellectual property across francophone Africa.";
 $active = 'oapi';
-$extraCss = ['assets/css/pages.css'];
+$extraCss = ['assets/css/pages.css?v=3'];
 
 $lang = 'en';
 $langPrefix = '../';
@@ -19,7 +19,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
         <p>FEDPAWA CORPORATE SOLUTIONS SARL met à votre disposition son expertise pointue en droit de la propriété intellectuelle. Nous analysons la disponibilité de vos actifs, structurons vos dossiers de dépôt selon les normes de l'Accord de Bangui et assurons un suivi juridique rigoureux jusqu'à l'obtention de votre certificat d'enregistrement officiel.</p>
         <div style="display: flex; gap: 16px; flex-wrap: wrap;">
           <a href="../tunnel_souscription.php?service=oapi&pack=protect_brand" class="btn btn-gold">Protect my asset now</a>
-          <a href="#poles" class="btn btn-outline">Check availability (Prior Art)</a>
+          <a href="#pricing" class="btn btn-outline">Check availability (Prior Art)</a>
         </div>
       </div>
     </div>
@@ -140,7 +140,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
       </div>
       <div class="pricing-grid">
         <div class="pricing-card">
-          <div class="card-header"><h3>Prior Art Search</h3><div class="price">50 000 - 100 000 FCFA<span> / file</span></div></div>
+          <div class="card-header"><h3>Prior Art Search</h3><div class="price">50 000 - 100 000 FCFA HT<span> / file</span></div></div>
           <ul class="features-list">
             <li>Recherche dans la base OAPI</li>
             <li>Analyse des similitudes</li>
@@ -150,7 +150,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
         </div>
         <div class="pricing-card popular">
           <div class="popular-badge">Recommandé</div>
-          <div class="card-header"><h3>Protect Brand & Tech Package</h3><div class="price">200 000 - 900 000 FCFA<span> / file</span></div></div>
+          <div class="card-header"><h3>Protect Brand & Tech Package</h3><div class="price">200 000 - 900 000 FCFA HT<span> / file</span></div></div>
           <ul class="features-list">
             <li>Classification de Nice</li>
             <li>Rédaction sur-mesure du dossier</li>

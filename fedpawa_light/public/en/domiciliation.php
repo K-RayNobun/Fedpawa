@@ -90,7 +90,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
       </div>
       <div class="pricing-grid">
         <div class="pricing-card">
-          <div class="card-header"><h3>🔹 ESSENTIAL Plan</h3><div class="price">25 000 FCFA<span> / month</span></div></div>
+          <div class="card-header"><h3>🔹 ESSENTIAL Plan</h3><div class="price">25 000 FCFA HT<span> / month</span></div></div>
           <ul class="features-list">
             <li>Registered office address in Logpom, Douala</li>
             <li>Mail reception</li>
@@ -102,7 +102,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
           <a href="<?= $langPrefix ?>souscription_domiciliation.php?pack=national-essential" class="btn btn-outline btn-block">Subscribe</a>
         </div>
         <div class="pricing-card">
-          <div class="card-header"><h3>🔹 BUSINESS Plan</h3><div class="price">45 000 FCFA<span> / month</span></div></div>
+          <div class="card-header"><h3>🔹 BUSINESS Plan</h3><div class="price">45 000 FCFA HT<span> / month</span></div></div>
           <ul class="features-list">
             <li>Registered office address in Logpom, Douala</li>
             <li>Mail reception</li>
@@ -116,7 +116,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
         </div>
         <div class="pricing-card popular">
           <div class="popular-badge">Popular</div>
-          <div class="card-header"><h3>👑 PREMIUM Plan</h3><div class="price">70 000 FCFA<span> / month</span></div></div>
+          <div class="card-header"><h3>👑 PREMIUM Plan</h3><div class="price">70 000 FCFA HT<span> / month</span></div></div>
           <ul class="features-list">
             <li>Registered office address in Logpom, Douala</li>
             <li>Mail reception</li>
@@ -143,7 +143,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
       </div>
       <div class="pricing-grid">
         <div class="pricing-card">
-          <div class="card-header"><h3>✈️ ESSENTIAL DIGITAL</h3><div class="price">50 000 FCFA<span> / month</span></div><div class="price-sub">~88 USD</div></div>
+          <div class="card-header"><h3>✈️ ESSENTIAL DIGITAL</h3><div class="price">50 000 FCFA HT<span> / month</span></div><div class="price-sub">~88 USD</div></div>
           <ul class="features-list">
             <li>Official registered office address in Logpom</li>
             <li>Physical reception of mail and parcels at the front desk</li>
@@ -154,7 +154,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
           <a href="<?= $langPrefix ?>souscription_domiciliation.php?pack=international-essential" class="btn btn-outline btn-block">Subscribe</a>
         </div>
         <div class="pricing-card">
-          <div class="card-header"><h3>📞 BUSINESS VIRTUAL</h3><div class="price">110 000 FCFA<span> / month</span></div><div class="price-sub">~180 USD</div></div>
+          <div class="card-header"><h3>📞 BUSINESS VIRTUAL</h3><div class="price">110 000 FCFA HT<span> / month</span></div><div class="price-sub">~180 USD</div></div>
           <ul class="features-list">
             <li>Official registered office address in Logpom</li>
             <li>Physical reception of mail and parcels at the front desk</li>
@@ -169,7 +169,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
         </div>
         <div class="pricing-card popular">
           <div class="popular-badge">Prestige</div>
-          <div class="card-header"><h3>🌟 PREMIUM EXECUTIVE</h3><div class="price">175 000 FCFA<span> / month</span></div><div class="price-sub">~290 USD</div></div>
+          <div class="card-header"><h3>🌟 PREMIUM EXECUTIVE</h3><div class="price">175 000 FCFA HT<span> / month</span></div><div class="price-sub">~290 USD</div></div>
           <ul class="features-list">
             <li>Official registered office address in Logpom</li>
             <li>Physical reception of mail and parcels at the front desk</li>

@@ -133,7 +133,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
           <div class="popular-badge">Populaire</div>
           <div class="card-header">
             <h3>Forfait Régime Simplifié</h3>
-            <div class="price">35 000 FCFA<span> / mois</span></div>
+            <div class="price">35 000 FCFA HT<span> / mois</span></div>
           </div>
           <ul class="features-list">
             <li>Déclarations mensuelles DGI (TVA, Acomptes, Salaires)</li>

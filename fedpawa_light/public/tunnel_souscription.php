@@ -188,8 +188,8 @@ include __DIR__ . '/../templates/partials/site-header.php';
                       <div class="form-group"><label>Catégorie <em class="req">*</em></label><select class="form-control" required id="contrat-type" required><option value="commercial">Commercial / prestation</option><option value="travail">Prestation / travail</option><option value="social">Social</option><option value="NDA">NDA</option><option value="bail" data-smart-soft="domiciliation">Bail / Location</option><option value="statuts" data-smart-soft="creation">Statuts & pactes d'associés</option><option value="audit">Audit d'un contrat existant</option><option value="archivage">Archivage cloud</option></select></div>
                       <div class="form-textarea"><label>Situation décrite en synthèse <em class="req">*</em></label><textarea class="form-control" required rows="3" placeholder="Synthèse de la situation ou du contrat à sécuriser"></textarea></div>
                       <div class="form-group"><label>Formule tarifaire <em class="req">*</em></label><select class="form-control" required id="contrat-formule" data-plan-select required>
-                        <option value="standard">Standard — 50 000 FCFA</option>
-                        <option value="complexe">Complexe — 150 000 FCFA</option>
+                        <option value="standard">Standard — 50 000 FCFA HT</option>
+                        <option value="complexe">Complexe — 150 000 FCFA HT</option>
                         <option value="audit">Audit — Sur devis</option>
                       </select><small class="text-muted">Standard: contrat simple. Complexe: clauses protectrices multiples.</small></div>
                     </div>

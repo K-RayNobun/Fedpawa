@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         cart.options.forEach(opt => {
-            const priceLabel = opt.price ? opt.price.toLocaleString('fr-FR') + ' FCFA' : 'Sur devis';
+            const priceLabel = opt.price ? opt.price.toLocaleString('fr-FR') + ' FCFA HT' : 'Sur devis';
             summaryItems.innerHTML += `<div class="summary-item"><span>${opt.name}</span><span>${priceLabel}</span></div>`;
             baseTotal += opt.price || 0;
         });

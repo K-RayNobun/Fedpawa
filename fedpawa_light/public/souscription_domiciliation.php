@@ -246,9 +246,9 @@ include __DIR__ . '/../templates/partials/site-header.php';
             <select id="pack" name="pack" class="form-control" required>
               <option value="" disabled selected>— Sélectionnez votre pack —</option>
               <optgroup label="🇨🇲 Gamme Nationale" data-gamme="nationale">
-                <option value="national-essential" data-price="25000" data-label="Pack ESSENTIAL — 25 000 FCFA / mois">Pack ESSENTIAL</option>
-                <option value="national-business" data-price="45000" data-label="Pack BUSINESS — 45 000 FCFA / mois">Pack BUSINESS</option>
-                <option value="national-premium" data-price="70000" data-label="Pack PREMIUM — 70 000 FCFA / mois">Pack PREMIUM (Populaire)</option>
+                <option value="national-essential" data-price="25000" data-label="Pack ESSENTIAL — 25 000 FCFA HT / mois">Pack ESSENTIAL</option>
+                <option value="national-business" data-price="45000" data-label="Pack BUSINESS — 45 000 FCFA HT / mois">Pack BUSINESS</option>
+                <option value="national-premium" data-price="70000" data-label="Pack PREMIUM — 70 000 FCFA HT / mois">Pack PREMIUM (Populaire)</option>
               </optgroup>
               <optgroup label="🌍 Gamme Internationale & Diaspora" data-gamme="internationale">
                 <option value="international-essential" data-price="50000" data-label="ESSENTIAL DIGITAL — 50 000 FCFA (~88 $) / mois">ESSENTIAL DIGITAL</option>

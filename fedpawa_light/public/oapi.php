@@ -2,7 +2,7 @@
 $title = "FEDPAWA CORPORATE SOLUTIONS | Marques & Propriété Intellectuelle (OAPI)";
 $description = "Enregistrement de vos marques, logos, applications et logiciels auprès de l'OAPI. Protection de votre propriété intellectuelle en zone francophone.";
 $active = 'oapi';
-$extraCss = ['assets/css/pages.css'];
+$extraCss = ['assets/css/pages.css?v=3'];
 
 include __DIR__ . '/../templates/partials/site-header.php';
 ?>
@@ -17,7 +17,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
         <p>FEDPAWA CORPORATE SOLUTIONS SARL met à votre disposition son expertise pointue en droit de la propriété intellectuelle. Nous analysons la disponibilité de vos actifs, structurons vos dossiers de dépôt selon les normes de l'Accord de Bangui et assurons un suivi juridique rigoureux jusqu'à l'obtention de votre certificat d'enregistrement officiel.</p>
         <div style="display: flex; gap: 16px; flex-wrap: wrap;">
           <a href="tunnel_souscription.php?service=oapi&pack=protect_brand" class="btn btn-gold">Protéger mon actif maintenant</a>
-          <a href="#poles" class="btn btn-outline">Vérifier la disponibilité (Antériorité)</a>
+          <a href="#pricing" class="btn btn-outline">Vérifier la disponibilité (Antériorité)</a>
         </div>
       </div>
     </div>
@@ -138,7 +138,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
       </div>
       <div class="pricing-grid">
         <div class="pricing-card">
-          <div class="card-header"><h3>Recherche d'Antériorité</h3><div class="price">50 000 - 100 000 FCFA<span> / dossier</span></div></div>
+          <div class="card-header"><h3>Recherche d'Antériorité</h3><div class="price">50 000 - 100 000 FCFA HT<span> / dossier</span></div></div>
           <ul class="features-list">
             <li>Recherche dans la base OAPI</li>
             <li>Analyse des similitudes</li>
@@ -148,7 +148,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
         </div>
         <div class="pricing-card popular">
           <div class="popular-badge">Recommandé</div>
-          <div class="card-header"><h3>Forfait Protect Brand & Tech</h3><div class="price">200 000 - 900 000 FCFA<span> / dossier</span></div></div>
+          <div class="card-header"><h3>Forfait Protect Brand & Tech</h3><div class="price">200 000 - 900 000 FCFA HT<span> / dossier</span></div></div>
           <ul class="features-list">
             <li>Classification de Nice</li>
             <li>Rédaction sur-mesure du dossier</li>

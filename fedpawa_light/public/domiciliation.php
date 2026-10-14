@@ -1,6 +1,6 @@
 <?php
 $title = "FEDPAWA CORPORATE SOLUTIONS | Domiciliation d'Entreprises à Douala";
-$description = "Domiciliation d'entreprises à Douala Logpom : adresse commerciale prestigieuse, gestion du courrier, salles de réunion. Dès 35 000 FCFA/mois.";
+$description = "Domiciliation d'entreprises à Douala Logpom : adresse commerciale prestigieuse, gestion du courrier, salles de réunion. Dès 35 000 FCFA/mois HT.";
 $active = 'domiciliation';
 $extraCss = ['assets/css/pages.css'];
 
@@ -92,7 +92,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
       </div>
       <div class="pricing-grid">
         <div class="pricing-card">
-          <div class="card-header"><h3>🔹 Pack ESSENTIAL</h3><div class="price">25 000 FCFA<span> / mois</span></div></div>
+          <div class="card-header"><h3>🔹 Pack ESSENTIAL</h3><div class="price">25 000 FCFA HT<span> / mois</span></div></div>
           <ul class="features-list">
             <li>Adresse de siège social à Logpom, Douala</li>
             <li>Réception du courrier</li>
@@ -104,7 +104,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
           <a href="souscription_domiciliation.php?pack=national-essential" class="btn btn-outline btn-block">Je m'abonne</a>
         </div>
         <div class="pricing-card">
-          <div class="card-header"><h3>🔹 Pack BUSINESS</h3><div class="price">45 000 FCFA<span> / mois</span></div></div>
+          <div class="card-header"><h3>🔹 Pack BUSINESS</h3><div class="price">45 000 FCFA HT<span> / mois</span></div></div>
           <ul class="features-list">
             <li>Adresse de siège social à Logpom, Douala</li>
             <li>Réception du courrier</li>
@@ -118,7 +118,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
         </div>
         <div class="pricing-card popular">
           <div class="popular-badge">Populaire</div>
-          <div class="card-header"><h3>👑 Pack PREMIUM</h3><div class="price">70 000 FCFA<span> / mois</span></div></div>
+          <div class="card-header"><h3>👑 Pack PREMIUM</h3><div class="price">70 000 FCFA HT<span> / mois</span></div></div>
           <ul class="features-list">
             <li>Adresse de siège social à Logpom, Douala</li>
             <li>Réception du courrier</li>
@@ -145,7 +145,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
       </div>
       <div class="pricing-grid">
         <div class="pricing-card">
-          <div class="card-header"><h3>✈️ ESSENTIAL DIGITAL</h3><div class="price">50 000 FCFA<span> / mois</span></div><div class="price-sub">~88 USD</div></div>
+          <div class="card-header"><h3>✈️ ESSENTIAL DIGITAL</h3><div class="price">50 000 FCFA HT<span> / mois</span></div><div class="price-sub">~88 USD</div></div>
           <ul class="features-list">
             <li>Adresse officielle du siège social à Logpom</li>
             <li>Réception physique des plis et des colis à l'accueil</li>
@@ -156,7 +156,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
           <a href="souscription_domiciliation.php?pack=international-essential" class="btn btn-outline btn-block">Je m'abonne</a>
         </div>
         <div class="pricing-card">
-          <div class="card-header"><h3>📞 BUSINESS VIRTUAL</h3><div class="price">110 000 FCFA<span> / mois</span></div><div class="price-sub">~180 USD</div></div>
+          <div class="card-header"><h3>📞 BUSINESS VIRTUAL</h3><div class="price">110 000 FCFA HT<span> / mois</span></div><div class="price-sub">~180 USD</div></div>
           <ul class="features-list">
             <li>Adresse officielle du siège social à Logpom</li>
             <li>Réception physique des plis et des colis à l'accueil</li>
@@ -171,7 +171,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
         </div>
         <div class="pricing-card popular">
           <div class="popular-badge">Prestige</div>
-          <div class="card-header"><h3>🌟 PREMIUM EXECUTIVE</h3><div class="price">175 000 FCFA<span> / mois</span></div><div class="price-sub">~290 USD</div></div>
+          <div class="card-header"><h3>🌟 PREMIUM EXECUTIVE</h3><div class="price">175 000 FCFA HT<span> / mois</span></div><div class="price-sub">~290 USD</div></div>
           <ul class="features-list">
             <li>Adresse officielle du siège social à Logpom</li>
             <li>Réception physique des plis et des colis à l'accueil</li>

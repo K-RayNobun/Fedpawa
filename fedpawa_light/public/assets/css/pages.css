@@ -180,7 +180,17 @@ html[data-theme="navy"] .oapi-alert-box { background-color: #0d1542; }
 .oapi-alert-box strong { color: #F9A825; }
 
 /* Bannière Couverture Régionale (17 Pays) */
-.oapi-map-section { background-color: #1A237E; color: #fff; padding: 80px 0; position: relative; overflow: hidden; }
+.oapi-map-section {
+  background-color: #1A237E;
+  color: #fff;
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(rgba(13,21,66,0.85), rgba(13,21,66,0.92)), url('../images/oapi_bangui_bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 html[data-theme="navy"] .oapi-map-section { background-color: #0d1542; }
 .oapi-map-section::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #F9A825, transparent); }
 .oapi-map-wrapper { text-align: center; }

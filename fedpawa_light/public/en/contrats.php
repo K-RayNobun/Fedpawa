@@ -134,7 +134,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
       </div>
       <div class="pricing-grid">
         <div class="pricing-card">
-          <div class="card-header"><h3>Standard Instrument Plan</h3><div class="price">50 000 - 150 000 FCFA<span> / instrument</span></div></div>
+          <div class="card-header"><h3>Standard Instrument Plan</h3><div class="price">50 000 - 150 000 FCFA HT<span> / instrument</span></div></div>
           <ul class="features-list">
             <li>Rédaction de contrats de travail (CDI/CDD)</li>
             <li>Accords de confidentialité (NDA)</li>
@@ -145,7 +145,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
         </div>
         <div class="pricing-card popular">
           <div class="popular-badge">Recommandé</div>
-          <div class="card-header"><h3>Complex Instrument Plan</h3><div class="price">150 000 - 500 000 FCFA<span> / instrument</span></div></div>
+          <div class="card-header"><h3>Complex Instrument Plan</h3><div class="price">150 000 - 500 000 FCFA HT<span> / instrument</span></div></div>
           <ul class="features-list">
             <li>Rédaction de contrats de partenariat d'affaires</li>
             <li>Baux professionnels et commerciaux OHADA</li>

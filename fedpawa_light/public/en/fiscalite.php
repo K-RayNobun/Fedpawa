@@ -135,7 +135,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
           <div class="popular-badge">Populaire</div>
           <div class="card-header">
             <h3>Simplified Regime Plan</h3>
-            <div class="price">35 000 FCFA<span> / month</span></div>
+            <div class="price">35 000 FCFA HT<span> / month</span></div>
           </div>
           <ul class="features-list">
             <li>Déclarations mensuelles DGI (TVA, Acomptes, Salaires)</li>

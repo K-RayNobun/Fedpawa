@@ -3,159 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mot de passe oublié | FEDPAWA CORPORATE SOLUTIONS</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=2">
-<link rel="stylesheet" href="assets/css/components.css?v=2">
-<link rel="stylesheet" href="assets/css/dashboard.css?v=2">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+<meta name="theme-color" content="#15294D">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FEDPAWA CORPORATE SOLUTIONS">
+<meta property="og:title" content="FEDPAWA CORPORATE SOLUTIONS">
+<meta property="og:description" content="Infrastructure d'affaires à Douala : domiciliation, création d'entreprise, fiscalité, OAPI">
+<meta property="og:url" content="">
+<meta property="og:image" content="https://api.fedpawa.com/assets/images/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="FEDPAWA CORPORATE SOLUTIONS">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FEDPAWA CORPORATE SOLUTIONS">
+<meta name="twitter:description" content="Infrastructure d'affaires à Douala : domiciliation, création d'entreprise, fiscalité, OAPI">
+<meta name="twitter:image" content="https://api.fedpawa.com/assets/images/og-cover.jpg">
+<title>FEDPAWA CORPORATE SOLUTIONS | Mot de passe oublié</title>
 </head>
 <body>
-
-<div class="auth-wrapper">
-  <aside class="auth-visual">
-    <a href="index.php" class="auth-brand">
-      <span class="brand-mark">F</span>
-      <span><strong>FEDPAWA</strong><small>Corporate Solutions</small></span>
-    </a>
-    <div class="auth-content">
-      <h1>Sécurité et <span>Confidentialité</span> Absolue.</h1>
-      <p>Vos données sont protégées par un chiffrement de bout en bout. Réinitialisez votre accès en toute sérénité.</p>
-      <ul class="auth-features">
-        <li class="auth-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Chiffrement SSL 256-bit</li>
-        <li class="auth-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Authentification Sécurisée</li>
-        <li class="auth-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Assistance 24/7</li>
-      </ul>
-    </div>
-    <div class="auth-footer-info">© FEDPAWA Corporate Solutions</div>
-  </aside>
-
-  <section class="auth-forms">
-    <div class="form-container">
-      
-      <!-- ÉTAT 1 : DEMANDE -->
-      <div class="reset-state active" id="state-request">
-        <a href="authentification.html" class="back-link">← Retour à la page de connexion</a>
-        <div class="form-header">
-          <h2>Mot de passe oublié ?</h2>
-          <p>Ne vous inquiétez pas. Saisissez votre identifiant pour réinitialiser votre accès.</p>
-        </div>
-
-        <form id="requestForm">
-          <div class="form-group" id="emailInput">
-            <label for="reset_email">Adresse E-mail professionnelle</label>
-            <input type="email" id="reset_email" name="email" class="form-control" placeholder="nom@entreprise.cm" autocomplete="email" required>
-          </div>
-          
-          <button type="submit" class="btn btn-primary btn-block">Envoyer le lien de réinitialisation</button>
-        </form>
-
-        <p style="text-align: center; margin-top: 30px; font-size: 0.85rem; color: var(--color-text-muted);">
-          Vous rencontrez des difficultés ?<br>
-          <a href="https://wa.me/2376XXXXXXXX" style="font-weight: 600; color: var(--color-primary);">Contacter le support client</a>
-        </p>
-      </div>
-
-      <!-- ÉTAT 2 : OTP -->
-      <div class="reset-state" id="state-otp">
-        <a href="#" class="back-link" onclick="showState('state-request'); return false;">← Modifier l'identifiant</a>
-        <div class="form-header">
-          <h2>Saisissez le code de vérification</h2>
-          <p>Un code à 6 chiffres a été envoyé à votre adresse e-mail professionnelle.</p>
-        </div>
-
-        <form id="otpForm">
-          <div class="otp-group" role="group" aria-label="Code de vérification à 6 chiffres">
-            <input type="text" inputmode="numeric" autocomplete="one-time-code" class="otp-input" maxlength="1" aria-label="Chiffre 1 sur 6" required>
-            <input type="text" inputmode="numeric" autocomplete="one-time-code" class="otp-input" maxlength="1" aria-label="Chiffre 2 sur 6" required>
-            <input type="text" inputmode="numeric" autocomplete="one-time-code" class="otp-input" maxlength="1" aria-label="Chiffre 3 sur 6" required>
-            <input type="text" inputmode="numeric" autocomplete="one-time-code" class="otp-input" maxlength="1" aria-label="Chiffre 4 sur 6" required>
-            <input type="text" inputmode="numeric" autocomplete="one-time-code" class="otp-input" maxlength="1" aria-label="Chiffre 5 sur 6" required>
-            <input type="text" inputmode="numeric" autocomplete="one-time-code" class="otp-input" maxlength="1" aria-label="Chiffre 6 sur 6" required>
-          </div>
-          
-          <p style="text-align: center; font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 20px;">
-            Vous pourrez redemander un code dans : <strong id="otpTimer" style="color: var(--color-danger);">03:00</strong><br>
-            <a href="#" id="resendLink" style="display: none; color: var(--color-primary); font-weight: 600;">Vous n'avez rien reçu ? Renvoyer le code</a>
-          </p>
-
-          <button type="submit" class="btn btn-primary btn-block">Valider le code</button>
-        </form>
-      </div>
-
-      <!-- ÉTAT 3 : NOUVEAU MOT DE PASSE -->
-      <div class="reset-state" id="state-new-pwd">
-        <div class="form-header">
-          <h2>Réinitialisez votre mot de passe</h2>
-          <p>Choisissez un mot de passe robuste pour protéger votre espace d'affaires.</p>
-        </div>
-
-        <form id="newPwdForm">
-          <div class="form-group">
-            <label for="newPwd">Nouveau mot de passe</label>
-            <div class="pwd-input-wrapper">
-              <input type="password" id="newPwd" name="new_password" class="form-control" autocomplete="new-password" required>
-              <button type="button" class="pwd-toggle" onclick="togglePwd('newPwd')">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-              </button>
-            </div>
-            <div class="pwd-strength-bar"><div class="pwd-strength-fill" id="strengthFill"></div></div>
-            <div class="pwd-strength-text" id="strengthText"></div>
-          </div>
-
-          <ul class="pwd-checklist">
-            <li>Au moins 8 caractères</li>
-            <li>1 majuscule et 1 minuscule</li>
-            <li>1 chiffre</li>
-            <li>1 caractère spécial (@, #, $...)</li>
-          </ul>
-
-          <div class="form-group">
-            <label for="confirmPwd">Confirmer le nouveau mot de passe</label>
-            <div class="pwd-input-wrapper">
-              <input type="password" id="confirmPwd" name="confirm_password" class="form-control" autocomplete="new-password" required>
-              <button type="button" class="pwd-toggle" onclick="togglePwd('confirmPwd')">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-              </button>
-            </div>
-          </div>
-
-          <button type="submit" class="btn btn-primary btn-block">Mettre à jour mon mot de passe</button>
-        </form>
-      </div>
-
-      <!-- ÉTAT 4 : SUCCÈS -->
-      <div class="reset-state" id="state-success">
-        <div class="success-state">
-          <div class="success-icon-large">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <h2>Mot de passe mis à jour avec succès !</h2>
-          <p>Votre mot de passe a été réinitialisé. Vous pouvez maintenant accéder à votre Espace Client pour suivre vos démarches.</p>
-          <a href="authentification.html" class="btn btn-primary btn-block" style="margin-top: 30px;">Se connecter à l'Espace Client</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-</div>
-
-<div class="switcher-container">
-  <div class="theme-pill">
-    <button class="theme-btn active" data-theme="navy"><span class="theme-dot" style="background: #15294D; border-color: #D4AF37;"></span><span>Nuit & Or</span></button>
-  </div>
-  <div class="switcher-divider"></div>
-  <button class="mode-toggle" id="modeToggle">
-    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-  </button>
-</div>
-
-<script src="assets/js/main.js"></script>
-<script src="assets/js/api.js"></script>
-    <script src="assets/js/config.js"></script>
-<script src="assets/js/fedpawa-ui.js?v=2"></script>
-<script src="assets/js/password-reset.js"></script>
 </body>
 </html>

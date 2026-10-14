@@ -1,6 +1,6 @@
 <?php
 $title = "FEDPAWA CORPORATE SOLUTIONS | Rédaction de Contrats Juridiques";
-$description = "Rédaction de contrats sociaux, commerciaux, de travail, NDAs et conventionnels par des juristes FEDPAWA. Souscription en ligne dès 100 000 FCFA.";
+$description = "Rédaction de contrats sociaux, commerciaux, de travail, NDAs et conventionnels par des juristes FEDPAWA. Souscription en ligne dès 100 000 FCFA HT.";
 $active = 'contrats';
 $extraCss = ['assets/css/pages.css'];
 
@@ -132,7 +132,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
       </div>
       <div class="pricing-grid">
         <div class="pricing-card">
-          <div class="card-header"><h3>Forfait Acte Standard</h3><div class="price">50 000 - 150 000 FCFA<span> / acte</span></div></div>
+          <div class="card-header"><h3>Forfait Acte Standard</h3><div class="price">50 000 - 150 000 FCFA HT<span> / acte</span></div></div>
           <ul class="features-list">
             <li>Rédaction de contrats de travail (CDI/CDD)</li>
             <li>Accords de confidentialité (NDA)</li>
@@ -143,7 +143,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
         </div>
         <div class="pricing-card popular">
           <div class="popular-badge">Recommandé</div>
-          <div class="card-header"><h3>Forfait Acte Complexe</h3><div class="price">150 000 - 500 000 FCFA<span> / acte</span></div></div>
+          <div class="card-header"><h3>Forfait Acte Complexe</h3><div class="price">150 000 - 500 000 FCFA HT<span> / acte</span></div></div>
           <ul class="features-list">
             <li>Rédaction de contrats de partenariat d'affaires</li>
             <li>Baux professionnels et commerciaux OHADA</li>

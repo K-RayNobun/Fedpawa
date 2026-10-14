@@ -170,7 +170,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
           <div class="popular-badge">Forfait Unique</div>
           <div class="card-header">
             <h3>Création & Légalisation d'Entreprise</h3>
-            <div class="price">100 000 FCFA<span> / dossier</span></div>
+            <div class="price">100 000 FCFA HT<span> / dossier</span></div>
           </div>
           <ul class="features-list">
             <li>Audit préalable & choix de la structure</li>

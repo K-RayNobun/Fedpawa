@@ -82,9 +82,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2bis. Validation obligatoire d'une étape avant de continuer (Lane tunnel v3)
     // Tous les champs [required] visibles de l'étape doivent être remplis.
+    // Lane test admin : si l'admin est connecté, on autorise le saut pour accélérer les tests.
     window.validateStep = function(fromStep, toStep) {
         const content = document.getElementById('step-' + fromStep);
         if (!content) { goToStep(toStep); return; }
+        // Admin connecté : autoriser le saut sans validation (pour les tests rapides)
+        if (typeof window !== 'undefined' && window.admin_logged_in) {
+            goToStep(toStep);
+            return;
+        }
         // activer temporairement la validité native des champs visibles de l'étape
         const fields = Array.from(content.querySelectorAll('input, select, textarea')).filter(el => {
             if (!el.offsetParent && el.type !== 'checkbox' && el.type !== 'radio') return false; // invisible

@@ -2,6 +2,7 @@
    FEDPAWA — DESIGN SYSTEM & TOKENS
    ========================================================== */
 :root {
+  --font-serif: "Playfair Display", Georgia, serif; --font-sans: "Open Sans", "Helvetica Neue", Arial, sans-serif; --font-heading: "Playfair Display", Georgia, serif;
   --color-primary: #15294D; --color-primary-hover: #0A1424; --color-primary-light: #213b6b; --color-primary-soft: #eef2f8;
   --color-gold: #D4AF37; --color-gold-soft: #e6d2a3;
   --color-surface-dark: #0A1424; --color-surface-darker: #05080F;

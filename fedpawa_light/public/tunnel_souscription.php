@@ -10,6 +10,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
 
 
 <div id="tunnelMeta" data-skip-step1="0"></div>
+<script>window.admin_logged_in = <?= isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] ? 'true' : 'false' ; ?></script>
 
 <div class="progress-wrapper">
   <div class="container">

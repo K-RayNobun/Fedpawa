@@ -15,8 +15,8 @@ include __DIR__ . '/../../templates/partials/site-header.php';
         <div class="hero-badge">Contractual Engineering & OHADA Compliance</div>
         <h1>Drafting of All Types of Contracts (Corporate, Commercial, Employment, Service, Confidentiality, Etc.)</h1>
         <p class="subtitle">Lock In Your Partnerships, Protect Your Transactions and Eliminate Your Legal Risks</p>
-        <p>Chaque signature engage l'avenir, la trésorerie et la responsabilité de votre entreprise. Qu'il s'agisse de recruter un collaborateur, de signer avec un distributeur, de louer un local ou de nouer un partenariat technologique, le contrat est votre seule véritable assurance. Un document flou ou inadapté aux réalités du droit local est une faille que vos partenaires ou concurrents n'hésiteront pas à exploiter en cas de conflit.</p>
-        <p>FEDPAWA CORPORATE SOLUTIONS SARL met son expertise en ingénierie contractuelle au service de votre sécurité. Nous concevons, rédigeons et auditons vos actes juridiques pour vous offrir une protection maximale, équilibrer vos relations d'affaires et vous garantir une parfaite conformité avec le Code du travail camerounais et les Actes Uniformes de l'OHADA.</p>
+        <p>Every signature commits your company's future, cash flow and liability. Whether you are hiring an employee, signing with a distributor, leasing premises or entering a technology partnership, the contract is your only real insurance. A vague document, or one unsuited to the realities of local law, is a loophole your partners or competitors will not hesitate to exploit in the event of a dispute.</p>
+        <p>FEDPAWA CORPORATE SOLUTIONS SARL met son expertise en ingénierie contractuelle au service de votre sécurité. We draft, review and audit your legal instruments to give you maximum protection, balance your business relationships and guarantee full compliance with the Cameroonian Labour Code and the OHADA Uniform Acts.</p>
         <div style="display: flex; gap: 16px; flex-wrap: wrap;">
           <a href="#pricing" class="btn btn-primary">See the plans</a>
           <a href="../contact.php" class="btn btn-outline">Request a quote</a>
@@ -32,7 +32,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
         <div class="legal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <div class="legal-content">
           <h3>Maximum Tailored Protection</h3>
-          <p>Nous concevons, rédigeons et auditons vos actes juridiques pour vous offrir une protection maximale, équilibrer vos relations d'affaires et vous garantir une parfaite conformité avec le <strong>Code du travail camerounais</strong> et les <strong>Actes Uniformes de l'OHADA</strong>.</p>
+          <p>We draft, review and audit your legal instruments to give you maximum protection, balance your business relationships and guarantee full compliance with the OHADA Uniform Acts and Cameroonian law.<strong>Code du travail camerounais</strong> et les <strong>Actes Uniformes de l'OHADA</strong>.</p>
         </div>
       </div>
     </div>
@@ -50,54 +50,54 @@ include __DIR__ . '/../../templates/partials/site-header.php';
         <div class="solution-card">
           <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 12h6M9 16h6"/></svg></div>
           <h3>📝 1. Commercial, Service & Business Partnership Contracts</h3>
-          <span class="obj">Nous sécurisons vos relations avec votre écosystème commercial (clients, fournisseurs, prestataires) :</span>
+          <span class="obj">We secure your relationships with your commercial ecosystem (customers, suppliers, service providers):</span>
           <ul class="solution-list">
-            <li>Rédaction de contrats de prestations de services, de sous-traitance et de co-traitance.</li>
+            <li>Drafting of service agreements, subcontracting and joint-contracting contracts.</li>
             <li>Conception de baux professionnels et commerciaux conformes aux exigences strictes de l'OHADA.</li>
-            <li>Rédaction de contrats de distribution, de franchise, d'agence commerciale et d'approvisionnement.</li>
-            <li>Établissement de Conditions Générales de Vente (CGV) et de Conditions Générales d'Utilisation (CGU) pour vos plateformes physiques ou e-commerce.</li>
+            <li>Drafting of distribution, franchise, commercial agency and supply agreements.</li>
+            <li>Preparation of General Terms and Conditions of Sale (GTC) and General Terms of Use (GTU) for your physical or e-commerce platforms.</li>
           </ul>
         </div>
 
         <div class="solution-card">
           <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
           <h3>👥 2. Employment Contracts & Corporate Agreements (HR Management)</h3>
-          <span class="obj">Nous protégeons votre entreprise contre le risque de contentieux prud'homal (Tribunal du travail) :</span>
+          <span class="obj">We protect your company against the risk of labour litigation (Labour Court):</span>
           <ul class="solution-list">
-            <li>Rédaction de contrats de travail sur-mesure (CDI, CDD, contrats d'apprentissage, stagiaires) en parfaite adéquation avec le Code du travail camerounais et les conventions collectives applicables.</li>
-            <li>Insertion de clauses protectrices spécifiques : clauses de non-concurrence, clauses de confidentialité strictes (NDA), clauses de dédit-formation ou d'exclusivité.</li>
-            <li>Assistance à la rédaction de règlements intérieurs d'entreprise, chartes sociales et avenants contractuels.</li>
+            <li>Drafting of tailored employment contracts (permanent, fixed-term, apprenticeship, internship) in full alignment with the Cameroonian Labour Code and applicable collective agreements.</li>
+            <li>Inclusion of specific protective clauses: non-compete clauses, strict confidentiality clauses (NDA), training repayment or exclusivity clauses.</li>
+            <li>Assistance in drafting company internal regulations, social charters and contractual amendments.</li>
           </ul>
         </div>
 
         <div class="solution-card">
           <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
           <h3>🔒 3. Non-Disclosure Agreements (NDA) & Specific Security</h3>
-          <span class="obj">Protéger vos secrets d'affaires avant tout partenariat :</span>
+          <span class="obj">Protect your trade secrets before any partnership:</span>
           <ul class="solution-list">
-            <li>Rédaction d'accords unilatéraux ou réciproques de confidentialité (NDA) pour protéger vos secrets d'affaires, concepts et négociations avant tout partenariat.</li>
+            <li>Drafting of unilateral or mutual non-disclosure agreements (NDA) to protect your trade secrets, concepts and negotiations before any partnership.</li>
           </ul>
         </div>
 
         <div class="solution-card">
           <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
           <h3>🔍 4. Contract Audit & Risk Management</h3>
-          <span class="obj">Avant de signer un document proposé par un tiers (banque, multinationale, État), nous passons l'acte au peigne fin :</span>
+          <span class="obj">Before you sign a document proposed by a third party (bank, multinational, State), we go through the instrument with a fine-tooth comb:</span>
           <ul class="solution-list">
-            <li>Identification des clauses cachées, léonines ou disproportionnées qui déséquilibrent l'accord.</li>
-            <li>Évaluation des mécanismes de responsabilité civile, des clauses pénales (pénalités de retard) et des conditions de résiliation.</li>
-            <li>Rédaction de contre-propositions juridiques pour rééquilibrer la négociation en votre faveur.</li>
+            <li>Identification of hidden, one-sided or disproportionate clauses that unbalance the agreement.</li>
+            <li>Assessment of civil liability mechanisms, penalty clauses (late-payment penalties) and termination conditions.</li>
+            <li>Drafting of legal counter-proposals to rebalance the negotiation in your favour.</li>
           </ul>
         </div>
 
         <div class="solution-card">
           <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
           <h3>🔐 5. Document Security & Private Cloud Archiving</h3>
-          <span class="obj">Nous protégeons vos actes majeurs contre la perte, la falsification ou le vol :</span>
+          <span class="obj">We protect your major instruments against loss, falsification or theft:</span>
           <ul class="solution-list">
-            <li>Contrôle de la validité des signatures et de la chaîne de pouvoirs des signataires.</li>
-            <li>Numérisation haute définition et indexation méthodique de vos archives juridiques.</li>
-            <li>Mise à disposition d'un Coffre-fort Numérique sécurisé (Cloud privé FEDPAWA) pour vous permettre d'accéder à vos contrats stratégiques 24h/24 et 7j/7, où que vous soyez dans le monde, de manière totalement cryptée.</li>
+            <li>Verification of the validity of signatures and the signatories' chain of authority.</li>
+            <li>High-definition digitisation and methodical indexing of your legal archives.</li>
+            <li>A secure Digital Safe (private FEDPAWA cloud) so you can access your strategic contracts 24/7, anywhere in the world, fully encrypted.</li>
           </ul>
         </div>
       </div>
@@ -110,10 +110,10 @@ include __DIR__ . '/../../templates/partials/site-header.php';
       <div class="safe-wrapper">
         <div class="safe-content">
           <h2>Your Secure Digital Safe</h2>
-          <p>Accédez à vos contrats stratégiques et actes juridiques majeurs 24h/24 et 7j/7, où que vous soyez dans le monde. Tous vos documents sont numérisés en haute définition, indexés et stockés dans un espace Cloud privé totalement crypté.</p>
+          <p>Access your strategic contracts and major legal instruments 24/7, wherever you are in the world. All your documents are digitised in high definition, indexed and stored in a fully encrypted private cloud space.</p>
           <div class="safe-features">
             <div class="safe-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Chiffrement de bout en bout</div>
-            <div class="safe-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Accessibilité mondiale 24/7</div>
+            <div class="safe-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Worldwide 24/7 availability</div>
             <div class="safe-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Anti-falsification garantie</div>
             <div class="safe-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Sauvegarde redondante</div>
           </div>
@@ -136,18 +136,18 @@ include __DIR__ . '/../../templates/partials/site-header.php';
         <div class="pricing-card">
           <div class="card-header"><h3>Standard Instrument Plan</h3><div class="price">50 000 - 150 000 FCFA HT<span> / instrument</span></div></div>
           <ul class="features-list">
-            <li>Rédaction de contrats de travail (CDI/CDD)</li>
-            <li>Accords de confidentialité (NDA)</li>
+            <li>Drafting of employment contracts (permanent / fixed-term)</li>
+            <li>Non-disclosure agreements (NDA)</li>
             <li>Avenants contractuels</li>
             <li>Lettres d'intention (LOI)</li>
           </ul>
           <a href="../tunnel_souscription.php?service=contrats&pack=standard" class="btn btn-outline btn-block">I secure my contracts</a>
         </div>
         <div class="pricing-card popular">
-          <div class="popular-badge">Recommandé</div>
+          <div class="popular-badge">Recommended</div>
           <div class="card-header"><h3>Complex Instrument Plan</h3><div class="price">150 000 - 500 000 FCFA HT<span> / instrument</span></div></div>
           <ul class="features-list">
-            <li>Rédaction de contrats de partenariat d'affaires</li>
+            <li>Drafting of business partnership agreements</li>
             <li>Baux professionnels et commerciaux OHADA</li>
             <li>Contrats de distribution & franchise</li>
             <li>CGV / CGU sur-mesure</li>
@@ -155,12 +155,12 @@ include __DIR__ . '/../../templates/partials/site-header.php';
           <a href="../tunnel_souscription.php?service=contrats&pack=complexe" class="btn btn-primary btn-block">I secure my contracts</a>
         </div>
         <div class="pricing-card">
-          <div class="card-header"><h3>Third-Party Legal Audit</h3><div class="price">Sur Devis Personnalisé</div></div>
+          <div class="card-header"><h3>Third-Party Legal Audit</h3><div class="price">Custom Quote</div></div>
           <ul class="features-list">
-            <li>Analyse complète de contrats proposés par des tiers</li>
-            <li>Détection des clauses léonines et réécriture</li>
+            <li>Full analysis of third-party contracts</li>
+            <li>Detection of one-sided clauses and redrafting</li>
             <li>Conseil et contre-propositions juridiques</li>
-            <li>Rééquilibrage de la négociation</li>
+            <li>Rebalancing of the negotiation</li>
           </ul>
           <a href="../contact.php?service=audit-juridique" class="btn btn-outline btn-block">Request a quote</a>
         </div>

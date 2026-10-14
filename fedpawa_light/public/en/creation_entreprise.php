@@ -15,7 +15,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
         <div class="hero-badge">100% Compliant with OHADA Uniform Acts & GUCE/CFCE</div>
         <h1>Company Formation, Transformation, Restructuring & Legalization</h1>
         <p class="subtitle">Give Your Project a Legal and Unassailable Existence in Cameroon</p>
-        <p>Que vous soyez un entrepreneur local formalisant sa première activité, un investisseur étranger ou un membre de la Diaspora structurant son patrimoine, la création ou la restructuration d'une entreprise ne se résume pas à remplir un formulaire administratif. C'est un acte juridique fondateur qui détermine votre responsabilité, votre gouvernance et votre optimisation fiscale future.</p>
+        <p>Whether you are a local entrepreneur formalising your first business, a foreign investor or a member of the Diaspora structuring your assets, the creation or conversion of your company in Cameroon deserves rigorous legal engineering. Our firm guides you step by step: optimal legal form, tailored articles of association, RCCM and tax formalities — through to the complete, ready-to-use kit.</p>
         <p>FEDPAWA CORPORATE SOLUTIONS SARL prend en charge l'intégralité de vos démarches de constitution, transformation, restructuration et légalisation auprès des autorités camerounaises.</p>
         <div style="display: flex; gap: 16px; flex-wrap: wrap;">
           <a href="../tunnel_souscription.php?service=creation&pack=standard" class="btn btn-gold">I create my company</a>
@@ -32,12 +32,12 @@ include __DIR__ . '/../../templates/partials/site-header.php';
         <div class="oapi-risk-text">
           <span class="section-kicker">Strategic Pitch</span>
           <h2>More Than a Registration: The Foundation of Your Estate</h2>
-          <p>Un projet d'entreprise solide repose sur des fondations juridiques rigoureuses. L'utilisation de modèles de statuts génériques ou inadaptés constitue une menace permanente : conflits d'associés d'une gérance non cadrée, blocages lors de l'entrée d'investisseurs ou surimposition fiscale imprévue. Nous ne laissons rien au hasard.</p>
+          <p>A solid business project rests on rigorous legal foundations. Using generic or unsuitable model articles is a constant threat to partners. At FEDPAWA, every instrument is drafted or reviewed by a business lawyer.</p>
           <p>Chaque acte est rédigé sur-mesure pour protéger vos intérêts et vous garantir une parfaite conformité avec le droit OHADA.</p>
         </div>
         <div class="oapi-alert-box">
-          <h3><span>⚠️</span> Attention aux statuts standardisés !</h3>
-          <p>Vos statuts fixent les règles du jeu entre associés, la répartition des pouvoirs et les conditions de sortie. Rédiger des statuts bâclés, c'est s'exposer à l'impossibilité de trancher un litige ou de céder ses parts. <strong>FEDPAWA personnalise chaque clause</strong> pour sécuriser votre contrôle et votre capital.</p>
+          <h3><span>⚠️</span> Beware of standardised articles!</h3>
+          <p>Your articles of association set the rules of the game between partners, the allocation of powers and exit conditions. Sloppy articles expose you to impossible governance and personal liability.<strong>FEDPAWA personnalise chaque clause</strong> to secure your control and your capital.</p>
         </div>
       </div>
     </div>
@@ -47,7 +47,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
   <section class="process-section" id="process">
     <div class="container">
       <div class="section-header">
-        <span class="section-kicker">Notre méthodologie</span>
+        <span class="section-kicker">Our Methodology</span>
         <h2>The Complete 4-Step Registration Process</h2>
         <p>Complete end-to-end handling, with no travel required on your part.</p>
       </div>
@@ -59,9 +59,9 @@ include __DIR__ . '/../../templates/partials/site-header.php';
           <h3>🔍 Step 1: Preliminary Audit & Strategic Orientation</h3>
           <p>Before launching any procedure, we analyze your project to validate the fundamental choices:</p>
           <ul class="process-list">
-            <li><strong>Sélection de la Forme Juridique :</strong> orientation objective entre l'Établissement (Nom propre), la SARL (Société à Responsabilité Limitée), la SAS (Société par Actions Simplifiée) ou la SA (Société Anonyme) selon vos ambitions et le nombre d'associés.</li>
-            <li><strong>Structuration du Capital Social :</strong> conseil sur la répartition des parts, les apports en numéraire ou en nature, et la protection des associés fondateurs.</li>
-            <li><strong>Validation de la Gouvernance :</strong> définition des pouvoirs de la gérance ou de la présidence, et des modalités de prise de décision (clauses de blocage, majorité requise).</li>
+            <li><strong>Choice of Legal Form:</strong> orientation objective entre l'Sole Proprietorship (Nom propre), la SARL (Société à Responsabilité Limitée), la SAS (Société par Actions Simplifiée) ou la SA (Public Limited Company) selon vos ambitions et le nombre d'associés.</li>
+            <li><strong>Structuration du Capital Social :</strong> advice on share allocation, cash or in-kind contributions, and the protection of founding partners.</li>
+            <li><strong>Validation de la Gouvernance :</strong> definition of the powers of the manager or president, and of decision-making rules (blocking clauses, required majority).</li>
           </ul>
         </div>
 
@@ -72,8 +72,8 @@ include __DIR__ . '/../../templates/partials/site-header.php';
           <p>We do not use generic templates. Your documents are drafted on a tailor-made basis by business law experts:</p>
           <ul class="process-list">
             <li>Rédaction des Statuts de la société en stricte conformité avec les Actes Uniformes de l'OHADA.</li>
-            <li>Rédaction de la Déclaration de Souscription et de Versement (DSV).</li>
-            <li>Rédaction des procès-verbaux de nomination des premiers dirigeants (Gérants, Présidents, Directeurs Généraux).</li>
+            <li>Drafting of the Subscription and Payment Declaration (DSV).</li>
+            <li>Drafting of the minutes appointing the first officers (Managers, Presidents, Managing Directors).</li>
           </ul>
         </div>
 
@@ -83,8 +83,8 @@ include __DIR__ . '/../../templates/partials/site-header.php';
           <h3>🏛️ Step 3: The Administrative Circuit & Registration</h3>
           <p>We handle the entire institutional journey. You have no travel to perform:</p>
           <ul class="process-list">
-            <li><strong>Interface Notariale :</strong> suivi du dossier auprès de nos études de notaires partenaires à Douala et Yaoundé pour la passation et la certification des actes.</li>
-            <li><strong>Dépôt au Greffe & CFCE / Enregistrement Fiscal :</strong> prise en charge des démarches et de l'obtention des registres officiels.</li>
+            <li><strong>Interface Notariale :</strong> case follow-up with our partner notary offices in Douala and Yaoundé for the execution and certification of the deeds.</li>
+            <li><strong>Filing with the Registry & CFCE / Tax Registration:</strong> handling of the formalities and obtainment of the official registers.</li>
           </ul>
         </div>
 
@@ -94,11 +94,11 @@ include __DIR__ . '/../../templates/partials/site-header.php';
           <h3>💼 Step 4: Delivery of the "Corporate Kit"</h3>
           <p>At the end of the procedure, we hand over your complete legal file, organized and secured, including:</p>
           <ul class="process-list">
-            <li>L'exemplaire original des statuts notariés.</li>
+            <li>The original copy of the notarised articles.</li>
             <li>Votre titre de Registre du Commerce (RCCM).</li>
             <li>Votre Numéro d'identifiant unique (NIU) et votre Carte de Contribuable active.</li>
           </ul>
-          <p><em>NB : Ce kit complet est immédiatement opérationnel pour l'ouverture de vos comptes bancaires professionnels au Cameroun et la signature de vos premiers contrats.</em></p>
+          <p><em>NB: this complete kit is immediately usable to open your professional bank accounts in Cameroon and sign your first contracts.</em></p>
         </div>
       </div>
     </div>
@@ -112,18 +112,18 @@ include __DIR__ . '/../../templates/partials/site-header.php';
           <div class="kit-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
           </div>
-          <h3>Kit Corporate Exécutif</h3>
-          <p>Un dossier complet, classé et sécurisé, prêt à l'emploi pour le lancement de votre activité.</p>
+          <h3>Executive Corporate Kit</h3>
+          <p>A complete, organised and secured file, ready to use for launching your business.</p>
         </div>
         <div class="kit-content">
           <span class="section-kicker">Livraison Finale</span>
-          <h2>Un Dossier Prêt pour l'Ouverture de Compte Bancaire</h2>
-          <p>À l'issue du processus, nous vous remettons un "Kit Corporate" physique et numérique contenant l'ensemble des originaux de votre entreprise. Ce dossier est immédiatement accepté par toutes les banques camerounaises pour l'ouverture de vos comptes professionnels.</p>
+          <h2>A File Ready for Bank Account Opening</h2>
+          <p>At the end of the process, we hand you a physical and digital "Corporate Kit" containing all your company's originals. This file is immediately operational for opening your professional bank accounts in Cameroon.</p>
           <div class="kit-features">
-            <div class="kit-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Statuts notariés originaux</div>
+            <div class="kit-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Original notarised articles</div>
             <div class="kit-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Titre RCCM officiel</div>
             <div class="kit-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> NIU & Carte de Contribuable active</div>
-            <div class="kit-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Zéro déplacement requis</div>
+            <div class="kit-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> No travel required</div>
           </div>
         </div>
       </div>
@@ -136,24 +136,24 @@ include __DIR__ . '/../../templates/partials/site-header.php';
       <div class="section-header">
         <span class="section-kicker">Structuration</span>
         <h2>Overview of the Main Legal Forms</h2>
-        <p>Nous vous orientons objectivement vers la structure la plus adaptée à votre vision.</p>
+        <p>We objectively steer you towards the structure best suited to your vision.</p>
       </div>
       <div class="forms-grid">
         <div class="form-card">
-          <h4>Établissement</h4>
-          <p>Idéal pour les commerçants et indépendants démarrant seuls, sans capital minimal exigeant.</p>
+          <h4>Sole Proprietorship</h4>
+          <p>Ideal for traders and self-employed starters, with no minimum capital requirement.</p>
         </div>
         <div class="form-card">
           <h4>SARL / SARLU</h4>
-          <p>Structure la plus répandue, protégeant le patrimoine personnel avec une gestion encadrée pour 1 ou plusieurs associés.</p>
+          <p>The most widespread structure, protecting personal assets with structured management for one or more partners.</p>
         </div>
         <div class="form-card">
           <h4>SAS / SASU</h4>
-          <p>Prisée par les startups et investisseurs pour sa très grande souplesse contractuelle et de gouvernance.</p>
+          <p>Prized by startups and investors for its great contractual and governance flexibility.</p>
         </div>
         <div class="form-card">
-          <h4>SA (Société Anonyme)</h4>
-          <p>Consacrée aux grands projets d'investissement, nécessitant un conseil d'administration structuré.</p>
+          <h4>SA (Public Limited Company)</h4>
+          <p>Reserved for large investment projects requiring a structured board of directors.</p>
         </div>
       </div>
     </div>
@@ -176,18 +176,17 @@ include __DIR__ . '/../../templates/partials/site-header.php';
             <div class="price">100 000 FCFA HT<span> / file</span></div>
           </div>
           <ul class="features-list">
-            <li>Audit préalable & choix de la structure</li>
+            <li>Preliminary audit & choice of structure</li>
             <li>Rédaction sur-mesure des statuts OHADA, DSV et PV</li>
             <li>Suivi du circuit notarial, Greffe, CFCE & DGI</li>
             <li>Livraison du Kit Corporate complet (RCCM, NIU, Statuts)</li>
           </ul>
-          <a href="../tunnel_souscription.php?service=creation&pack=standard" class="btn btn-primary btn-block">Je crée mon entreprise</a>
+          <a href="../tunnel_souscription.php?service=creation&pack=standard" class="btn btn-primary btn-block">Create my company</a>
         </div>
       </div>
 
       <div class="oapi-pricing-note">
-        <strong>Transparency on official disbursements:</strong> Les frais de notaire, les taxes légales d'enregistrement, les droits de timbre administratifs et les débours officiels varient selon la forme juridique retenue et le montant du capital social. Ils sont facturés au coût réel, sur présentation des justificatifs officiels.
-      </div>
+        <strong>Transparency on official disbursements:</strong> Notary fees, legal registration taxes, administrative stamp duties and official disbursements vary according to the chosen legal form and the amount of share capital.</div>
     </div>
   </section>
 

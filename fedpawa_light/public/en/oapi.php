@@ -30,10 +30,10 @@ include __DIR__ . '/../../templates/partials/site-header.php';
     <div class="container">
       <div class="oapi-risk-grid">
         <div class="oapi-risk-text">
-          <span class="section-kicker">Accroche Stratégique</span>
+          <span class="section-kicker">Strategic Focus</span>
           <h2>Why Secure Your Assets Before Any Commercial Launch?</h2>
           <p>Dans une économie fondée sur le numérique et l'image de marque, le patrimoine d'une entreprise se mesure à la force de ses actifs immatériels. En enregistrant vos marques, vos interfaces web/mobiles et vos codes sources auprès de l'Organisation Africaine de la Propriété Intellectuelle (OAPI), vous obtenez un monopole d'exploitation exclusif.</p>
-          <p>Cela vous permet non seulement d'interdire toute contrefaçon, mais également de valoriser votre entreprise lors de levées de fonds, de cessions ou de partenariats de franchise.</p>
+          <p>This not only allows you to prohibit any counterfeiting, but also to enhance your company's value during fundraising rounds, transfers or franchising partnerships.</p>
         </div>
         <div class="oapi-alert-box">
           <h3><span>⚠️</span> Beware of the first-to-file principle!</h3>
@@ -49,28 +49,28 @@ include __DIR__ . '/../../templates/partials/site-header.php';
       <div class="section-header">
         <span class="section-kicker">Nos expertises</span>
         <h2>The 4 Areas of OAPI Expertise</h2>
-        <p>Une prise en charge complète de la recherche d'antériorité jusqu'au renouvellement décennal de vos titres.</p>
+        <p>Complete handling from the prior-art search to the ten-year renewal of your titles.</p>
       </div>
 
       <div class="solutions-grid">
         <div class="solution-card">
           <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
           <h3>🔍 1. Prior Art Search</h3>
-          <span class="obj">Avant d'investir dans votre communication ou de lancer un produit, nous vérifions la viabilité du dépôt :</span>
+          <span class="obj">Before you invest in your communication or launch a product, we verify the viability of the filing:</span>
           <ul class="solution-list">
             <li>Analyse approfondie des bases de données officielles de l'OAPI pour s'assurer que le nom, la marque ou le logo choisi n'est pas déjà détenu par un tiers.</li>
-            <li>Évaluation des risques de rejet administratif ou de litige pour contrefaçon.</li>
-            <li>Rapport de disponibilité et conseils stratégiques d'ajustement en cas de similitude constatée.</li>
+            <li>Assessment of the risks of administrative rejection or infringement litigation.</li>
+            <li>Availability report and strategic adjustment advice in case of similarity.</li>
           </ul>
         </div>
 
         <div class="solution-card">
           <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
           <h3>🏷️ 2. Filing and Registration of Trademarks, Logos & Trade Names</h3>
-          <span class="obj">Nous créons votre bouclier commercial sur le marché africain :</span>
+          <span class="obj">We build your commercial shield in the African market:</span>
           <ul class="solution-list">
             <li>Classification rigoureuse de vos produits et services selon les standards internationaux (Classification de Nice).</li>
-            <li>Rédaction et constitution du dossier officiel de dépôt de marque (marques de fabrique, de commerce ou de service) ou de nom commercial.</li>
+            <li>Drafting and preparation of the official filing file for trademarks (manufacturing, commercial or service marks) or trade names.</li>
             <li>Dépôt de votre dossier auprès de la structure nationale de liaison et suivi en direct avec le siège de l'OAPI.</li>
           </ul>
         </div>
@@ -78,21 +78,21 @@ include __DIR__ . '/../../templates/partials/site-header.php';
         <div class="solution-card">
           <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
           <h3>💻 3. Registration of Applications, Software & Tech Assets</h3>
-          <span class="obj">Une spécialité essentielle pour les startups, les éditeurs et les créateurs de solutions numériques :</span>
+          <span class="obj">An essential speciality for startups, publishers and creators of digital solutions:</span>
           <ul class="solution-list">
-            <li>Dépôt et sécurisation de vos logiciels, codes sources et bases de données pour acter légalement votre antériorité.</li>
-            <li>Protection des interfaces visuelles, des chartes graphiques et du design d'applications mobiles ou de plateformes web (Dessins et Modèles industriels).</li>
+            <li>Filing and protection of your software, source code and databases to legally establish your prior use.</li>
+            <li>Protection of visual interfaces, style guides and the design of mobile applications or web platforms (industrial designs and models).</li>
           </ul>
         </div>
 
         <div class="solution-card">
           <div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
           <h3>🛡️ 4. Procedure Monitoring, Claims & Renewals</h3>
-          <span class="obj">Nous veillons sur vos droits tout au long de la vie de vos titres de propriété :</span>
+          <span class="obj">We watch over your rights throughout the life of your titles of ownership:</span>
           <ul class="solution-list">
             <li>Gestion des examens de fond, réponses aux objections des examinateurs de l'OAPI et correction des dossiers.</li>
-            <li>Surveillance des publications officielles et introduction d'oppositions si un concurrent tente d'enregistrer une marque trop proche de la vôtre.</li>
-            <li>Suivi des échéances et procédures de renouvellement de vos titres (valables 10 ans).</li>
+            <li>Monitoring of official publications and filing of oppositions if a competitor attempts to register a mark too close to yours.</li>
+            <li>Deadline tracking and renewal procedures for your titles (valid for 10 years).</li>
           </ul>
         </div>
       </div>
@@ -117,8 +117,8 @@ include __DIR__ . '/../../templates/partials/site-header.php';
           <div class="oapi-country-item"><span>🇨🇮</span> Côte d'Ivoire</div>
           <div class="oapi-country-item"><span>🇬🇦</span> Gabon</div>
           <div class="oapi-country-item"><span>🇬🇳</span> Guinée</div>
-          <div class="oapi-country-item"><span>🇬🇼</span> Guinée-Bissau</div>
-          <div class="oapi-country-item"><span>🇬🇶</span> Guinée Équatoriale</div>
+          <div class="oapi-country-item"><span>🇬🇼</span> Guinea-Bissau</div>
+          <div class="oapi-country-item"><span>🇬🇶</span> Equatorial Guinea</div>
           <div class="oapi-country-item"><span>🇲🇱</span> Mali</div>
           <div class="oapi-country-item"><span>🇲🇷</span> Mauritanie</div>
           <div class="oapi-country-item"><span>🇳🇪</span> Niger</div>
@@ -136,7 +136,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
       <div class="pricing-intro">
         <span class="section-kicker">Conditions Tarifaires</span>
         <h2>Clear, No-Surprise Pricing</h2>
-        <p>Un accompagnement d'experts combiné à une transparence totale sur les taxes officielles.</p>
+        <p>Expert guidance combined with complete transparency on official fees.</p>
       </div>
       <div class="pricing-grid">
         <div class="pricing-card">
@@ -149,12 +149,12 @@ include __DIR__ . '/../../templates/partials/site-header.php';
           <a href="../contact.php?service=oapi-recherche" class="btn btn-outline btn-block">Start a search</a>
         </div>
         <div class="pricing-card popular">
-          <div class="popular-badge">Recommandé</div>
+          <div class="popular-badge">Recommended</div>
           <div class="card-header"><h3>Protect Brand & Tech Package</h3><div class="price">200 000 - 900 000 FCFA HT<span> / file</span></div></div>
           <ul class="features-list">
             <li>Classification de Nice</li>
-            <li>Rédaction sur-mesure du dossier</li>
-            <li>Constitution et dépôt officiel</li>
+            <li>Tailored drafting of the filing</li>
+            <li>Preparation and official filing</li>
             <li>Suivi complet jusqu'au certificat</li>
           </ul>
           <a href="../tunnel_souscription.php?service=oapi&pack=protect_brand" class="btn btn-primary btn-block">Protect my asset</a>
@@ -162,8 +162,8 @@ include __DIR__ . '/../../templates/partials/site-header.php';
         <div class="pricing-card">
           <div class="card-header"><h3>Invention Patents</h3><div class="price">Custom Quote</div></div>
           <ul class="features-list">
-            <li>Étude de brevetabilité</li>
-            <li>Rédaction des revendications techniques</li>
+            <li>Patentability study</li>
+            <li>Drafting of technical claims</li>
             <li>Suivi des examens de brevets</li>
           </ul>
           <a href="../contact.php?service=oapi-brevet" class="btn btn-outline btn-block">Request a Patent quote</a>

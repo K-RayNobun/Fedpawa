@@ -83,11 +83,17 @@ register_shutdown_function(function () {
 // ==========================================================
 // Session Security Hardening
 // ==========================================================
+// Durée de session : l'utilisateur reste connecté jusqu'à 3 jours (259 200 s)
+// d'inactivité, ou jusqu'à sa déconnexion explicite. Le cookie de session vit
+// aussi 3 jours pour que le navigateur le conserve entre les visites.
 if (session_status() === PHP_SESSION_NONE) {
     ini_set('session.cookie_httponly', '1');
-    // Site et API same-origin (api.fedpawa.com) : Lax suffit et fonctionne aussi en http local de test.
-    // (SameSite=None; Secure cassait la session sur le conteneur de test http://127.0.0.1:18081)
+    // Site et API same-origin (api.fedpawa.com) : Lax suffit et fonctionne aussi
+    // en local http (SameSite=None; Secure cassait la session sur le conteneur
+    // de test http://127.0.0.1:18081)
     ini_set('session.cookie_samesite', 'Lax');
+    ini_set('session.cookie_lifetime', '259200');
+    ini_set('session.gc_maxlifetime', '259200');
     // Secure uniquement si la requête est servie en https (prod) — pas en local http.
     if (($_SERVER['HTTPS'] ?? '') === 'on' || ($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https') {
         ini_set('session.cookie_secure', '1');
@@ -96,8 +102,8 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Expiration forcée après 1h30 d'inactivité (5400 s)
-define('SESSION_TIMEOUT', 5400);
+// Expiration forcée après 3 jours d'inactivité (259 200 s)
+define('SESSION_TIMEOUT', 259200);
 if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > SESSION_TIMEOUT)) {
     session_unset();
     session_destroy();

@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 fetch(apiUrl('/api/admin/overview'), { credentials: 'include' })
             ]);
             if (r1.status === 403 || r2.status === 403) {
-                // Show admin login form instead of redirecting
-                document.getElementById('admin-login-form').style.display = 'flex';
+                // Session admin absente : renvoyer vers l'écran de connexion dédié
+                window.location.href = 'authentification.html';
                 return;
             }
             if (r1.ok) lists = await r1.json();

@@ -12,26 +12,59 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=3">
+<link rel="stylesheet" href="assets/css/style.css?v=4">
 <link rel="stylesheet" href="assets/css/components.css?v=2">
 <link rel="stylesheet" href="assets/css/dashboard.css?v=2">
 </head>
 <body>
 
-<header class="db-header">
-  <a href="index.php" class="brand">
-    <span class="brand-mark">F</span>
-    <span class="brand-copy"><strong>FEDPAWA</strong><small>Espace Client</small></span>
-  </a>
-  <div class="db-user-area">
-    <span class="user-name">—</span>
-    <div class="user-avatar">…</div>
-    <a href="authentification.html" class="logout-btn">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-      <span>Déconnexion</span>
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a class="brand" href="index.php" aria-label="FEDPAWA CORPORATE SOLUTIONS">
+      <img class="brand-logo" src="assets/images/logo.jpg" alt="Logo FEDPAWA Corporate Solutions">
+      <span class="brand-copy"><strong>FEDPAWA</strong><small>Corporate Solutions</small></span>
     </a>
+    <nav class="main-nav">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="index.php">Accueil</a></li>
+        <li class="nav-dropdown">
+          <a class="nav-link" href="#">Services ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="domiciliation.php">Domiciliation</a></li>
+            <li><a href="creation_entreprise.php">Création d'entreprise</a></li>
+            <li><a href="fiscalite.php">Conseils & Suivi Fiscal</a></li>
+            <li><a href="oapi.php">Protection OAPI</a></li>
+            <li><a href="contrats.php">Contrats</a></li>
+          </ul>
+        </li>
+        <li><a class="nav-link" href="qui-sommes-nous.php">Qui sommes-nous</a></li>
+        <li><a class="nav-link" href="contact.php">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu / Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-actions" id="navActions">
+      <!-- Connection state will be toggled by JS -->
+      <!-- For non-connected users: settings button -->
+      <!-- For connected users: Espace Client + Profile button -->
+    </div>
   </div>
 </header>
+
+<!-- ============== MOBILE NAVIGATION ============== -->
+<div class="mobile-nav" id="mobileNav">
+  <nav>
+    <a href="index.php">Accueil</a>
+    <a href="domiciliation.php">Domiciliation</a>
+    <a href="creation_entreprise.php">Création d'entreprise</a>
+    <a href="fiscalite.php">Conseils & Suivi Fiscal</a>
+    <a href="oapi.php">Protection OAPI</a>
+    <a href="contrats.php">Contrats</a>
+    <a href="qui-sommes-nous.php">Qui sommes-nous</a>
+    <a href="contact.php">Contact</a>
+    <a class="mobile-cta" href="tunnel_souscription.php?service=domiciliation&pack=essentiel">Je m'abonne</a>
+  </nav>
+</div>
+
 
 <div class="db-layout">
   <aside class="db-sidebar">
@@ -168,7 +201,7 @@
   </button>
 </div>
 
-<script src="assets/js/main.js"></script>
+<script src="assets/js/main.js?v=2"></script>
 <script src="assets/js/config.js"></script>
 <script src="assets/js/auth-guard.js"></script>
 <script src="assets/js/fedpawa-ui.js?v=2"></script>

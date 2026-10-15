@@ -31,11 +31,11 @@ if (preg_match('#^/api(/|$)#', $uri)) {
         \App\Controller\Controller::getCsrfToken(); // s'assure qu'une session existe
         if (isset($_SESSION['admin_logged_in'])) {
             // Session du portail admin (table admins) : admin authentifié
-            echo json_encode(['authenticated' => true, 'role' => 'admin', 'name' => 'Administration']);
+            echo json_encode(['authenticated' => true, 'role' => 'admin', 'name' => 'Administration', 'email' => $_SESSION['admin_email'] ?? '']);
         } elseif (!isset($_SESSION['client_id'])) {
             echo json_encode(['authenticated' => false]);
         } else {
-            echo json_encode(['authenticated' => true, 'role' => $_SESSION['role'] ?? 'client', 'name' => $_SESSION['client_name'] ?? '']);
+            echo json_encode(['authenticated' => true, 'role' => $_SESSION['role'] ?? 'client', 'name' => $_SESSION['client_name'] ?? '', 'email' => $_SESSION['client_email'] ?? '']);
         }
     });
     $router->get('/api/courriers', 'CourrierController@index');

@@ -128,6 +128,7 @@ class AuthController extends Controller {
             session_regenerate_id(true);
             $_SESSION['client_id'] = $client['id'];
             $_SESSION['client_name'] = $client['nom'];
+            $_SESSION['client_email'] = $client['email'];
             $_SESSION['role'] = $client['role'] ?? 'client'; // Lane #4 : rôle pour le contrôle d'accès
 
             AuditLogger::log('CLIENT_LOGIN', (int)$client['id'], 'client', 'Login OK');
@@ -326,6 +327,7 @@ class AuthController extends Controller {
             session_regenerate_id(true);
             $_SESSION["admin_logged_in"] = true;
             $_SESSION["admin_id"] = $admin["id"];
+            $_SESSION["admin_email"] = $admin["email"];
 
             AuditLogger::log("ADMIN_LOGIN", (int)$admin["id"], "admin", "Login OK");
             $this->json(["message" => "Connexion réussie", "redirect" => "/admin"]);

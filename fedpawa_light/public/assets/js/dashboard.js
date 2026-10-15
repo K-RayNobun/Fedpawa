@@ -41,11 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 credentials: 'include'
             });
             if (res.status === 401 || res.status === 403) {
-                // Non connecté : montrer le formulaire de connexion admin au lieu de rediriger.
-                const loginForm = document.getElementById('admin-login-form');
-                if (loginForm) {
-                    loginForm.style.display = 'flex';
-                }
+                // Non connecté : renvoyer vers l'écran de connexion dédié.
+                window.location.href = 'authentification.html';
                 return;
             }
             if (!res.ok) return;

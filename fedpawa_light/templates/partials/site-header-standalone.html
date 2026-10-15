@@ -1,0 +1,54 @@
+<!-- ================================================================
+     SITE HEADER (version standalone .html — pages Auth/Espace Client/Admin)
+     Réplique le header de la page d'accueil (site-header.php) à l'état connecté :
+     - mêmes navigation + liens (relatifs, préfixe ../ depuis /public racine)
+     - nav-actions piloté par main.js (renderNavActions) : bouton profil si
+       connecté, bouton Se connecter + réglages sinon.
+     Inclus par les pages .html via un léger injecteur (voir docs lane#2).
+     ================================================================ -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a class="brand" href="index.php" aria-label="FEDPAWA CORPORATE SOLUTIONS">
+      <img class="brand-logo" src="assets/images/logo.jpg" alt="Logo FEDPAWA Corporate Solutions">
+      <span class="brand-copy"><strong>FEDPAWA</strong><small>Corporate Solutions</small></span>
+    </a>
+    <nav class="main-nav">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="index.php">Accueil</a></li>
+        <li class="nav-dropdown">
+          <a class="nav-link" href="#">Services ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="domiciliation.php">Domiciliation</a></li>
+            <li><a href="creation_entreprise.php">Création d'entreprise</a></li>
+            <li><a href="fiscalite.php">Conseils & Suivi Fiscal</a></li>
+            <li><a href="oapi.php">Protection OAPI</a></li>
+            <li><a href="contrats.php">Contrats</a></li>
+          </ul>
+        </li>
+        <li><a class="nav-link" href="qui-sommes-nous.php">Qui sommes-nous</a></li>
+        <li><a class="nav-link" href="contact.php">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu / Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-actions" id="navActions">
+      <!-- Connection state will be toggled by JS -->
+      <!-- For non-connected users: settings button -->
+      <!-- For connected users: Espace Client + Profile button -->
+    </div>
+  </div>
+</header>
+
+<!-- ============== MOBILE NAVIGATION ============== -->
+<div class="mobile-nav" id="mobileNav">
+  <nav>
+    <a href="index.php">Accueil</a>
+    <a href="domiciliation.php">Domiciliation</a>
+    <a href="creation_entreprise.php">Création d'entreprise</a>
+    <a href="fiscalite.php">Conseils & Suivi Fiscal</a>
+    <a href="oapi.php">Protection OAPI</a>
+    <a href="contrats.php">Contrats</a>
+    <a href="qui-sommes-nous.php">Qui sommes-nous</a>
+    <a href="contact.php">Contact</a>
+    <a class="mobile-cta" href="tunnel_souscription.php?service=domiciliation&pack=essentiel">Je m'abonne</a>
+  </nav>
+</div>

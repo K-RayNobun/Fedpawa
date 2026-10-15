@@ -149,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 8. État de connexion + boutons paramètres (non-connecté) / profil (connecté)
     //    Site statique : la session vit sur l'API (config.js fournit window.apiUrl()).
     async function checkConnectionStatus() {
+        // Retourne false si non connecté, sinon { authenticated, role, name, email }
         try {
             if (typeof window.apiUrl !== 'function') return false;
             const response = await fetch(window.apiUrl('/api/me'), {
@@ -157,7 +158,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             if (!response.ok) return false;
             const data = await response.json();
-            return data.authenticated === true;
+            if (data.authenticated !== true) return false;
+            return data;
         } catch (error) {
             // Dégradation gracieuse : API injoignable -> non-connecté, jamais de blocage
             return false;
@@ -288,7 +290,8 @@ document.addEventListener('DOMContentLoaded', () => {
         menu.style.right = 'auto';
     }
 
-    function renderNavActions(isConnected) {
+    function renderNavActions(me) {
+        const isConnected = me && me.authenticated === true;
         const navActions = document.getElementById('navActions');
         if (!navActions) return;
 
@@ -297,6 +300,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const profileBtn = document.getElementById('navProfileBtn');
             const profileMenu = document.createElement('div');
             profileMenu.className = 'profile-menu settings-menu';
+            // ---- Bloc identité : nom + email de l'utilisateur connecté ----
+            const idSec = document.createElement('div');
+            idSec.className = 'settings-section profile-identity';
+            const nameEl = document.createElement('div');
+            nameEl.className = 'profile-name';
+            nameEl.textContent = (me && me.name) ? me.name : (document.documentElement.getAttribute('lang') === 'en' ? 'My account' : 'Mon compte');
+            const emailEl = document.createElement('div');
+            emailEl.className = 'profile-email';
+            emailEl.textContent = (me && me.email) ? me.email : '';
+            idSec.append(nameEl, emailEl);
+            profileMenu.appendChild(idSec);
             buildSubmenu(profileMenu, true);
             document.body.appendChild(profileMenu);
             profileBtn.addEventListener('click', (e) => {

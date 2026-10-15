@@ -12,26 +12,59 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v=4">
 <link rel="stylesheet" href="assets/css/components.css">
 <link rel="stylesheet" href="assets/css/dashboard.css">
 </head>
 <body>
 
-<header class="db-header">
-  <a href="index.html" class="brand">
-    <span class="brand-mark">F</span>
-    <span class="brand-copy"><strong>FEDPAWA <span class="admin-badge">Admin</span></strong><small>Back-Office</small></span>
-  </a>
-  <div class="db-user-area">
-    <span class="user-name">Super Administrateur</span>
-    <div class="user-avatar">SA</div>
-    <a href="authentification.html" class="logout-btn">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-      <span>Déconnexion</span>
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a class="brand" href="index.php" aria-label="FEDPAWA CORPORATE SOLUTIONS">
+      <img class="brand-logo" src="assets/images/logo.jpg" alt="Logo FEDPAWA Corporate Solutions">
+      <span class="brand-copy"><strong>FEDPAWA</strong><small>Corporate Solutions</small></span>
     </a>
+    <nav class="main-nav">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="index.php">Accueil</a></li>
+        <li class="nav-dropdown">
+          <a class="nav-link" href="#">Services ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="domiciliation.php">Domiciliation</a></li>
+            <li><a href="creation_entreprise.php">Création d'entreprise</a></li>
+            <li><a href="fiscalite.php">Conseils & Suivi Fiscal</a></li>
+            <li><a href="oapi.php">Protection OAPI</a></li>
+            <li><a href="contrats.php">Contrats</a></li>
+          </ul>
+        </li>
+        <li><a class="nav-link" href="qui-sommes-nous.php">Qui sommes-nous</a></li>
+        <li><a class="nav-link" href="contact.php">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu / Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-actions" id="navActions">
+      <!-- Connection state will be toggled by JS -->
+      <!-- For non-connected users: settings button -->
+      <!-- For connected users: Espace Client + Profile button -->
+    </div>
   </div>
 </header>
+
+<!-- ============== MOBILE NAVIGATION ============== -->
+<div class="mobile-nav" id="mobileNav">
+  <nav>
+    <a href="index.php">Accueil</a>
+    <a href="domiciliation.php">Domiciliation</a>
+    <a href="creation_entreprise.php">Création d'entreprise</a>
+    <a href="fiscalite.php">Conseils & Suivi Fiscal</a>
+    <a href="oapi.php">Protection OAPI</a>
+    <a href="contrats.php">Contrats</a>
+    <a href="qui-sommes-nous.php">Qui sommes-nous</a>
+    <a href="contact.php">Contact</a>
+    <a class="mobile-cta" href="tunnel_souscription.php?service=domiciliation&pack=essentiel">Je m'abonne</a>
+  </nav>
+</div>
+
 
 <div class="db-layout">
   <aside class="db-sidebar">
@@ -203,93 +236,12 @@
   </button>
 </div>
 
-<script src="assets/js/main.js"></script>
+<script src="assets/js/main.js?v=2"></script>
 <script src="assets/js/config.js"></script>
 <script src="assets/js/fedpawa-ui.js"></script>
 <script src="assets/js/api.js"></script>
 <script src="assets/js/admin-dashboard.js"></script>
-<div style="position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:99999;background:rgba(28,28,28,.88);color:#fff;padding:9px 18px;border-radius:999px;font:600 12px/1 'Open Sans',Arial,sans-serif;letter-spacing:.03em;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.35);">Aperçu démo statique — inscriptions et paiements désactivés</div><!-- Admin login form: appears when not logged in, disappears after successful login -->
-<div id="admin-login-form" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:9999; justify-content:center; align-items:center;">
-    <div style="background:#fff; padding:40px; border-radius:8px; width:360px; box-shadow:0 10px 40px rgba(0,0,0,0.3);">
-        <div style="text-align:center; margin-bottom:30px;">
-            <img src="assets/images/logo.jpg" alt="Fedpawa" style="width:80px; height:80px; margin:0 auto 20px; object-fit:contain;">
-            <h2 style="margin:0; color:#15294D; font-size:1.5rem;">Accès Administrateur</h2>
-        </div>
-        <form id="admin-login-form-inner">
-            <div style="margin-bottom:20px;">
-                <label style="display:block; margin-bottom:8px; font-size:0.9rem; color:#555;">E-mail</label>
-                <input type="email" id="admin-email" name="email" required style="width:100%; padding:10px; border:1px solid #ddd; border-radius:4px; font-size:1rem;">
-            </div>
-            <div style="margin-bottom:20px;">
-                <label style="display:block; margin-bottom:8px; font-size:0.9rem; color:#555;">Mot de passe</label>
-                <input type="password" id="admin-password" name="mot_de_passe" required style="width:100%; padding:10px; border:1px solid #ddd; border-radius:4px; font-size:1rem;">
-            </div>
-            <button type="submit" style="width:100%; padding:12px; background:#15294D; color:#fff; border:none; border-radius:4px; font-size:1rem; cursor:pointer;">Accès administrateur</button>
-            <p style="text-align:center; font-size:0.8rem; color:#888; margin-top:15px;">Pas de compte admin? Utilisez la connexion client standard.</p>
-        </form>
-    </div>
-</div>
-
-<script>
-// Handle admin login form display
-document.addEventListener('DOMContentLoaded', () => {
-    // Check if already logged in
-    const isLoggedIn = sessionStorage.getItem('admin_logged_in') === 'true';
-    
-    if (isLoggedIn) {
-        // Already logged in, hide form; dashboard.js loads data itself.
-        document.getElementById('admin-login-form').style.display = 'none';
-    } else {
-        // Show login form
-        document.getElementById('admin-login-form').style.display = 'flex';
-    }
-});
-
-// Handle form submission
-document.getElementById('admin-login-form-inner').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const email = document.getElementById('admin-email').value;
-    const password = document.getElementById('admin-password').value;
-    
-    try {
-        const res = await window.Api.post('/api/admin/login', { email, mot_de_passe: password });
-        
-        const data = await res.json();
-        
-        if (res.ok) {
-            sessionStorage.setItem('admin_logged_in', 'true');
-            sessionStorage.setItem('admin_email', email);
-            document.getElementById('admin-login-form').style.display = 'none';
-            // Recharger la page : dashboard.js rechargera les données avec la session admin.
-            window.location.reload();
-        } else {
-            // Show error message
-            const errorDiv = document.createElement('div');
-            errorDiv.style.cssText = 'background:#fee2e2; color:#991b1b; padding:12px; border-radius:4px; margin-top:12px; text-align:center; font-size:0.9rem;';
-            errorDiv.textContent = data.error || 'Erreur de connexion';
-            
-            const form = e.target;
-            const existingError = form.querySelector('.admin-login-error');
-            if (existingError) existingError.remove();
-            form.insertBefore(errorDiv, form.firstChild);
-        }
-    } catch (err) {
-        console.error('Admin login error:', err);
-        alert('Erreur de connexion au serveur');
-    }
-});
-
-// Handle 403 from API: show login form instead of redirect
-const originalFetch = window.fetch;
-window.fetch = async function(...args) {
-    const res = await originalFetch.apply(this, args);
-    if (res.status === 403) {
-        document.getElementById('admin-login-form').style.display = 'flex';
-    }
-    return res;
-};
-</script>
+<div style="position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:99999;background:rgba(28,28,28,.88);color:#fff;padding:9px 18px;border-radius:999px;font:600 12px/1 'Open Sans',Arial,sans-serif;letter-spacing:.03em;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.35);">Aperçu démo statique — inscriptions et paiements désactivés</div>
 
 </body>
 </html>

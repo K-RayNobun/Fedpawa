@@ -66,6 +66,11 @@ h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 700; color: var(--
 .brand-mark { width: 48px; height: 48px; display: grid; place-items: center; background: var(--color-primary); color: var(--color-on-primary); font-family: var(--font-serif); font-weight: 800; font-size: 1.6rem; position: relative; }
 .brand-mark::after { content: ""; position: absolute; inset: 4px; border: 1px solid rgba(255,255,255,0.4); pointer-events: none; }
 html[data-theme="navy"][data-mode="dark"] .brand-mark::after { border-color: rgba(10,20,36,0.4); }
+
+/* Logo réel dans le coin haut-gauche des pages auth (remplace le carré "F") */
+.auth-brand-logo { width: 48px; height: 48px; border-radius: 10px; object-fit: cover; display: block; }
+.auth-brand { display: inline-flex; align-items: center; gap: 12px; }
+
 .brand-copy { display: flex; flex-direction: column; line-height: 1.1; }
 .brand-copy strong { font-family: var(--font-serif); font-size: 1.35rem; font-weight: 800; color: var(--color-heading); letter-spacing: 0.04em; }
 .brand-copy small { font-size: 0.66rem; font-weight: 600; letter-spacing: 0.32em; color: var(--color-text-muted); text-transform: uppercase; margin-top: 4px; }

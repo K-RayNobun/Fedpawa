@@ -1,40 +1,6 @@
+// (Navigation par onglets déplacée dans db-tabs.js, partagée avec le dashboard admin)
 document.addEventListener('DOMContentLoaded', () => {
-    // Dashboard Tabs
-    const navItems = document.querySelectorAll('.db-nav-item');
-    const tabContents = document.querySelectorAll('.db-tab-content');
-
-    if (navItems.length > 0) {
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const tabId = item.dataset.tab;
-                
-                navItems.forEach(nav => nav.classList.remove('active'));
-                item.classList.add('active');
-                
-                tabContents.forEach(content => content.classList.remove('active'));
-                const activeTab = document.getElementById(`tab-${tabId}`);
-                if (activeTab) activeTab.classList.add('active');
-            });
-        });
-    }
-
-    window.switchTab = function(tabId) {
-        navItems.forEach(item => {
-            item.classList.remove('active');
-            if (item.dataset.tab === tabId) {
-                item.classList.add('active');
-            }
-        });
-        tabContents.forEach(content => {
-            content.classList.remove('active');
-            if (content.id === `tab-${tabId}`) {
-                content.classList.add('active');
-            }
-        });
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-
-    // Fetch Real User Data from Server
+// Fetch Real User Data from Server
     async function loadDashboardData() {
         try {
             const res = await fetch(apiUrl('/api/dashboard'), {

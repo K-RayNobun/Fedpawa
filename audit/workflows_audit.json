@@ -1,0 +1,74 @@
+[
+ {
+  "id": "W-2",
+  "persona": "Visiteur/SEO",
+  "gravite": "Critique",
+  "titre": "hreflang EN → 404 en prod",
+  "repro": "curl https://www.fedpawa.com/en/ → 404; le <head> pointe hreflang=en vers /en/",
+  "impact": "Google indexe une page introuvable; perte de confiance des anglophones",
+  "fix": "Pointer hreflang vers /en/index.php ou réécrire /en/ → /en/index.php"
+ },
+ {
+  "id": "W-9",
+  "persona": "Client avec abo",
+  "gravite": "Critique",
+  "titre": "Statut abonnement incohérent (En attente vs Actif)",
+  "repro": "Carte Aperçu badge 'En attente', onglet Abonnement badge 'Actif' même compte (base: 3 actif/13 en_attente)",
+  "impact": "Le client doute de ce qu'il a payé",
+  "fix": "Lire le même abonnement partout (plus récent actif, sinon plus récent)"
+ },
+ {
+  "id": "W-10",
+  "persona": "Client avec abo",
+  "gravite": "Majeur",
+  "titre": "Paiement MoMo ne génère aucune facture",
+  "repro": "Table factures = 0 ligne; onglet Factures vide malgré abonnements payés",
+  "impact": "Aucune preuve de paiement pour le client",
+  "fix": "Insérer une ligne factures au paiement confirmé + l'afficher (PDF)"
+ },
+ {
+  "id": "W-6",
+  "persona": "Client sans abo",
+  "gravite": "Majeur",
+  "titre": "Pas de guidance premier usage (KYC/abonnement)",
+  "repro": "Aucun CTA/étape suivante dans l'espace client vide; carte KYC 'Action requise' sans bouton",
+  "impact": "Le nouveau client ne sait pas quoi faire",
+  "fix": "Bannière 'Prochaine étape' tant que KYC absent ou abonnement absent"
+ },
+ {
+  "id": "W-12",
+  "persona": "Client avec abo",
+  "gravite": "Moyen",
+  "titre": "Courriers: pas de 'marquer comme lu'",
+  "repro": "7 courriers non_lu, aucune action UI",
+  "impact": "Anxiété, liste jamais nettoyée",
+  "fix": "Bouton marquer lu/vu par courrier"
+ },
+ {
+  "id": "W-13",
+  "persona": "Client avec abo",
+  "gravite": "Moyen",
+  "titre": "Tickets support: réponse admin invisible côté client",
+  "repro": "Tickets statut 'open' sans réponse rendue dans l'espace client",
+  "impact": "Le client croit que personne ne répond",
+  "fix": "Afficher les réponses admin dans l'historique + statut 'répondu'"
+ },
+ {
+  "id": "W-1",
+  "persona": "Visiteur",
+  "gravite": "Moyen",
+  "titre": "Accueil: valeur pas lisible en <10s (5 services à égalité)",
+  "repro": "Analyse visuelle accueil",
+  "impact": "Bounce avant compréhension de l'offre",
+  "fix": "Bandeau proposition de valeur unique + CTA principal"
+ },
+ {
+  "id": "W-3",
+  "persona": "Visiteur",
+  "gravite": "Mineur",
+  "titre": "Footer sans téléphone/WhatsApp",
+  "repro": "Footer = adresse+horaires+email seulement",
+  "impact": "Contact moins accessible depuis toute page",
+  "fix": "Ajouter tél/WhatsApp dans le footer"
+ }
+]

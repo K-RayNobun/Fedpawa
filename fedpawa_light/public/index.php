@@ -58,6 +58,7 @@ if (preg_match('#^/api(/|$)#', $uri)) {
     $router->post('/api/courrier/upload', 'CourierController@upload');
     $router->get('/api/factures', 'FactureController@index');
     $router->post('/api/support', 'SupportController@store');
+    $router->get('/api/support/tickets', 'SupportController@myTickets');
     $router->post('/api/kyc/submit', 'KycController@submit');
     $router->get('/api/mail/thread', 'InternalMailController@thread');
     $router->post('/api/mail/send', 'InternalMailController@send');

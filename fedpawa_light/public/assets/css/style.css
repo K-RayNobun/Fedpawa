@@ -182,7 +182,10 @@ html[data-mode="dark"] .sun-icon { display: none; }
 .nav-espace-client:hover { background: var(--color-primary-hover); }
 
 @media (max-width: 991px) {
-  .nav-settings-btn, .nav-profile-btn, .nav-espace-client { display: none !important; }
+  /* F4: le profil reste accessible sur mobile (compact) — on le réduit au lieu de le cacher */
+  .nav-settings-btn { display: none !important; }
+  .nav-profile-btn, .nav-espace-client { display: grid !important; width: 38px; height: 38px; }
+  .nav-espace-client { display: none !important; } /* doublon du menu profil — reste masqué */
 }
 
 .mobile-nav-toggles .mobile-mode-toggle,

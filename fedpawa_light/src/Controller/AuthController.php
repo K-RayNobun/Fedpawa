@@ -125,7 +125,17 @@ class AuthController extends Controller {
             }
 
             LoginThrottler::recordSuccess($email, 'client');
+            // F5: "Se souvenir de moi" — régénérer d'abord (recrée le cookie avec les params
+            // ini 3 jours), PUIS si non-coché, écraser par un cookie de session (expire fermeture)
             session_regenerate_id(true);
+            $remember = !empty($input['remember']);
+            if (!$remember) {
+                setcookie(session_name(), session_id(), [
+                    'expires' => 0, 'path' => '/',
+                    'secure' => (($_SERVER['HTTPS'] ?? '') === 'on' || ($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https'),
+                    'httponly' => true, 'samesite' => 'Lax'
+                ]);
+            }
             $_SESSION['client_id'] = $client['id'];
             $_SESSION['client_name'] = $client['nom'];
             $_SESSION['client_email'] = $client['email'];
@@ -374,6 +384,20 @@ class AuthController extends Controller {
             error_log('Admin password update error: ' . $e->getMessage());
             $this->json(['error' => 'Erreur interne'], 500);
         }
+    }
+
+    public function logout() {
+        // F1: destruction complète de la session (le bouton "Se déconnecter"
+        // pointait sur une méthode inexistante — la session ne se terminait jamais)
+        $_SESSION = [];
+        if (ini_get('session.use_cookies')) {
+            $p = session_get_cookie_params();
+            setcookie(session_name(), '', time() - 42000,
+                $p['path'], $p['domain'] ?? '',
+                (bool)($p['secure'] ?? false), (bool)($p['httponly'] ?? true));
+        }
+        session_destroy();
+        $this->json(['message' => 'Déconnecté']);
     }
 
     public function me() {

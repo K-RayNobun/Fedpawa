@@ -7,7 +7,7 @@ class Router {
     private array $routes = [];
 
     // Routes POST exemptées de CSRF (appels serveur-à-serveur sans session navigateur)
-    private const CSRF_EXEMPT = ['/api/webhooks/campay'];
+    private const CSRF_EXEMPT = ['/api/webhooks/campay', '/api/logout']; // logout : idempotent, non sensible
 
     public function post(string $path, string $handler): void {
         $this->routes['POST'][$path] = $handler;

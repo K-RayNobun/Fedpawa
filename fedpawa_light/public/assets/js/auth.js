@@ -79,7 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 showLoader();
-                const res = await Api.post('/api/login', { email, mot_de_passe });
+                const rememberCheckbox = loginForm.querySelector('input[type="checkbox"]');
+                const res = await Api.post('/api/login', { email, mot_de_passe, remember: rememberCheckbox ? rememberCheckbox.checked : false });
                 const data = await res.json();
                 hideLoader();
 

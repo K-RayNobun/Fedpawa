@@ -40,7 +40,7 @@ $langPrefix = $langPrefix ?? '';
 <script src="<?= $langPrefix ?>assets/js/config.js"></script>
 <script src="<?= $langPrefix ?>assets/js/fedpawa-ui.js?v=2"></script>
 <script src="<?= $langPrefix ?>assets/js/fedpawa-pay.js?v=2"></script>
-<script src="<?= $langPrefix ?>assets/js/main.js?v=2"></script>
+<script src="<?= $langPrefix ?>assets/js/main.js?v=3"></script>
 <?php foreach ($extraJs as $js): ?>
 <script src="<?= htmlspecialchars($langPrefix . $js, ENT_QUOTES, 'UTF-8') ?>"></script>
 <?php endforeach; ?>

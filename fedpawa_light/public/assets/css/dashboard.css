@@ -172,6 +172,8 @@ html[data-theme="navy"] .upload-area:hover, html[data-theme="navy"] .upload-area
 .badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
 .badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
 .badge-success { color: var(--color-success); background: rgba(40, 167, 69, 0.1); }
+/* F2/F3: badge neutre pour l'absence de données */
+.badge-muted { background: rgba(120, 120, 120, .14); color: #888; }
 .badge-warning { color: #d39e00; background: rgba(255, 193, 7, 0.1); }
 .badge-danger { color: var(--color-danger); background: rgba(220, 53, 69, 0.1); }
 .badge-info { color: #17a2b8; background: rgba(23, 162, 184, 0.1); }

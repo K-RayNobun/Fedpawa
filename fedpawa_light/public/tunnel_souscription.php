@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) { session_start(); }
 $title = "FEDPAWA CORPORATE SOLUTIONS | Souscription en ligne";
 $description = "Souscrivez en ligne aux services FEDPAWA : création d'entreprise, OAPI, contrats, fiscalité. Paiement Mobile Money sécurisé.";
 $active = 'services';
-$extraCss = ['assets/css/dashboard.css?v=2'];
+$extraCss = ['assets/css/dashboard.css?v=3'];
 
 $dataAuth = 'user';
 include __DIR__ . '/../templates/partials/site-header.php';

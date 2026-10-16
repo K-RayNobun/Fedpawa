@@ -12,9 +12,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=4">
+<link rel="stylesheet" href="assets/css/style.css?v=5">
 <link rel="stylesheet" href="assets/css/components.css?v=2">
-<link rel="stylesheet" href="assets/css/dashboard.css?v=2">
+<link rel="stylesheet" href="assets/css/dashboard.css?v=3">
 </head>
 <body>
 
@@ -86,7 +86,7 @@
         <div><h1>Bonjour</h1><p>Bienvenue dans votre espace client. Voici un résumé de votre compte.</p></div>
       </div>
       <div class="overview-grid">
-        <div class="overview-card"><h3>Abonnement Actif</h3><div class="value">—</div><div class="sub-value">Chargement…</div><span class="badge badge-success">Actif</span></div>
+        <div class="overview-card"><h3>Abonnement Actif</h3><div class="value">—</div><div class="sub-value">Chargement…</div><span class="badge badge-muted">—</span></div>
         <div class="overview-card"><h3>Conformité (KYC)</h3><div class="value">—</div><div class="sub-value">Chargement…</div><span class="badge badge-warning">Action requise</span></div>
         <div class="overview-card"><h3>Dernier Courrier Reçu</h3><div class="value">—</div><div class="sub-value">Chargement…</div><span class="badge badge-success">Scanné & Archivé</span></div>
       </div>
@@ -165,11 +165,11 @@
       <div class="db-section">
         <form id="profilForm">
           <div class="form-grid">
-            <div class="form-group"><label>Nom complet du dirigeant</label><input type="text" class="form-control" ></div>
-            <div class="form-group"><label>Raison sociale</label><input type="text" class="form-control" ></div>
-            <div class="form-group"><label>Adresse e-mail</label><input type="email" class="form-control" ></div>
-            <div class="form-group"><label>Numéro de téléphone</label><input type="tel" class="form-control" ></div>
-            <div class="form-group full"><label>Adresse physique</label><input type="text" class="form-control" ></div>
+            <div class="form-group"><label for="profil-nom">Nom complet du dirigeant</label><input type="text" id="profil-nom" name="nom" class="form-control" required></div>
+            <div class="form-group"><label for="profil-entreprise">Raison sociale</label><input type="text" id="profil-entreprise" name="entreprise" class="form-control" required></div>
+            <div class="form-group"><label for="profil-email">Adresse e-mail</label><input type="email" id="profil-email" name="email" class="form-control" autocomplete="email" required></div>
+            <div class="form-group"><label for="profil-telephone">Numéro de téléphone</label><input type="tel" id="profil-telephone" name="telephone" class="form-control" autocomplete="tel" required></div>
+            <div class="form-group full"><label for="profil-adresse">Adresse physique</label><input type="text" id="profil-adresse" name="adresse" class="form-control" autocomplete="street-address"></div>
           </div>
           <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Enregistrer les modifications</button>
         </form>
@@ -180,10 +180,18 @@
       <div class="db-welcome"><div><h1>Support</h1><p>Une question ? Notre équipe est là pour vous aider.</p></div></div>
       <div class="db-section">
         <form id="supportForm">
-          <div class="form-group"><label>Sujet de la demande</label><input type="text" class="form-control" placeholder="Ex: Question sur ma dernière facture" required></div>
-          <div class="form-group"><label>Message</label><textarea class="form-control" rows="5" placeholder="Décrivez votre problème ou question..." required></textarea></div>
+          <div class="form-group"><label for="support-sujet">Sujet de la demande</label><input type="text" id="support-sujet" name="sujet" class="form-control" placeholder="Ex: Question sur ma dernière facture" maxlength="150" required></div>
+          <div class="form-group"><label for="support-message">Message</label><textarea id="support-message" name="message" class="form-control" rows="5" placeholder="Décrivez votre problème ou question..." maxlength="5000" required></textarea></div>
           <button type="submit" class="btn btn-primary">Envoyer</button>
         </form>
+
+        <!-- F7: historique des demandes du client -->
+        <div id="ticketsHistory" style="margin-top: 28px;">
+          <h3 style="font-size: 1.05rem; margin-bottom: 12px;">Mes demandes précédentes</h3>
+          <div id="ticketsList" style="display: grid; gap: 12px;">
+            <p style="color: var(--color-text-muted); font-size: 0.9rem;">Chargement…</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -201,12 +209,12 @@
   </button>
 </div>
 
-<script src="assets/js/main.js?v=2"></script>
+<script src="assets/js/main.js?v=3"></script>
 <script src="assets/js/config.js"></script>
 <script src="assets/js/auth-guard.js"></script>
 <script src="assets/js/fedpawa-ui.js?v=2"></script>
 <script src="assets/js/api.js"></script>
 <script src="assets/js/db-tabs.js?v=2"></script>
-<script src="assets/js/dashboard.js"></script>
+<script src="assets/js/dashboard.js?v=2"></script>
 </body>
 </html>

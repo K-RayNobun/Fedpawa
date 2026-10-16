@@ -258,10 +258,32 @@ document.addEventListener('DOMContentLoaded', () => {
                         await fetch(window.apiUrl('/api/logout'), { method: 'POST', credentials: 'include' });
                     }
                 } catch (err) { /* dégradation gracieuse */ }
-                window.location.reload();
+                // F1: après logout réel, les pages privées doivent renvoyer vers la connexion
+                const here = window.location.pathname.split('/').pop() || 'index.php';
+                if (/^(espace_client|admin_dashboard|mot_de_passe_oublie)\.html$/.test(here)) {
+                    window.location.href = 'authentification.html';
+                } else {
+                    window.location.reload();
+                }
             });
             accSec.append(monEspace, logoutBtn);
             container.appendChild(accSec);
+
+            // F4: entrées compte dans le menu burger mobile (Espace + Déconnexion)
+            const mobileNavEl = document.getElementById('mobileNav');
+            if (mobileNavEl && !mobileNavEl.querySelector('.mobile-account-links')) {
+                const mAcc = document.createElement('div');
+                mAcc.className = 'mobile-account-links';
+                mAcc.style.cssText = 'border-top: 1px solid rgba(255,255,255,.15); margin-top: 14px; padding-top: 14px; display: grid; gap: 4px;';
+                mAcc.innerHTML = '<a href="' + langPrefixFor('espace_client.html') + '" style="color:#fff; padding: 10px 14px;">👤 Mon Espace</a>' +
+                                 '<button type="button" class="mobile-logout-btn" style="color:#ffd98a; background:none; border:none; text-align:left; padding: 10px 14px; font: inherit; cursor:pointer;">🚪 Se déconnecter</button>';
+                const mLogout = mAcc.querySelector('.mobile-logout-btn');
+                if (mLogout) mLogout.addEventListener('click', async () => {
+                    try { await fetch(window.apiUrl('/api/logout'), { method: 'POST', credentials: 'include' }); } catch (err) {}
+                    window.location.href = langPrefixFor('authentification.html');
+                });
+                mobileNavEl.appendChild(mAcc);
+            }
         }
     }
 

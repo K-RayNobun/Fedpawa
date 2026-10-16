@@ -1,0 +1,13 @@
+=== Rapport E2E 20261016-142917 — base http://127.0.0.1:18081 ===
+lane3-services: 53/53 (exit=0)
+payment-flow: 10/17 (exit=1)
+tunnel-v3: 6/6 (exit=0)
+contract-flow: ? (exit=1)
+audit-cross: ? (exit=0)
+audit-flux2: ? (exit=0)
+domiciliation-stepper: 15/17 (exit=1)
+domiciliation-mobile: 5/8 (exit=1)
+etape4-packs: 17/17 (exit=0)
+plan-sync: OK (exit=0)
+smart: OK (exit=0)
+=== 7 suites OK, 4 en échec: payment-flow contract-flow domiciliation-stepper domiciliation-mobile ===

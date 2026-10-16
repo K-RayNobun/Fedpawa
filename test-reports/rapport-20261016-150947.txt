@@ -1,0 +1,6 @@
+=== Rapport E2E 20261016-150947 — base http://127.0.0.1:18081 ===
+payment-flow: 15/17 (exit=1)
+contract-flow: ? (exit=1)
+domiciliation-stepper: 17/17 (exit=0)
+domiciliation-mobile: 5/8 (exit=1)
+=== 1 suites OK, 3 en échec: payment-flow contract-flow domiciliation-mobile ===

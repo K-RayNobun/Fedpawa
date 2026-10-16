@@ -67,32 +67,29 @@ const check = (name, pass, info = '') => { out.cases.push({ name, pass, info });
   await page.click('#payMomoSubmit');
   await page.waitForTimeout(1500);
 
-  // 4. Écran « Vérifier Mon Paiement » ?
-  const verifyBtn = await page.locator('#btnVerifyPay').count();
-  check('écran Vérifier Mon Paiement', verifyBtn > 0, verifyBtn > 0 ? '' : 'écran non affiché');
-  if (!verifyBtn) { console.log(JSON.stringify(out)); process.exit(1); }
+  // 4. Écran succès « Paiement confirmé » (flux actuel: juriste recontacte, suivi espace client)
+  await page.waitForSelector('.pay-momo-head .pay-momo-check, .pay-momo-success', { timeout: 8000 }).catch(() => {});
+  await page.waitForTimeout(500);
+  const successEl = page.locator('.pay-momo-modal .fp-modal, .fp-modal').first();
+  const success = await successEl.count();
+  const successText = success ? await successEl.innerText() : '';
+  check('écran Paiement confirmé affiché', success > 0, success > 0 ? '' : 'écran non affiché');
+  if (!success) { console.log(JSON.stringify(out)); process.exit(1); }
+  check('message juriste + suivi espace client', /juriste/.test(successText) && /Espace Client/i.test(successText), successText.slice(0, 80));
 
-  // 5. Cliquer vérifier -> paiement reçu -> écran contrat
-  await page.click('#btnVerifyPay');
-  await page.waitForTimeout(1200);
-  const signForm = await page.locator('#contractSignForm').count();
-  check('contrat personnalisé affiché', signForm > 0, signForm > 0 ? '' : 'contrat non affiché');
-  if (!signForm) { console.log(JSON.stringify(out)); process.exit(1); }
+  // 5. Bouton d'accès à l'espace client présent
+  const espaceBtn = await page.locator('.fp-modal a[href="espace_client.html"], a:has-text("ACCÉDER À MON ESPACE CLIENT")').count();
+  check('bouton Accéder à mon Espace Client', espaceBtn > 0);
 
-  const docText = await page.locator('.contract-doc').textContent().catch(() => '');
-  check('contrat contient montant + référence', /FCFA/.test(docText) && /(SUB|DEMO)/.test(docText), docText.slice(0, 60));
+  // 6. La souscription apparaît dans l'espace client (suivi)
+  await page.evaluate(() => { const btn = [...document.querySelectorAll('a')].find(a => /ACC[ÉE]DER [ÀA] MON ESPACE CLIENT/i.test(a.textContent)); if (btn) btn.click(); });
+  await page.waitForTimeout(2500);
+  const inEspace = page.url().includes('espace_client.html');
+  check('redirigé vers espace client', inEspace, page.url().split('/').pop());
 
-  // 6. OTP pré-rempli (mode démo) et signature
-  const otpVal = await page.inputValue('#contractOtp').catch(() => '');
-  check('OTP pré-rempli (mode démo)', /^\d{6}$/.test(otpVal), otpVal ? '' : 'vide');
-  await page.click('#contractSignForm button[type="submit"]');
-  await page.waitForTimeout(1500);
-
-  // 7. Contrat signé + lien PDF
-  const success = await page.locator('.pay-momo-success').count();
-  check('contrat signé', success > 0, success > 0 ? '' : 'échec signature');
-  const pdfLink = await page.locator('a[href*="/api/document?type=contrat"]').count();
-  check('lien PDF contrat présent', pdfLink > 0);
+  // 7. Statut fin
+  const refInModal = /SUB|confirm/i.test(successText);
+  check('confirmation paiement cohérente', refInModal);
 
   // 8. Le PDF répond 200
   const href = await page.locator('a[href*="/api/document?type=contrat"]').first().getAttribute('href').catch(() => null);

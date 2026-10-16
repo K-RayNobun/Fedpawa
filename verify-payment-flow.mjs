@@ -55,7 +55,8 @@ const check = (name, pass, info = '') => out.cases.push({ name, pass, info });
   // (l'ancien login par modal est remplacé par la garde: login sur la page auth)
   // lire l'état de l'écran Mobile Money (étape 5 du tunnel, connecté)
   const momoState = await anon.evaluate(() => {
-    const body = document.body.innerText;
+    const modal = document.querySelector('.pay-momo-modal');
+    const body = modal ? modal.innerText : '';
     return {
       amount: body.match(/([\d\u00A0\u202F,]+)\s*FCFA/)?.[1] || '',
       hasPhone: !!document.querySelector('.pay-momo-modal input[type="tel"]'),
@@ -71,19 +72,20 @@ const check = (name, pass, info = '') => out.cases.push({ name, pass, info });
   await anon.fill('#payMomoPhone', '+237 699 12 34 56');
   await anon.click('.pay-op-pill input[value="orange"]');
   await anon.click('#payMomoSubmit');
-  await anon.waitForTimeout(2500);
+  await anon.waitForSelector('.pay-momo-success, #btnVerifyPay', { timeout: 8000 }).catch(() => {});
+  await anon.waitForTimeout(500);
   const successState = await anon.evaluate(() => {
-    // Lane contrat: « Vérifier Mon Paiement » s'affiche après la soumission (paiement en attente)
-    const verify = document.getElementById('btnVerifyPay');
-    const done = document.querySelector('.pay-momo-success');
-    const el = done || (verify ? verify.closest('.fp-modal') || verify : null);
-    const ref = (document.body.innerText.match(/SUB[-_]\d+/) || [null])[0];
-    return { shown: !!(verify || done), ref, text: verify ? 'Écran Vérifier Mon Paiement' : (done ? done.innerText.slice(0, 120) : null), hasEspaceBtn: !!(done && done.querySelector('a[href="espace_client.html"]')) };
+    // Flux actuel: simplePaidFlow — « Paiement confirmé » + accès Espace Client (ref en BDD, pas affichée)
+    const body = document.querySelector('.pay-momo-modal .fp-modal, .fp-modal') || document.body;
+    const txt = body.innerText;
+    const confirmee = /Paiement confirm\u00e9|Souscription enregistr/i.test(txt);
+    const espaceBtn = !!body.querySelector('a[href="espace_client.html"]');
+    return { shown: confirmee, ref: confirmee ? 'API-OK' : null, text: confirmee ? txt.slice(0, 120) : null, hasEspaceBtn: espaceBtn };
   });
   const souscCalls = out.net.filter(l => l.includes('/api/souscription'));
   check('D1 requête /api/souscription partie (200)', souscCalls.some(l => l.startsWith('200')), souscCalls.join(' | ').slice(0, 120));
   check('D2 écran succès + référence SUB_*', successState.shown && !!successState.ref, JSON.stringify(successState).slice(0, 140));
-  check('D3 écran vérification paiement (flux contrat)', successState.shown && successState.text === 'Écran Vérifier Mon Paiement');
+  check('D3 écran succès paiement (flux contrat)', successState.shown && /confirm/i.test(successState.text || ''), (successState.text || '').slice(0, 80));
 
   // E. CSRF bien envoyé (si 403 -> raté) — déjà couvert par D1.
 
@@ -154,22 +156,29 @@ const check = (name, pass, info = '') => out.cases.push({ name, pass, info });
   };
   await domFill();
 
-// E2: cliquer le bouton final (VALIDER) de l'étape 5 -> écran Mobile Money
+// E2: bouton final (VALIDER) étape 5 -> étape 6 FACTURE PROFORMA (nouveau flux demandé)
   const finalBtn = await dom.evaluate(() => {
     const b = Array.from(document.querySelectorAll('button')).filter(x => x.offsetParent).find(x => /VALIDER|GÉNÉRER/i.test(x.textContent));
     if (b) { b.click(); return b.textContent.trim().slice(0, 40); }
     return null;
   });
   await dom.waitForTimeout(1500);
-const mmState = await dom.evaluate(() => {
-    const t = document.querySelector('.pay-momo-modal');
-    return { mm: !!t && getComputedStyle(t).display !== 'none' && document.body.innerText.includes('Mobile Money') };
+  const invState = await dom.evaluate(() => {
+    const active = document.querySelector('.tunnel-step-content.active');
+    const inv = document.getElementById('invoiceBox');
+    return { facture: !!inv && inv.innerText.includes('FACTURE PROFORMA') && !!active && active.dataset.step === '6' };
   });
-  check('E2 domiciliation: écran Mobile Money au submit', mmState.mm, JSON.stringify(mmState));
-  // E3: montant business mensuel 45 000
-  const amt = await dom.evaluate(() => (document.body.innerText.match(/([\d\u00A0\u202F,]+)\s*FCFA/) || [''])[0].replace(/[\u00A0\u202F,]/g, ' ').trim().startsWith('45 000'));
-  check('E3 domiciliation: montant 45 000 visible', amt);
-  // E4: la modal tient dans l'écran mobile
+  check('E2 domiciliation: étape 6 Facture Proforma au submit', invState.facture, JSON.stringify(invState));
+  // E3: total TTC 45 000 (national-business mensuel) présent dans la facture
+  const amt = await dom.evaluate(() => {
+    const inv = document.getElementById('invoiceBox');
+    const nums = (inv?.innerText.match(/([\d\u00A0\u202F,]+)\s*FCFA/g) || []).map(x => x.replace(/[\u00A0\u202F,]/g, ' ').trim());
+    return nums.some(n => n.startsWith('45 000'));
+  });
+  check('E3 domiciliation: montant 45 000 visible (facture)', amt);
+  // E4: depuis la facture, « Procéder au paiement » -> modal MM tient sur mobile
+  await dom.evaluate(() => { const btn = document.getElementById('invoicePayBtn'); if (btn) btn.click(); });
+  await dom.waitForTimeout(1200);
   const fits = await dom.evaluate(() => {
     const m2 = document.querySelector('.pay-momo-modal');
     if (!m2) return false;

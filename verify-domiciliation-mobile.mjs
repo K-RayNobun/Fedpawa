@@ -24,7 +24,7 @@ const check = (name, pass, info = '') => out.cases.push({ name, pass, info });
   }));
   check('M1 mobile: stepper complet masqué', r.fullStepperHidden);
   check('M2 mobile: en-tête compact affiché', r.mobileHeaderShown, JSON.stringify(r));
-  check('M3 compte "Étape 1/5" + titre "Entreprise"', r.count === 'Étape 1/5' && r.title === 'Entreprise', r.count + ' | ' + r.title);
+  check('M3 compte "Étape 1/6" + titre "Entreprise"', r.count === 'Étape 1/6' && r.title === 'Entreprise', r.count + ' | ' + r.title);
   check('M4 en-tête compact (<= 90px de haut)', r.headerHeight <= 90, 'hauteur=' + r.headerHeight);
 
   // avancer jusqu'à étape 4 -> titre se met à jour
@@ -63,7 +63,7 @@ const check = (name, pass, info = '') => out.cases.push({ name, pass, info });
     title: document.getElementById('domStepTitle').textContent,
     fill: document.getElementById('domStepFill').style.width
   }));
-  check('M5 étape 4: "Étape 4/5" + "Formule" + barre 75%', r.count === 'Étape 4/5' && r.title === 'Formule' && r.fill === '75%', JSON.stringify(r));
+  check('M5 étape 4: "Étape 4/6" + "Formule" + barre 60%', r.count === 'Étape 4/6' && r.title === 'Formule' && r.fill === '60%', JSON.stringify(r));
 
   const ov = await m.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   check('M6 pas de débordement 375px', ov <= 1, 'overflow=' + ov + 'px');
@@ -88,7 +88,7 @@ const check = (name, pass, info = '') => out.cases.push({ name, pass, info });
     mobileHidden: getComputedStyle(document.querySelector('.dom-step-mobile') || document.body).display === 'none',
     dots: document.querySelectorAll('.progress-step[data-step]').length
   }));
-  check('D1 desktop: stepper complet affiché (5 points)', r.stepperShown && r.mobileHidden && r.dots === 5, JSON.stringify(r));
+  check('D1 desktop: stepper complet affiché (6 points)', r.stepperShown && r.mobileHidden && r.dots === 6, JSON.stringify(r));
 
   const failed = out.cases.filter(c => !c.pass);
   console.log(JSON.stringify({ cases: out.cases, total: out.cases.length, failed: failed.length }, null, 1));

@@ -18,8 +18,8 @@ const check = (name, pass, info = '') => out.cases.push({ name, pass, info });
   await page.waitForTimeout(1000);
 
   // ==== A. Structure ====
-  check('A1 stepper présent (5 points)', await page.evaluate(() => document.querySelectorAll('.progress-step[data-step]').length === 5));
-  check('A2 5 contenus d\'étape', await page.evaluate(() => document.querySelectorAll('.tunnel-step-content[data-step]').length === 5));
+  check('A1 stepper présent (6 points)', await page.evaluate(() => document.querySelectorAll('.progress-step[data-step]').length === 6));
+  check('A2 6 contenus d\'étape', await page.evaluate(() => document.querySelectorAll('.tunnel-step-content[data-step]').length === 6));
   check('A3 étape 1 active au chargement', await page.evaluate(() => {
     const c = document.querySelector('.tunnel-step-content[data-step="1"]');
     return c && c.classList.contains('active');

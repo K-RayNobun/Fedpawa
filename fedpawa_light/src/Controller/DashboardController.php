@@ -14,10 +14,16 @@ class DashboardController extends Controller {
         $stmtClient->execute([$_SESSION['client_id']]);
         $client = $stmtClient->fetch();
 
-        // 2. Active Subscription
-        $stmtSub = $db->prepare("SELECT * FROM abonnements WHERE client_id = ? ORDER BY id DESC LIMIT 1");
+        // 2. Active Subscription — W-9: préférer l'abonnement ACTIF le plus récent,
+        // sinon le plus récent toutes catégories (statut affiché honnêtement partout)
+        $stmtSub = $db->prepare("SELECT * FROM abonnements WHERE client_id = ? AND statut = 'actif' ORDER BY id DESC LIMIT 1");
         $stmtSub->execute([$_SESSION['client_id']]);
         $subscription = $stmtSub->fetch();
+        if (!$subscription) {
+            $stmtSub = $db->prepare("SELECT * FROM abonnements WHERE client_id = ? ORDER BY id DESC LIMIT 1");
+            $stmtSub->execute([$_SESSION['client_id']]);
+            $subscription = $stmtSub->fetch();
+        }
 
         // 3. Invoices
         $stmtFactures = $db->prepare("SELECT * FROM factures WHERE client_id = ? ORDER BY id DESC");

@@ -86,3 +86,15 @@ CREATE TABLE IF NOT EXISTS password_resets (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (client_id) REFERENCES clients(id)
 );
+
+CREATE TABLE IF NOT EXISTS tickets_support (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    client_id INTEGER NOT NULL,
+    sujet TEXT NOT NULL,
+    message TEXT NOT NULL,
+    statut TEXT DEFAULT 'open',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    reponse TEXT,
+    reponse_at DATETIME,
+    FOREIGN KEY (client_id) REFERENCES clients(id)
+);

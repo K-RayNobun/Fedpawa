@@ -6,6 +6,31 @@ use App\Service\AuditLogger;
 use App\Service\LoginThrottler;
 
 class AdminController extends Controller {
+    public function ticketReply() {
+        // W-13: l'admin répond à un ticket support — visible côté client
+        if (!isset($_SESSION['admin_logged_in'])) {
+            $this->json(['error' => 'Non autorisé'], 403);
+            return;
+        }
+        $input = json_decode(file_get_contents('php://input'), true);
+        if (!is_array($input) || empty((int)($input['ticket_id'] ?? 0)) || empty(trim($input['reponse'] ?? ''))) {
+            $this->json(['error' => 'Champs requis'], 400);
+            return;
+        }
+        if (mb_strlen($input['reponse']) > 5000) {
+            $this->json(['error' => 'Réponse trop longue (max 5000)'], 400);
+            return;
+        }
+        $db = \App\Service\Database::getConnection();
+        $stmt = $db->prepare("UPDATE tickets_support SET reponse = ?, reponse_at = ?, statut = 'répondu' WHERE id = ?");
+        $stmt->execute([trim($input['reponse']), date('Y-m-d H:i:s'), (int)$input['ticket_id']]);
+        if ($stmt->rowCount() === 0) {
+            $this->json(['error' => 'Ticket introuvable'], 404);
+            return;
+        }
+        $this->json(['message' => 'Réponse enregistrée']);
+    }
+
     public function __construct() {
         $isAdmin = isset($_SESSION['admin_logged_in'])
             || (!empty($_SESSION['client_id']) && ($_SESSION['role'] ?? 'client') === 'admin'); // Lane #4 : rôle admin

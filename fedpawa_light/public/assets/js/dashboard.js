@@ -152,6 +152,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (offerLabel && sub) {
             offerLabel.innerText = (sub.pack || 'Aucun pack');
+            // W-9: badge de l'onglet = statut réel (fini le "Actif" statique mensonger)
+            const badgeTab = document.querySelector('#tab-abonnement .db-section-header .badge');
+            if (badgeTab) {
+                badgeTab.innerText = sub.statut === 'actif' ? 'Actif' : 'En attente';
+                badgeTab.className = 'badge badge-' + (sub.statut === 'actif' ? 'success' : 'warning');
+            }
             const price = document.getElementById('offerPrice');
             const start = document.getElementById('offerStart');
             const end = document.getElementById('offerEnd');
@@ -242,6 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 const badge = st => {
                     if (st === 'resolved' || st === 'closed') return '<span class="badge badge-success">Résolu</span>';
+                    if (st === 'répondu' || st === 'repondu') return '<span class="badge badge-success">Répondu</span>';
                     if (st === 'in_progress' || st === 'en_cours') return '<span class="badge badge-warning">En cours</span>';
                     return '<span class="badge badge-warning">Ouvert</span>';
                 };
@@ -250,6 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     '<div style="display:flex; justify-content:space-between; gap:10px; align-items:flex-start;">' +
                     '<strong style="font-size:0.95rem; color:var(--color-heading);">' + echap(t.sujet) + '</strong>' + badge(t.statut) + '</div>' +
                     '<p style="font-size:0.86rem; color:var(--color-text-main); margin:8px 0 6px;">' + echap(String(t.message || '').slice(0, 200)) + ((t.message || '').length > 200 ? '…' : '') + '</p>' +
+                    (t.reponse ? '<div style="background:var(--color-bg-alt); border-radius:8px; padding:10px 12px; margin:8px 0;"><strong style="font-size:0.78rem; color:var(--color-primary);">Réponse du support :</strong><p style="font-size:0.86rem; margin:4px 0 0;">' + echap(String(t.reponse)) + '</p><div style="font-size:0.74rem; color:var(--color-text-muted); margin-top:4px;">' + (t.reponse_at ? new Date(String(t.reponse_at).replace(' ', 'T')).toLocaleDateString('fr-FR') : '') + '</div></div>' : '') +
                     '<div style="font-size:0.76rem; color:var(--color-text-muted);">Envoyé le ' + (t.created_at ? new Date(String(t.created_at).replace(' ', 'T')).toLocaleDateString('fr-FR') : '—') + '</div>' +
                     '</div>'
                 ).join('');

@@ -72,6 +72,7 @@ if (preg_match('#^/api(/|$)#', $uri)) {
     $router->get('/api/admin/lists', 'AdminController@lists');
     $router->post('/api/admin/kyc/approve', 'KycController@approve');
     $router->post('/api/admin/kyc/reject', 'KycController@reject');
+    $router->post('/api/admin/ticket/reply', 'AdminController@ticketReply');
     $router->post('/api/admin/template/update', 'AdminController@updateTemplate');
     $router->post('/api/admin/courrier/add', 'CourrierController@add');
     $router->post('/api/admin/throttle/clear', 'AdminController@clearThrottle');
@@ -92,6 +93,12 @@ if (PHP_SAPI === 'cli-server' && $uri !== '/' && $uri !== '/index.php') {
 }
 
 // ---- 3. Page d'accueil / 404 -----------------------------------------------
+// W-2 : /en (et /en/) doit servir l'accueil anglais, pas un 404
+if ($uri === '/en' || $uri === '/en/') {
+    header('Location: /en/index.php', true, 301);
+    return;
+}
+
 if ($uri !== '/' && $uri !== '/index.php') {
     http_response_code(404);
     $title = 'Page introuvable | FEDPAWA CORPORATE SOLUTIONS';

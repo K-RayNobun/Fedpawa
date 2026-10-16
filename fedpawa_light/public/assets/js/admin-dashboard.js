@@ -172,10 +172,28 @@ document.addEventListener('DOMContentLoaded', () => {
             const nav = document.querySelector('.db-nav');
             if (nav && !nav.querySelector('[data-tab="tickets"]')) nav.insertAdjacentHTML('beforeend', '<div class="db-nav-item" data-tab="tickets"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Tickets Support</div>');
         }
-        const rows = tickets.map(t => `<tr><td>#${t.id}</td><td>${esc(t.client_nom)}</td><td>${esc(t.sujet)}</td><td style="max-width:300px;">${esc(t.message)}</td><td>${fmtDate(t.created_at)}</td><td>${statutBadge(t.statut)}</td></tr>`);
-        tab.innerHTML = '<div class="db-welcome"><div><h1>Tickets Support</h1><p>Demandes clients via l\'Espace Client.</p></div></div><div class="db-section"><div class="db-table-wrap"><table class="db-table"><thead><tr><th>ID</th><th>Client</th><th>Sujet</th><th>Message</th><th>Date</th><th>Statut</th></tr></thead><tbody>' +
-            (rows.length ? rows.join('') : emptyRow(6, 'Aucun ticket')) + '</tbody></table></div></div>';
+        const rows = tickets.map(t => `<tr><td>#${t.id}</td><td>${esc(t.client_nom)}</td><td>${esc(t.sujet)}</td><td style="max-width:300px;">${esc(t.message)}</td><td>${fmtDate(t.created_at)}</td><td>${statutBadge(t.statut)}</td><td>${t.reponse ? '<span style="font-size:0.78rem;color:var(--color-text-muted);">Répondu</span>' : `<button class="btn btn-primary" style="padding:4px 10px;font-size:0.78rem;" onclick="adminTicketReply(${t.id})">Répondre</button>`}</td></tr>`);
+        tab.innerHTML = '<div class="db-welcome"><div><h1>Tickets Support</h1><p>Demandes clients via l\'Espace Client.</p></div></div><div class="db-section"><div class="db-table-wrap"><table class="db-table"><thead><tr><th>ID</th><th>Client</th><th>Sujet</th><th>Message</th><th>Date</th><th>Statut</th><th>Action</th></tr></thead><tbody>' +
+            (rows.length ? rows.join('') : emptyRow(7, 'Aucun ticket')) + '</tbody></table></div></div>';
     }
+
+    // W-13: réponse admin à un ticket — visible côté client
+    window.adminTicketReply = async function (ticketId) {
+        const rep = window.prompt('Votre réponse au ticket #' + ticketId + ' :');
+        if (!rep || !rep.trim()) return;
+        try {
+            const res = await Api.post('/api/admin/ticket/reply', { ticket_id: ticketId, reponse: rep.trim() });
+            const data = await res.json().catch(() => ({}));
+            if (res.ok && !data.error) {
+                if (window.FedpawaUI) FedpawaUI.toast('Réponse envoyée. Le client la verra dans son espace.', 'success');
+                typeof loadAdminData === 'function' && loadAdminData();
+            } else {
+                if (window.FedpawaUI) FedpawaUI.toast(data.error || 'Échec de l\'enregistrement.', 'error');
+            }
+        } catch (e) {
+            if (window.FedpawaUI) FedpawaUI.toast('Erreur réseau.', 'error');
+        }
+    };
 
     function ensureTabMessages(messages) {
         let tab = document.getElementById('tab-messages');

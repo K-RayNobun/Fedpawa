@@ -11,7 +11,7 @@ class SupportController extends Controller {
             return;
         }
         $db = \App\Service\Database::getConnection();
-        $stmt = $db->prepare("SELECT id, sujet, message, statut, created_at FROM tickets_support WHERE client_id = ? ORDER BY id DESC LIMIT 50");
+        $stmt = $db->prepare("SELECT id, sujet, message, statut, created_at, reponse, reponse_at FROM tickets_support WHERE client_id = ? ORDER BY id DESC LIMIT 50");
         $stmt->execute([$_SESSION['client_id']]);
         $this->json(['tickets' => $stmt->fetchAll()]);
     }

@@ -19,7 +19,9 @@ $langPrefix = $langPrefix ?? '';
         <h3 class="footer-col-title"><?= $lang === "en" ? "Find Us" : "Nous trouver" ?></h3>
         <p><?= $lang === "en" ? "Logpom Pharmacy Building, roadside, Logpom, Douala, Cameroon" : "Immeuble Pharmacie de Logpom, en bordure de route, Logpom, Douala, Cameroun" ?></p>
         <p><?= $lang === "en" ? "Monday–Friday 8:00 – 18:00<br>Saturday 9:00 – 14:00" : "Lundi–Vendredi 8h00 – 18h00<br>Samedi 9h00 – 14h00" ?></p>
-        <p><a href="mailto:contact@fedpawa.com">contact@fedpawa.com</a></p>
+        <p><a href="mailto:contact@fedpawa.com">contact@fedpawa.com</a><br>
+        <a href="tel:+237691704802"><?= $lang === "en" ? "Phone" : "Tél" ?> : +237 691 70 48 02</a><br>
+        <a href="https://wa.me/237691704802" target="_blank" rel="noopener">WhatsApp : +237 691 70 48 02</a></p>
       </div>
       <div class="footer-links">
         <h3 class="footer-col-title"><?= $lang === "en" ? "Navigation" : "Navigation" ?></h3>

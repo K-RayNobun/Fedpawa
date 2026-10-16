@@ -216,6 +216,15 @@ class SubscriptionController extends Controller {
                 }
             }
 
+            // W-10 : paiement recu -> facture + activation de l'abonnement en attente
+            if ($statut === 'recu') {
+                try {
+                    \App\Service\FactureService::createForPayment((int)$clientId, (float)$sub['prix'], (string)($transactionId ?? ''));
+                } catch (\Exception $fe) {
+                    error_log('FactureService error: ' . $fe->getMessage());
+                }
+            }
+
             $this->json([
                 'status' => ($statut === 'recu') ? 'paid' : 'pending',
                 'sub_id' => $subId,

@@ -35,7 +35,23 @@ if (preg_match('#^/api(/|$)#', $uri)) {
         } elseif (!isset($_SESSION['client_id'])) {
             echo json_encode(['authenticated' => false]);
         } else {
-            echo json_encode(['authenticated' => true, 'role' => $_SESSION['role'] ?? 'client', 'name' => $_SESSION['client_name'] ?? '', 'email' => $_SESSION['client_email'] ?? '']);
+            // kyc_status : dernier dossier KYC du client (null si jamais soumis)
+            // — permet au tunnel de sauter l'étape KYC si déjà fait dans l'espace client
+            try {
+                $kycDb = \App\Service\Database::getConnection();
+                $kycStmt = $kycDb->prepare("SELECT statuts FROM kyc WHERE client_id = ? ORDER BY id DESC LIMIT 1");
+                $kycStmt->execute([$_SESSION['client_id']]);
+                $kycStatus = $kycStmt->fetchColumn() ?: null;
+            } catch (\Throwable $kycErr) {
+                $kycStatus = null; // dégradation gracieuse : on affiche l'étape KYC
+            }
+            echo json_encode([
+                'authenticated' => true,
+                'role' => $_SESSION['role'] ?? 'client',
+                'name' => $_SESSION['client_name'] ?? '',
+                'email' => $_SESSION['client_email'] ?? '',
+                'kyc_status' => $kycStatus
+            ]);
         }
     });
     $router->get('/api/courriers', 'CourrierController@index');

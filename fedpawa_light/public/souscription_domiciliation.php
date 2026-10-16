@@ -20,6 +20,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
       <div class="progress-step" data-step="3"><div class="progress-dot">3</div><span class="progress-label">Contact</span></div>
       <div class="progress-step" data-step="4"><div class="progress-dot">4</div><span class="progress-label">Formule</span></div>
       <div class="progress-step" data-step="5"><div class="progress-dot">5</div><span class="progress-label">Documents</span></div>
+      <div class="progress-step" data-step="6"><div class="progress-dot">6</div><span class="progress-label">Facturation</span></div>
     </div>
   </div>
 </div>
@@ -342,6 +343,19 @@ include __DIR__ . '/../templates/partials/site-header.php';
 
           <button type="button" class="btn btn-outline" style="width: 100%; margin-bottom: 14px;" onclick="goToStep(4)">&larr; Retour &agrave; l'&eacute;tape pr&eacute;c&eacute;dente</button>
           <button type="submit" class="btn btn-primary btn-block btn-validate">👉 VALIDER ET GÉNÉRER MON CONTRAT DE DOMICILIATION</button>
+        </section>
+      </div>
+
+      <!-- ============ ÉTAPE 6 – FACTURATION (avant paiement) ============ -->
+      <div class="tunnel-step-content" data-step="6">
+        <section class="form-section">
+          <h2 class="form-section-title"><span class="form-section-num">7</span> Facture Proforma</h2>
+          <p class="section-intro">Vérifiez votre facture en bonne et due forme avant de procéder au paiement.</p>
+
+          <div id="invoiceBox" class="invoice-box" style="background: var(--color-surface, #fff); border: 1px solid var(--color-border); border-radius: 12px; padding: 28px; margin-bottom: 24px;"></div>
+
+          <button type="button" class="btn btn-outline" style="width: 100%; margin-bottom: 14px;" onclick="goToStep(5)">&larr; Retour</button>
+          <button type="button" id="invoicePayBtn" class="btn btn-primary btn-block">🔒 Proc&eacute;der au paiement s&eacute;curis&eacute;</button>
         </section>
       </div>
       </form>

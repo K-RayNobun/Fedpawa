@@ -5,6 +5,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressFill = document.getElementById('progressFill');
     const summaryItems = document.getElementById('summaryItems');
     const summaryTotal = document.getElementById('summaryTotal');
+
+    // ============ SKIP KYC (étape 3) si déjà fait dans l'espace client ============
+    let kycAlreadyDone = false;
+    (async () => {
+        try {
+            const res = await fetch(window.apiUrl ? window.apiUrl('/api/me') : '/api/me', { credentials: 'include' });
+            if (!res.ok) return;
+            const me = await res.json();
+            if (me && me.authenticated && me.kyc_status) {
+                kycAlreadyDone = true;
+                const step3 = document.getElementById('step-3');
+                if (step3) {
+                    const dzs = step3.querySelectorAll('.dropzone');
+                    const keep = dzs[2]; // la 3e dropzone (Visuel OAPI) reste utile
+                    step3.querySelectorAll('.dropzone').forEach(d => { if (d !== keep) d.style.display = 'none'; });
+                    const note = document.createElement('div');
+                    note.style.cssText = 'display:flex; align-items:flex-start; gap:14px; background:rgba(16,185,129,.08); border:1px solid #10b981; border-radius:12px; padding:18px 20px; margin-bottom:18px;';
+                    note.innerHTML = '<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#10b981" stroke-width="2.5" style="flex:0 0 26px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>' +
+                        '<div><strong>Votre dossier KYC a d&eacute;j&agrave; &eacute;t&eacute; fourni</strong>' +
+                        '<div style="font-size:0.86rem; color:var(--color-text-muted); margin-top:4px;">Depuis votre espace client (statut&nbsp;: ' + me.kyc_status + '). Pas besoin de renvoyer vos pi&egrave;ces.</div></div>';
+                    step3.querySelector('.step-header')?.insertAdjacentElement('afterend', note);
+                }
+            }
+        } catch (e) { /* dégradation : étape KYC normale */ }
+    })();
+
     
     // ============ CATALOGUE PACKS / PLANS (source de vérité) ============
     // price = 0 => "Sur devis" (pas de total numérique)

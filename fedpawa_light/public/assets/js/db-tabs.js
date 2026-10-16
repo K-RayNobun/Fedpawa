@@ -8,18 +8,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const navItems = document.querySelectorAll('.db-nav-item');
     const tabContents = document.querySelectorAll('.db-tab-content');
 
+    function activateTab(tabId) {
+        document.querySelectorAll('.db-nav-item').forEach(nav => nav.classList.remove('active'));
+        const nav = document.querySelector('.db-nav-item[data-tab="' + tabId + '"]');
+        if (nav) nav.classList.add('active');
+        document.querySelectorAll('.db-tab-content').forEach(content => content.classList.remove('active'));
+        const panel = document.getElementById('tab-' + tabId);
+        if (panel) panel.classList.add('active');
+    }
+
     if (navItems.length > 0) {
         navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const tabId = item.dataset.tab;
-                navItems.forEach(nav => nav.classList.remove('active'));
-                item.classList.add('active');
-                tabContents.forEach(content => content.classList.remove('active'));
-                const activeTab = document.getElementById('tab-' + tabId);
-                if (activeTab) activeTab.classList.add('active');
-            });
+            item.addEventListener('click', () => activateTab(item.dataset.tab));
         });
     }
+
+    // Délégation globale : couvre aussi les onglets ajoutés DYNAMIQUEMENT après le
+    // chargement (Tickets Support et Messagerie sont injectés par admin-dashboard.js
+    // une fois les données reçues — inexistants au moment du bind initial).
+    document.addEventListener('click', (e) => {
+        const item = e.target.closest('.db-nav-item');
+        if (item && item.dataset.tab) {
+            e.preventDefault();
+            activateTab(item.dataset.tab);
+        }
+    });
 
     // Rendu initial : activer le 1er onglet si aucun n'est actif
     if (tabContents.length > 0 && !document.querySelector('.db-tab-content.active')) {
@@ -28,14 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.switchTab = function(tabId) {
-        navItems.forEach(item => {
-            item.classList.remove('active');
-            if (item.dataset.tab === tabId) item.classList.add('active');
-        });
-        tabContents.forEach(content => {
-            content.classList.remove('active');
-            if (content.id === 'tab-' + tabId) content.classList.add('active');
-        });
+        activateTab(tabId);
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 });

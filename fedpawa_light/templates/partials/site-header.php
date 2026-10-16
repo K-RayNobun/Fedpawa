@@ -28,7 +28,7 @@ $langPrefix = $langPrefix ?? ($lang === 'en' ? '/en' : '');
 <?php foreach (($extraCss ?? []) as $css): ?><link rel="stylesheet" href="<?= htmlspecialchars($langPrefix . $css, ENT_QUOTES, 'UTF-8') ?>"><?php endforeach; ?>
 <?php
 // ===== SEO: canonical + hreflang + Open Graph (centralisés) =====
-$baseDomain = 'https://api.fedpawa.com';
+$baseDomain = 'https://www.fedpawa.com';
 // Chemin canonique de la page courante (sans /en pour FR, avec pour EN)
 $canonicalPath = $canonicalPath ?? strtok($_SERVER['REQUEST_URI'] ?? '/', '?');
 // Pour les pages EN, REQUEST_URI commence par /en -> le retirer pour obtenir le chemin canonique FR

@@ -254,8 +254,48 @@ html[data-mode="dark"] .kyc-alert p { color: #ffc107; }
 .status-toggle.active::after { left: 22px; }
 
 /* --- Dashboards Responsive --- */
+/* W-14 (mobile) : barre d'onglets horizontale scrollable — remplace la sidebar cachée <991px */
+.db-tabs-mobile { display: none; }
 @media (max-width: 991px) {
   .db-sidebar { display: none; }
+  /* W-14 : en mobile la sidebar disparaît — le layout passe en colonne pour que
+     la barre d'onglets et le main occupent toute la largeur */
+  .db-layout { flex-direction: column; }
+  .db-tabs-mobile {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-basis: 100%;
+    gap: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px 16px;
+    background-color: var(--color-surface-dark);
+    position: sticky;
+    top: 62px;
+    z-index: 40;
+    scrollbar-width: thin;
+  }
+  .db-tabs-mobile::-webkit-scrollbar { height: 4px; }
+  .db-tabs-mobile::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 2px; }
+  .db-tab-chip {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 16px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #b0aca4;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: var(--transition-fast);
+  }
+  .db-tab-chip svg { width: 15px; height: 15px; flex-shrink: 0; }
+  .db-tab-chip.active { background: var(--color-gold); color: #1c1a17; border-color: var(--color-gold); font-weight: 600; }
   .db-main { padding: 30px 20px; }
   .required-docs { grid-template-columns: 1fr; }
   .db-user-area .user-name { display: none; }

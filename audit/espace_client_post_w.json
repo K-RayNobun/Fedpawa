@@ -1,0 +1,17 @@
+[
+  {"id": "F1", "statut": "corrige", "preuve": "Logout: authenticated true->false + redirect auth. Boutons logout visibles desktop+mobile"},
+  {"id": "F2", "statut": "corrige", "preuve": "Client sans abo: aucun badge ACTIF mensonger sur l'apercu"},
+  {"id": "F3", "statut": "partiel", "preuve": "Cartes KYC et Dernier courrier affichent 'Chargement…' en sous-valeur quand vide (client paye sans KYC); carte Abonnement OK"},
+  {"id": "F4", "statut": "corrige", "preuve": "375px: burger contient MON ESPACE + Se deconnecter; 2 boutons logout visibles"},
+  {"id": "F5", "statut": "resolu_retire", "preuve": "Checkbox 'Se souvenir de moi' retiree de l'UI"},
+  {"id": "F6", "statut": "corrige_a_noter", "preuve": "Bouton redirige desormais — MAIS vers souscription_domiciliation.php pour un abonnement creation (ciblage a revoir)"},
+  {"id": "F7", "statut": "corrige", "preuve": "Section 'Mes demandes precedentes': ticket visible avec statut OUVERT"},
+  {"id": "F8", "statut": "corrige", "preuve": "Messages d'etat vide affiches (Aucun contrat pour le moment / Aucun courrier recu)"},
+  {"id": "F9", "statut": "corrige", "preuve": "4 documents distincts (CNI, Statuts, Justificatif, Description d'activite) chacun avec son etat"},
+  {"id": "F10", "statut": "corrige", "preuve": "maxLength 150 (sujet) / 5000 (message)"},
+  {"id": "F11", "statut": "corrige", "preuve": "0 input sans id, 0 label sans for"},
+  {"id": "F12", "statut": "toujours_ouvert", "preuve": "Champs mot de passe sans attribut autocomplete"},
+  {"id": "W-9", "statut": "valide", "preuve": "Apercu et onglet Abonnement: meme statut reel ACTIF pour le client paye"},
+  {"id": "W-10", "statut": "valide", "preuve": "Facture FAC-DEMO-SUB-81 creee au paiement verifie ET visible dans l'onglet Mes factures"},
+  {"id": "W-13", "statut": "valide", "preuve": "Reponse admin visible cote client: statut REPONDU + 'Reponse du support' + date"}
+]

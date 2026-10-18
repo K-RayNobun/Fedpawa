@@ -3,6 +3,7 @@ Allow: /
 Disallow: /api/
 Disallow: /espace_client
 Disallow: /admin_dashboard
+Disallow: /admin_document
 Disallow: /authentification
 Disallow: /mot_de_passe_oublie
 Disallow: /tunnel_souscription

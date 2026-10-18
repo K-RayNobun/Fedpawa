@@ -143,16 +143,18 @@
       "id": "L011",
       "title": "Admin dashboard: header dynamique (CTA Dashboard si admin), styles CTA KYC, visionneuse documents + modal si absent",
       "priority": "P1",
-      "status": "in_progress",
+      "status": "done",
       "created_at": "2026-10-18 15:45:50 UTC",
-      "last_update": "2026-10-18 20:36:59 UTC",
+      "last_update": "2026-10-18 21:46:52 UTC",
       "agent": "hermes-l011-re",
       "claimed_at": "2026-10-18 19:23:47 UTC",
       "context_file": "/root/Fedpawa/state/ctx-L011.md",
       "artifacts": [
+        "/root/Fedpawa/audit/l011_rapport.md",
+        "/root/Fedpawa/fedpawa_light/public/admin_document.html",
         "/root/Fedpawa/fedpawa_light/public/assets/js/main.js"
       ],
-      "summary": null
+      "summary": "Header dynamique: CTA Dashboard si admin (+menu profil/mobile adaptés), client inchangé. KYC: .btn-approve/.btn-reject thémés (cause racine: tokens success/danger/warning jamais définis -> ajoutés), inline styles supprimés, bug '\">' parasite corrigé. Visionneuse: GET /api/admin/document-info (403 non-admin), lists() enrichi doc_exists, liens conditionnels + re-verif au clic, page admin_document.html (infos+Telecharger+Retour, modal si absent). E2E 29/29 PASS, 7 captures, DB purgée. Fichiers: main.js, admin-dashboard.js, style.css, dashboard.css, StorageController, AdminController(lists), index.php, admin_document.html (nouveau), admin_dashboard.html, robots.txt + bumps v5/v9."
     },
     {
       "id": "L012",
@@ -187,16 +189,17 @@
       "id": "L014",
       "title": "Pages Politique de Confidentialité + CGU/CGV (FR+EN) liées aux cases à cocher auth et souscriptions",
       "priority": "P1",
-      "status": "in_progress",
+      "status": "done",
       "created_at": "2026-10-18 19:57:46 UTC",
-      "last_update": "2026-10-18 20:40:52 UTC",
+      "last_update": "2026-10-18 21:50:15 UTC",
       "agent": "l014-subagent",
       "claimed_at": "2026-10-18 20:00:08 UTC",
       "context_file": "/root/Fedpawa/state/ctx-L014.md",
       "artifacts": [
-        "/root/Fedpawa/fedpawa_light/public/politique-confidentialite.php"
+        "/root/Fedpawa/fedpawa_light/public/politique-confidentialite.php",
+        "/root/Fedpawa/state/l014-report.md"
       ],
-      "summary": null
+      "summary": "Politique de confidentialité + CGU FR/EN créées et liées aux 3 cases à cocher + footer + sitemap — E2E prouvé"
     }
   ]
 }

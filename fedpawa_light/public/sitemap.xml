@@ -104,4 +104,30 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://www.fedpawa.com/politique-confidentialite.php</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.fedpawa.com/politique-confidentialite.php"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.fedpawa.com/en/politique-confidentialite.php"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.fedpawa.com/politique-confidentialite.php"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.fedpawa.com/cgu.php</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.fedpawa.com/cgu.php"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.fedpawa.com/en/cgu.php"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.fedpawa.com/cgu.php"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.fedpawa.com/en/politique-confidentialite.php</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.fedpawa.com/en/cgu.php</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
 </urlset>

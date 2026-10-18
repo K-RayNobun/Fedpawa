@@ -1,0 +1,186 @@
+{
+  "checks": [
+    {
+      "name": "page /politique-confidentialite.php = 200",
+      "ok": true,
+      "detail": "status=200 title=\"FEDPAWA CORPORATE SOLUTIONS | Politique de Confidentialité\""
+    },
+    {
+      "name": "page /politique-confidentialite.php hero+footer+css",
+      "ok": true,
+      "detail": "hero=true footer=true"
+    },
+    {
+      "name": "page /cgu.php = 200",
+      "ok": true,
+      "detail": "status=200 title=\"FEDPAWA CORPORATE SOLUTIONS | Conditions Générales d'Utilisa\""
+    },
+    {
+      "name": "page /cgu.php hero+footer+css",
+      "ok": true,
+      "detail": "hero=true footer=true"
+    },
+    {
+      "name": "page /en/politique-confidentialite.php = 200",
+      "ok": true,
+      "detail": "status=200 title=\"FEDPAWA CORPORATE SOLUTIONS | Privacy Policy\""
+    },
+    {
+      "name": "page /en/politique-confidentialite.php hero+footer+css",
+      "ok": true,
+      "detail": "hero=true footer=true"
+    },
+    {
+      "name": "page /en/cgu.php = 200",
+      "ok": true,
+      "detail": "status=200 title=\"FEDPAWA CORPORATE SOLUTIONS | Terms of Service and Sale\""
+    },
+    {
+      "name": "page /en/cgu.php hero+footer+css",
+      "ok": true,
+      "detail": "hero=true footer=true"
+    },
+    {
+      "name": "auth label #cgu contient lien cgu.php",
+      "ok": true
+    },
+    {
+      "name": "auth label #cgu contient lien politique",
+      "ok": true
+    },
+    {
+      "name": "auth liens target=_blank rel=noopener",
+      "ok": true,
+      "detail": "[{\"href\":\"cgu.php\",\"target\":\"_blank\",\"rel\":\"noopener\"},{\"href\":\"politique-confidentialite.php\",\"target\":\"_blank\",\"rel\":\"noopener\"}]"
+    },
+    {
+      "name": "clic lien CGU ouvre nouvel onglet vers cgu.php",
+      "ok": true,
+      "detail": "http://127.0.0.1:18081/cgu.php"
+    },
+    {
+      "name": "auth label FR contient \"politique de confidentialité\"",
+      "ok": true
+    },
+    {
+      "name": "auth.js chargé en v3",
+      "ok": true,
+      "detail": "assets/js/auth.js?v=3"
+    },
+    {
+      "name": "auth label EN (switch) contient Privacy Policy + lien politique",
+      "ok": true,
+      "detail": "I accept the <a href=\"cgu.php\" target=\"_blank\" rel=\"noopener\">Terms of Service</a> and <a href=\"politique-confidentialit"
+    },
+    {
+      "name": "auth label FR (re-switch) contient liens",
+      "ok": true
+    },
+    {
+      "name": "sub-dom 200",
+      "ok": true,
+      "detail": "status=200"
+    },
+    {
+      "name": "sub-dom chk-cgv: lien CGV",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "sub-dom chk-cgv: lien politique",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "sub-dom chk-cgv: 2 liens cliquables",
+      "ok": true,
+      "detail": "count=2"
+    },
+    {
+      "name": "tunnel 200",
+      "ok": true,
+      "detail": "status=200"
+    },
+    {
+      "name": "tunnel case trouvée",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "tunnel case: lien CGV",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "tunnel case: lien politique",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "tunnel case: 2 liens cliquables",
+      "ok": true,
+      "detail": "count=2"
+    },
+    {
+      "name": "footer liens sur /",
+      "ok": true,
+      "detail": "count=2"
+    },
+    {
+      "name": "footer liens sur /contrats.php",
+      "ok": true,
+      "detail": "count=2"
+    },
+    {
+      "name": "footer liens sur /en/contrats.php",
+      "ok": true,
+      "detail": "count=2"
+    },
+    {
+      "name": "footer liens sur /politique-confidentialite.php",
+      "ok": true,
+      "detail": "count=2"
+    },
+    {
+      "name": "footer liens sur /cgu.php",
+      "ok": true,
+      "detail": "count=2"
+    },
+    {
+      "name": "footer liens sur /en/politique-confidentialite.php",
+      "ok": true,
+      "detail": "count=2"
+    },
+    {
+      "name": "footer liens sur /en/cgu.php",
+      "ok": true,
+      "detail": "count=2"
+    },
+    {
+      "name": "footer liens sur /authentification.html",
+      "ok": true,
+      "detail": "count=2"
+    },
+    {
+      "name": "footer EN libellés anglais",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "sitemap.xml 200 + 4 nouvelles urls",
+      "ok": true,
+      "detail": "status=200"
+    },
+    {
+      "name": "politique -> lien vers cgu",
+      "ok": true,
+      "detail": "count=1"
+    },
+    {
+      "name": "cgu -> lien vers politique",
+      "ok": true,
+      "detail": "count=1"
+    }
+  ],
+  "failed": []
+}

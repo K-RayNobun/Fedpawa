@@ -333,7 +333,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
           <h2 class="form-section-title"><span class="form-section-num">6</span> Validation et Sécurité Juridique</h2>
 
           <div class="form-group validation-group">
-            <label class="checkbox-line validation-line"><input type="checkbox" id="chk-cgv" required> <span><strong>Conditions Générales :</strong> J'accepte expressément les Conditions Générales de Vente, la Politique de Confidentialité et la Charte KYC de FEDPAWA CORPORATE SOLUTIONS SARL.</span></label>
+            <label class="checkbox-line validation-line"><input type="checkbox" id="chk-cgv" required> <span><strong>Conditions Générales :</strong> J'accepte expressément les <a href="cgu.php" target="_blank" rel="noopener"><strong>Conditions Générales de Vente</strong></a>, la <a href="politique-confidentialite.php" target="_blank" rel="noopener"><strong>Politique de Confidentialité</strong></a> et la Charte KYC de FEDPAWA CORPORATE SOLUTIONS SARL.</span></label>
             <label class="checkbox-line validation-line"><input type="checkbox" id="chk-cadre" required> <span><strong>Cadre Contractuel :</strong> Je reconnais que la prestation de domiciliation est régie par une <strong>Convention de mise à disposition d'infrastructures et de services</strong>, excluant expressément le statut des baux commerciaux au sens du Droit Uniforme OHADA.</span></label>
             <label class="checkbox-line validation-line"><input type="checkbox" id="chk-exactitude" required> <span><strong>Exactitude des informations :</strong> Je certifie sur l'honneur que les informations et documents fournis sont exacts, authentiques et sincères.</span></label>
           </div>

@@ -116,8 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             ${badge(k.statuts, 'warning')}
                         </div>
                         <div class="kyc-docs-grid">
-                            <div class="kyc-doc">${k.doc_exists_identite ? `<a href="/api/document?type=kyc&id=${k.id}&file=piece_identite" target="_blank" rel="noopener">` : '<a class="kyc-doc-na">'}<img src="/api/document?type=kyc&id=${k.id}&file=piece_identite" alt="CNI Recto" onerror="this.outerHTML='<p style=\\"padding:20px;color:var(--color-text-muted)\\">Pi\u00e8ce d\'identit\u00e9 (PDF)</p>'"></a><p>Pi\u00e8ce d'identit\u00e9</p></div>
-                            <div class="kyc-doc">${k.doc_exists_justificatif ? `<a href="/api/document?type=kyc&id=${k.id}&file=justificatif_domicile" target="_blank" rel="noopener">` : '<a class="kyc-doc-na">'}<img src="/api/document?type=kyc&id=${k.id}&file=justificatif_domicile" alt="Justificatif" onerror="this.outerHTML='<p style=\\"padding:20px;color:var(--color-text-muted)\\">Justificatif de domicile</p>'"></a><p>Justificatif de domicile</p></div>
+                            <div class="kyc-doc">${k.doc_exists_identite ? `<a href="/api/document?type=kyc&id=${k.id}&file=piece_identite" target="_blank" rel="noopener">` : '<a class="kyc-doc-na">'}<img src="/api/document?type=kyc&id=${k.id}&file=piece_identite" alt="CNI Recto" data-fallback="Pi\u00e8ce d'identit\u00e9 (PDF)"></a><p>Pi\u00e8ce d'identit\u00e9</p></div>
+                            <div class="kyc-doc">${k.doc_exists_justificatif ? `<a href="/api/document?type=kyc&id=${k.id}&file=justificatif_domicile" target="_blank" rel="noopener">` : '<a class="kyc-doc-na">'}<img src="/api/document?type=kyc&id=${k.id}&file=justificatif_domicile" alt="Justificatif" data-fallback="Justificatif de domicile"></a><p>Justificatif de domicile</p></div>
                         </div>
                         <div class="kyc-actions">
                             <button class="btn btn-reject" data-kyc-reject="${k.id}">Rejeter (avec motif)</button>
@@ -127,10 +127,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 if (done.length) {
                     html += '<div class="db-section"><div class="db-section-header"><h2>Dossiers trait\u00e9s</h2></div><div class="db-table-wrap"><table class="db-table"><thead><tr><th>Client</th><th>Statut</th><th>Date</th><th>Pi\u00e8ces</th></tr></thead><tbody>' +
-                        done.map(k => `<tr><td>${esc(k.client_nom)}</td><td>${statutBadge(k.statuts)}</td><td>${fmtDate(k.date_soumission)}</td><td><a href="/api/document?type=kyc&id=${k.id}&file=piece_identite" target="_blank" class="action-link">Voir</a></td></tr>`).join('') +
+                        done.map(k => `<tr><td>${esc(k.client_nom)}</td><td>${statutBadge(k.statuts)}</td><td>${fmtDate(k.date_soumission)}</td><td>${k.doc_exists_identite ? `<a href="#" target="_blank" rel="noopener" class="action-link fp-doc-link" data-doc-type="kyc" data-doc-id="${k.id}" data-doc-file="piece_identite">Voir</a>` : '\u2014'}</td></tr>`).join('') +
                         '</tbody></table></div></div>';
                 }
                 kycWrap.innerHTML = html;
+                // L011 : fallback propre si une pièce ne se charge pas (remplace
+                // l'ancien attribut onerror échappé qui injectait du texte parasite
+                // « "'> » sous les vignettes). Délégation via capture d'erreur.
+                kycWrap.querySelectorAll('.kyc-doc img').forEach(img => {
+                    img.addEventListener('error', () => {
+                        const label = img.dataset.fallback || 'Document';
+                        const p = document.createElement('p');
+                        p.style.padding = '20px';
+                        p.style.color = 'var(--color-text-muted)';
+                        p.textContent = label;
+                        img.replaceWith(p);
+                    });
+                });
                 // Actions KYC
                 kycWrap.querySelectorAll('[data-kyc-approve]').forEach(btn => btn.addEventListener('click', async () => {
                     const id = btn.dataset.kycApprove;
@@ -412,6 +425,53 @@ document.addEventListener('DOMContentLoaded', () => {
             if (btn) btn.disabled = false;
         }
     }
+
+    // =========================================================
+    // L011 — Visionneuse de documents : « Consulter/Voir » ouvre la
+    // page admin_document.html (nouvel onglet) APRÈS re-vérification
+    // via /api/admin/document-info (race-proof) ; si le fichier est
+    // absent -> modal FedpawaUI « document non disponible ». Un lien
+    // n'est rendu que si doc_exists (liste enrichie côté serveur).
+    // =========================================================
+    function openAdminDocumentViewer(link) {
+        const type = link.dataset.docType;
+        const id = link.dataset.docId;
+        const file = link.dataset.docFile || '';
+        const qs = 'type=' + encodeURIComponent(type) + '&id=' + encodeURIComponent(id) + (file ? '&file=' + encodeURIComponent(file) : '');
+        fetch(apiUrl('/api/admin/document-info?' + qs), { credentials: 'include' })
+            .then(r => {
+                if (r.status === 403) { window.location.href = 'authentification.html'; return null; }
+                return r.ok ? r.json() : { exists: false };
+            })
+            .then(info => {
+                if (info && info.exists) {
+                    window.open('/admin_document.html?' + qs, '_blank', 'noopener');
+                } else {
+                    FedpawaUI.modal({
+                        iconType: 'error',
+                        title: 'Document non disponible',
+                        message: 'Ce document n\u2019est pas disponible : le fichier associ\u00e9 \u00e0 cette ligne est absent du stockage. Contactez l\u2019administrateur syst\u00e8me si cette situation vous semble anormale.',
+                        buttons: [{ label: 'Fermer', className: 'fp-modal-btn-primary' }]
+                    });
+                }
+            })
+            .catch(() => {
+                FedpawaUI.modal({
+                    iconType: 'error',
+                    title: 'Document non disponible',
+                    message: 'Impossible de v\u00e9rifier la disponibilit\u00e9 de ce document (erreur r\u00e9seau). R\u00e9essayez.',
+                    buttons: [{ label: 'Fermer', className: 'fp-modal-btn-primary' }]
+                });
+            });
+    }
+
+    // Délégation d'événements : les tableaux sont ré-rendus après chaque action
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('.fp-doc-link');
+        if (!link) return;
+        e.preventDefault();
+        openAdminDocumentViewer(link);
+    });
 
     loadAdminData();
     initTemplateEditorFlow();

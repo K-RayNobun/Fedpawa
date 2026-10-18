@@ -584,7 +584,7 @@ $__testMode = $__isSuperAdmin && !$__isWww;
           </div>
 
           <div class="form-group">
-            <label class="checkbox-label" style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.85rem; color: var(--color-text-main);"><input type="checkbox" required style="margin-top: 3px;"> J'accepte les Conditions Générales de Vente (CGV), la Politique de Confidentialité et la Charte KYC de FEDPAWA CORPORATE SOLUTIONS SARL.</label>
+            <label class="checkbox-label" style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.85rem; color: var(--color-text-main);"><input type="checkbox" required style="margin-top: 3px;"> J'accepte les <a href="cgu.php" target="_blank" rel="noopener">Conditions Générales de Vente (CGV)</a>, la <a href="politique-confidentialite.php" target="_blank" rel="noopener">Politique de Confidentialité</a> et la Charte KYC de FEDPAWA CORPORATE SOLUTIONS SARL.</label>
           </div>
           <div class="form-group">
             <label class="checkbox-label" style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.85rem; color: var(--color-text-main);"><input type="checkbox" required style="margin-top: 3px;"> Je reconnais que la prestation de domiciliation est régie par une <strong>Convention de mise à disposition d'infrastructures et de services</strong>, excluant expressément le statut des baux commerciaux au sens du Droit Uniforme OHADA.</label>

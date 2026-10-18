@@ -30,7 +30,7 @@ $langPrefix = $langPrefix ?? '';
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="container"><span>© <span id="currentYear"></span> FEDPAWA CORPORATE SOLUTIONS. <?= $lang === "en" ? "All rights reserved." : "Tous droits réservés." ?></span><span>Douala · Logpom · <?= $lang === "en" ? "Cameroon" : "Cameroun" ?></span></div>
+    <div class="container"><span>© <span id="currentYear"></span> FEDPAWA CORPORATE SOLUTIONS. <?= $lang === "en" ? "All rights reserved." : "Tous droits réservés." ?></span><span><a href="<?= $langPrefix ?>cgu.php" style="color: inherit;"><?= $lang === "en" ? "Terms & Conditions" : "CGU / CGV" ?></a> · <a href="<?= $langPrefix ?>politique-confidentialite.php" style="color: inherit;"><?= $lang === "en" ? "Privacy Policy" : "Politique de Confidentialité" ?></a></span><span>Douala · Logpom · <?= $lang === "en" ? "Cameroon" : "Cameroun" ?></span></div>
   </div>
 </footer>
 

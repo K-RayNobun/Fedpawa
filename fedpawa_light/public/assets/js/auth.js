@@ -189,6 +189,8 @@ document.addEventListener('DOMContentLoaded', () => {
             lbl_confirm: 'Confirmer',
             pwd_hint: 'Min. 8 caractères, 1 majuscule, 1 chiffre.',
             cgu_label: "J'accepte les <a href=\"cgu.php\" target=\"_blank\" rel=\"noopener\">Conditions Générales d'Utilisation (CGU)</a> et la <a href=\"politique-confidentialite.php\" target=\"_blank\" rel=\"noopener\">politique de confidentialité</a> de FEDPAWA.",
+            legal_cgu: 'CGU / CGV',
+            legal_privacy: 'Politique de Confidentialité',
             btn_signup: 'Créer mon compte',
             has_account: 'Déjà un compte ?',
             goto_login: 'Se connecter'
@@ -220,7 +222,9 @@ document.addEventListener('DOMContentLoaded', () => {
             lbl_phone: 'Phone',
             lbl_confirm: 'Confirm Password',
             pwd_hint: 'Min. 8 chars, 1 uppercase, 1 number.',
-            cgu_label: 'I accept the <a href="cgu.php" target="_blank" rel="noopener">Terms of Service</a> and <a href="politique-confidentialite.php" target="_blank" rel="noopener">Privacy Policy</a> of FEDPAWA.',
+            cgu_label: 'I accept the <a href="en/cgu.php" target="_blank" rel="noopener">Terms of Service</a> and <a href="en/politique-confidentialite.php" target="_blank" rel="noopener">Privacy Policy</a> of FEDPAWA.',
+            legal_cgu: 'Terms & Conditions',
+            legal_privacy: 'Privacy Policy',
             btn_signup: 'Create Account',
             has_account: 'Already have an account?',
             goto_login: 'Log In'

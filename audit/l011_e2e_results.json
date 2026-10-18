@@ -1,0 +1,153 @@
+{
+  "cases": [
+    {
+      "name": "login admin",
+      "pass": true,
+      "info": "{\"message\":\"Connexion réussie\",\"redirect\":\"/admin\"}"
+    },
+    {
+      "name": "A1 header admin: CTA « Dashboard » (pas Espace Client)",
+      "pass": true,
+      "info": "txt=\"dashboard\" href=\"admin_dashboard.html\""
+    },
+    {
+      "name": "A2 menu profil admin: « Dashboard Admin », pas « Mon Espace »",
+      "pass": true,
+      "info": "Administration audit-e2e@fedpawa.com 🎨 Thème / Theme ▾ 🌐 Langue / Language ▾ 🛡️ Dashboard Admin 🚪 Se déconnecter / L"
+    },
+    {
+      "name": "0 title admin_dashboard.html = « Dashboard Admin | … »",
+      "pass": true,
+      "info": "Dashboard Admin | FEDPAWA CORPORATE SOLUTIONS"
+    },
+    {
+      "name": "A3 header admin sur admin_dashboard: CTA « Dashboard »",
+      "pass": true,
+      "info": "txt=\"dashboard\""
+    },
+    {
+      "name": "register client test",
+      "pass": true,
+      "info": "{\"message\":\"Compte créé avec succès\"}"
+    },
+    {
+      "name": "login client test",
+      "pass": true,
+      "info": "{\"message\":\"Connexion réussie\",\"redirect\":\"espace_client.html\",\"role\":\"client\"}"
+    },
+    {
+      "name": "B1 header client: CTA « Espace Client » inchangé",
+      "pass": true,
+      "info": "txt=\"espace client\" href=\"espace_client.html\""
+    },
+    {
+      "name": "B2 menu profil client: « Mon Espace » conservé",
+      "pass": true,
+      "info": "L011 Header Client l011-1792359766395@test-fedpawa.cm 🎨 Thème / Theme ▾ 🌐 Langue / Language ▾ 👤 Mon Espace / My Accou"
+    },
+    {
+      "name": "C0 avant: boutons invalides (bg transparent, bordure ≠ rouge danger)",
+      "pass": true,
+      "info": "count=2 bg=rgba(0, 0, 0, 0) border=rgb(30, 41, 59)"
+    },
+    {
+      "name": "C1 onglet KYC peuplé avec boutons",
+      "pass": true,
+      "info": "dossiers en_cours attendus (kyc id 7)"
+    },
+    {
+      "name": "C2 boutons stylés proprement (classes, plus de transparent)",
+      "pass": true,
+      "info": "approve bg=rgb(30, 125, 79)/rgb(255, 255, 255) reject border=rgb(192, 57, 43)/rgb(192, 57, 43)"
+    },
+    {
+      "name": "C3 aucun inline style restant sur les CTA KYC",
+      "pass": true,
+      "info": "inline=0"
+    },
+    {
+      "name": "D1 lien « Consulter PDF » présent pour contrat id 3 (doc_exists)",
+      "pass": true,
+      "info": "data-doc-type=contrat"
+    },
+    {
+      "name": "D2 admin_document.html ouvert avec infos",
+      "pass": true,
+      "info": "title=\"Contrat domiciliation\" client=\"Client Test\" size=\"2.4 Ko\" dl=\"/api/document?type=contrat&id=3\""
+    },
+    {
+      "name": "D3 download_url -> 200 application/pdf (%PDF)",
+      "pass": true,
+      "info": "{\"status\":200,\"ct\":\"application/pdf\",\"bytes\":2423,\"head\":\"%PDF\"}"
+    },
+    {
+      "name": "E1 ligne factice: AUCUN lien « Consulter » (état réel)",
+      "pass": true,
+      "info": "liens=0 row=\"CT-008 Client Test test_l011 ACTIF —\""
+    },
+    {
+      "name": "E2 document-info ligne factice: exists:false (200, pas 404)",
+      "pass": true,
+      "info": "{\"exists\":false,\"filename\":\"contrat_8.pdf\",\"size\":null,\"mime\":null,\"date\":\"2026-10-18 20:00:00\",\"client_nom\":\"Client Tes"
+    },
+    {
+      "name": "E3 clic doc absent -> modal « non disponible »",
+      "pass": true,
+      "info": "× Document non disponible Ce document n’est pas disponible : le fichier associé à cette ligne est absent du stockage. Contactez l’administra"
+    },
+    {
+      "name": "E4 ligne factice supprimée (purge)",
+      "pass": true,
+      "info": "count=0"
+    },
+    {
+      "name": "F1 document-info sans session admin -> 403",
+      "pass": true,
+      "info": "status=403 (register=200)"
+    },
+    {
+      "name": "F1bis document-info client connecté -> 403",
+      "pass": true,
+      "info": "status=403"
+    },
+    {
+      "name": "F2 /api/document?type=contrat&id=3 (admin) -> 200 PDF",
+      "pass": true,
+      "info": "{\"status\":200,\"ct\":\"application/pdf\",\"head\":\"%PDF\"}"
+    },
+    {
+      "name": "G0 kyc id 7 en_cours avant test",
+      "pass": true,
+      "info": "en_cours"
+    },
+    {
+      "name": "G1 bouton Approuver fonctionnel (statuts -> approuvé)",
+      "pass": true,
+      "info": "statuts=approuvé"
+    },
+    {
+      "name": "G2 bouton Rejeter fonctionnel (statuts -> rejeté)",
+      "pass": true,
+      "info": "statuts=rejeté"
+    },
+    {
+      "name": "G3 état KYC 7 restauré (en_cours)",
+      "pass": true,
+      "info": "statuts=en_cours"
+    },
+    {
+      "name": "purge clients test l011",
+      "pass": true,
+      "info": "clients jetables supprimés"
+    },
+    {
+      "name": "Zéro erreur JS page",
+      "pass": true,
+      "info": ""
+    }
+  ],
+  "_client": {
+    "email": "l011-1792359766395@test-fedpawa.cm"
+  },
+  "_fakeId": 8
+}

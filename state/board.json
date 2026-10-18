@@ -1,5 +1,5 @@
 {
-  "seq": 8,
+  "seq": 11,
   "lanes": [
     {
       "id": "L001",
@@ -104,12 +104,51 @@
       "id": "L008",
       "title": "Auth: section sous header trop grande (1 page sans scroll) + retirer logo haut-gauche section gauche",
       "priority": "P1",
-      "status": "backlog",
+      "status": "done",
       "created_at": "2026-10-18 13:19:56 UTC",
-      "last_update": "2026-10-18 13:19:56 UTC",
+      "last_update": "2026-10-18 14:08:51 UTC",
       "agent": null,
       "claimed_at": null,
       "context_file": "/root/Fedpawa/state/ctx-L008.md",
+      "artifacts": [],
+      "summary": "Auth 1 page sans scroll + logo haut-gauche retire — deploye prod, verifie"
+    },
+    {
+      "id": "L009",
+      "title": "Espace client: composant Changer de Pack sur la page (warning pack actif + 2 boutons si passés)",
+      "priority": "P1",
+      "status": "done",
+      "created_at": "2026-10-18 14:04:31 UTC",
+      "last_update": "2026-10-18 15:51:47 UTC",
+      "agent": "inconnu",
+      "claimed_at": "2026-10-18 15:19:37 UTC",
+      "context_file": "/root/Fedpawa/state/ctx-L009.md",
+      "artifacts": [],
+      "summary": "\"Implementé composant inline \"Changer de Pack / Ajouter des options\" avec conditions (warning pack actif, 2 boutons pour abonnements passés), routage vers tunnel_souscription.php et souscription_domiciliation.php, exposition window.FP_PLANS, bump versions v7. E2E non encore lancée sur conteneur dev.\""
+    },
+    {
+      "id": "L010",
+      "title": "Modaux facture + smart RCCM/NIU: thémisation (fini le fond blanc), blocage case cochée, bouton Non → loader → blocage → CTA Compris",
+      "priority": "P1",
+      "status": "in_progress",
+      "created_at": "2026-10-18 14:48:03 UTC",
+      "last_update": "2026-10-18 15:19:37 UTC",
+      "agent": "inconnu",
+      "claimed_at": "2026-10-18 15:19:37 UTC",
+      "context_file": "/root/Fedpawa/state/ctx-L010.md",
+      "artifacts": [],
+      "summary": null
+    },
+    {
+      "id": "L011",
+      "title": "Admin dashboard: header dynamique (CTA Dashboard si admin), styles CTA KYC, visionneuse documents + modal si absent",
+      "priority": "P1",
+      "status": "in_progress",
+      "created_at": "2026-10-18 15:45:50 UTC",
+      "last_update": "2026-10-18 16:03:13 UTC",
+      "agent": "inconnu",
+      "claimed_at": "2026-10-18 16:03:13 UTC",
+      "context_file": "/root/Fedpawa/state/ctx-L011.md",
       "artifacts": [],
       "summary": null
     }

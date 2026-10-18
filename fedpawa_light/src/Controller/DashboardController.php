@@ -25,6 +25,11 @@ class DashboardController extends Controller {
             $subscription = $stmtSub->fetch();
         }
 
+        // 7. Past subscriptions for "Changer de Pack" component (Lane L009)
+        $stmtPast = $db->prepare("SELECT * FROM abonnements WHERE client_id = ? AND statut != 'actif' ORDER BY id DESC");
+        $stmtPast->execute([$_SESSION['client_id']]);
+        $pastSubscriptions = $stmtPast->fetchAll();
+
         // 3. Invoices
         $stmtFactures = $db->prepare("SELECT * FROM factures WHERE client_id = ? ORDER BY id DESC");
         $stmtFactures->execute([$_SESSION['client_id']]);
@@ -51,7 +56,8 @@ class DashboardController extends Controller {
             'factures' => $factures,
             'contrats' => $contrats,
             'courriers' => $courriers,
-            'kyc' => $kyc ?: ['statuts' => 'en_attente']
+            'kyc' => $kyc ?: ['statuts' => 'en_attente'],
+            'pastSubscriptions' => $pastSubscriptions
         ]);
     }
 

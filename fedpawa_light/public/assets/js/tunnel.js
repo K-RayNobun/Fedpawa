@@ -64,6 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
             succes: { label: 'Commission sur créances recouvrées', price: 0, unit: '', range: 'Sur devis' }
         }
     };
+    
+    // Exposition du catalogue PLANS pour les composants frontend (Lane L009)
+    window.FP_PLANS = PLANS;
 
     // État initial du panier
     let cart = {
@@ -553,8 +556,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const cb = el.tagName === 'INPUT' ? el : el.querySelector('input[type="checkbox"]');
             if (!cb) return;
             cb.addEventListener('change', () => {
-                if (cb.checked) smartShowModal(el.dataset.smartFrom);
-                else smartDismiss();
+                if (cb.checked) {
+                    smartShowModal(el.dataset.smartFrom);
+                    // Block form progression when checkbox is checked
+                    const form = cb.closest('form');
+                    if (form) {
+                        form.noValidate = true;
+                        // Disable the next step button or prevent navigation
+                        const nextBtn = form.querySelector('button[type="submit"]');
+                        if (nextBtn) nextBtn.disabled = true;
+                    }
+                } else {
+                    smartDismiss();
+                }
             });
         });
 
@@ -564,7 +578,28 @@ document.addEventListener('DOMContentLoaded', () => {
             const yesBtn = document.getElementById('smart-modal-yes');
             const noBtn = document.getElementById('smart-modal-no');
             if (yesBtn) yesBtn.addEventListener('click', () => { window.location.href = SMART_TARGETS.creation.url; });
-            if (noBtn) noBtn.addEventListener('click', smartDismiss);
+            // Update no button to show loader + block + CTA
+            if (noBtn) {
+                noBtn.disabled = true;
+                noBtn.innerHTML = '<span class="loader">⟳</span> Traitement...';
+                setTimeout(() => {
+                    noBtn.style.display = 'none';
+                    // Show blocked text
+                    const modalText = document.getElementById('smart-modal-text');
+                    if (modalText) {
+                        modalText.innerText = "il ne peut pas continuer sans avoir créé son entreprise";
+                    }
+                    // Add CTA button
+                    const ctaBtn = document.createElement('button');
+                    ctaBtn.type = 'button';
+                    ctaBtn.className = 'btn btn-primary';
+                    ctaBtn.style.marginTop = '10px';
+                    ctaBtn.textContent = 'Compris';
+                    ctaBtn.onclick = () => { window.location.href = SMART_TARGETS.creation.url; };
+                    // Replace noBtn with CTA
+                    noBtn.parentNode.replaceChild(ctaBtn, noBtn);
+                }, 333);
+            }
             overlay.addEventListener('click', (e) => { if (e.target === overlay) smartDismiss(); });
         }
 

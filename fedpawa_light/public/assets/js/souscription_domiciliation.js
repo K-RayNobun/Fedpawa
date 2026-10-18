@@ -103,14 +103,48 @@
   const smartOverlay = document.getElementById('smart-modal-overlay');
   if (optNoImmat && smartOverlay) {
     const smartText = document.getElementById('smart-modal-text');
+    const noBtn = document.getElementById('smart-modal-no');
+    const yesBtn = document.getElementById('smart-modal-yes');
     optNoImmat.addEventListener('change', () => {
       if (optNoImmat.checked) {
+        // Remove the helper text below the checkbox
+        const prev = optNoImmat.parentNode.querySelector('small');
+        if (prev) prev.remove();
+        // Show the modal immediately
         smartText.innerText = "Nous avons détecté que votre entreprise n'est pas encore immatriculée (pas de RCCM / NIU). Bonne nouvelle : FEDPAWA prend en charge la création complète — statuts, RCCM, NIU et Kit Corporate — pour que votre domiciliation démarre sur des bases solides.";
         smartOverlay.style.display = 'flex';
+        // NB: pas de disabled ici — le client peut décocher pour revenir en arrière;
+        // le blocage réel est fait par l'intercepteur de submit (ci-dessous).
       }
     });
-    document.getElementById('smart-modal-no').addEventListener('click', () => { smartOverlay.style.display = 'none'; });
-    document.getElementById('smart-modal-yes').addEventListener('click', () => { window.location.href = 'creation_entreprise.php'; });
+    // Non button: show loader then block + redirect
+    noBtn.onclick = async () => {
+      noBtn.disabled = true;
+      noBtn.innerHTML = '<span class="loader">⟳</span> Traitement...';
+      // Simulate 333ms loader
+      await new Promise(r => setTimeout(r, 333));
+      noBtn.style.display = 'none';
+      // Show the blocked state text
+      smartText.innerText = "Vous ne pouvez pas poursuivre la souscription sans avoir créé votre entreprise. La création d'entreprise est une étape préalable — FEDPAWA l'assure de A à Z (statuts, RCCM, NIU, Kit Corporate).";
+      // Add CTA button
+      const ctaBtn = document.createElement('button');
+      ctaBtn.type = 'button';
+      ctaBtn.className = 'btn btn-primary';
+      ctaBtn.style.marginTop = '10px';
+      ctaBtn.textContent = 'Compris';
+      ctaBtn.onclick = () => {
+        window.location.href = 'creation_entreprise.php';
+      };
+      // Replace noBtn with CTA
+      noBtn.parentNode.replaceChild(ctaBtn, noBtn);
+      smartOverlay.style.display = 'flex';
+      // Blocage réel: tant que la case "pas encore immatriculé" est cochée, la soumission est interceptée
+      const blockSubmit = (e) => {
+        if (optNoImmat.checked) { e.preventDefault(); return false; }
+      };
+      form.addEventListener('submit', blockSubmit, true);
+    };
+    yesBtn.onclick = () => { window.location.href = 'creation_entreprise.php'; };
     smartOverlay.addEventListener('click', (e) => { if (e.target === smartOverlay) smartOverlay.style.display = 'none'; });
   }
 

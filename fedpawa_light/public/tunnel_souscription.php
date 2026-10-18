@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) { session_start(); }
 $title = "FEDPAWA CORPORATE SOLUTIONS | Souscription en ligne";
 $description = "Souscrivez en ligne aux services FEDPAWA : création d'entreprise, OAPI, contrats, fiscalité. Paiement Mobile Money sécurisé.";
 $active = 'services';
-$extraCss = ['assets/css/dashboard.css?v=6'];
+$extraCss = ['assets/css/dashboard.css?v=7'];
 
 $dataAuth = 'user';
 include __DIR__ . '/../templates/partials/site-header.php';
@@ -116,7 +116,6 @@ $__testMode = $__isSuperAdmin && !$__isWww;
                           <input type="checkbox" id="opt-no-niu-fiscal" data-smart-signal="strong" data-smart-from="fiscalite" style="margin-top: 3px;">
                           <span>Je n'ai pas encore de NIU — mon entreprise n'est pas encore immatriculée</span>
                         </label>
-                        <small style="color: var(--color-text-muted); font-size: 0.8rem;">💡 FEDPAWA peut créer votre entreprise (statuts, RCCM, NIU, Kit Corporate). Nous vous le proposerons automatiquement.</small>
                       </div>
                         <div class="form-group"><label>Forme <em class="req">*</em></label><select class="form-control" required><option>SARL</option><option>SAS</option><option>SA</option><option>EI</option><option>Autre</option></select></div>
                       </div>
@@ -625,7 +624,7 @@ $__testMode = $__isSuperAdmin && !$__isWww;
 
   <!-- ============ MODAL DÉTECTION SMART — BESOIN DE CRÉATION D'ENTREPRISE ============ -->
   <div id="smart-modal-overlay" style="display: none; position: fixed; inset: 0; background: rgba(8,12,24,0.55); backdrop-filter: blur(2px); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 20px;">
-    <div id="smart-modal" role="dialog" aria-modal="true" style="background: var(--color-bg-card, #fff); border-radius: 14px; max-width: 520px; width: 100%; padding: 28px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); border: 1px solid var(--color-border);">
+    <div id="smart-modal" role="dialog" aria-modal="true" style="background: var(--color-bg-main); border-radius: 14px; max-width: 520px; width: 100%; padding: 28px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); border: 1px solid var(--color-border);">
       <div style="width: 54px; height: 54px; border-radius: 50%; background: var(--color-primary); display: grid; place-items: center; margin-bottom: 16px;">
         <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2l2.4 7.2H22l-6 4.8 2.4 7.2-6-4.8-6 4.8L8.8 14 2.8 9.2h7.6z"/></svg>
       </div>
@@ -633,7 +632,7 @@ $__testMode = $__isSuperAdmin && !$__isWww;
       <p id="smart-modal-text" style="font-size: 0.92rem; color: var(--color-text-muted); line-height: 1.55; margin-bottom: 22px;"></p>
       <div style="display: flex; flex-direction: column; gap: 10px;">
         <button type="button" id="smart-modal-yes" class="btn btn-primary" style="width: 100%;">🚀 Oui, découvrir la Création d'Entreprise</button>
-        <button type="button" id="smart-modal-no" style="width: 100%; background: none; border: none; font-size: 0.88rem; color: var(--color-text-muted); cursor: pointer; text-decoration: underline; padding: 6px;">Non merci, continuer ma souscription actuelle</button>
+        <button type="button" id="smart-modal-no" class="btn btn-outline" style="width: 100%;">Non merci, continuer ma souscription actuelle</button>
       </div>
     </div>
   </div>
@@ -647,5 +646,5 @@ observer.observe(summaryTotalEl, { childList: true });
 </script>
 
 <?php
-$extraJs = ['assets/js/api.js', 'assets/js/config.js', 'assets/js/auth-guard.js', 'assets/js/fedpawa-ui.js?v=2', 'assets/js/fedpawa-pay.js?v=3', 'assets/js/tunnel.js?v=2'];
+$extraJs = ['assets/js/api.js', 'assets/js/config.js', 'assets/js/auth-guard.js', 'assets/js/fedpawa-ui.js?v=2', 'assets/js/fedpawa-pay.js?v=3', 'assets/js/tunnel.js?v=3'];
 include __DIR__ . '/../templates/partials/site-footer.php';

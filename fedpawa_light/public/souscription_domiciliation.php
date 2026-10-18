@@ -2,7 +2,7 @@
 $title = "FEDPAWA CORPORATE SOLUTIONS | Souscription Domiciliation";
 $description = "Souscription en ligne au service de domiciliation d'entreprises FEDPAWA à Douala Logpom. Adresse, courrier et salles de réunion inclus.";
 $active = 'services';
-$extraCss = ['assets/css/dashboard.css?v=6'];
+$extraCss = ['assets/css/dashboard.css?v=7'];
 
 $dataAuth = 'user';
 include __DIR__ . '/../templates/partials/site-header.php';
@@ -92,7 +92,6 @@ include __DIR__ . '/../templates/partials/site-header.php';
                 <input type="checkbox" id="opt-no-immat" data-smart-signal="strong" data-smart-from="domiciliation" style="margin-top: 3px;">
                 <span>Je ne dispose pas encore de RCCM / NIU — mon entreprise n'est pas encore immatriculée</span>
               </label>
-              <small style="color: var(--color-text-muted); font-size: 0.8rem;">💡 Pas de souci : FEDPAWA peut créer votre entreprise pour vous (statuts, RCCM, NIU, Kit Corporate). Nous vous le proposerons automatiquement.</small>
             </div>
           </div>
 
@@ -352,7 +351,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
           <h2 class="form-section-title"><span class="form-section-num">7</span> Facture Proforma</h2>
           <p class="section-intro">Vérifiez votre facture en bonne et due forme avant de procéder au paiement.</p>
 
-          <div id="invoiceBox" class="invoice-box" style="background: var(--color-surface, #fff); border: 1px solid var(--color-border); border-radius: 12px; padding: 28px; margin-bottom: 24px;"></div>
+          <div id="invoiceBox" class="invoice-box" style="background: var(--color-bg-main); border: 1px solid var(--color-border); border-radius: 12px; padding: 28px; margin-bottom: 24px;"></div>
 
           <button type="button" class="btn btn-outline" style="width: 100%; margin-bottom: 14px;" onclick="goToStep(5)">&larr; Retour</button>
           <button type="button" id="invoicePayBtn" class="btn btn-primary btn-block">🔒 Proc&eacute;der au paiement s&eacute;curis&eacute;</button>
@@ -400,16 +399,16 @@ include __DIR__ . '/../templates/partials/site-header.php';
 
 <!-- Modal smart-detection (création d'entreprise) -->
 <div id="smart-modal-overlay" style="display: none; position: fixed; inset: 0; background: rgba(8,12,24,0.55); backdrop-filter: blur(2px); z-index: 9999; align-items: center; justify-content: center; padding: 20px;">
-  <div id="smart-modal" role="dialog" aria-modal="true" style="background: var(--color-bg-card, #fff); border-radius: 14px; max-width: 520px; width: 100%; padding: 28px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); border: 1px solid var(--color-border);">
+  <div id="smart-modal" role="dialog" aria-modal="true" style="background: var(--color-bg-main); border-radius: 14px; max-width: 520px; width: 100%; padding: 28px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); border: 1px solid var(--color-border);">
     <h3 id="smart-modal-title" style="margin-bottom: 10px;">Une bonne nouvelle 🎉</h3>
     <p id="smart-modal-text" style="font-size: 0.92rem; color: var(--color-text-muted); line-height: 1.55; margin-bottom: 22px;"></p>
     <div style="display: grid; gap: 10px;">
       <button type="button" id="smart-modal-yes" class="btn btn-primary" style="width: 100%;">🚀 Oui, découvrir la Création d'Entreprise</button>
-      <button type="button" id="smart-modal-no" style="width: 100%; background: none; border: none; font-size: 0.88rem; color: var(--color-text-muted); cursor: pointer; text-decoration: underline; padding: 6px;">Non merci, continuer ma souscription actuelle</button>
+      <button type="button" id="smart-modal-no" class="btn btn-outline" style="width: 100%;">Non merci, continuer ma souscription actuelle</button>
     </div>
   </div>
 </div>
 
 <?php
-$extraJs = ['assets/js/api.js', 'assets/js/config.js', 'assets/js/auth-guard.js', 'assets/js/fedpawa-ui.js?v=2', 'assets/js/fedpawa-pay.js?v=3', 'assets/js/souscription_domiciliation.js?v=3'];
+$extraJs = ['assets/js/api.js', 'assets/js/config.js', 'assets/js/auth-guard.js', 'assets/js/fedpawa-ui.js?v=2', 'assets/js/fedpawa-pay.js?v=3', 'assets/js/souscription_domiciliation.js?v=4'];
 include __DIR__ . '/../templates/partials/site-footer.php';

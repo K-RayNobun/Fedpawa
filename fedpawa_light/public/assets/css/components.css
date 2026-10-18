@@ -32,10 +32,10 @@ select.form-control { appearance: none; background-image: url("data:image/svg+xm
 textarea.form-control { min-height: 130px; resize: vertical; }
 
 /* Page Hero (Used in inner pages) */
-.page-hero { position: relative; padding: 120px 0; background-color: var(--color-bg-alt); background-image: linear-gradient(135deg, rgba(250,248,246,0.92) 0%, rgba(250,248,246,0.75) 100%), url("../images/hero_skyline.jpg"); background-size: cover; background-position: center; overflow: hidden; }
-html[data-mode="dark"] .page-hero { background-image: linear-gradient(135deg, rgba(26,26,26,0.92) 0%, rgba(26,26,26,0.85) 100%), url("../images/hero_skyline.jpg"); }
-html[data-theme="navy"] .page-hero { background-image: linear-gradient(135deg, rgba(250,249,246,0.92) 0%, rgba(243,241,236,0.8) 100%), url("../images/hero_skyline.jpg"); }
-html[data-theme="navy"][data-mode="dark"] .page-hero { background-image: linear-gradient(135deg, rgba(15,27,48,0.95) 0%, rgba(10,20,36,0.85) 100%), url("../images/hero_skyline.jpg"); }
+.page-hero { position: relative; padding: 120px 0; background-color: var(--color-bg-alt); background-image: linear-gradient(135deg, rgba(250,248,246,0.92) 0%, rgba(250,248,246,0.75) 100%), url("../images/hero_page_band.jpg"); background-size: cover; background-position: center; overflow: hidden; }
+html[data-mode="dark"] .page-hero { background-image: linear-gradient(135deg, rgba(26,26,26,0.92) 0%, rgba(26,26,26,0.85) 100%), url("../images/hero_page_band.jpg"); }
+html[data-theme="navy"] .page-hero { background-image: linear-gradient(135deg, rgba(250,249,246,0.92) 0%, rgba(243,241,236,0.8) 100%), url("../images/hero_page_band.jpg"); }
+html[data-theme="navy"][data-mode="dark"] .page-hero { background-image: linear-gradient(135deg, rgba(15,27,48,0.95) 0%, rgba(10,20,36,0.85) 100%), url("../images/hero_page_band.jpg"); }
 .page-hero::before { content: ""; position: absolute; top: 0; right: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--color-primary), var(--color-gold)); }
 .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--color-primary); color: var(--color-on-primary); padding: 8px 16px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 24px; }
 html[data-theme="navy"] .hero-badge { background: var(--color-gold); color: var(--color-on-primary); }
@@ -187,8 +187,8 @@ html[data-theme="navy"] .specialty-item::before { color: var(--color-gold); }
     width: 100%;
     clip-path: none;
     opacity: 0.22;
-    background-size: 260% auto;
-    background-position: 75% 78%;
+    background-size: auto 240%;
+    background-position: 50% 45%;
   }
   .expertise-body { padding: 28px 22px; }
   .profile-columns { grid-template-columns: 1fr; }

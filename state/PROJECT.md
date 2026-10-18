@@ -13,7 +13,7 @@ FEDPAWA CORPORATE SOLUTIONS — cabinet juridique (Douala, Cameroun) : site vitr
 
 ## 3. État Git / déploiement (17/10/2026)
 - Repo `/root/Fedpawa`, remote `https://github.com/K-RayNobun/Fedpawa.git` (branche main).
-- **Dernier push GitHub** : `e16a83c` (W-2/W-9/W-10/W-13/W-3). **Commits locaux non poussés** : `f89e538` (W-14 onglets mobiles — déployé en prod, commit en attente faute de token GitHub ; l'utilisateur doit en fournir un nouveau, l'ancien n'est stocké nulle part).
+- **Dernier push GitHub** : `e16a83c`. **Commits locaux non poussés** : `f89e538` (W-14), `2b49462` (L003-L006), `629a9fb` (bump v3) — tous DÉPLOYÉS en prod et vérifiés live. Push bloqué faute de token GitHub (l'utilisateur doit en fournir un nouveau).
 - W-14 (barre d'onglets mobile espace client + admin) : **déployé en prod et vérifié live** sur www.fedpawa.com.
 
 ## 4. Toolset lanes (ce répertoire `state/`)
@@ -25,22 +25,17 @@ FEDPAWA CORPORATE SOLUTIONS — cabinet juridique (Douala, Cameroun) : site vitr
 ## 5. Problèmes OUVERTS (bug tracker)
 | ID | Gravité | Titre | Où le détail |
 |----|---------|-------|--------------|
-| S-2 | **Critique** | Écran « Paiement confirmé » affiché sans vérification réelle sur les 4 services du tunnel (simplePaidFlow après payment_pending, aucun appel /api/paiement/verifier) → abonnements en_attente à vie, 0 facture, aucun recours client | `audit/subscription_flows_audit.md` |
-| S-3 | Majeur | Domiciliation : flux contrat + signature OTP inatteignable — onSubmit (souscription_domiciliation.js) ne retourne pas le champ `api` attendu par fedpawa-pay.js pour contractFlowScreen. Fix = une ligne (`api: out`) | idem |
-| S-1 | Moyen | CTA global « Je m'abonne » → `pack=essentiel` inexistant (header toutes pages, site-header.php:123) → aucun pack présélectionné | idem |
-| F3' | Moyen | Cartes KYC + Dernier courrier de l'aperçu : « Chargement… » persistant en sous-valeur quand vide | `audit/espace_client_post_w.md` |
-| F6' | Mineur | « Changer de pack » redirige vers souscription_domiciliation.php quel que soit le service de l'abonnement | idem |
-| F12 | Mineur | Champs mot de passe sans `autocomplete` (WCAG 1.3.5) | idem |
 | W-1 | Moyen | Accueil : valeur pas lisible en <10s (5 services à égalité) | `audit/workflows_audit.md` |
 | W-6 | Majeur | Pas de guidance premier usage (KYC/abonnement) pour client neuf | idem |
 | W-12 | Moyen | Courriers : pas de « marquer comme lu » | idem |
-| SEC-S4-1 | **Critique** | FAILLE : OTP de reset renvoyé dans la réponse HTTP (debug_otp) — prise de compte possible en prod réelle | `audit/s4_rapport.json` |
-| UX-S3-1 | Critique | Formulaire de contact = simulateur JS (n'envoie rien, aucun backend) | `audit/s3_rapport.json` |
-| SEO-S5-1 | Élevée | sitemap.xml pointe vers www.fedpawacorporatesolutions.com (domaine différent) | `audit/s5_rapport.json` |
+| + S1-S5 | — | Findings UX/SEO/A11Y/SEC mineurs des sections accueil/services/contact/auth/tunnel | `audit/s<N>_rapport.json` |
+| W-1 | Moyen | Accueil : valeur pas lisible en <10s (5 services à égalité) | `audit/workflows_audit.md` |
+| W-6 | Majeur | Pas de guidance premier usage (KYC/abonnement) pour client neuf | idem |
+| W-12 | Moyen | Courriers : pas de « marquer comme lu » | idem |
 | + S1-S5 | — | Findings UX/SEO/A11Y/SEC mineurs des sections accueil/services/contact/auth/tunnel | `audit/s<N>_rapport.json` |
 
 ## 6. Corrigés & vérifiés (ne pas re-signaler)
-W-2 hreflang /en/ 404 · W-9 statut abonnement incohérent · W-10 aucune facture au paiement (FactureService, actif via /api/paiement/verifier) · W-13 réponse admin aux tickets invisible · W-3 footer tél/WhatsApp · W-14 onglets dashboards mobiles (barre chips scrollable <991px, db-tabs.js + .db-tabs-mobile, layout colonne) · F1 logout · F2 badge Actif mensonger · F4 profil/logout mobile · F5 remember-me retiré · F6 bouton Changer de pack câblé · F7 historique tickets · F8 états vides · F9 documents dupliqués · F10 maxlength · F11 labels/for. Preuves : `audit/espace_client_post_w.{md,json}`, screenshots `audit/*.png`.
+W-2 hreflang /en/ 404 · W-9 statut abonnement incohérent · W-10 aucune facture au paiement (FactureService, actif via /api/paiement/verifier) · W-13 réponse admin aux tickets invisible · W-3 footer tél/WhatsApp · W-14 onglets dashboards mobiles · F1-F11 espace client · **S-2 écran de vérification de paiement sur les 4 services du tunnel (contractFlowScreen pour tous ; « confirmé » seulement après /api/paiement/verifier paid) — E2E prouvé (fixl3_*.png)** · **S-3 flux contrat+OTP domiciliation atteignable (api: out dans onSubmit) — E2E prouvé (fixl4_signature.png)** · **S-1 CTA header pack=national-essential** · **F3 0 « Chargement… » restant (y compris KYC existant sans contenu)** · **F6 Changer de pack route par pack→service** · **F12 autocomplete** · **SEC-S4-1 OTP plus exposé (backend déjà commité d783194 + front password-reset.js nettoyé, debug_otp=0 en prod)** · **UX-S3-1 contact réel : form → Api.post /api/contact → ContactController (validation+honeypot+INSERT contact_messages+notification) — E2E prouvé + ligne en base** · **SEO-S5-1 sitemap sur www.fedpawa.com (0 référence à l'ancien domaine)**. Commits 2b49462+629a9fb, déployés prod, vérifiés live (assets ?v= bumpés). Preuves : audit/fixl*_*.png.
 
 ## 7. Carte des livrables d'audit
 - `audit/subscription_flows_audit.{md,json}` — 6 voies de souscription E2E (2e ronde, 17/10) + S-1..S-6

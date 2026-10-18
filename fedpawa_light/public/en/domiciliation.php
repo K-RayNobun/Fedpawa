@@ -58,24 +58,28 @@ include __DIR__ . '/../../templates/partials/site-header.php';
 
       <div class="gallery-grid">
         <div class="gallery-item w-2 h-2" data-category="accueil">
-          <picture><source type="image/webp" srcset="../assets/images/photo_1.webp"><img src="../assets/images/photo_1.jpg" alt="Reception and welcome desk" loading="lazy"></picture>
+          <picture><source type="image/webp" srcset="../assets/images/domi_accueil_1.webp"><img src="../assets/images/domi_accueil_1.jpg" alt="Reception & Welcome FEDPAWA" loading="lazy"></picture>
+          <span class="gallery-caption">Reception & Welcome</span>
+        </div>
+        <div class="gallery-item" data-category="accueil">
+          <picture><source type="image/webp" srcset="../assets/images/domi_accueil_2.webp"><img src="../assets/images/domi_accueil_2.jpg" alt="Welcome area and reception" loading="lazy"></picture>
           <span class="gallery-caption">Reception & Welcome</span>
         </div>
         <div class="gallery-item" data-category="bureau">
-          <picture><source type="image/webp" srcset="../assets/images/photo_2.webp"><img src="../assets/images/photo_2.jpg" alt="Private office" loading="lazy"></picture>
-          <span class="gallery-caption">Executive Private Office</span>
-        </div>
-        <div class="gallery-item" data-category="reunion">
-          <picture><source type="image/webp" srcset="../assets/images/photo_3.webp"><img src="../assets/images/photo_3.jpg" alt="Meeting room" loading="lazy"></picture>
-          <span class="gallery-caption">Meeting Room & Hub</span>
+          <picture><source type="image/webp" srcset="../assets/images/domi_bureau_1.webp"><img src="../assets/images/domi_bureau_1.jpg" alt="Private Executive Office" loading="lazy"></picture>
+          <span class="gallery-caption">Private Executive Office</span>
         </div>
         <div class="gallery-item" data-category="bureau">
-          <picture><source type="image/webp" srcset="../assets/images/photo_4.webp"><img src="../assets/images/photo_4.jpg" alt="Equipped office" loading="lazy"></picture>
+          <picture><source type="image/webp" srcset="../assets/images/domi_bureau_2.webp"><img src="../assets/images/domi_bureau_2.jpg" alt="Equipped office" loading="lazy"></picture>
           <span class="gallery-caption">High-speed workspace</span>
         </div>
-        <div class="gallery-item w-2" data-category="accueil">
-          <picture><source type="image/webp" srcset="../assets/images/photo_5.webp"><img src="../assets/images/photo_5.jpg" alt="Coffee area" loading="lazy"></picture>
-          <span class="gallery-caption">Coffee & Lounge Area</span>
+        <div class="gallery-item" data-category="reunion">
+          <picture><source type="image/webp" srcset="../assets/images/domi_reunion_1.webp"><img src="../assets/images/domi_reunion_1.jpg" alt="Meeting Room & Hub" loading="lazy"></picture>
+          <span class="gallery-caption">Meeting Room & Hub</span>
+        </div>
+        <div class="gallery-item w-2" data-category="reunion">
+          <picture><source type="image/webp" srcset="../assets/images/domi_reunion_2.webp"><img src="../assets/images/domi_reunion_2.jpg" alt="Strategic Meeting Room" loading="lazy"></picture>
+          <span class="gallery-caption">Strategic Meeting Room</span>
         </div>
       </div>
     </div>

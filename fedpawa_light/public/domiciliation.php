@@ -24,21 +24,8 @@ include __DIR__ . '/../templates/partials/site-header.php';
     </div>
   </section>
 
-  <!-- ============== LEGAL ALERT ============== -->
-  <section class="legal-section">
-    <div class="container">
-      <div class="legal-alert">
-        <div class="legal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div class="legal-content">
-          <h3>🛑 Cadre Contractuel & Sécurité Juridique</h3>
-          <p>Afin de garantir une flexibilité totale à nos clients, l'intégralité de nos solutions d'hébergement est régie de manière exclusive par une <strong>Convention de mise à disposition d'infrastructures et de prestations de services</strong>.</p>
-          <p>Cet acte juridique exclut expressément le statut des baux commerciaux au sens du droit Uniforme OHADA. En conséquence, cette convention n'accorde aucun droit au renouvellement, aucune propriété commerciale ni aucun droit de maintien dans les lieux au profit du souscripteur. Il s'agit d'une mise à disposition de services matériels, logistiques et technologiques, entièrement flexible et révocable, assurant une parfaite sécurité juridique et une liberté totale aux deux parties.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ============== GALLERY ============== -->
+  <!-- Galerie déplacée juste après le hero pour y<900px -->
   <section class="section-padding section-alt">
     <div class="container">
       <div class="section-header">
@@ -56,7 +43,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
 
       <div class="gallery-grid">
         <div class="gallery-item w-2 h-2" data-category="accueil">
-          <picture><source type="image/webp" srcset="assets/images/domi_accueil_1.webp"><img src="assets/images/domi_accueil_1.jpg" alt="Accueil et réception FEDPAWA" loading="lazy"></picture>
+          <picture><source type="image/webp" srcset="assets/images/domi_accueil_1.webp"><img src="assets/images/domi_accueil_1.jpg" alt="Accueil & Réception FEDPAWA" loading="lazy"></picture>
           <span class="gallery-caption">Accueil & Réception</span>
         </div>
         <div class="gallery-item" data-category="accueil">
@@ -78,6 +65,20 @@ include __DIR__ . '/../templates/partials/site-header.php';
         <div class="gallery-item w-2" data-category="reunion">
           <picture><source type="image/webp" srcset="assets/images/domi_reunion_2.webp"><img src="assets/images/domi_reunion_2.jpg" alt="Salle de réunion stratégique" loading="lazy"></picture>
           <span class="gallery-caption">Salle de Réunion Stratégique</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== LEGAL ALERT ============== -->
+  <section class="legal-section">
+    <div class="container">
+      <div class="legal-alert">
+        <div class="legal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="legal-content">
+          <h3>🛑 Cadre Contractuel & Sécurité Juridique</h3>
+          <p>Afin de garantir une flexibilité totale à nos clients, l'intégralité de nos solutions d'hébergement est régie de manière exclusive par une <strong>Convention de mise à disposition d'infrastructures et de prestations de services</strong>.</p>
+          <p>Cet acte juridique exclut expressément le statut des baux commerciaux au sens du droit Uniforme OHADA. En conséquence, cette convention n'accorde aucun droit au renouvellement, aucune propriété commerciale ni aucun droit de maintien dans les lieux au profit du souscripteur. Il s'agit d'une mise à disposition de services matériels, logistiques et technologiques, entièrement flexible et révocable, assurant une parfaite sécurité juridique et une liberté totale aux deux parties.</p>
         </div>
       </div>
     </div>

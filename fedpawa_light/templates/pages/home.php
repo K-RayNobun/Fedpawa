@@ -93,7 +93,7 @@
     <div class="profile-layout">
       <div class="profile-visual reveal">
         <div class="profile-frame-border"></div>
-        <picture><source type="image/webp" srcset="assets/images/home_team.webp"><img src="assets/images/home_team.jpg" alt="Équipe FEDPAWA"></picture>
+        <picture><source type="image/webp" srcset="assets/images/home_team_new.webp"><img src="assets/images/home_team_new.jpg" alt="Équipe FEDPAWA"></picture>
         <div class="profile-visual-badge"><div class="year">2024</div><div class="label">Fondé à Logpom, Douala</div></div>
       </div>
       <div class="profile-content reveal">

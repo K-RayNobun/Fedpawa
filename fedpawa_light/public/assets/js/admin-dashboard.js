@@ -89,14 +89,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const tCour = document.querySelector('#tab-courriers .db-table-wrap:nth-of-type(2) tbody, #tab-courriers tbody');
         const tCour2 = document.querySelector('#tab-courriers table.db-table tbody');
         if (tCour2) {
-            const rows = (lists.courriers || []).map(co => `<tr><td>${fmtDate(co.date_reception)}</td><td>${esc(co.client_nom) || '\u2014'}</td><td>Courrier re\u00e7u</td><td>${statutBadge(co.statut)}</td><td>${co.scan ? `<a href="/api/document?type=courrier&id=${co.id}" target="_blank" class="action-link">Consulter</a>` : '\u2014'}</td></tr>`);
+            const rows = (lists.courriers || []).map(co => `<tr><td>${fmtDate(co.date_reception)}</td><td>${esc(co.client_nom) || '\u2014'}</td><td>Courrier re\u00e7u</td><td>${statutBadge(co.statut)}</td><td>${co.doc_exists ? `<a href="#" target="_blank" rel="noopener" class="action-link fp-doc-link" data-doc-type="courrier" data-doc-id="${co.id}">Consulter</a>` : '\u2014'}</td></tr>`);
             tCour2.innerHTML = rows.length ? rows.join('') : emptyRow(5, 'Aucun courrier');
         }
 
         // ===== Contrats =====
         const tCt = document.querySelector('#tab-contrats tbody');
         if (tCt) {
-            const rows = (lists.contrats || []).map(ct => `<tr><td>CT-${String(ct.id).padStart(3, '0')}</td><td>${esc(ct.client_nom) || '\u2014'}</td><td>${esc(ct.type)}</td><td>${statutBadge('actif')}</td><td><a href="/api/document?type=contrat&id=${ct.id}" target="_blank" class="action-link">Consulter PDF</a></td></tr>`);
+            const rows = (lists.contrats || []).map(ct => `<tr><td>CT-${String(ct.id).padStart(3, '0')}</td><td>${esc(ct.client_nom) || '\u2014'}</td><td>${esc(ct.type)}</td><td>${statutBadge('actif')}</td><td>${ct.doc_exists ? `<a href="#" target="_blank" rel="noopener" class="action-link fp-doc-link" data-doc-type="contrat" data-doc-id="${ct.id}">Consulter PDF</a>` : '\u2014'}</td></tr>`);
             tCt.innerHTML = rows.length ? rows.join('') : emptyRow(5, 'Aucun contrat');
         }
 
@@ -116,12 +116,12 @@ document.addEventListener('DOMContentLoaded', () => {
                             ${badge(k.statuts, 'warning')}
                         </div>
                         <div class="kyc-docs-grid">
-                            <div class="kyc-doc"><a href="/api/document?type=kyc&id=${k.id}&file=piece_identite" target="_blank"><img src="/api/document?type=kyc&id=${k.id}&file=piece_identite" alt="CNI Recto" onerror="this.outerHTML='<p style=\\"padding:20px;color:var(--color-text-muted)\\">Pi\u00e8ce d\'identit\u00e9 (PDF)</p>'"></a><p>Pi\u00e8ce d'identit\u00e9</p></div>
-                            <div class="kyc-doc"><a href="/api/document?type=kyc&id=${k.id}&file=justificatif_domicile" target="_blank"><img src="/api/document?type=kyc&id=${k.id}&file=justificatif_domicile" alt="Justificatif" onerror="this.outerHTML='<p style=\\"padding:20px;color:var(--color-text-muted)\\">Justificatif de domicile</p>'"></a><p>Justificatif de domicile</p></div>
+                            <div class="kyc-doc">${k.doc_exists_identite ? `<a href="/api/document?type=kyc&id=${k.id}&file=piece_identite" target="_blank" rel="noopener">` : '<a class="kyc-doc-na">'}<img src="/api/document?type=kyc&id=${k.id}&file=piece_identite" alt="CNI Recto" onerror="this.outerHTML='<p style=\\"padding:20px;color:var(--color-text-muted)\\">Pi\u00e8ce d\'identit\u00e9 (PDF)</p>'"></a><p>Pi\u00e8ce d'identit\u00e9</p></div>
+                            <div class="kyc-doc">${k.doc_exists_justificatif ? `<a href="/api/document?type=kyc&id=${k.id}&file=justificatif_domicile" target="_blank" rel="noopener">` : '<a class="kyc-doc-na">'}<img src="/api/document?type=kyc&id=${k.id}&file=justificatif_domicile" alt="Justificatif" onerror="this.outerHTML='<p style=\\"padding:20px;color:var(--color-text-muted)\\">Justificatif de domicile</p>'"></a><p>Justificatif de domicile</p></div>
                         </div>
                         <div class="kyc-actions">
-                            <button class="btn btn-outline" style="border-color: var(--color-danger); color: var(--color-danger);" data-kyc-reject="${k.id}">Rejeter (avec motif)</button>
-                            <button class="btn btn-primary" style="background-color: var(--color-success); border-color: var(--color-success);" data-kyc-approve="${k.id}">Approuver le dossier</button>
+                            <button class="btn btn-reject" data-kyc-reject="${k.id}">Rejeter (avec motif)</button>
+                            <button class="btn btn-approve" data-kyc-approve="${k.id}">Approuver le dossier</button>
                         </div>
                     </div>`;
                 }
@@ -217,5 +217,202 @@ document.addEventListener('DOMContentLoaded', () => {
         }));
     }
 
+    // =========================================================
+    // L012 — Éditeur du modèle de contrat : flux OTP admin + TinyMCE
+    // =========================================================
+    // Le bouton « Modifier le contrat » (tab-contrats) déclenche :
+    // 1. POST /api/admin/template/otp-request  -> code 6 chiffres envoyé à
+    //    l'email admin (jamais exposé dans la réponse) + modal OTP.
+    // 2. POST /api/admin/template/otp-verify   -> si OK, session déverrouillée
+    //    10 min côté serveur, puis GET /api/admin/template + éditeur TinyMCE.
+    // 3. POST /api/admin/template/update       -> refusé 403 sans déverrouillage.
+    const TEMPLATE_UNLOCK_TTL = 10 * 60 * 1000; // miroir du serveur (600 s)
+    let templateUnlockTimer = null;
+
+    function initTemplateEditorFlow() {
+        const btn = document.getElementById('btn-edit-template');
+        if (!btn || btn.dataset.l012Bound) return; // délégation sûre même après re-render
+        btn.dataset.l012Bound = '1';
+        btn.addEventListener('click', requestTemplateOtp);
+    }
+
+    async function requestTemplateOtp() {
+        try {
+            const res = await Api.post('/api/admin/template/otp-request', {});
+            const data = await res.json().catch(() => ({}));
+            if (res.ok && data.sent) {
+                showTemplateOtpModal(data.email || '');
+            } else {
+                FedpawaUI.toast(data.error || 'Impossible d\u2019envoyer le code de v\u00e9rification.', 'error');
+            }
+        } catch (e) {
+            FedpawaUI.toast('Erreur r\u00e9seau lors de l\u2019envoi du code.', 'error');
+        }
+    }
+
+    function showTemplateOtpModal(maskedEmail) {
+        FedpawaUI.modal({
+            id: 'fp-otp-modal',
+            title: 'V\u00e9rification de s\u00e9curit\u00e9',
+            message: 'Un code de v\u00e9rification a \u00e9t\u00e9 envoy\u00e9 \u00e0 <strong>' + esc(maskedEmail) + '</strong>. Saisissez-le pour d\u00e9verrouiller l\u2019\u00e9diteur.',
+            className: 'fp-otp-modal',
+            buttons: [],
+            disableOverlayClose: true,
+            hideClose: false
+        });
+        // Le message de FedpawaUI.modal ne permet pas d'injecter un champ de
+        // saisie proprement : on greffe le formulaire dans la modal ouverte.
+        const box = document.querySelector('#fp-otp-modal .fp-modal');
+        if (!box) return;
+        const wrap = document.createElement('div');
+        wrap.className = 'l012-otp-form';
+        wrap.innerHTML =
+            '<input id="l012-otp-input" class="l012-otp-input" type="text" inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="\u2022\u2022\u2022\u2022\u2022\u2022" aria-label="Code de v\u00e9rification \u00e0 6 chiffres">' +
+            '<p class="l012-otp-error" id="l012-otp-error" role="alert"></p>' +
+            '<div class="l012-otp-actions">' +
+            '<button type="button" class="btn btn-outline" id="l012-otp-cancel">Annuler</button>' +
+            '<button type="button" class="btn btn-primary" id="l012-otp-submit">Valider</button>' +
+            '</div>';
+        const actions = box.querySelector('.fp-modal-actions');
+        if (actions) actions.remove();
+        box.appendChild(wrap);
+        document.getElementById('l012-otp-input').focus();
+        document.getElementById('l012-otp-cancel').addEventListener('click', () => {
+            document.getElementById('fp-otp-modal')?.remove();
+            document.body.style.overflow = '';
+        });
+        document.getElementById('l012-otp-submit').addEventListener('click', submitTemplateOtp);
+        document.getElementById('l012-otp-input').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') { e.preventDefault(); submitTemplateOtp(); }
+        });
+    }
+
+    async function submitTemplateOtp() {
+        const input = document.getElementById('l012-otp-input');
+        const errEl = document.getElementById('l012-otp-error');
+        const otp = (input ? input.value : '').replace(/\D/g, '');
+        if (errEl) errEl.textContent = '';
+        if (otp.length !== 6) {
+            if (errEl) errEl.textContent = 'Saisissez les 6 chiffres du code re\u00e7u.';
+            return;
+        }
+        try {
+            const res = await Api.post('/api/admin/template/otp-verify', { otp });
+            const data = await res.json().catch(() => ({}));
+            if (res.ok && data.unlocked) {
+                templateUnlockTimer = Date.now() + TEMPLATE_UNLOCK_TTL;
+                openTemplateEditor();
+            } else {
+                if (errEl) errEl.textContent = data.error || 'Code invalide.';
+            }
+        } catch (e) {
+            if (errEl) errEl.textContent = 'Erreur r\u00e9seau. R\u00e9essayez.';
+        }
+    }
+
+    async function openTemplateEditor() {
+        // Fermer la modal OTP
+        document.getElementById('fp-otp-modal')?.remove();
+        document.body.style.overflow = '';
+        let data;
+        try {
+            const res = await fetch(apiUrl('/api/admin/template'), { credentials: 'include' });
+            data = await res.json().catch(() => ({}));
+            if (!res.ok || typeof data.content !== 'string') {
+                FedpawaUI.toast(data.error || 'Impossible de charger le mod\u00e8le de contrat.', 'error');
+                return;
+            }
+        } catch (e) {
+            FedpawaUI.toast('Erreur r\u00e9seau lors du chargement du mod\u00e8le.', 'error');
+            return;
+        }
+
+        FedpawaUI.modal({
+            id: 'fp-template-modal',
+            title: '\u00c9diteur du mod\u00e8le de contrat',
+            className: 'fp-template-modal',
+            buttons: [],
+            disableOverlayClose: true
+        });
+        const box = document.querySelector('#fp-template-modal .fp-modal');
+        if (!box) return;
+        const editorWrap = document.createElement('div');
+        editorWrap.className = 'l012-editor-wrap';
+        editorWrap.innerHTML =
+            '<textarea id="l012-template-content" aria-label="Contenu du mod\u00e8le de contrat"></textarea>' +
+            '<p class="l012-editor-note">D\u00e9verrouillage valide 10 minutes. Enregistrez avant expiration.</p>' +
+            '<div class="l012-editor-actions">' +
+            '<button type="button" class="btn btn-outline" id="l012-editor-cancel">Annuler</button>' +
+            '<button type="button" class="btn btn-primary" id="l012-editor-save">Enregistrer</button>' +
+            '</div>';
+        const actions = box.querySelector('.fp-modal-actions');
+        if (actions) actions.remove();
+        box.appendChild(editorWrap);
+
+        document.getElementById('l012-editor-cancel').addEventListener('click', () => {
+            document.getElementById('fp-template-modal')?.remove();
+            document.body.style.overflow = '';
+            if (window.tinymce && tinymce.get('l012-template-content')) tinymce.get('l012-template-content').destroy();
+        });
+        document.getElementById('l012-editor-save').addEventListener('click', saveTemplate);
+
+        const ta = document.getElementById('l012-template-content');
+        ta.value = data.content;
+        if (window.tinymce) {
+            tinymce.init({
+                target: ta,
+                skin: 'oxide-dark',           // coh\u00e9rent avec le th\u00e8me navy
+                content_css: 'dark',
+                height: 450,
+                menubar: false,
+                branding: false,
+                plugins: 'table lists link',
+                toolbar: 'undo redo | bold italic underline | bullist numlist | table link | removeformat',
+                license_key: 'gpl',
+                init_instance_callback: (ed) => ed.setContent(data.content || '')
+            });
+        } else {
+            // fallback : édition HTML brute si TinyMCE n'a pas chargé
+            ta.style.display = 'block';
+            ta.style.width = '100%';
+            ta.style.height = '450px';
+        }
+    }
+
+    async function saveTemplate() {
+        const btn = document.getElementById('l012-editor-save');
+        const getContent = () => {
+            if (window.tinymce && tinymce.get('l012-template-content')) return tinymce.get('l012-template-content').getContent();
+            const ta = document.getElementById('l012-template-content');
+            return ta ? ta.value : '';
+        };
+        const content = getContent();
+        if (!content || content.trim().length < 50) {
+            FedpawaUI.toast('Le contenu du mod\u00e8le est trop court.', 'error');
+            return;
+        }
+        if (btn) btn.disabled = true;
+        try {
+            const res = await Api.post('/api/admin/template/update', { content });
+            const data = await res.json().catch(() => ({}));
+            if (res.ok && !data.error) {
+                FedpawaUI.toast('Mod\u00e8le de contrat enregistr\u00e9.', 'success');
+                document.getElementById('fp-template-modal')?.remove();
+                document.body.style.overflow = '';
+                if (window.tinymce && tinymce.get('l012-template-content')) tinymce.get('l012-template-content').destroy();
+                templateUnlockTimer = null; // unlock consommé côté serveur
+            } else if (res.status === 403) {
+                FedpawaUI.toast('D\u00e9verrouillage expir\u00e9 : v\u00e9rification OTP requise.', 'error');
+            } else {
+                FedpawaUI.toast(data.error || '\u00c9chec de l\u2019enregistrement.', 'error');
+            }
+        } catch (e) {
+            FedpawaUI.toast('Erreur r\u00e9seau lors de l\u2019enregistrement.', 'error');
+        } finally {
+            if (btn) btn.disabled = false;
+        }
+    }
+
     loadAdminData();
+    initTemplateEditorFlow();
 });

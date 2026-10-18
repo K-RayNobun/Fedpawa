@@ -182,7 +182,9 @@ document.addEventListener('DOMContentLoaded', () => {
         return isEn ? '../' + file : file;
     }
 
-    function buildSubmenu(container, withAccount) {
+    function buildSubmenu(container, withAccount, role) {
+        // L011 : le menu reflète le rôle — un admin voit « Dashboard Admin », pas « Mon Espace »
+        const isAdmin = role === 'admin';
         // ---- Accordéon Thème : clic -> déplie Jour/Nuit ----
         const themeSec = document.createElement('div');
         themeSec.className = 'settings-section';
@@ -255,9 +257,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (withAccount) {
             const accSec = document.createElement('div');
             accSec.className = 'settings-section';
-            const monEspace = document.createElement('a');
-            monEspace.href = langPrefixFor('espace_client.html');
-            monEspace.textContent = '👤 Mon Espace / My Account';
+            const espaceLink = document.createElement('a');
+            espaceLink.href = langPrefixFor(isAdmin ? 'admin_dashboard.html' : 'espace_client.html');
+            espaceLink.textContent = isAdmin ? '🛡️ Dashboard Admin' : '👤 Mon Espace / My Account';
             const logoutBtn = document.createElement('button');
             logoutBtn.className = 'profile-logout-btn';
             logoutBtn.textContent = '🚪 Se déconnecter / Log out';
@@ -276,16 +278,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     window.location.reload();
                 }
             });
-            accSec.append(monEspace, logoutBtn);
+            accSec.append(espaceLink, logoutBtn);
             container.appendChild(accSec);
 
-            // F4: entrées compte dans le menu burger mobile (Espace + Déconnexion)
+            // F4: entrées compte dans le menu burger mobile (Espace/Dashboard + Déconnexion)
             const mobileNavEl = document.getElementById('mobileNav');
             if (mobileNavEl && !mobileNavEl.querySelector('.mobile-account-links')) {
                 const mAcc = document.createElement('div');
                 mAcc.className = 'mobile-account-links';
                 mAcc.style.cssText = 'border-top: 1px solid rgba(255,255,255,.15); margin-top: 14px; padding-top: 14px; display: grid; gap: 4px;';
-                mAcc.innerHTML = '<a href="' + langPrefixFor('espace_client.html') + '" style="color:#fff; padding: 10px 14px;">👤 Mon Espace</a>' +
+                mAcc.innerHTML = '<a href="' + langPrefixFor(isAdmin ? 'admin_dashboard.html' : 'espace_client.html') + '" style="color:#fff; padding: 10px 14px;">' + (isAdmin ? '🛡️ Dashboard Admin' : '👤 Mon Espace') + '</a>' +
                                  '<button type="button" class="mobile-logout-btn" style="color:#ffd98a; background:none; border:none; text-align:left; padding: 10px 14px; font: inherit; cursor:pointer;">🚪 Se déconnecter</button>';
                 const mLogout = mAcc.querySelector('.mobile-logout-btn');
                 if (mLogout) mLogout.addEventListener('click', async () => {
@@ -328,7 +330,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!navActions) return;
 
         if (isConnected) {
-            navActions.innerHTML = '<a class="nav-login nav-espace-client" href="' + langPrefixFor('espace_client.html') + '">Espace Client</a><button class="nav-profile-btn" id="navProfileBtn" aria-label="Menu profil / Profile menu" title="Profil" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></button>';
+            // L011 : header dynamique selon le rôle — un admin voit « Dashboard »,
+            // jamais « Espace Client » ; un client reste inchangé.
+            const isAdmin = me.role === 'admin';
+            navActions.innerHTML = isAdmin
+                ? '<a class="nav-login nav-espace-client" href="' + langPrefixFor('admin_dashboard.html') + '">Dashboard</a><button class="nav-profile-btn" id="navProfileBtn" aria-label="Menu profil / Profile menu" title="Profil" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></button>'
+                : '<a class="nav-login nav-espace-client" href="' + langPrefixFor('espace_client.html') + '">Espace Client</a><button class="nav-profile-btn" id="navProfileBtn" aria-label="Menu profil / Profile menu" title="Profil" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></button>';
             const profileBtn = document.getElementById('navProfileBtn');
             const profileMenu = document.createElement('div');
             profileMenu.className = 'profile-menu settings-menu';
@@ -343,7 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
             emailEl.textContent = (me && me.email) ? me.email : '';
             idSec.append(nameEl, emailEl);
             profileMenu.appendChild(idSec);
-            buildSubmenu(profileMenu, true);
+            buildSubmenu(profileMenu, true, me.role);
             document.body.appendChild(profileMenu);
             profileBtn.addEventListener('click', (e) => {
                 e.stopPropagation();

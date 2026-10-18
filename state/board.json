@@ -1,5 +1,5 @@
 {
-  "seq": 13,
+  "seq": 14,
   "lanes": [
     {
       "id": "L001",
@@ -145,25 +145,30 @@
       "priority": "P1",
       "status": "in_progress",
       "created_at": "2026-10-18 15:45:50 UTC",
-      "last_update": "2026-10-18 16:03:13 UTC",
-      "agent": "inconnu",
-      "claimed_at": "2026-10-18 16:03:13 UTC",
+      "last_update": "2026-10-18 20:36:59 UTC",
+      "agent": "hermes-l011-re",
+      "claimed_at": "2026-10-18 19:23:47 UTC",
       "context_file": "/root/Fedpawa/state/ctx-L011.md",
-      "artifacts": [],
+      "artifacts": [
+        "/root/Fedpawa/fedpawa_light/public/assets/js/main.js"
+      ],
       "summary": null
     },
     {
       "id": "L012",
       "title": "Admin Contrats: éditeur TinyMCE intégré + OTP email admin avant édition (updateTemplate durci)",
       "priority": "P1",
-      "status": "in_progress",
+      "status": "done",
       "created_at": "2026-10-18 17:40:38 UTC",
-      "last_update": "2026-10-18 17:45:29 UTC",
+      "last_update": "2026-10-18 20:46:09 UTC",
       "agent": "hermes-l012",
       "claimed_at": "2026-10-18 17:45:29 UTC",
       "context_file": "/root/Fedpawa/state/ctx-L012.md",
-      "artifacts": [],
-      "summary": null
+      "artifacts": [
+        "/root/Fedpawa/audit/l012_rapport.md",
+        "/root/Fedpawa/state/ctx-L012.md"
+      ],
+      "summary": "Éditeur TinyMCE + OTP admin: flux complet prouvé par orchestrateur (403 sans OTP, OTP verify, update + history + audit)"
     },
     {
       "id": "L013",
@@ -177,6 +182,21 @@
       "context_file": "/root/Fedpawa/state/ctx-L013.md",
       "artifacts": [],
       "summary": "Mobile: hero zoomé sur la façade (220%, 12% 85%, pas de ciel) + CTA mobile dynamique — Se Connecter (visiteur) / Se Déconnecter (connecté, logout API puis retour auth) — E2E passé, compte test purgé"
+    },
+    {
+      "id": "L014",
+      "title": "Pages Politique de Confidentialité + CGU/CGV (FR+EN) liées aux cases à cocher auth et souscriptions",
+      "priority": "P1",
+      "status": "in_progress",
+      "created_at": "2026-10-18 19:57:46 UTC",
+      "last_update": "2026-10-18 20:40:52 UTC",
+      "agent": "l014-subagent",
+      "claimed_at": "2026-10-18 20:00:08 UTC",
+      "context_file": "/root/Fedpawa/state/ctx-L014.md",
+      "artifacts": [
+        "/root/Fedpawa/fedpawa_light/public/politique-confidentialite.php"
+      ],
+      "summary": null
     }
   ]
 }

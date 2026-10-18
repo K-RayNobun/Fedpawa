@@ -71,6 +71,17 @@ class NotificationService {
         );
     }
 
+    // L012 : OTP de vérification admin (édition du modèle de contrat).
+    // Même canal SMTP ; le fallback error_log [OTP-ADMIN-DEV] est géré par
+    // l'appelant (AdminController) quand SMTP n'est pas configuré (retour false).
+    public function sendOtpAdmin(string $email, string $code) {
+        return $this->send(
+            $email,
+            'FEDPAWA — Code de vérification admin',
+            "Votre code de vérification pour la modification du modèle de contrat est : <strong>" . htmlspecialchars($code) . "</strong><br>Il expire dans 10 minutes. Si vous n'êtes pas à l'origine de cette demande, contactez immédiatement le support."
+        );
+    }
+
     public function sendContactNotification(string $dest, string $sujet, string $nom, string $email, string $telephone, string $message) {
         return $this->send(
             $dest,

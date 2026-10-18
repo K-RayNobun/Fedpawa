@@ -4,6 +4,8 @@ namespace App\Controller;
 use App\Service\Database;
 use App\Service\AuditLogger;
 use App\Service\LoginThrottler;
+use App\Service\OtpService;
+use App\Service\NotificationService;
 
 class AdminController extends Controller {
     public function ticketReply() {
@@ -138,6 +140,17 @@ class AdminController extends Controller {
 
     public function updateTemplate() {
         try {
+            // L012 — sécurité réelle : la mise à jour du modèle de contrat exige
+            // une session OTP déverrouillée il y a MOINS de 10 minutes. Même en
+            // appelant l'API directement (sans passer par le front), sans OTP
+            // vérifié la modification est refusée.
+            $unlockedAt = (int)($_SESSION['template_edit_unlocked'] ?? 0);
+            if ($unlockedAt <= 0 || (time() - $unlockedAt) > 600) {
+                AuditLogger::log('TEMPLATE_UPDATE_BLOCKED', $_SESSION['admin_id'] ?? null, 'admin', 'Tentative sans OTP valide');
+                $this->json(['error' => 'OTP requis'], 403);
+                return;
+            }
+
             // Supporte à la fois un POST de formulaire HTML et un appel API JSON
             $content = $_POST['content'] ?? null;
             $isApi = empty($content);
@@ -164,12 +177,132 @@ class AdminController extends Controller {
             AuditLogger::log('UPDATE_CONTRACT_TEMPLATE', $_SESSION['admin_id'] ?? null, 'admin', 'Template ID: ' . $current['id']);
 
             if ($isApi) {
+                // L012 : après succès, on referme la porte — l'OTP a été consommé.
+                OtpService::clear((int)($_SESSION['admin_id'] ?? 0), 'admin');
+                unset($_SESSION['template_edit_unlocked']);
                 $this->json(['message' => 'Template mis à jour']);
                 return;
             }
+            OtpService::clear((int)($_SESSION['admin_id'] ?? 0), 'admin');
+            unset($_SESSION['template_edit_unlocked']);
             header('Location: /admin');
         } catch (\Exception $e) {
             error_log('Update template error: ' . $e->getMessage());
+            $this->json(['error' => 'Erreur interne'], 500);
+        }
+    }
+
+    // =========================================================
+    // L012 — Éditeur du modèle de contrat avec vérification OTP admin
+    // =========================================================
+
+    // GET /api/admin/template — contenu HTML du modèle (admin uniquement,
+    // garantit par le constructeur : 403 si pas de session admin).
+    public function getTemplate() {
+        try {
+            $db = Database::getConnection();
+            $tpl = $db->query("SELECT id, name, content, updated_at FROM contract_templates WHERE name = 'contract'")->fetch();
+            if (!$tpl) {
+                $this->json(['error' => 'Modèle de contrat introuvable'], 404);
+                return;
+            }
+            $this->json([
+                'id' => (int)$tpl['id'],
+                'name' => $tpl['name'],
+                'content' => (string)$tpl['content'],
+                'updated_at' => $tpl['updated_at'],
+                'unlocked' => isset($_SESSION['template_edit_unlocked'])
+                    && (time() - (int)$_SESSION['template_edit_unlocked']) <= 600
+            ]);
+        } catch (\Exception $e) {
+            error_log('Get template error: ' . $e->getMessage());
+            $this->json(['error' => 'Erreur interne'], 500);
+        }
+    }
+
+    // POST /api/admin/template/otp-request — génère un OTP 6 chiffres pour
+    // l'admin connecté et l'envoie à SON email ($_SESSION['admin_email']).
+    // Le code ne JAMAIS apparaître dans la réponse API : en local sans SMTP,
+    // fallback error_log '[OTP-ADMIN-DEV]' (pattern AuthController L187-197).
+    public function templateOtpRequest() {
+        try {
+            $adminId = (int)($_SESSION['admin_id'] ?? 0);
+            $adminEmail = (string)($_SESSION['admin_email'] ?? '');
+            if ($adminId <= 0 || $adminEmail === '' || !filter_var($adminEmail, FILTER_VALIDATE_EMAIL)) {
+                $this->json(['error' => 'Session admin invalide'], 403);
+                return;
+            }
+
+            $otp = OtpService::generate($adminId, 'admin');
+
+            $sent = false;
+            try {
+                $sent = (new NotificationService())->sendOtpAdmin($adminEmail, $otp);
+            } catch (\Exception $mailEx) {
+                error_log('OTP admin mail envoi échoué: ' . $mailEx->getMessage());
+            }
+            if (!$sent) {
+                // SMTP non configuré (local) : le code reste côté serveur, dans
+                // les logs PHP du conteneur — consultable pour l'E2E, jamais
+                // exposé dans la réponse HTTP.
+                error_log('[OTP-ADMIN-DEV] code pour ' . $adminEmail . ' : ' . $otp);
+            }
+
+            AuditLogger::log('TEMPLATE_OTP_SENT', $adminId, 'admin', 'Email: ' . $adminEmail . ($sent ? ' (SMTP)' : ' (fallback log)'));
+
+            // Email masqué a***@domain.tld — jamais l'email complet ni le code.
+            $masked = preg_replace('/^(.).*(@.*)$/', '$1***$2', $adminEmail);
+            $this->json(['sent' => true, 'email' => $masked]);
+        } catch (\Exception $e) {
+            error_log('Template OTP request error: ' . $e->getMessage());
+            $this->json(['error' => 'Erreur interne'], 500);
+        }
+    }
+
+    // POST /api/admin/template/otp-verify — vérifie l'OTP (scope admin,
+    // rate-limit 5 tentatives puis clear) ; si OK pose
+    // $_SESSION['template_edit_unlocked'] = time() (validité 10 min).
+    public function templateOtpVerify() {
+        try {
+            $adminId = (int)($_SESSION['admin_id'] ?? 0);
+            if ($adminId <= 0) {
+                $this->json(['error' => 'Session admin invalide'], 403);
+                return;
+            }
+            $input = json_decode(file_get_contents('php://input'), true);
+            $otp = isset($input['otp']) ? preg_replace('/\D/', '', (string)$input['otp']) : '';
+            if (strlen($otp) !== 6) {
+                $this->json(['error' => 'Code à 6 chiffres requis'], 400);
+                return;
+            }
+
+            // Rate-limit : 5 mauvaises tentatives max, au-delà le code est purgé
+            // (pattern login_throttle ; il faut re-demander un nouvel OTP).
+            $_SESSION['template_otp_attempts'] = (int)($_SESSION['template_otp_attempts'] ?? 0);
+            if ($_SESSION['template_otp_attempts'] >= 5) {
+                OtpService::clear($adminId, 'admin');
+                unset($_SESSION['template_otp_attempts']);
+                AuditLogger::log('TEMPLATE_OTP_LOCKED', $adminId, 'admin', '5 tentatives invalides');
+                $this->json(['error' => 'Trop de tentatives. Demandez un nouveau code.'], 429);
+                return;
+            }
+
+            if (!OtpService::verify($adminId, $otp, 'admin')) {
+                $_SESSION['template_otp_attempts']++;
+                AuditLogger::log('TEMPLATE_OTP_FAILED', $adminId, 'admin', 'Tentative ' . $_SESSION['template_otp_attempts'] . '/5');
+                $remaining = 5 - (int)$_SESSION['template_otp_attempts'];
+                $this->json(['error' => 'Code invalide', 'attempts_remaining' => max(0, $remaining)], 400);
+                return;
+            }
+
+            // Succès : déverrouillage 10 minutes + reset du compteur.
+            $_SESSION['template_edit_unlocked'] = time();
+            unset($_SESSION['template_otp_attempts']);
+            OtpService::clear($adminId, 'admin');
+            AuditLogger::log('TEMPLATE_OTP_VERIFIED', $adminId, 'admin', 'Édition modèle déverrouillée 10 min');
+            $this->json(['unlocked' => true, 'expires_in' => 600]);
+        } catch (\Exception $e) {
+            error_log('Template OTP verify error: ' . $e->getMessage());
             $this->json(['error' => 'Erreur interne'], 500);
         }
     }
@@ -187,6 +320,37 @@ class AdminController extends Controller {
             $kyc = $db->query("SELECT k.id, k.client_id, c.nom AS client_nom, c.entreprise, k.piece_identite, k.justificatif_domicile, k.statuts, k.date_soumission FROM kyc k JOIN clients c ON c.id = k.client_id ORDER BY k.id DESC LIMIT 200")->fetchAll();
             $tickets = $db->query("SELECT t.*, c.nom AS client_nom FROM tickets_support t JOIN clients c ON c.id = t.client_id ORDER BY t.created_at DESC LIMIT 100")->fetchAll();
             $messages = $db->query("SELECT m.id, m.sender_id, m.sender_type, m.receiver_id, m.content, m.is_read, m.created_at, c.nom AS client_nom, c.entreprise FROM internal_messages m LEFT JOIN clients c ON c.id = m.sender_id ORDER BY m.created_at DESC LIMIT 100")->fetchAll();
+
+            // L011 — Cohérence d'état : doc_exists = le fichier existe RÉELLEMENT
+            // sur le disque. L'UI n'affiche « Consulter/Voir » que si true (le clic
+            // re-vérifie via /api/admin/document-info, race-proof).
+            // Contrats : storage/documents/ ; courriers + KYC : storage/uploads/.
+            $base = realpath(__DIR__ . '/../../storage');
+            $uploadsBase = $base !== false ? $base . DIRECTORY_SEPARATOR . 'uploads' : '';
+            $fileExists = function ($relPath, $uploadsFirst) use ($base, $uploadsBase) {
+                if ($base === false || !is_string($relPath) || $relPath === '' || strpos($relPath, '..') !== false) return false;
+                $candidates = $uploadsFirst ? [$uploadsBase, $base] : [$base, $uploadsBase];
+                foreach ($candidates as $cb) {
+                    if ($cb === '') continue;
+                    $resolved = realpath($cb . DIRECTORY_SEPARATOR . $relPath);
+                    if ($resolved !== false && strpos($resolved, $base . DIRECTORY_SEPARATOR) === 0 && is_file($resolved)) return true;
+                }
+                return false;
+            };
+            foreach ($courriers as &$co) {
+                $co['doc_exists'] = !empty($co['scan']) && $fileExists($co['scan'], true);
+            }
+            unset($co);
+            foreach ($contrats as &$ct) {
+                $ct['doc_exists'] = !empty($ct['fichier']) && $fileExists($ct['fichier'], false);
+            }
+            unset($ct);
+            foreach ($kyc as &$k) {
+                $k['doc_exists_identite'] = !empty($k['piece_identite']) && $fileExists($k['piece_identite'], true);
+                $k['doc_exists_justificatif'] = !empty($k['justificatif_domicile']) && $fileExists($k['justificatif_domicile'], true);
+                $k['doc_exists'] = $k['doc_exists_identite'] || $k['doc_exists_justificatif'];
+            }
+            unset($k);
 
             $this->json([
                 'clients' => $clients,

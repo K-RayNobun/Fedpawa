@@ -70,9 +70,15 @@ if (preg_match('#^/api(/|$)#', $uri)) {
     $router->post('/api/admin/password', 'AuthController@updateAdminPassword');
     $router->get('/api/admin/overview', 'AdminController@overview');
     $router->get('/api/admin/lists', 'AdminController@lists');
+    // L011 : métadonnées d'un document (existe, taille, mime, client, date) — admin uniquement
+    $router->get('/api/admin/document-info', 'StorageController@documentInfo');
     $router->post('/api/admin/kyc/approve', 'KycController@approve');
     $router->post('/api/admin/kyc/reject', 'KycController@reject');
     $router->post('/api/admin/ticket/reply', 'AdminController@ticketReply');
+    // L012 : éditeur du modèle de contrat — lecture + flux OTP admin
+    $router->get('/api/admin/template', 'AdminController@getTemplate');
+    $router->post('/api/admin/template/otp-request', 'AdminController@templateOtpRequest');
+    $router->post('/api/admin/template/otp-verify', 'AdminController@templateOtpVerify');
     $router->post('/api/admin/template/update', 'AdminController@updateTemplate');
     $router->post('/api/admin/courrier/add', 'CourrierController@add');
     $router->post('/api/admin/throttle/clear', 'AdminController@clearThrottle');

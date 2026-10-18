@@ -14,7 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css?v=5">
 <link rel="stylesheet" href="assets/css/components.css">
-<link rel="stylesheet" href="assets/css/dashboard.css?v=8">
+<link rel="stylesheet" href="assets/css/dashboard.css?v=9">
 </head>
 <body>
 
@@ -189,6 +189,12 @@
           </table>
         </div>
       </div>
+      <!-- L012 : édition du modèle de contrat (OTP admin obligatoire + éditeur TinyMCE self-hosted) -->
+      <div class="db-section" id="template-editor-section">
+        <div class="db-section-header"><h2>Modèle de contrat</h2></div>
+        <p class="l012-editor-hint">Le modèle ci-dessous sert à générer les contrats PDF des clients. Toute modification exige une vérification de sécurité : un code à 6 chiffres est envoyé à votre adresse e-mail d'administration.</p>
+        <button class="btn btn-primary" id="btn-edit-template" type="button">Modifier le contrat</button>
+      </div>
     </div>
 
     <div class="db-tab-content" id="tab-kyc">
@@ -205,8 +211,8 @@
           <div class="kyc-doc"><img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=400&q=80" alt="Justificatif"><p>Justificatif de domicile</p></div>
         </div>
         <div class="kyc-actions">
-          <button class="btn btn-outline" style="border-color: var(--color-danger); color: var(--color-danger);" onclick="alert('Dossier rejeté. Client notifié.');">Rejeter (avec motif)</button>
-          <button class="btn btn-primary" style="background-color: var(--color-success); border-color: var(--color-success);" onclick="alert('Dossier approuvé ! Client notifié.');">Approuver le dossier</button>
+          <button class="btn btn-reject" onclick="alert('Dossier rejeté. Client notifié.');">Rejeter (avec motif)</button>
+          <button class="btn btn-approve" onclick="alert('Dossier approuvé ! Client notifié.');">Approuver le dossier</button>
         </div>
       </div>
     </div>
@@ -238,12 +244,14 @@
   </button>
 </div>
 
-<script src="assets/js/main.js?v=3"></script>
+<script src="assets/js/main.js?v=5"></script>
 <script src="assets/js/config.js"></script>
 <script src="assets/js/fedpawa-ui.js"></script>
 <script src="assets/js/api.js"></script>
 <script src="assets/js/db-tabs.js?v=2"></script>
-<script src="assets/js/admin-dashboard.js?v=7"></script>
+<!-- L012 : TinyMCE self-hosted (aucun CDN) — chargé uniquement sur le dashboard admin -->
+<script src="assets/vendor/tinymce/tinymce.min.js"></script>
+<script src="assets/js/admin-dashboard.js?v=9"></script>
 <div style="position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:99999;background:rgba(28,28,28,.88);color:#fff;padding:9px 18px;border-radius:999px;font:600 12px/1 'Open Sans',Arial,sans-serif;letter-spacing:.03em;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.35);">Aperçu démo statique — inscriptions et paiements désactivés</div>
 
 </body>

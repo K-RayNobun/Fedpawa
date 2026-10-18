@@ -22,6 +22,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
     const mobileCloseBtn = document.querySelector('.mobile-close-btn');
 
+    // L013: CTA mobile « Se Déconnecter » → détruit la session puis redirige vers l'auth
+    const mobileLogoutCta = mobileNav ? mobileNav.querySelector('[data-logout]') : null;
+    if (mobileLogoutCta) {
+        mobileLogoutCta.addEventListener('click', async (e) => {
+            e.preventDefault();
+            try { await fetch(window.apiUrl('/api/logout'), { method: 'POST', credentials: 'include' }); } catch (err) {}
+            window.location.href = mobileLogoutCta.getAttribute('href') || 'authentification.html';
+        });
+    }
+
     if (menuToggle && mobileNav) {
         // Toggle menu open/close
         menuToggle.addEventListener('click', () => {

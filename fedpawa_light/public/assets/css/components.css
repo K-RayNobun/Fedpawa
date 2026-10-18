@@ -182,6 +182,14 @@ html[data-theme="navy"] .specialty-item::before { color: var(--color-gold); }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .hero-proof { gap: 20px; }
   .hero-proof strong { font-size: 1.3rem; }
+  /* L013: mobile — zoom serré sur la façade du gratte-ciel (pas de ciel) */
+  .hero::before {
+    width: 100%;
+    clip-path: none;
+    opacity: 0.22;
+    background-size: 220% auto;
+    background-position: 12% 85%;
+  }
   .expertise-body { padding: 28px 22px; }
   .profile-columns { grid-template-columns: 1fr; }
   .specialties-grid { grid-template-columns: 1fr; }

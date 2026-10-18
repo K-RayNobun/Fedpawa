@@ -24,6 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // F6: exposer le service de l'abonnement au bouton « Changer de pack »
             window.__lastSub = sub || null;
             window.__pastSubscriptions = data.pastSubscriptions || [];
+            // Condition 2 du composant pack: pas de pack actif + abonnements passés → bloc texte + 2 boutons
+            if (window.__renderResubscribeBlock && (!sub || sub.statut !== 'actif')) {
+                window.__renderResubscribeBlock(window.__pastSubscriptions);
+            }
 
             // Populate User Name & Avatar
             if (client) {
@@ -233,7 +237,83 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ===== F6: bouton « Changer de pack / Ajouter des options » — inline component avec conditions =====\n    const changePackBtn = document.querySelector('#tab-abonnement .btn-outline');\n    if (changePackBtn && !changePackBtn.dataset.wired) {\n        changePackBtn.dataset.wired = '1';\n        changePackBtn.addEventListener('click', () => {\n            // Récupérer les données du tableau de bord\n            const sub = window.__lastSub || null;\n            const pastSubs = window.__pastSubscriptions || [];\n\n            // Condition 1: Abonnement actif → warning dans le composant\n            if (sub && sub.statut === 'actif') {\n                // Afficher le composant avec warning\n                showPackComponent(true, true, null, sub);\n                return;\n            }\n\n            // Condition 2: Pas d'abonnement actif mais abonnements passés → texte + 2 boutons\n            if (!sub || sub.statut !== 'actif') {\n                if (pastSubs.length > 0) {\n                    // Afficher le composant sans warning, avec les 2 boutons\n                    showPackComponent(false, false, pastSubs);\n                    return;\n                }\n                // Aucun abonnement du tout\n                showPackComponent(false, false, []);\n                return;\n            }\n\n            // Fallback redirection selon le service (pour les cas edge)\n            const PACK2SERVICE = {\n                standard: 'creation', protect_brand: 'oapi', anteriorite: 'oapi', brevets: 'oapi',\n                simplifie: 'fiscalite', reel: 'fiscalite', complexe: 'contrats', integral: 'contrats'\n            };\n            const pack = (sub && sub.pack) || '';\n            const svc = PACK2SERVICE[pack] || 'domiciliation';\n            window.location.href = 'tunnel_souscription.php?service=' + encodeURIComponent(svc);\n        });\n    }\n\n    // ===== F6b: composant inline « Changer de Pack / Ajouter des options » =====\n    function showPackComponent(hasWarning, hasActiveSub, pastSubs, activeSub) {\n        // Récupérer window.FP_PLANS depuis tunnel.js (catalogue source de vérité)\n        const PLANS = window.FP_PLANS || window.PLANS || {};\n        \n        // Structure du composant inline\n        const componentHTML = `\\n        <div id=\"fp-pack-component\" style=\\\"position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,.5); z-index: 1000; padding: 20px; display: flex; flex-direction: column;\\\">\\n            <div style=\\\"background: white; margin: 20px auto; width: 95%; max-width: 400px; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,.15); overflow: hidden;\\\">\\n                <div style=\\\"padding: 20px; border-bottom: 1px solid #e0e0e0;\\\">\\n                    <h3 style=\\\"margin: 0; font-size: 1.25rem;\\\">Choisissez votre nouveau pack</h3>\\n                </div>\\n            </div>\\n        `;\n        \n        // Ajouter warning si actif\n        if (hasWarning && activeSub) {\n            componentHTML += `\\n            <div style=\\\"padding: 12px 20px; background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; margin: 16px 20px;\\\">\\n                <p style=\\\"margin: 0; font-size: 0.875rem; color: #856404;\\\">Vous avez un pack en cours. Vous devez d'abord épuiser votre pack actuel avant de souscrire à un autre. Les packs restent consultables, mais la souscription est clairement conditionnée.</p>\\n            </div>`;\n        }\n        \n        // Condition 2: pas d'abonnement actif mais abonnements passés\n        if (!hasActiveSub && pastSubs && pastSubs.length > 0) {\n            componentHTML += `\\n            <div style=\\\"padding: 12px 20px; margin: 16px 20px;\\\">\\n                <p style=\\\"margin: 0; font-size: 0.875rem;\\\">Vous n'avez pas de pack actif actuellement.</p>\\n            </div>`;\n            \n            // Boutons\n            componentHTML += `\\n            <div style=\\\"padding: 12px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px;\\\">\\n                <button class=\\\"btn btn-outline\\\" style=\\\"justify-self: start;\\\" onclick=\"hidePackComponent();\">Souscrire à nouveau</button>\\n                <button class=\\\"btn btn-outline\\\" style=\\\"justify-self: start;\\\" onclick=\"hidePackComponent();\">Changer de pack</button>\\n            </div>`;\n        }\n        \n        // Cartes de packs groupées par service\n        const serviceGroups = {};\n        \n        // Si on a des pastSubs, grouper par service\n        const packsToShow = hasActiveSub ? [activeSub] : [];\n        \n        if (pastSubs && pastSubs.length > 0) {\n            pastSubs.forEach(sub => {\n                const pack = sub.pack || '';\n                let service;\n                if (pack === 'standard') service = 'creation';\n                else if (['protect_brand', 'anteriorite', 'brevets'].includes(pack)) service = 'oapi';\n                else if (['simplifie', 'reel'].includes(pack)) service = 'fiscalite';\n                else if (['complexe', 'integral'].includes(pack)) service = 'contrats';\n                else if (pack && (pack.startsWith('national-') || pack.startsWith('international-'))) service = 'domiciliation';\n                else service = 'creation';\n                \n                if (!serviceGroups[service]) serviceGroups[service] = [];\n                serviceGroups[service].push({ pack, label: sub.pack.replace(/_/g, ' '), client_id: sub.id });\n            });\n        }\n        \n        // Ajouter les packs depuis FP_PLANS si pas d'abonnements passés ou si on veut montrer les options\n        if (!hasActiveSub) {\n            Object.entries(PLANS).forEach(([serviceId, servicePlans]) => {\n                Object.entries(servicePlans).forEach(([packId, plan]) => {\n                    if (!packId.startsWith('national-') && !packId.startsWith('international-')) {\n                        if (!serviceGroups[serviceId]) serviceGroups[serviceId] = [];\n                        serviceGroups[serviceId].push({ pack: packId, label: plan.label, isFromCatalogue: true });\n                    }\n                });\n            });\n        }\n        \n        // Rendre les cartes visibles par service\n        let firstService = true;\n        for (const [serviceId, packs] of Object.entries(serviceGroups)) {\n            const serviceNames = {\n                creation: 'Création d\\'entreprise',\n                oapi: 'Protection OAPI',\n                fiscalite: 'Fiscalité',\n                contrats: 'Contrats',\n                domiciliation: 'Domiciliation'\n            };\n            \n            const serviceLabel = serviceNames[serviceId] || serviceId;\n            \n            componentHTML += `\\n            <div style=\\\"padding: 12px 20px; margin: 8px 0; border-top: 1px solid #f0f0f0;\\\">\\n                <strong style=\\\"font-size: 0.75rem; text-transform: uppercase; color: var(--color-text-muted); letter-spacing: 0.5px;\\\">${serviceLabel}</strong>`;\n            \n            packs.forEach((plan, idx) => {\n                const packLabel = plan.label || plan.pack || 'Pack';\n                const packId = plan.pack || plan.client_id;\n                const isFromCatalogue = plan.isFromCatalogue === true;\n                \n                // Déterminer le service de routage\n                let routeSvc = 'contrats';\n                if (packId === 'standard') routeSvc = 'creation';\n                else if (['protect_brand', 'anteriorite', 'brevets'].includes(packId)) routeSvc = 'oapi';\n                else if (['simplifie', 'reel'].includes(packId)) routeSvc = 'fiscalite';\n                else if (packId && (packId.startsWith('national-') || packId.startsWith('international-'))) routeSvc = 'domiciliation';\n                \n                const href = `tunnel_souscription.php?service=${routeSvc}&pack=${encodeURIComponent(packId)}`;\n                \n                componentHTML += `\\n                <div style=\\\"cursor: pointer; padding: 8px 0; border-bottom: 1px solid #f5f5f5;\\\" onclick=\"window.location.href='${href}'\\\">\\n                    <span style=\\\"display: block; font-size: 0.875rem;\\\">${packLabel}</span>\\n                </div>`;\n            });\n            \n            componentHTML += `\\n            </div>`;\n        }\n        \n        document.body.insertAdjacentHTML('beforeend', componentHTML);\n    }\n\n    // Fonction pour masquer le composant\n    window.hidePackComponent = function() {\n        const comp = document.getElementById('fp-pack-component');\n        if (comp) comp.remove();\n    };\n\n    // ===== F7: historique des tickets support du client =====\n
+    // ===== F6: bouton « Changer de pack / Ajouter des options » — composant inline sur la page =====
+    const PACK2SERVICE = { standard: 'creation', protect_brand: 'oapi', anteriorite: 'oapi', brevets: 'oapi', simplifie: 'fiscalite', reel: 'fiscalite', complexe: 'contrats', integral: 'contrats' };
+    const serviceRoute = packId => {
+        if (packId && (packId.startsWith('national-') || packId.startsWith('international-'))) return 'domiciliation';
+        return PACK2SERVICE[packId] || 'creation';
+    };
+    const packHref = packId => {
+        const svc = serviceRoute(packId);
+        return svc === 'domiciliation'
+            ? 'souscription_domiciliation.php?pack=' + encodeURIComponent(packId)
+            : 'tunnel_souscription.php?service=' + encodeURIComponent(svc) + '&pack=' + encodeURIComponent(packId);
+    };
+
+    function buildPackCards() {
+        const PLANS = window.FP_PLANS || {};
+        const serviceNames = { creation: 'Création d\'entreprise', oapi: 'Protection OAPI', fiscalite: 'Fiscalité', contrats: 'Contrats', domiciliation: 'Domiciliation' };
+        let html = '';
+        Object.entries(PLANS).forEach(([serviceId, servicePlans]) => {
+            html += '<div class="fp-pack-service"><strong>' + (serviceNames[serviceId] || serviceId) + '</strong><div class="fp-pack-grid">';
+            Object.entries(servicePlans).forEach(([packId, plan]) => {
+                const price = plan.price > 0
+                    ? plan.price.toLocaleString('fr-FR') + ' FCFA' + (plan.unit || '')
+                    : (plan.range || 'Sur devis');
+                html += '<a class="fp-pack-card" href="' + packHref(packId) + '"><span class="fp-pack-label">' + plan.label + '</span><span class="fp-pack-price">' + price + '</span></a>';
+            });
+            html += '</div></div>';
+        });
+        return html;
+    }
+
+    function showPackComponent() {
+        const sub = window.__lastSub || null;
+        const pastSubs = window.__pastSubscriptions || [];
+        const tab = document.querySelector('#tab-abonnement');
+        if (!tab) return;
+        let comp = document.getElementById('fp-pack-component');
+        if (comp) { comp.remove(); return; } // toggle
+
+        comp = document.createElement('div');
+        comp.id = 'fp-pack-component';
+        comp.className = 'fp-pack-component';
+        let inner = '<div class="fp-pack-head"><h3>Choisissez votre offre</h3><button type="button" class="fp-pack-close" aria-label="Fermer">&times;</button></div>';
+        if (sub && sub.statut === 'actif') {
+            inner += '<div class="fp-pack-warning"><p>⚠️ Vous avez un pack en cours. Vous devez d\'abord épuiser votre pack actuel avant de souscrire à un autre. Les packs ci-dessous restent consultables à titre informatif.</p></div>';
+        } else if (pastSubs.length > 0) {
+            inner += '<p class="fp-pack-note">Vous n\'avez pas de pack actif actuellement.</p>';
+        }
+        inner += buildPackCards();
+        comp.innerHTML = inner;
+        tab.appendChild(comp);
+        comp.querySelector('.fp-pack-close').addEventListener('click', () => comp.remove());
+    }
+
+    const changePackBtn = document.querySelector('#tab-abonnement .btn-outline');
+    if (changePackBtn) {
+        changePackBtn.addEventListener('click', showPackComponent);
+    }
+
+    // ===== F6b: pas de pack actif + abonnements passés → texte + 2 boutons dans l'onglet =====
+    window.__renderResubscribeBlock = function(pastSubs) {
+        const tab = document.querySelector('#tab-abonnement');
+        if (!tab) return;
+        let block = document.getElementById('fp-resubscribe-block');
+        if (block) block.remove();
+        if (!pastSubs || !pastSubs.length) return;
+        block = document.createElement('div');
+        block.id = 'fp-resubscribe-block';
+        block.className = 'fp-resubscribe-block';
+        block.innerHTML = '<p>Vous n\'avez pas de pack actif actuellement.</p>' +
+            '<div class="fp-resubscribe-actions">' +
+            '<button type="button" class="btn btn-primary" data-action="resub">Souscrire à nouveau</button>' +
+            '<button type="button" class="btn btn-outline" data-action="change">Changer de pack</button>' +
+            '</div>';
+        tab.appendChild(block);
+        block.querySelectorAll('button').forEach(btn => btn.addEventListener('click', showPackComponent));
+    };
+
 
     // ===== F7: historique des tickets support du client =====
     const ticketsList = document.getElementById('ticketsList');
@@ -336,159 +416,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-// ===== F6b: composant inline « Changer de Pack / Ajouter des options » =====
-function showPackComponent(hasWarning, hasActiveSub, pastSubs, activeSub) {
-    // Récupérer window.FP_PLANS depuis tunnel.js (catalogue source de vérité)
-    const PLANS = window.FP_PLANS || window.PLANS || {};
-
-    // Structure du composant inline - inséré dans #tab-abonnement
-    const componentHTML = `
-<div style="
-    padding: 20px;
-    background: var(--color-bg-main);
-    border: 1px var(--color-border) solid;
-    border-radius: 12px;
-    margin: 20px 0;
-    max-width: 960px;
-    width: 100%;
-    box-shadow: 0 4px 24px rgba(0,0,0,.15);
-    position: relative;
-">
-    <h3 style="margin: 0 0 16px 0; font-size: 1.25rem;">Choisissez votre nouveau pack</h3>
-`;
-
-// Ajouter warning si abonnement actif
-if (hasWarning && activeSub) {
-    componentHTML += `
-<div style="
-    padding: 12px 20px;
-    background: var(--color-warning-bg);
-    border: 1px var(--color-border-warning) solid;
-    border-radius: 8px;
-    margin: 16px 0;
-    font-size: 0.875rem;
-    color: var(--color-text-muted);
-">
-    <p style="margin: 0;">Vous avez un pack en cours. Vous devez d'abord épuiser votre pack actuel avant de souscrire à un autre. Les packs restent consultables, mais la souscription est clairement conditionnée.</p>
-</div>`;
-}
-
-// Condition 2: pas d'abonnement actif mais abonnements passés
-if (!hasActiveSub && pastSubs && pastSubs.length > 0) {
-    componentHTML += `
-<div style="
-    padding: 12px 20px;
-    margin: 16px 0;
-    font-size: 0.875rem;
-">
-    <p style="margin: 0;">Vous n'avez pas de pack actif actuellement.</p>
-</div>`;
-
-    // Boutons - les 2 boutons ouvrent le composant (déjà ouvert, donc on cache)
-    componentHTML += `
-<div style="
-    padding: 12px 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-top: 16px;
-">
-    <button class="btn btn-outline" style="justify-self: start;" onclick="hidePackComponent()">Souscrire à nouveau</button>
-    <button class="btn btn-outline" style="justify-self: start;" onclick="hidePackComponent()">Changer de pack</button>
-</div>`;
-}
-
-// Cartes de packs groupées par service
-const serviceGroups = {};
-
-// Si on a des pastSubs, grouper par service
-if (pastSubs && pastSubs.length > 0) {
-    pastSubs.forEach(sub => {
-        const pack = sub.pack || '';
-        let service;
-        if (pack === 'standard') service = 'creation';
-        else if (['protect_brand', 'anteriorite', 'brevets'].includes(pack)) service = 'oapi';
-        else if (['simplifie', 'reel'].includes(pack)) service = 'fiscalite';
-        else if (['complexe', 'integral'].includes(pack)) service = 'contrats';
-        else if (pack && (pack.startsWith('national-') || pack.startsWith('international-'))) service = 'domiciliation';
-        else service = 'creation';
-
-        if (!serviceGroups[service]) serviceGroups[service] = [];
-        serviceGroups[service].push({ pack, label: sub.pack });
-    });
-}
-
-// Ajouter les packs depuis FP_PLANS (catalogue tunnel.js)
-if (!hasActiveSub) {
-    Object.entries(PLANS).forEach(([serviceId, servicePlans]) => {
-        Object.entries(servicePlans).forEach(([packId, plan]) => {
-            if (!serviceGroups[serviceId]) serviceGroups[serviceId] = [];
-            serviceGroups[serviceId].push({ pack: packId, label: plan.label, fromCatalogue: true });
-        });
-    });
-}
-
-// Rendre les cartes visibles par service
-const serviceNames = {
-    creation: 'Création d\'entreprise',
-    oapi: 'Protection OAPI',
-    fiscalite: 'Fiscalité',
-    contrats: 'Contrats',
-    domiciliation: 'Domiciliation'
-};
-
-for (const [serviceId, packs] of Object.entries(serviceGroups)) {
-    const serviceLabel = serviceNames[serviceId] || serviceId;
-
-    componentHTML += `
-<div style="
-    padding: 12px 20px;
-    margin: 8px 0;
-    border-top: 1px var(--color-border) solid;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: var(--color-text-muted);
-">
-    <strong>${serviceLabel}</strong>
-</div>`;
-
-    packs.forEach((plan, idx) => {
-        const packLabel = plan.label || plan.pack || 'Pack';
-        const packId = plan.pack || (plan.client_id ? `past_${plan.client_id}` : '');
-
-        let routeSvc = 'contrats';
-        if (packId === 'standard') routeSvc = 'creation';
-        else if (['protect_brand', 'anteriorite', 'brevets'].includes(packId)) routeSvc = 'oapi';
-        else if (['simplifie', 'reel'].includes(packId)) routeSvc = 'fiscalite';
-        else if (packId && (packId.startsWith('national-') || packId.startsWith('international-'))) routeSvc = 'domiciliation';
-
-        let href;
-        if (routeSvc === 'domiciliation') {
-            href = `souscription_domiciliation.php?pack=${encodeURIComponent(packId)}`;
-        } else {
-            href = `tunnel_souscription.php?service=${routeSvc}&pack=${encodeURIComponent(packId)}`;
-        }
-
-        componentHTML += `
-<div style="
-    cursor: pointer;
-    padding: 8px 0;
-    border-bottom: 1px var(--color-border) solid;
-    font-size: 0.875rem;
-">
-    <span style="display: block;">${packLabel}</span>
-</div>`;
-    });
-
-    componentHTML += `</div>`;
-}
-
-document.querySelector('#tab-abonnement').insertAdjacentHTML('beforeend', componentHTML);
-}
-
-// Fonction pour masquer le composant
-window.hidePackComponent = function() {
-    const comp = document.getElementById('fp-pack-component');
-    if (comp) comp.remove();
-};

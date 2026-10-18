@@ -545,3 +545,28 @@ img, table { max-width: 100%; }
   .auth-tabs { gap: 8px; }
   .auth-tab { padding: 10px 12px; font-size: 0.85rem; }
 }
+
+/* ===== F6b: composant « Changer de pack » inline (L009) ===== */
+.fp-pack-component { border: 1px solid var(--color-border); border-radius: 12px; background: var(--color-bg-alt); padding: 20px 22px; margin: 22px 0; }
+.fp-pack-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.fp-pack-head h3 { margin: 0; font-size: 1.15rem; color: var(--color-heading); }
+.fp-pack-close { background: none; border: none; font-size: 1.4rem; color: var(--color-text-muted); cursor: pointer; border-radius: 6px; padding: 2px 8px; }
+.fp-pack-close:hover { color: var(--color-heading); background: var(--color-bg-main); }
+.fp-pack-warning { background: color-mix(in srgb, var(--color-warning) 14%, transparent); border: 1px solid var(--color-warning); border-radius: 8px; padding: 12px 14px; margin-bottom: 16px; }
+.fp-pack-warning p { margin: 0; font-size: 0.88rem; color: var(--color-text-main); }
+.fp-pack-note { font-size: 0.92rem; color: var(--color-text-muted); margin: 0 0 14px; }
+.fp-pack-service { margin-bottom: 16px; }
+.fp-pack-service strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-muted); margin-bottom: 8px; }
+.fp-pack-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.fp-pack-card { display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; border: 1px solid var(--color-border); border-radius: 10px; background: var(--color-bg-main); text-decoration: none; transition: border-color .2s ease, transform .2s ease; }
+.fp-pack-card:hover { border-color: var(--color-primary); transform: translateY(-2px); }
+.fp-pack-label { font-size: 0.9rem; font-weight: 600; color: var(--color-text-main); }
+.fp-pack-price { font-size: 0.8rem; color: var(--color-primary); font-weight: 700; }
+.fp-resubscribe-block { border: 1px solid var(--color-border); border-radius: 12px; background: var(--color-bg-alt); padding: 18px 20px; margin: 22px 0; }
+.fp-resubscribe-block p { margin: 0 0 12px; font-size: 0.95rem; color: var(--color-text-main); }
+.fp-resubscribe-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+@media (max-width: 640px) {
+  .fp-pack-grid { grid-template-columns: 1fr; }
+  .fp-resubscribe-actions { flex-direction: column; }
+  .fp-resubscribe-actions .btn { width: 100%; }
+}

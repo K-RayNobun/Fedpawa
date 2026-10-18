@@ -24,7 +24,7 @@ $langPrefix = $langPrefix ?? ($lang === 'en' ? '/en' : '');
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="<?= $langPrefix ?>assets/css/style.css?v=3">
-<link rel="stylesheet" href="<?= $langPrefix ?>assets/css/components.css?v=2">
+<link rel="stylesheet" href="<?= $langPrefix ?>assets/css/components.css?v=3">
 <?php foreach (($extraCss ?? []) as $css): ?><link rel="stylesheet" href="<?= htmlspecialchars($langPrefix . $css, ENT_QUOTES, 'UTF-8') ?>"><?php endforeach; ?>
 <?php
 // ===== SEO: canonical + hreflang + Open Graph (centralisés) =====
@@ -120,7 +120,13 @@ $ogImage        = $ogImage ?? ($baseDomain . '/assets/images/og-cover.jpg');
     <a href="<?= $langPrefix ?>qui-sommes-nous.php"><?= $lang === "en" ? "About Us" : "Qui sommes-nous" ?></a>
     <a href="<?= $langPrefix ?>contact.php">Contact</a>
 
-    <a class="mobile-cta" href="<?= $langPrefix ?>tunnel_souscription.php?service=domiciliation&pack=national-essential"><?= $lang === 'en' ? 'Subscribe' : 'Je m\'abonne' ?></a>
+    <?php // L013: CTA mobile dynamique selon l'état de connexion
+    $isConnected = isset($_SESSION['client_id']) || isset($_SESSION['admin_logged_in']);
+    if ($isConnected): ?>
+      <a class="mobile-cta" href="<?= $langPrefix ?>authentification.php" data-logout="1"><?= $lang === 'en' ? 'Log out' : 'Se Déconnecter' ?></a>
+    <?php else: ?>
+      <a class="mobile-cta" href="<?= $langPrefix ?>authentification.html"><?= $lang === 'en' ? 'Sign in' : 'Se Connecter' ?></a>
+    <?php endif; ?>
     <!-- Toggles inside mobile menu -->
     <div class="mobile-nav-toggles">
       <button class="mode-toggle mobile-mode-toggle" id="mobileModeToggle" aria-label="Basculer en mode sombre/clair" title="Light / dark mode">

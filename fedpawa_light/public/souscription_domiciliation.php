@@ -411,5 +411,5 @@ include __DIR__ . '/../templates/partials/site-header.php';
 </div>
 
 <?php
-$extraJs = ['assets/js/api.js', 'assets/js/config.js', 'assets/js/auth-guard.js', 'assets/js/fedpawa-ui.js?v=2', 'assets/js/fedpawa-pay.js?v=2', 'assets/js/souscription_domiciliation.js?v=2'];
+$extraJs = ['assets/js/api.js', 'assets/js/config.js', 'assets/js/auth-guard.js', 'assets/js/fedpawa-ui.js?v=2', 'assets/js/fedpawa-pay.js?v=3', 'assets/js/souscription_domiciliation.js?v=2'];
 include __DIR__ . '/../templates/partials/site-footer.php';

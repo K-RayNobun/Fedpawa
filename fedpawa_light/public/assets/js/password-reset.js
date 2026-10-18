@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             title: 'Mode pré-production',
                             icon: window.FedpawaUI ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>' : undefined,
                             iconType: 'warning',
-                            message: 'Le service d\'envoi d\'e-mail n\'est pas encore activé.<br>Pour vos tests, votre code est :<br><strong style="font-size:1.6em;letter-spacing:.35em;color:var(--color-primary)"> ' + (data.debug_otp || '------') + '</strong>',
+                            message: 'Si cette adresse existe, un code de vérification vous a été envoyé par e-mail.<br><small>Le service d\'envoi est en cours d\'activation — si vous ne recevez rien, contactez le support.</small>',
                             buttons: [{ label: 'J\'ai noté mon code', className: 'fp-modal-btn-primary' }]
                         });
                     } else {
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         ui.modal({
                             title: 'Nouveau code envoyé',
                             iconType: 'warning',
-                            message: 'Mode pré-production — le service d\'e-mail n\'est pas encore activé.<br>Nouveau code :<br><strong style="font-size:1.6em;letter-spacing:.35em;color:var(--color-primary)"> ' + (data.debug_otp || '------') + '</strong>',
+                            message: 'Un nouveau code de vérification a été envoyé à votre adresse e-mail.<br><small>Si vous ne recevez rien, contactez le support.</small>',
                             buttons: [{ label: 'OK', className: 'fp-modal-btn-primary' }]
                         });
                     } else {

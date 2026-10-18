@@ -1,0 +1,89 @@
+{
+  "seq": 6,
+  "lanes": [
+    {
+      "id": "L001",
+      "title": "Compartiment A: inventaire images public/assets",
+      "priority": "P2",
+      "status": "done",
+      "created_at": "2026-10-18 09:38:29 UTC",
+      "last_update": "2026-10-18 09:45:58 UTC",
+      "agent": "inconnu",
+      "claimed_at": "2026-10-18 09:45:29 UTC",
+      "context_file": "/root/Fedpawa/state/PROTOCOL.md",
+      "artifacts": [],
+      "summary": "Compte 86 fichiers images (JPG/WebP) dans public/assets/images"
+    },
+    {
+      "id": "L002",
+      "title": "Compartiment B: inventaire controleurs src/Controller",
+      "priority": "P2",
+      "status": "done",
+      "created_at": "2026-10-18 09:38:29 UTC",
+      "last_update": "2026-10-18 09:42:17 UTC",
+      "agent": null,
+      "claimed_at": null,
+      "context_file": "/root/Fedpawa/state/PROTOCOL.md",
+      "artifacts": [],
+      "summary": "Inventaire contrôleurs src/Controller : 14 fichiers .php répertoriés avec tailles (total ~73KB)."
+    },
+    {
+      "id": "L003",
+      "title": "S-2: vraie confirmation de paiement tunnel (fedpawa-pay.js)",
+      "priority": "P0",
+      "status": "done",
+      "created_at": "2026-10-18 10:05:13 UTC",
+      "last_update": "2026-10-18 11:55:49 UTC",
+      "agent": "HermesAgent",
+      "claimed_at": "2026-10-18 10:23:45 UTC",
+      "context_file": "/root/Fedpawa/state/ctx-L003.md",
+      "artifacts": [
+        "/root/Fedpawa/audit/fixl3_apres_verif.png",
+        "/root/Fedpawa/state/lanes/L003.md"
+      ],
+      "summary": "S-2 corrigé et prouvé E2E"
+    },
+    {
+      "id": "L004",
+      "title": "S-3: domiciliation - flux contrat+OTP atteignable (souscription_domiciliation.js)",
+      "priority": "P0",
+      "status": "done",
+      "created_at": "2026-10-18 10:05:13 UTC",
+      "last_update": "2026-10-18 11:55:49 UTC",
+      "agent": null,
+      "claimed_at": null,
+      "context_file": "/root/Fedpawa/state/ctx-L004.md",
+      "artifacts": [
+        "/root/Fedpawa/audit/fixl4_signature.png",
+        "/root/Fedpawa/fedpawa_light/public/assets/js/souscription_domiciliation.js"
+      ],
+      "summary": "S-3 corrigé et prouvé E2E"
+    },
+    {
+      "id": "L005",
+      "title": "UX: S-1 CTA pack + F3 Chargement + F6 Changer de pack + F12 autocomplete",
+      "priority": "P1",
+      "status": "done",
+      "created_at": "2026-10-18 10:05:13 UTC",
+      "last_update": "2026-10-18 11:55:50 UTC",
+      "agent": "Hermes Agent",
+      "claimed_at": "2026-10-18 10:08:58 UTC",
+      "context_file": "/root/Fedpawa/state/ctx-L005.md",
+      "artifacts": [],
+      "summary": "S-1/F3/F6/F12 corrigés (dashboard.js réparé par orchestrateur) — E2E OK"
+    },
+    {
+      "id": "L006",
+      "title": "SEC/SEO/Contact: SEC-S4-1 OTP expose + SEO-S5-1 sitemap + UX-S3-1 contact simulateur",
+      "priority": "P0",
+      "status": "done",
+      "created_at": "2026-10-18 10:05:13 UTC",
+      "last_update": "2026-10-18 11:55:50 UTC",
+      "agent": null,
+      "claimed_at": null,
+      "context_file": "/root/Fedpawa/state/ctx-L006.md",
+      "artifacts": [],
+      "summary": "OTP front + contact E2E + sitemap — OK"
+    }
+  ]
+}

@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const courriers = data.courriers || [];
             const kyc = data.kyc;
 
+            // F6: exposer le service de l'abonnement au bouton « Changer de pack »
+            window.__lastSub = sub || null;
+
             // Populate User Name & Avatar
             if (client) {
                 const userNameEls = document.querySelectorAll('.user-name');
@@ -67,11 +70,13 @@ document.addEventListener('DOMContentLoaded', () => {
             // Cartes KYC/Courrier: sortir du "Chargement…" si absence de données
             if (overviewCards.length > 1 && !kyc) {
                 overviewCards[1].querySelector('.value').innerText = 'Aucun dossier';
+                overviewCards[1].querySelector('.sub-value').innerText = '—';
                 const bk = overviewCards[1].querySelector('.badge');
                 if (bk) { bk.innerText = 'À soumettre'; bk.className = 'badge badge-muted'; }
             }
             if (overviewCards.length > 2 && (!courriers || courriers.length === 0)) {
                 overviewCards[2].querySelector('.value').innerText = 'Aucun courrier';
+                overviewCards[2].querySelector('.sub-value').innerText = '—';
                 const bc = overviewCards[2].querySelector('.badge');
                 if (bc) { bc.innerText = '—'; bc.className = 'badge badge-muted'; }
             }
@@ -81,6 +86,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 overviewCards[1].querySelector('.value').innerText = kyc.statuts === 'approuvé' ? 'Dossier validé' : 'Dossier en attente';
                 overviewCards[1].querySelector('.badge').innerText = kyc.statuts === 'approuvé' ? 'Conforme' : 'Action requise';
                 overviewCards[1].querySelector('.badge').className = `badge badge-${kyc.statuts === 'approuvé' ? 'success' : 'warning'}`;
+                // F3: résoudre le sub-value même quand le KYC existe mais n'a pas encore
+                // de contenu (sinon « Chargement… » persiste).
+                const subk = overviewCards[1].querySelector('.sub-value');
+                if (subk && /Chargement/.test(subk.innerText)) subk.innerText = '—';
             }
 
             // Populate Latest Courrier
@@ -223,12 +232,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ===== F6: bouton « Changer de pack / Ajouter des options » — redirige vers le tunnel =====
+    // ===== F6: bouton « Changer de pack / Ajouter des options » — route selon le service =====
     const changePackBtn = document.querySelector('#tab-abonnement .btn-outline');
     if (changePackBtn && !changePackBtn.dataset.wired) {
         changePackBtn.dataset.wired = '1';
         changePackBtn.addEventListener('click', () => {
-            window.location.href = (typeof apiUrl === 'function' ? '' : '') + 'tunnel_souscription.php?service=domiciliation';
+            // Router selon le service de l'abonnement courant.
+            // subscription (SELECT * abonnements) n'expose pas 'service' : on le déduit
+            // du pack. Packs domiciliation = national-*/international-* ; sinon tunnel.
+            const PACK2SERVICE = {
+                standard: 'creation', protect_brand: 'oapi', anteriorite: 'oapi', brevets: 'oapi',
+                simplifie: 'fiscalite', reel: 'fiscalite', complexe: 'contrats', integral: 'contrats'
+            };
+            const pack = (window.__lastSub && window.__lastSub.pack) || '';
+            const svc = PACK2SERVICE[pack] || 'domiciliation';
+            window.location.href = 'tunnel_souscription.php?service=' + encodeURIComponent(svc);
         });
     }
 

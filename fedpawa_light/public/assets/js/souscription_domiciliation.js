@@ -482,7 +482,7 @@
           });
           const out = await res.json().catch(() => ({}));
           if (res.ok && out.status !== 'error') {
-            return { ok: true, message: out.message || 'Souscription enregistrée.', subscription_ref: out.subscription_ref || null };
+            return { ok: true, message: out.message || 'Souscription enregistrée.', subscription_ref: out.subscription_ref || null, api: out };
           }
           return { ok: false, message: out.message || out.error || 'Échec de la souscription.' };
         } catch (err) {

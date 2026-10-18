@@ -292,9 +292,9 @@ function momoScreen(config) {
                 const res = await config.onSubmit({ phone, operator: op.value, price: config.priceFCFA });
                 if (res && res.ok && res.api) {
                     // Lane contrat : le flux contrat + signature existe UNIQUEMENT pour la domiciliation.
-                    // Les autres services : confirmation simple, dossier en traitement.
+                    // Les autres services : confirmation simple aprčs vérification, dossier en traitement.
                     if (config.contract === false) {
-                        simplePaidFlow(m, config);
+                        contractFlowScreen(m, config, res.api);
                         return;
                     }
                     contractFlowScreen(m, config, res.api);

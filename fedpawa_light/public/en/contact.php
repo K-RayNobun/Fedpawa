@@ -129,5 +129,5 @@ include __DIR__ . '/../../templates/partials/site-header.php';
   </section>
 
 <?php
-$extraJs = ['assets/js/api.js', 'assets/js/contact-form-en.js'];
+$extraJs = ['assets/js/api.js', 'assets/js/contact-form-en.js?v=2'];
 include __DIR__ . '/../../templates/partials/site-footer.php';

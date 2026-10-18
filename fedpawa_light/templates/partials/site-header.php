@@ -120,7 +120,7 @@ $ogImage        = $ogImage ?? ($baseDomain . '/assets/images/og-cover.jpg');
     <a href="<?= $langPrefix ?>qui-sommes-nous.php"><?= $lang === "en" ? "About Us" : "Qui sommes-nous" ?></a>
     <a href="<?= $langPrefix ?>contact.php">Contact</a>
 
-    <a class="mobile-cta" href="<?= $langPrefix ?>tunnel_souscription.php?service=domiciliation&pack=essentiel"><?= $lang === 'en' ? 'Subscribe' : 'Je m\'abonne' ?></a>
+    <a class="mobile-cta" href="<?= $langPrefix ?>tunnel_souscription.php?service=domiciliation&pack=national-essential"><?= $lang === 'en' ? 'Subscribe' : 'Je m\'abonne' ?></a>
     <!-- Toggles inside mobile menu -->
     <div class="mobile-nav-toggles">
       <button class="mode-toggle mobile-mode-toggle" id="mobileModeToggle" aria-label="Basculer en mode sombre/clair" title="Light / dark mode">

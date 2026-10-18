@@ -93,8 +93,8 @@ html[data-theme="navy"][data-mode="dark"] .brand-mark::after { border-color: rgb
 .menu-toggle.open span:nth-child(2) { opacity: 0; }
 .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-.mobile-nav { position: fixed; top: 0; right: 0; width: min(360px, 90vw); max-height: 90vh; background: var(--color-surface-dark); padding: 24px 30px 30px; transform: translateX(100%) translateY(100%); overflow: hidden; z-index: 110; transition: transform 0.4s cubic-bezier(0.231, 0.553, 0.35, 1.0); }
-.mobile-nav.open { transform: translateX(0) translateY(0); }
+.mobile-nav { position: fixed; top: 0; right: 0; width: min(360px, 90vw); max-height: 90vh; background: var(--color-surface-dark); padding: 24px 30px 30px; transform: translateX(100%) translateY(100%); visibility: hidden; overflow: hidden; z-index: 110; transition: transform 0.4s cubic-bezier(0.231, 0.553, 0.353, 1.0), visibility 0.4s; }
+.mobile-nav.open { transform: translateX(0) translateY(0); visibility: visible; }
 .mobile-nav .mobile-nav-toggles { position: absolute; top: 24px; right: 24px; display: flex; gap: 12px; z-index: 10; }
 .mobile-nav nav { display: flex; flex-direction: column; gap: 6px; }
 .mobile-nav a { color: #d8d4ce; padding: 12px 0; font-size: 0.95rem; font-weight: 500; letter-spacing: 0.06em; border-bottom: 1px solid rgba(255,255,255,0.08); text-transform: uppercase; }

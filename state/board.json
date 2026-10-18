@@ -1,5 +1,5 @@
 {
-  "seq": 7,
+  "seq": 8,
   "lanes": [
     {
       "id": "L001",
@@ -89,12 +89,27 @@
       "id": "L007",
       "title": "Galerie domiciliation: photos visibles FR (remontée) + EN (les 6 vraies photos)",
       "priority": "P1",
-      "status": "backlog",
+      "status": "done",
       "created_at": "2026-10-18 12:27:25 UTC",
-      "last_update": "2026-10-18 12:27:25 UTC",
+      "last_update": "2026-10-18 13:17:42 UTC",
       "agent": null,
       "claimed_at": null,
       "context_file": "/root/Fedpawa/state/ctx-L007.md",
+      "artifacts": [
+        "/root/Fedpawa/audit/l007_fr.png"
+      ],
+      "summary": "Galerie visible FR+EN, 6 photos utilisateur, catégories correctes"
+    },
+    {
+      "id": "L008",
+      "title": "Auth: section sous header trop grande (1 page sans scroll) + retirer logo haut-gauche section gauche",
+      "priority": "P1",
+      "status": "backlog",
+      "created_at": "2026-10-18 13:19:56 UTC",
+      "last_update": "2026-10-18 13:19:56 UTC",
+      "agent": null,
+      "claimed_at": null,
+      "context_file": "/root/Fedpawa/state/ctx-L008.md",
       "artifacts": [],
       "summary": null
     }

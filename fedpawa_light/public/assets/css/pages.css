@@ -317,3 +317,41 @@ html[data-theme="navy"] .cta-banner-section { background-color: #0d1542; }
 /* ============== QUI SOMMES NOUS: photo vision + galerie ============== */
 .about-vision-photo { margin: -20px -20px 20px -20px; border-radius: 10px 10px 0 0; overflow: hidden; }
 .about-vision-photo img { width: 100%; height: 200px; object-fit: cover; display: block; }
+
+/* ==========================================================
+   L017 — PAGES JURIDIQUES (Politique confidentialité + CGU, FR/EN)
+   Lisibilité mobile : les longues énumérations deviennent des cartes
+   empilées espacées. Scope STRICT : .legal-page est posé uniquement
+   sur les 2 sections de listes des 4 pages juridiques — ZÉRO effet
+   desktop (media query ≤640px) et aucune autre page touchée.
+   ========================================================== */
+@media (max-width: 640px) {
+  /* Cartes : respiration verticale */
+  .legal-page .solution-card { padding: 28px 20px; }
+  .legal-page .solution-card h3 { font-size: 1.15rem; line-height: 1.45; margin-bottom: 10px; }
+  .legal-page .solution-card .obj { margin-bottom: 16px; line-height: 1.5; }
+
+  /* Chaque <li> devient une tuile : fond léger, bordure gauche accent, radius */
+  .legal-page .solution-list { margin: 4px 0 0; padding: 0; }
+  .legal-page .solution-list li {
+    display: block;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-gold);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin: 0 0 14px;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    overflow-wrap: break-word;
+  }
+  .legal-page .solution-list li:last-child { margin-bottom: 0; }
+  /* Puce ✓ retirée : la bordure gauche accent reprend le rôle de marqueur */
+  .legal-page .solution-list li::before { content: none; }
+  .legal-page .solution-list li strong { font-weight: 700; letter-spacing: 0.01em; }
+  .legal-page .solution-list li a { overflow-wrap: anywhere; }
+
+  /* Listes imbriquées : indentation réduite (pas d'overflow 375px) */
+  .legal-page .solution-list ul,
+  .legal-page .solution-list ol { margin: 10px 0 0; padding-left: 18px; }
+}

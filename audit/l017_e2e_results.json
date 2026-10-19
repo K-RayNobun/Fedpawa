@@ -1,0 +1,439 @@
+{
+  "cases": [
+    {
+      "name": "CSS d'origine récupéré depuis git HEAD (état AVANT)",
+      "pass": true,
+      "info": "25153 octets, .legal-page absent: true"
+    },
+    {
+      "name": "AVANT privacy-fr: li SANS tuile (flex, fond transparent, bordure 0, puce ✓)",
+      "pass": true,
+      "info": "display=flex bg=rgba(0, 0, 0, 0) blw=0px ::before=\"✓\""
+    },
+    {
+      "name": "AVANT cgu-fr: li SANS tuile (flex, fond transparent, bordure 0, puce ✓)",
+      "pass": true,
+      "info": "display=flex bg=rgba(0, 0, 0, 0) blw=0px ::before=\"✓\""
+    },
+    {
+      "name": "AVANT privacy-en: li SANS tuile (flex, fond transparent, bordure 0, puce ✓)",
+      "pass": true,
+      "info": "display=flex bg=rgba(0, 0, 0, 0) blw=0px ::before=\"✓\""
+    },
+    {
+      "name": "AVANT cgu-en: li SANS tuile (flex, fond transparent, bordure 0, puce ✓)",
+      "pass": true,
+      "info": "display=flex bg=rgba(0, 0, 0, 0) blw=0px ::before=\"✓\""
+    },
+    {
+      "name": "CSS live contient le bloc @media (max-width: 640px) .legal-page",
+      "pass": true,
+      "info": "status=200 26919 octets"
+    },
+    {
+      "name": "APRÈS privacy-fr: pages.css?v=4 référencé + 2 sections .legal-page",
+      "pass": true,
+      "info": "href=assets/css/pages.css?v=4 sections=2"
+    },
+    {
+      "name": "APRÈS privacy-fr: li en tuile (block, padding≥10px, fond≠transparent, bordure gauche 3px, radius 8px)",
+      "pass": true,
+      "info": "display=block pad=14/14 bg=rgb(250, 249, 246) blw=3px(rgb(212, 175, 55)) radius=8px"
+    },
+    {
+      "name": "APRÈS privacy-fr: line-height ≥1.6 et puce ✓ retirée",
+      "pass": true,
+      "info": "lh=1.65 ::before=none fs=15.2px"
+    },
+    {
+      "name": "APRÈS privacy-fr: aucun overflow horizontal (scrollWidth ≤376)",
+      "pass": true,
+      "info": "scrollWidth=375"
+    },
+    {
+      "name": "APRÈS cgu-fr: pages.css?v=4 référencé + 2 sections .legal-page",
+      "pass": true,
+      "info": "href=assets/css/pages.css?v=4 sections=2"
+    },
+    {
+      "name": "APRÈS cgu-fr: li en tuile (block, padding≥10px, fond≠transparent, bordure gauche 3px, radius 8px)",
+      "pass": true,
+      "info": "display=block pad=14/14 bg=rgb(250, 249, 246) blw=3px(rgb(212, 175, 55)) radius=8px"
+    },
+    {
+      "name": "APRÈS cgu-fr: line-height ≥1.6 et puce ✓ retirée",
+      "pass": true,
+      "info": "lh=1.65 ::before=none fs=15.2px"
+    },
+    {
+      "name": "APRÈS cgu-fr: aucun overflow horizontal (scrollWidth ≤376)",
+      "pass": true,
+      "info": "scrollWidth=375"
+    },
+    {
+      "name": "APRÈS privacy-en: pages.css?v=4 référencé + 2 sections .legal-page",
+      "pass": true,
+      "info": "href=../assets/css/pages.css?v=4 sections=2"
+    },
+    {
+      "name": "APRÈS privacy-en: li en tuile (block, padding≥10px, fond≠transparent, bordure gauche 3px, radius 8px)",
+      "pass": true,
+      "info": "display=block pad=14/14 bg=rgb(250, 249, 246) blw=3px(rgb(212, 175, 55)) radius=8px"
+    },
+    {
+      "name": "APRÈS privacy-en: line-height ≥1.6 et puce ✓ retirée",
+      "pass": true,
+      "info": "lh=1.65 ::before=none fs=15.2px"
+    },
+    {
+      "name": "APRÈS privacy-en: aucun overflow horizontal (scrollWidth ≤376)",
+      "pass": true,
+      "info": "scrollWidth=375"
+    },
+    {
+      "name": "APRÈS cgu-en: pages.css?v=4 référencé + 2 sections .legal-page",
+      "pass": true,
+      "info": "href=../assets/css/pages.css?v=4 sections=2"
+    },
+    {
+      "name": "APRÈS cgu-en: li en tuile (block, padding≥10px, fond≠transparent, bordure gauche 3px, radius 8px)",
+      "pass": true,
+      "info": "display=block pad=14/14 bg=rgb(250, 249, 246) blw=3px(rgb(212, 175, 55)) radius=8px"
+    },
+    {
+      "name": "APRÈS cgu-en: line-height ≥1.6 et puce ✓ retirée",
+      "pass": true,
+      "info": "lh=1.65 ::before=none fs=15.2px"
+    },
+    {
+      "name": "APRÈS cgu-en: aucun overflow horizontal (scrollWidth ≤376)",
+      "pass": true,
+      "info": "scrollWidth=375"
+    },
+    {
+      "name": "DESKTOP privacy-fr: getComputedStyle li identique AVANT/APRÈS (sans fond ni bordure)",
+      "pass": true,
+      "info": "bg=rgba(0, 0, 0, 0) blw=0px radius=0px display=flex fs=14.4px lh=1.5 sw=1440"
+    },
+    {
+      "name": "DESKTOP cgu-fr: getComputedStyle li identique AVANT/APRÈS (sans fond ni bordure)",
+      "pass": true,
+      "info": "bg=rgba(0, 0, 0, 0) blw=0px radius=0px display=flex fs=14.4px lh=1.5 sw=1440"
+    },
+    {
+      "name": "DESKTOP privacy-en: getComputedStyle li identique AVANT/APRÈS (sans fond ni bordure)",
+      "pass": true,
+      "info": "bg=rgba(0, 0, 0, 0) blw=0px radius=0px display=flex fs=14.4px lh=1.5 sw=1440"
+    },
+    {
+      "name": "DESKTOP cgu-en: getComputedStyle li identique AVANT/APRÈS (sans fond ni bordure)",
+      "pass": true,
+      "info": "bg=rgba(0, 0, 0, 0) blw=0px radius=0px display=flex fs=14.4px lh=1.5 sw=1440"
+    },
+    {
+      "name": "NON-FUITE /contrats.php mobile: 0 section .legal-page, li inchangés (flex, ✓, fond transparent)",
+      "pass": true,
+      "info": "legal=0 display=flex bg=rgba(0, 0, 0, 0) ::before=\"✓\""
+    },
+    {
+      "name": "Zéro erreur JS sur toutes les phases",
+      "pass": true,
+      "info": ""
+    }
+  ],
+  "before": {
+    "privacy-fr": {
+      "legalSections": 2,
+      "liCount": 46,
+      "liFound": true,
+      "display": "flex",
+      "paddingTop": 0,
+      "paddingBottom": 0,
+      "bg": "rgba(0, 0, 0, 0)",
+      "borderLeftWidth": "0px",
+      "borderLeftColor": "rgb(30, 41, 59)",
+      "borderRadius": "0px",
+      "fontSize": "14.4px",
+      "lineHeightRatio": 1.5,
+      "beforeContent": "\"✓\"",
+      "scrollWidth": 375,
+      "cssHref": "assets/css/pages.css?v=4"
+    },
+    "cgu-fr": {
+      "legalSections": 2,
+      "liCount": 30,
+      "liFound": true,
+      "display": "flex",
+      "paddingTop": 0,
+      "paddingBottom": 0,
+      "bg": "rgba(0, 0, 0, 0)",
+      "borderLeftWidth": "0px",
+      "borderLeftColor": "rgb(30, 41, 59)",
+      "borderRadius": "0px",
+      "fontSize": "14.4px",
+      "lineHeightRatio": 1.5,
+      "beforeContent": "\"✓\"",
+      "scrollWidth": 375,
+      "cssHref": "assets/css/pages.css?v=4"
+    },
+    "privacy-en": {
+      "legalSections": 2,
+      "liCount": 46,
+      "liFound": true,
+      "display": "flex",
+      "paddingTop": 0,
+      "paddingBottom": 0,
+      "bg": "rgba(0, 0, 0, 0)",
+      "borderLeftWidth": "0px",
+      "borderLeftColor": "rgb(30, 41, 59)",
+      "borderRadius": "0px",
+      "fontSize": "14.4px",
+      "lineHeightRatio": 1.5,
+      "beforeContent": "\"✓\"",
+      "scrollWidth": 375,
+      "cssHref": "../assets/css/pages.css?v=4"
+    },
+    "cgu-en": {
+      "legalSections": 2,
+      "liCount": 30,
+      "liFound": true,
+      "display": "flex",
+      "paddingTop": 0,
+      "paddingBottom": 0,
+      "bg": "rgba(0, 0, 0, 0)",
+      "borderLeftWidth": "0px",
+      "borderLeftColor": "rgb(30, 41, 59)",
+      "borderRadius": "0px",
+      "fontSize": "14.4px",
+      "lineHeightRatio": 1.5,
+      "beforeContent": "\"✓\"",
+      "scrollWidth": 375,
+      "cssHref": "../assets/css/pages.css?v=4"
+    }
+  },
+  "after": {
+    "privacy-fr": {
+      "legalSections": 2,
+      "liCount": 46,
+      "liFound": true,
+      "display": "block",
+      "paddingTop": 14,
+      "paddingBottom": 14,
+      "bg": "rgb(250, 249, 246)",
+      "borderLeftWidth": "3px",
+      "borderLeftColor": "rgb(212, 175, 55)",
+      "borderRadius": "8px",
+      "fontSize": "15.2px",
+      "lineHeightRatio": 1.65,
+      "beforeContent": "none",
+      "scrollWidth": 375,
+      "cssHref": "assets/css/pages.css?v=4"
+    },
+    "cgu-fr": {
+      "legalSections": 2,
+      "liCount": 30,
+      "liFound": true,
+      "display": "block",
+      "paddingTop": 14,
+      "paddingBottom": 14,
+      "bg": "rgb(250, 249, 246)",
+      "borderLeftWidth": "3px",
+      "borderLeftColor": "rgb(212, 175, 55)",
+      "borderRadius": "8px",
+      "fontSize": "15.2px",
+      "lineHeightRatio": 1.65,
+      "beforeContent": "none",
+      "scrollWidth": 375,
+      "cssHref": "assets/css/pages.css?v=4"
+    },
+    "privacy-en": {
+      "legalSections": 2,
+      "liCount": 46,
+      "liFound": true,
+      "display": "block",
+      "paddingTop": 14,
+      "paddingBottom": 14,
+      "bg": "rgb(250, 249, 246)",
+      "borderLeftWidth": "3px",
+      "borderLeftColor": "rgb(212, 175, 55)",
+      "borderRadius": "8px",
+      "fontSize": "15.2px",
+      "lineHeightRatio": 1.65,
+      "beforeContent": "none",
+      "scrollWidth": 375,
+      "cssHref": "../assets/css/pages.css?v=4"
+    },
+    "cgu-en": {
+      "legalSections": 2,
+      "liCount": 30,
+      "liFound": true,
+      "display": "block",
+      "paddingTop": 14,
+      "paddingBottom": 14,
+      "bg": "rgb(250, 249, 246)",
+      "borderLeftWidth": "3px",
+      "borderLeftColor": "rgb(212, 175, 55)",
+      "borderRadius": "8px",
+      "fontSize": "15.2px",
+      "lineHeightRatio": 1.65,
+      "beforeContent": "none",
+      "scrollWidth": 375,
+      "cssHref": "../assets/css/pages.css?v=4"
+    }
+  },
+  "desktop": {
+    "privacy-fr_avant": {
+      "legalSections": 2,
+      "liCount": 46,
+      "liFound": true,
+      "display": "flex",
+      "paddingTop": 0,
+      "paddingBottom": 0,
+      "bg": "rgba(0, 0, 0, 0)",
+      "borderLeftWidth": "0px",
+      "borderLeftColor": "rgb(30, 41, 59)",
+      "borderRadius": "0px",
+      "fontSize": "14.4px",
+      "lineHeightRatio": 1.5,
+      "beforeContent": "\"✓\"",
+      "scrollWidth": 1440,
+      "cssHref": "assets/css/pages.css?v=4"
+    },
+    "cgu-fr_avant": {
+      "legalSections": 2,
+      "liCount": 30,
+      "liFound": true,
+      "display": "flex",
+      "paddingTop": 0,
+      "paddingBottom": 0,
+      "bg": "rgba(0, 0, 0, 0)",
+      "borderLeftWidth": "0px",
+      "borderLeftColor": "rgb(30, 41, 59)",
+      "borderRadius": "0px",
+      "fontSize": "14.4px",
+      "lineHeightRatio": 1.5,
+      "beforeContent": "\"✓\"",
+      "scrollWidth": 1440,
+      "cssHref": "assets/css/pages.css?v=4"
+    },
+    "privacy-en_avant": {
+      "legalSections": 2,
+      "liCount": 46,
+      "liFound": true,
+      "display": "flex",
+      "paddingTop": 0,
+      "paddingBottom": 0,
+      "bg": "rgba(0, 0, 0, 0)",
+      "borderLeftWidth": "0px",
+      "borderLeftColor": "rgb(30, 41, 59)",
+      "borderRadius": "0px",
+      "fontSize": "14.4px",
+      "lineHeightRatio": 1.5,
+      "beforeContent": "\"✓\"",
+      "scrollWidth": 1440,
+      "cssHref": "../assets/css/pages.css?v=4"
+    },
+    "cgu-en_avant": {
+      "legalSections": 2,
+      "liCount": 30,
+      "liFound": true,
+      "display": "flex",
+      "paddingTop": 0,
+      "paddingBottom": 0,
+      "bg": "rgba(0, 0, 0, 0)",
+      "borderLeftWidth": "0px",
+      "borderLeftColor": "rgb(30, 41, 59)",
+      "borderRadius": "0px",
+      "fontSize": "14.4px",
+      "lineHeightRatio": 1.5,
+      "beforeContent": "\"✓\"",
+      "scrollWidth": 1440,
+      "cssHref": "../assets/css/pages.css?v=4"
+    },
+    "privacy-fr_apres": {
+      "legalSections": 2,
+      "liCount": 46,
+      "liFound": true,
+      "display": "flex",
+      "paddingTop": 0,
+      "paddingBottom": 0,
+      "bg": "rgba(0, 0, 0, 0)",
+      "borderLeftWidth": "0px",
+      "borderLeftColor": "rgb(30, 41, 59)",
+      "borderRadius": "0px",
+      "fontSize": "14.4px",
+      "lineHeightRatio": 1.5,
+      "beforeContent": "\"✓\"",
+      "scrollWidth": 1440,
+      "cssHref": "assets/css/pages.css?v=4"
+    },
+    "cgu-fr_apres": {
+      "legalSections": 2,
+      "liCount": 30,
+      "liFound": true,
+      "display": "flex",
+      "paddingTop": 0,
+      "paddingBottom": 0,
+      "bg": "rgba(0, 0, 0, 0)",
+      "borderLeftWidth": "0px",
+      "borderLeftColor": "rgb(30, 41, 59)",
+      "borderRadius": "0px",
+      "fontSize": "14.4px",
+      "lineHeightRatio": 1.5,
+      "beforeContent": "\"✓\"",
+      "scrollWidth": 1440,
+      "cssHref": "assets/css/pages.css?v=4"
+    },
+    "privacy-en_apres": {
+      "legalSections": 2,
+      "liCount": 46,
+      "liFound": true,
+      "display": "flex",
+      "paddingTop": 0,
+      "paddingBottom": 0,
+      "bg": "rgba(0, 0, 0, 0)",
+      "borderLeftWidth": "0px",
+      "borderLeftColor": "rgb(30, 41, 59)",
+      "borderRadius": "0px",
+      "fontSize": "14.4px",
+      "lineHeightRatio": 1.5,
+      "beforeContent": "\"✓\"",
+      "scrollWidth": 1440,
+      "cssHref": "../assets/css/pages.css?v=4"
+    },
+    "cgu-en_apres": {
+      "legalSections": 2,
+      "liCount": 30,
+      "liFound": true,
+      "display": "flex",
+      "paddingTop": 0,
+      "paddingBottom": 0,
+      "bg": "rgba(0, 0, 0, 0)",
+      "borderLeftWidth": "0px",
+      "borderLeftColor": "rgb(30, 41, 59)",
+      "borderRadius": "0px",
+      "fontSize": "14.4px",
+      "lineHeightRatio": 1.5,
+      "beforeContent": "\"✓\"",
+      "scrollWidth": 1440,
+      "cssHref": "../assets/css/pages.css?v=4"
+    }
+  },
+  "contrats": {
+    "legalSections": 0,
+    "liCount": 14,
+    "liFound": true,
+    "display": "flex",
+    "paddingTop": 0,
+    "paddingBottom": 0,
+    "bg": "rgba(0, 0, 0, 0)",
+    "borderLeftWidth": "0px",
+    "borderLeftColor": "rgb(30, 41, 59)",
+    "borderRadius": "0px",
+    "fontSize": "14.4px",
+    "lineHeightRatio": 1.5,
+    "beforeContent": "\"✓\"",
+    "scrollWidth": 375,
+    "cssHref": "assets/css/pages.css"
+  }
+}

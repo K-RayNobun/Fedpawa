@@ -1,5 +1,5 @@
 {
-  "seq": 14,
+  "seq": 18,
   "lanes": [
     {
       "id": "L001",
@@ -200,6 +200,64 @@
         "/root/Fedpawa/state/l014-report.md"
       ],
       "summary": "Politique de confidentialité + CGU FR/EN créées et liées aux 3 cases à cocher + footer + sitemap — E2E prouvé"
+    },
+    {
+      "id": "L015",
+      "title": "SEO continu: JSON-LD Organization+WebSite+LocalBusiness, sitemap complet, metriques perf — objectif 1re page Google 'fedpawa'",
+      "priority": "P1",
+      "status": "done",
+      "created_at": "2026-10-19 11:10:30 UTC",
+      "last_update": "2026-10-19 11:32:34 UTC",
+      "agent": null,
+      "claimed_at": null,
+      "context_file": "/root/Fedpawa/state/ctx-L016.md",
+      "artifacts": [],
+      "summary": "Modal RCCM persistant (backdrop+Escape neutralisés, fermeture par boutons uniquement) + checkbox/radios thémés — commit 90891b3, prod live"
+    },
+    {
+      "id": "L016",
+      "title": "SEO continu: JSON-LD Organization+WebSite+LocalBusiness, sitemap complet, metriques perf — objectif 1re page Google 'fedpawa'",
+      "priority": "P1",
+      "status": "in_progress",
+      "created_at": "2026-10-19 11:32:35 UTC",
+      "last_update": "2026-10-19 13:00:56 UTC",
+      "agent": "inconnu",
+      "claimed_at": "2026-10-19 11:32:47 UTC",
+      "context_file": "/root/Fedpawa/state/ctx-L016.md",
+      "artifacts": [
+        "/root/Fedpawa/fedpawa_light/templates/pages/home.php",
+        "/root/Fedpawa/fedpawa_light/templates/partials/site-header.php"
+      ],
+      "summary": null
+    },
+    {
+      "id": "L017",
+      "title": "Politique + CGU mobile: enumerations en cartes espacees (media query scopee), 4 pages FR+EN",
+      "priority": "P1",
+      "status": "done",
+      "created_at": "2026-10-19 11:32:47 UTC",
+      "last_update": "2026-10-19 13:13:54 UTC",
+      "agent": "inconnu",
+      "claimed_at": "2026-10-19 11:32:48 UTC",
+      "context_file": "/root/Fedpawa/state/ctx-L017.md",
+      "artifacts": [
+        "/root/Fedpawa/audit/l017-report.md",
+        "/root/Fedpawa/fedpawa_light/public/assets/css/pages.css"
+      ],
+      "summary": "Mobile <=640px: enumerations des 4 pages juridiques (Politique+CGU FR/EN) en tuiles empilees (fond bg-alt, bordure gauche gold 3px, radius 8, padding 14/16, lh 1.65) via .legal-page scope x2 sections/page + bloc media query dans pages.css + bump ?v=4. Desktop 1440 prouve inchangé (computed styles identiques avant/apres). E2E 28/28 PASS, php -l OK x4, fix bonus div orphelin EN. Rapport: audit/l017-report.md"
+    },
+    {
+      "id": "L018",
+      "title": "Contrat signature: vraie 1re page structurée dans le modal + bouton 'Voir le contrat complet' (nouvel onglet, route /api/contract/preview)",
+      "priority": "P0",
+      "status": "in_progress",
+      "created_at": "2026-10-19 13:18:59 UTC",
+      "last_update": "2026-10-19 13:18:59 UTC",
+      "agent": "inconnu",
+      "claimed_at": "2026-10-19 13:18:59 UTC",
+      "context_file": "/root/Fedpawa/state/ctx-L018.md",
+      "artifacts": [],
+      "summary": null
     }
   ]
 }

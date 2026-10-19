@@ -62,6 +62,61 @@ $ogImage        = $ogImage ?? ($baseDomain . '/assets/images/og-cover.jpg');
 <meta name="twitter:title" content="<?= htmlspecialchars($ogTitle, ENT_QUOTES, 'UTF-8') ?>">
 <meta name="twitter:description" content="<?= htmlspecialchars($ogDesc, ENT_QUOTES, 'UTF-8') ?>">
 <meta name="twitter:image" content="<?= htmlspecialchars($ogImage, ENT_QUOTES, 'UTF-8') ?>">
+<?php
+// ===== SEO L016: JSON-LD structuré global (Organization + WebSite) =====
+// Données réelles FEDPAWA (RCCM/NIU/téléphone/horaires) — voir cgu.php et ctx-L016.md
+$fpDomain   = 'https://www.fedpawa.com';
+$fpSameAs   = ['https://wa.me/237691704802'];
+$fpOpening  = [[['day' => 'Monday', 'opens' => '08:00', 'closes' => '18:00'],
+                ['day' => 'Tuesday', 'opens' => '08:00', 'closes' => '18:00'],
+                ['day' => 'Wednesday', 'opens' => '08:00', 'closes' => '18:00'],
+                ['day' => 'Thursday', 'opens' => '08:00', 'closes' => '18:00'],
+                ['day' => 'Friday', 'opens' => '08:00', 'closes' => '18:00'],
+                ['day' => 'Saturday', 'opens' => '09:00', 'closes' => '14:00']]];
+$fpJsonld = [
+    '@context' => 'https://schema.org',
+    '@graph' => [
+        [
+            '@type' => 'Organization',
+            '@id'   => $fpDomain . '/#organization',
+            'name'  => 'FEDPAWA CORPORATE SOLUTIONS',
+            'legalName' => 'FEDPAWA CORPORATE SOLUTIONS SARL',
+            'url'   => $fpDomain . '/',
+            'logo'  => $fpDomain . '/assets/images/logo.jpg',
+            'description' => "Infrastructure d'affaires et hub opérationnel à Douala, Logpom (Cameroun) : domiciliation d'entreprises, création d'entreprise, conseil fiscal, protection OAPI et rédaction de contrats.",
+            'email' => 'contact@fedpawa.com',
+            'telephone' => '+237' . '691' . '70' . '4802',
+            'address' => [
+                '@type' => 'PostalAddress',
+                'streetAddress' => 'Immeuble Pharmacie de Logpom',
+                'addressLocality' => 'Douala',
+                'addressRegion' => 'Littoral',
+                'postalCode' => '',
+                'addressCountry' => 'CM'
+            ],
+            'openingHoursSpecification' => array_map(
+                fn(array $h): array => ['@type' => 'OpeningHoursSpecification', 'dayOfWeek' => $h['day'], 'opens' => $h['opens'], 'closes' => $h['closes']],
+                $fpOpening[0]
+            ),
+            'sameAs' => $fpSameAs
+        ],
+        [
+            '@type' => 'WebSite',
+            '@id'   => $fpDomain . '/#website',
+            'url'   => $fpDomain . '/',
+            'name'  => 'FEDPAWA CORPORATE SOLUTIONS',
+            'inLanguage' => $lang === 'en' ? 'en' : 'fr',
+            'publisher' => ['@id' => $fpDomain . '/#organization'],
+            'potentialAction' => [
+                '@type'       => 'SearchAction',
+                'target'      => ['@type' => 'EntryPoint', 'urlTemplate' => $fpDomain . '/index.php?s={search_term_string}'],
+                'query-input' => 'required name=search_term_string'
+            ]
+        ]
+    ]
+];
+?>
+<script type="application/ld+json"><?= json_encode($fpJsonld, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?></script>
 </head>
 <body>
 <!-- ============== TOP BAR ============== -->

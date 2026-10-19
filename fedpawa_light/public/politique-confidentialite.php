@@ -2,7 +2,7 @@
 $title = "FEDPAWA CORPORATE SOLUTIONS | Politique de Confidentialité";
 $description = "Politique de confidentialité de FEDPAWA CORPORATE SOLUTIONS SARL : données collectées, finalités, durées de conservation, vos droits d'accès, de rectification et de suppression, cookies et contact.";
 $active = 'confidentialite';
-$extraCss = ['assets/css/pages.css'];
+$extraCss = ['assets/css/pages.css?v=4'];
 
 include __DIR__ . '/../templates/partials/site-header.php';
 ?>
@@ -33,7 +33,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
   </section>
 
   <!-- ============== 1-3 : COLLECTE, FINALITES, BASE LEGALE ============== -->
-  <section class="section-padding">
+  <section class="section-padding legal-page">
     <div class="container">
       <div class="solutions-grid">
         <div class="solution-card">
@@ -118,7 +118,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
   </section>
 
   <!-- ============== 7-10 : SECURITE, DESTINATAIRES, TRANSFERTS, CONTACT ============== -->
-  <section class="section-padding section-alt">
+  <section class="section-padding section-alt legal-page">
     <div class="container">
       <div class="solutions-grid">
         <div class="solution-card">

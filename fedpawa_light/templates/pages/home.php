@@ -1,3 +1,41 @@
+<!-- L016: JSON-LD LocalBusiness/ProfessionalService — données réelles FEDPAWA (RCCM/NIU cgu.php, geo Logpom Douala, horaires Lun-Ven 8h-18h / Sam 9h-14h) -->
+<script type="application/ld+json"><?= json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => ['LocalBusiness', 'ProfessionalService'],
+    '@id' => 'https://www.fedpawa.com/#localbusiness',
+    'name' => 'FEDPAWA CORPORATE SOLUTIONS SARL',
+    'description' => "Centre de domiciliation et infrastructure d'affaires à Logpom, Douala : adresse commerciale, gestion de courrier, création d'entreprise, conseil fiscal, OAPI et contrats.",
+    'url' => 'https://www.fedpawa.com/',
+    'image' => 'https://www.fedpawa.com/assets/images/og-cover.jpg',
+    'logo' => 'https://www.fedpawa.com/assets/images/logo.jpg',
+    'telephone' => '+237' . '691' . '70' . '4802',
+    'email' => 'contact@fedpawa.com',
+    'priceRange' => 'FCFA 25,000 - FCFA 70,000',
+    'currenciesAccepted' => 'XAF',
+    'paymentAccepted' => 'Mobile Money, Cash, Bank Transfer',
+    'address' => [
+        '@type' => 'PostalAddress',
+        'streetAddress' => 'Immeuble Pharmacie de Logpom',
+        'addressLocality' => 'Douala',
+        'addressRegion' => 'Littoral',
+        'addressCountry' => 'CM'
+    ],
+    'geo' => ['@type' => 'GeoCoordinates', 'latitude' => 4.0836, 'longitude' => 9.7370],
+    'areaServed' => [
+        ['@type' => 'Country', 'name' => 'Cameroun'],
+        ['@type' => 'City', 'name' => 'Douala']
+    ],
+    'openingHoursSpecification' => [
+        ['@type' => 'OpeningHoursSpecification', 'dayOfWeek' => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], 'opens' => '08:00', 'closes' => '18:00'],
+        ['@type' => 'OpeningHoursSpecification', 'dayOfWeek' => 'Saturday', 'opens' => '09:00', 'closes' => '14:00']
+    ],
+    'sameAs' => ['https://wa.me/237691704802'],
+    'identifier' => [
+        ['@type' => 'PropertyValue', 'name' => 'RCCM', 'value' => 'CM-DLA-01-2026-B13-00767'],
+        ['@type' => 'PropertyValue', 'name' => 'NIU', 'value' => 'M09261890362B']
+    ]
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?></script>
+
 <!-- ============== HERO ============== -->
 <section class="hero" id="accueil">
   <div class="container hero-inner">

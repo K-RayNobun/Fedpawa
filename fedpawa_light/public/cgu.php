@@ -2,7 +2,7 @@
 $title = "FEDPAWA CORPORATE SOLUTIONS | Conditions Générales d'Utilisation et de Vente";
 $description = "CGU/CGV de FEDPAWA CORPORATE SOLUTIONS SARL : comptes clients, souscriptions, paiements Mobile Money, engagements réciproques, résiliation, responsabilité, droit OHADA et camerounais, tribunaux de Douala.";
 $active = 'cgu';
-$extraCss = ['assets/css/pages.css'];
+$extraCss = ['assets/css/pages.css?v=4'];
 
 include __DIR__ . '/../templates/partials/site-header.php';
 ?>
@@ -33,7 +33,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
   </section>
 
   <!-- ============== 1-4 : OBJET, COMPTES, SOUSCRIPTION, PAIEMENT ============== -->
-  <section class="section-padding">
+  <section class="section-padding legal-page">
     <div class="container">
       <div class="solutions-grid">
         <div class="solution-card">
@@ -87,7 +87,7 @@ include __DIR__ . '/../templates/partials/site-header.php';
   </section>
 
   <!-- ============== 5-8 : ENGAGEMENTS, RESILIATION, RESPONSABILITE, DROIT ============== -->
-  <section class="section-padding section-alt">
+  <section class="section-padding section-alt legal-page">
     <div class="container">
       <div class="solutions-grid">
         <div class="solution-card">

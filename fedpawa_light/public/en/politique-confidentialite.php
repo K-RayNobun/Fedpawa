@@ -2,7 +2,7 @@
 $title = "FEDPAWA CORPORATE SOLUTIONS | Privacy Policy";
 $description = "FEDPAWA CORPORATE SOLUTIONS SARL Privacy Policy: data collected, purposes, retention periods, your access, rectification and erasure rights, cookies and how to contact us.";
 $active = 'confidentialite';
-$extraCss = ['assets/css/pages.css'];
+$extraCss = ['assets/css/pages.css?v=4'];
 
 $lang = 'en';
 $langPrefix = '../';
@@ -31,11 +31,10 @@ include __DIR__ . '/../../templates/partials/site-header.php';
           <p>FEDPAWA CORPORATE SOLUTIONS SARL, share capital of FCFA 1,000,000, registered with the Douala Trade and Personal Property Credit Register under No. RCCM CM-DLA-01-2026-B13-00767, Taxpayer ID (NIU) M09261890362B, registered office: Pharmacie de Logpom Building, Logpom, Douala, Cameroon. Privacy contact: <strong>contact@fedpawacorporatesolutions.com</strong> — +237 691 70 48 02.</p>
         </div>
       </div>
-      </div>
   </section>
 
   <!-- ============== 1-3 : COLLECTION, PURPOSES, LEGAL BASES ============== -->
-  <section class="section-padding">
+  <section class="section-padding legal-page">
     <div class="container">
       <div class="solutions-grid">
         <div class="solution-card">
@@ -120,7 +119,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
   </section>
 
   <!-- ============== 7-10 : SECURITY, RECIPIENTS, TRANSFERS, CONTACT ============== -->
-  <section class="section-padding section-alt">
+  <section class="section-padding section-alt legal-page">
     <div class="container">
       <div class="solutions-grid">
         <div class="solution-card">

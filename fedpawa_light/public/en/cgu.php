@@ -2,7 +2,7 @@
 $title = "FEDPAWA CORPORATE SOLUTIONS | Terms of Service and Sale";
 $description = "FEDPAWA CORPORATE SOLUTIONS SARL Terms of Service and Sale: client accounts, subscriptions, Mobile Money payments, mutual commitments, termination, liability, OHADA and Cameroonian law, Douala courts.";
 $active = 'cgu';
-$extraCss = ['assets/css/pages.css'];
+$extraCss = ['assets/css/pages.css?v=4'];
 
 $lang = 'en';
 $langPrefix = '../';
@@ -35,7 +35,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
   </section>
 
   <!-- ============== 1-4 : OBJECT, ACCOUNTS, ORDERS, PAYMENT ============== -->
-  <section class="section-padding">
+  <section class="section-padding legal-page">
     <div class="container">
       <div class="solutions-grid">
         <div class="solution-card">
@@ -89,7 +89,7 @@ include __DIR__ . '/../../templates/partials/site-header.php';
   </section>
 
   <!-- ============== 5-8 : COMMITMENTS, TERMINATION, LIABILITY, LAW ============== -->
-  <section class="section-padding section-alt">
+  <section class="section-padding section-alt legal-page">
     <div class="container">
       <div class="solutions-grid">
         <div class="solution-card">

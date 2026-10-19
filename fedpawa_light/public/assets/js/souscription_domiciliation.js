@@ -519,7 +519,14 @@
               name,
               email: data.get('email'),
               telephone: phone || pay.phone,
-              denom: data.get('denomination')
+              denom: data.get('denomination'),
+              entreprise: data.get('denomination') || '',
+              rccm: data.get('rccm') || '',
+              niu: data.get('niu') || '',
+              adresse: data.get('adresse') || '',
+              representant: name,
+              qualite: data.get('qualite') || '',
+              capital: data.get('capital') || ''
             })
           });
           const out = await res.json().catch(() => ({}));

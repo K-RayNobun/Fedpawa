@@ -1,5 +1,5 @@
 {
-  "seq": 18,
+  "seq": 22,
   "lanes": [
     {
       "id": "L001",
@@ -258,6 +258,58 @@
       "context_file": "/root/Fedpawa/state/ctx-L018.md",
       "artifacts": [],
       "summary": "Contrat signature: 1re page structurée dans le modal + visionneuse intégrale nouvel onglet (/api/contract/preview, auth propriétaire) — fait par orchestrateur après crash provider"
+    },
+    {
+      "id": "L019",
+      "title": "Téléchargements: factures (PDF à la volée + serve case facture), contrats href, audit exhaustif documents",
+      "priority": "P0",
+      "status": "done",
+      "created_at": "2026-10-19 15:00:33 UTC",
+      "last_update": "2026-10-19 16:02:36 UTC",
+      "agent": "inconnu",
+      "claimed_at": "2026-10-19 15:00:33 UTC",
+      "context_file": "/root/Fedpawa/state/ctx-L019.md",
+      "artifacts": [],
+      "summary": "Téléchargements réparés: factures PDF à la volée + liens /api/document partout — matrice E2E prouvée"
+    },
+    {
+      "id": "L020",
+      "title": "Messagerie interne: le client ne voit pas les réponses — vue messages dans l'espace client + flux complet tickets",
+      "priority": "P1",
+      "status": "done",
+      "created_at": "2026-10-19 15:00:33 UTC",
+      "last_update": "2026-10-19 15:30:43 UTC",
+      "agent": "inconnu",
+      "claimed_at": "2026-10-19 15:00:33 UTC",
+      "context_file": "/root/Fedpawa/state/ctx-L020.md",
+      "artifacts": [],
+      "summary": "Messagerie interne visible côté client (section adminMessages + is_read) + ticket #14 répondu — fait par orchestrateur"
+    },
+    {
+      "id": "L021",
+      "title": "Facture: NIU + RCCM + Siège Social, suppression TVA du total",
+      "priority": "P1",
+      "status": "done",
+      "created_at": "2026-10-19 15:00:33 UTC",
+      "last_update": "2026-10-19 16:02:36 UTC",
+      "agent": "inconnu",
+      "claimed_at": "2026-10-19 15:00:33 UTC",
+      "context_file": "/root/Fedpawa/state/ctx-L021.md",
+      "artifacts": [],
+      "summary": "Facture conforme: NIU + RCCM + Siège Social, zéro TVA — prouvé dans le PDF généré"
+    },
+    {
+      "id": "L022",
+      "title": "Contrat: remplir les ………… depuis le formulaire + téléchargeable AVANT signature + mention lire attentivement",
+      "priority": "P0",
+      "status": "done",
+      "created_at": "2026-10-19 15:00:33 UTC",
+      "last_update": "2026-10-19 15:55:01 UTC",
+      "agent": "inconnu",
+      "claimed_at": "2026-10-19 15:00:33 UTC",
+      "context_file": "/root/Fedpawa/state/ctx-L022.md",
+      "artifacts": [],
+      "summary": "Contrat rempli depuis le formulaire (placeholders substitués partout: preview, download, PDF signé) + téléchargeable AVANT signature + mention lecture attentive — fait par orchestrateur"
     }
   ]
 }

@@ -38,8 +38,17 @@ class SubscriptionService {
                 $clientId = (int)$db->lastInsertId();
             }
 
-            $stmt = $db->prepare("INSERT INTO abonnements (client_id, pack, prix, date_debut, statut) VALUES (?, ?, ?, ?, 'en_attente')");
-            $stmt->execute([$clientId, htmlspecialchars($data['pack']), (float)$data['prix'], date('Y-m-d H:i:s')]);
+            // L022: persister les pièces du formulaire (rccm, niu, adresse...) pour le contrat
+            $detailsData = [];
+            foreach (['rccm' => 'rccm', 'niu' => 'niu', 'adresse' => 'siege', 'representant' => 'representant', 'qualite' => 'qualite', 'capital' => 'capital'] as $in => $key) {
+                if (!empty(trim((string)($data[$in] ?? '')))) $detailsData[$key] = htmlspecialchars(trim((string)$data[$in]));
+            }
+            if (!empty($data['entreprise'])) $detailsData['entreprise'] = htmlspecialchars(trim((string)$data['entreprise']));
+            if (!empty($data['nom'])) $detailsData['contact'] = htmlspecialchars(trim((string)$data['nom']));
+            $detailsJson = $detailsData ? json_encode($detailsData, JSON_UNESCAPED_UNICODE) : null;
+
+            $stmt = $db->prepare("INSERT INTO abonnements (client_id, pack, prix, date_debut, statut, details) VALUES (?, ?, ?, ?, 'en_attente', ?)");
+            $stmt->execute([$clientId, htmlspecialchars($data['pack']), (float)$data['prix'], date('Y-m-d H:i:s'), $detailsJson]);
             $subscriptionId = (int)$db->lastInsertId();
 
             $db->commit();

@@ -25,6 +25,25 @@ class FactureService {
         $stmt->execute([$clientId, $numero, $montant, date('Y-m-d H:i:s')]);
         $factureId = (int)$db->lastInsertId();
 
+        // L019: générer le PDF immédiatement et remplir lien_pdf
+        try {
+            $cStmt = $db->prepare("SELECT nom FROM clients WHERE id = ?");
+            $cStmt->execute([$clientId]);
+            $client = $cStmt->fetch();
+            $pdf = (new \App\Service\PdfService())->generateInvoice([
+                'invoice_number' => $numero,
+                'client_name' => $client['nom'] ?? 'Client',
+                'amount' => (float)$montant,
+            ]);
+            $dir = __DIR__ . '/../../storage/documents';
+            if (!is_dir($dir)) mkdir($dir, 0755, true);
+            file_put_contents($dir . '/facture_' . $factureId . '.pdf', $pdf);
+            $u = $db->prepare("UPDATE factures SET lien_pdf = ? WHERE id = ?");
+            $u->execute(['documents/facture_' . $factureId . '.pdf', $factureId]);
+        } catch (\Exception $e) {
+            error_log('FactureService PDF gen error: ' . $e->getMessage());
+        }
+
         // Activer l'abonnement en attente le plus récent du client (cohérence W-9)
         $upd = $db->prepare("UPDATE abonnements SET statut = 'actif', date_debut = COALESCE(date_debut, ?),
                              date_fin = CASE WHEN date_fin IS NOT NULL AND date_fin != '' THEN date_fin

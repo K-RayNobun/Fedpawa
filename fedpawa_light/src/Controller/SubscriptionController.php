@@ -141,7 +141,9 @@ class SubscriptionController extends Controller {
                 // Finaliser : générer le PDF, marquer actif, notifier
                 $pdf = $this->pdfService->generateContract([
                     'client_name' => $sub['nom'],
-                    'price' => $sub['prix']
+                    'company_name' => $sub['entreprise'] ?? ($sub['denomination'] ?? 'Entreprise'),
+                    'price' => $sub['prix'],
+                    'details' => $sub['details'] ?? null,
                 ]);
                 $dir = __DIR__ . '/../../storage/documents';
                 if (!is_dir($dir)) mkdir($dir, 0755, true);
@@ -225,6 +227,13 @@ class SubscriptionController extends Controller {
             // Placeholders twig → valeurs réelles
             $content = str_replace(['{{ client_name }}', '{{ company_name|default(\'Entreprise\') }}', '{{ company_name }}', '{{ price }}'], [$clientName, $companyName, $companyName, number_format($price, 0, ',', ' ') . ' FCFA'], $content);
 
+            // L022: placeholders [DOMICILIE_*] -> données réelles du formulaire
+            $content = \App\Service\PdfService::fillDomicilie($content, [
+                'client_name' => $clientName,
+                'company_name' => $companyName,
+                'details' => $sub['details'] ?? null,
+            ]);
+
             // Nettoyage des éventuels restes twig (variables inconnues)
             $content = preg_replace('/\{\{[^}]*\}\}/', '…………', $content);
 
@@ -260,6 +269,45 @@ class SubscriptionController extends Controller {
             echo '</div></body></html>';
         } catch (\Exception $e) {
             error_log('Contract preview error: ' . $e->getMessage());
+            http_response_code(500);
+            echo "Erreur interne.";
+        }
+    }
+
+    /**
+     * L022 — Téléchargement du contrat (PDF) AVANT signature.
+     * GET /api/contract/download?subscription_id=N — même garde que preview().
+     */
+    public function download() {
+        try {
+            $subId = (int)($_GET['subscription_id'] ?? 0);
+            if ($subId <= 0) { http_response_code(400); echo "Souscription invalide."; return; }
+
+            $db = \App\Service\Database::getConnection();
+            $stmt = $db->prepare("SELECT a.*, c.nom, c.email, c.entreprise FROM abonnements a JOIN clients c ON c.id = a.client_id WHERE a.id = ?");
+            $stmt->execute([$subId]);
+            $sub = $stmt->fetch();
+            if (!$sub) { http_response_code(404); echo "Souscription introuvable."; return; }
+
+            $isAdmin = isset($_SESSION['admin_logged_in'])
+                || (!empty($_SESSION['client_id']) && ($_SESSION['role'] ?? 'client') === 'admin');
+            $isOwner = !empty($_SESSION['client_id']) && (int)$_SESSION['client_id'] === (int)$sub['client_id'];
+            if (!$isAdmin && !$isOwner) { http_response_code(403); echo "Accès refusé."; return; }
+
+            $pdf = $this->pdfService->generateContract([
+                'client_name' => $sub['nom'],
+                'company_name' => $sub['entreprise'] ?? 'Entreprise',
+                'price' => $sub['prix'],
+                'details' => $sub['details'] ?? null,
+            ]);
+
+            header('Content-Type: application/pdf');
+            header('Content-Disposition: inline; filename="contrat_domiciliation_' . $subId . '.pdf"');
+            header('Content-Length: ' . strlen($pdf));
+            header('Cache-Control: private, no-store');
+            echo $pdf;
+        } catch (\Exception $e) {
+            error_log('Contract download error: ' . $e->getMessage());
             http_response_code(500);
             echo "Erreur interne.";
         }

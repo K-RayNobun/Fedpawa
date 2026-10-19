@@ -193,7 +193,7 @@ function contractSignScreen(m, config, sub, payInfo) {
         '  <div style="position:absolute;left:0;right:0;bottom:0;padding:8px 12px;background:linear-gradient(180deg, rgba(253,252,249,0) 0%, #fdfcf9 55%);text-align:center;font-size:0.72rem;color:#8a8474;">— Suite du contrat (Article 1 \u00e0 Article 14) —</div>' +
         '</div>' +
         '<button type="button" id="viewFullContract" class="btn btn-primary" style="width:100%;margin:0 0 10px;background:linear-gradient(135deg,#15294D,#1d3a6e);">\ud83d\udcc4 Voir le contrat complet</button>' +
-        '<div class="pay-momo-note">Pour signer \u00e9lectroniquement ce contrat, saisissez le code \u00e0 6 chiffres qui vous a \u00e9t\u00e9 envoy\u00e9.</div>' +
+        '<div class="pay-momo-note" style="background:rgba(176,141,87,0.12);border:1px solid rgba(176,141,87,0.4);">\u26a0\ufe0f Nous vous recommandons de lire attentivement l\u2019int\u00e9gralit\u00e9 du contrat avant de le signer.<br>Pour signer \u00e9lectroniquement ce contrat, saisissez le code \u00e0 6 chiffres qui vous a \u00e9t\u00e9 envoy\u00e9.</div>' +
         '<form id="contractSignForm" class="pay-momo-form">' +
         '  <div class="pay-field"><label for="contractOtp">Code de signature (OTP)</label>' +
         '  <input type="text" id="contractOtp" class="form-control" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required placeholder="123456"></div>' +
@@ -203,6 +203,11 @@ function contractSignScreen(m, config, sub, payInfo) {
 
     const x = body.querySelector('.fp-modal-x');
     if (x) x.addEventListener('click', () => m.close());
+    const dlBtn = body.querySelector('#downloadContract');
+    if (dlBtn) dlBtn.addEventListener('click', () => {
+        const sid = sub.subscription_id || sub.subscription_id_ || (sub.id) || null;
+        if (sid) window.open('/api/contract/download?subscription_id=' + encodeURIComponent(sid), '_blank', 'noopener');
+    });
     const viewBtn = body.querySelector('#viewFullContract');
     if (viewBtn) viewBtn.addEventListener('click', () => {
         const sid = sub.subscription_id || sub.subscription_id_ || (sub.id) || null;

@@ -12,6 +12,10 @@ class MailService {
         $db = Database::getConnection();
         $stmt = $db->prepare("SELECT * FROM internal_messages WHERE (sender_id = ? OR receiver_id = ?) ORDER BY created_at ASC");
         $stmt->execute([$clientId, $clientId]);
-        return $stmt->fetchAll();
+        $rows = $stmt->fetchAll();
+        // L020: consultation par le client = les messages reçus deviennent lus
+        $upd = $db->prepare("UPDATE internal_messages SET is_read = 1 WHERE receiver_id = ? AND receiver_type = 'client' AND is_read = 0");
+        $upd->execute([$clientId]);
+        return $rows;
     }
 }

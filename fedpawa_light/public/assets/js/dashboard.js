@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <td>${f.date}</td>
                         <td>${f.montant.toLocaleString()} FCFA</td>
                         <td><span class="badge badge-success">Payée</span></td>
-                        <td><a href="${f.lien_pdf || '#'}" class="action-link" target="_blank">Télécharger (PDF)</a></td>
+                        <td><a href="/api/document?type=facture&id=${f.id}" class="action-link" target="_blank">Télécharger (PDF)</a></td>
                     </tr>
                 `).join('');
             }
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <td>${c.type}</td>
                         <td>${c.date_signature}</td>
                         <td>Signature électronique (Doc@uthANTIC)</td>
-                        <td><a href="${c.fichier}" class="action-link" target="_blank">Télécharger (PDF)</a></td>
+                        <td><a href="/api/document?type=contrat&id=${c.id}" class="action-link" target="_blank">Télécharger (PDF)</a></td>
                     </tr>
                 `).join('');
             }
@@ -314,6 +314,30 @@ document.addEventListener('DOMContentLoaded', () => {
         block.querySelectorAll('button').forEach(btn => btn.addEventListener('click', showPackComponent));
     };
 
+
+    // ===== L020: Messages de l'administration (messagerie interne) =====
+    const adminMsgsBox = document.getElementById('adminMessages');
+    if (adminMsgsBox) {
+        (async () => {
+            try {
+                const res = await fetch(apiUrl('/api/mail/thread'), { credentials: 'include' });
+                if (!res.ok) { adminMsgsBox.innerHTML = ''; return; }
+                const data = await res.json();
+                const msgs = (data.data || []).filter(m => m.sender_type === 'admin').slice(-10).reverse();
+                if (!msgs.length) {
+                    adminMsgsBox.innerHTML = '<p style="color: var(--color-text-muted); font-size: 0.9rem;">Aucun message de l\'administration pour le moment. Vos échanges apparaîtront ici.</p>';
+                    return;
+                }
+                adminMsgsBox.innerHTML = msgs.map(m =>
+                    '<div style="background:var(--color-bg-alt); border:1px solid var(--color-border); border-left:3px solid var(--color-primary); border-radius:10px; padding:12px 14px; margin-bottom:10px;">' +
+                    '<div style="display:flex; justify-content:space-between; gap:8px; align-items:center;">' +
+                    '<strong style="font-size:0.82rem; color:var(--color-primary);">Administration FEDPAWA</strong>' +
+                    '<span style="font-size:0.72rem; color:var(--color-text-muted);">' + (m.created_at ? new Date(String(m.created_at).replace(' ', 'T')).toLocaleString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : '') + '</span></div>' +
+                    '<p style="font-size:0.88rem; margin:6px 0 0; color:var(--color-text-main);">' + (String(m.content || '').replace(/[&<>]/g, ch => ({ '&': String.fromCharCode(38,97,109,112,59), '<': String.fromCharCode(38,108,116,59), '>': String.fromCharCode(38,103,116,59) }[ch]))) + '</p></div>'
+                ).join('');
+            } catch (e) { adminMsgsBox.innerHTML = ''; }
+        })();
+    }
 
     // ===== F7: historique des tickets support du client =====
     const ticketsList = document.getElementById('ticketsList');

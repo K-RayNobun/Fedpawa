@@ -213,7 +213,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!tab) {
             document.querySelector('.db-main').insertAdjacentHTML('beforeend', '<div class="db-tab-content" id="tab-messages"></div>');
             tab = document.getElementById('tab-messages');
-            const nav = +document.querySelector('.db-nav');
             const navEl = document.querySelector('.db-nav');
             if (navEl && !navEl.querySelector('[data-tab="messages"]')) navEl.insertAdjacentHTML('beforeend', '<div class="db-nav-item" data-tab="messages"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Messagerie</div>');
         }

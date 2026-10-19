@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Service\Database;
 use App\Service\AuditLogger;
+use App\Service\PdfService;
 
 class StorageController extends Controller {
     private const STORAGE_DIR = __DIR__ . '/../../storage';
@@ -35,6 +36,32 @@ class StorageController extends Controller {
                     $row = $stmt->fetch();
                     $relPath = $row[$file] ?? '';
                     $filename = 'kyc_' . $id . '_' . $file . '.pdf';
+                    break;
+
+                case 'facture':
+                    $stmt = $db->prepare("SELECT id, client_id, numero, montant, lien_pdf FROM factures WHERE id = ?");
+                    $stmt->execute([$id]);
+                    $row = $stmt->fetch();
+                    // L019: PDF jamais généré (anciennes factures) -> génération à la volée
+                    if ($row && empty($row['lien_pdf'])) {
+                        $cStmt = $db->prepare("SELECT nom FROM clients WHERE id = ?");
+                        $cStmt->execute([(int)$row['client_id']]);
+                        $client = $cStmt->fetch();
+                        $pdf = (new \App\Service\PdfService())->generateInvoice([
+                            'invoice_number' => $row['numero'],
+                            'client_name' => $client['nom'] ?? 'Client',
+                            'amount' => (float)$row['montant'],
+                        ]);
+                        $dir = __DIR__ . '/../../storage/documents';
+                        if (!is_dir($dir)) mkdir($dir, 0755, true);
+                        $path = $dir . '/facture_' . $id . '.pdf';
+                        file_put_contents($path, $pdf);
+                        $u = $db->prepare("UPDATE factures SET lien_pdf = ? WHERE id = ?");
+                        $u->execute(['documents/facture_' . $id . '.pdf', $id]);
+                        $row['lien_pdf'] = 'documents/facture_' . $id . '.pdf';
+                    }
+                    $relPath = $row['lien_pdf'] ?? '';
+                    $filename = 'facture_' . $id . '.pdf';
                     break;
 
                 case 'contrat':

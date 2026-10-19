@@ -237,3 +237,62 @@ html[data-theme="navy"] .btn:focus-visible {
   outline: 3px solid #D4AF37;
   outline-offset: 2px;
 }
+
+/* ============ L015: Contrôles de formulaire custom (checkbox + radio) ============ */
+/* Checkbox thémée — remplace le rendu brut navigateur */
+input.fp-check {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: 0 0 auto;
+  width: 22px; height: 22px;
+  margin: 0;
+  border: 2px solid var(--color-border, #d6d3cd);
+  border-radius: 7px;
+  background: var(--color-bg-main, transparent);
+  cursor: pointer;
+  position: relative;
+  transition: border-color .18s ease, background .18s ease, box-shadow .18s ease;
+  box-shadow: 0 1px 3px rgba(15, 27, 48, 0.08);
+}
+input.fp-check:hover { border-color: var(--color-primary, #b08d57); }
+input.fp-check:checked {
+  border-color: var(--color-primary, #b08d57);
+  background: var(--color-primary, #b08d57);
+}
+input.fp-check:checked::after {
+  content: "";
+  position: absolute;
+  left: 6px; top: 2px;
+  width: 6px; height: 11px;
+  border: solid #fff;
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(45deg);
+}
+input.fp-check:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary, #b08d57) 30%, transparent);
+}
+
+/* Radios pills — pastille douce au lieu du bouton brut */
+.radio-row input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px; height: 20px;
+  margin: 0;
+  border: 2px solid var(--color-border, #d6d3cd);
+  border-radius: 50%;
+  background: var(--color-bg-main, transparent);
+  cursor: pointer;
+  position: relative;
+  transition: border-color .18s ease, box-shadow .18s ease;
+  box-shadow: 0 1px 3px rgba(15, 27, 48, 0.08);
+}
+.radio-row input[type="radio"]:hover { border-color: var(--color-primary, #b08d57); }
+.radio-row input[type="radio"]:checked {
+  border-color: var(--color-primary, #b08d57);
+  box-shadow: inset 0 0 0 4px var(--color-bg-main, #fff), inset 0 0 0 20px var(--color-primary, #b08d57);
+}
+.radio-row input[type="radio"]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary, #b08d57) 30%, transparent);
+}

@@ -145,7 +145,15 @@
       form.addEventListener('submit', blockSubmit, true);
     };
     yesBtn.onclick = () => { window.location.href = 'creation_entreprise.php'; };
-    smartOverlay.addEventListener('click', (e) => { if (e.target === smartOverlay) smartOverlay.style.display = 'none'; });
+    // Modal PERSISTANT (L015): pas de fermeture par clic hors modal, ni par Escape,
+    // uniquement via les boutons d'action.
+    const swallow = (e) => { e.stopPropagation(); e.preventDefault(); };
+    smartOverlay.addEventListener('click', (e) => {
+      if (e.target === smartOverlay) swallow(e);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (smartOverlay.style.display !== 'none' && e.key === 'Escape') e.preventDefault();
+    }, true);
   }
 
 /* ---------- SECTION 1 : statut conditionnel ---------- */

@@ -88,8 +88,8 @@ include __DIR__ . '/../templates/partials/site-header.php';
               <small class="field-hint" id="niu-hint">Si votre entreprise est en cours de création, indiquez « En cours ».</small>
             </div>
             <div class="form-group" style="background: var(--color-bg-alt); padding: 12px 14px; border-radius: 8px; border: 1px dashed var(--color-border);">
-              <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; text-transform: none; letter-spacing: 0; font-weight: 500; cursor: pointer; margin-bottom: 4px;">
-                <input type="checkbox" id="opt-no-immat" data-smart-signal="strong" data-smart-from="domiciliation" style="margin-top: 3px;">
+              <label style="display: flex; align-items: flex-start; gap: 12px; font-size: 0.9rem; text-transform: none; letter-spacing: 0; font-weight: 500; cursor: pointer; margin-bottom: 4px;">
+                <input type="checkbox" id="opt-no-immat" data-smart-signal="strong" data-smart-from="domiciliation" class="fp-check" style="margin-top: 3px;">
                 <span>Je ne dispose pas encore de RCCM / NIU — mon entreprise n'est pas encore immatriculée</span>
               </label>
             </div>

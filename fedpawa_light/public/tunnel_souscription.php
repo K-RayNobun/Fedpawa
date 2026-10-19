@@ -646,5 +646,5 @@ observer.observe(summaryTotalEl, { childList: true });
 </script>
 
 <?php
-$extraJs = ['assets/js/api.js', 'assets/js/config.js', 'assets/js/auth-guard.js', 'assets/js/fedpawa-ui.js?v=2', 'assets/js/fedpawa-pay.js?v=3', 'assets/js/tunnel.js?v=3'];
+$extraJs = ['assets/js/api.js', 'assets/js/config.js', 'assets/js/auth-guard.js', 'assets/js/fedpawa-ui.js?v=2', 'assets/js/fedpawa-pay.js?v=4', 'assets/js/tunnel.js?v=3'];
 include __DIR__ . '/../templates/partials/site-footer.php';

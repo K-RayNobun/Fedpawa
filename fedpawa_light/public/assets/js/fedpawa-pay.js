@@ -178,15 +178,21 @@ function contractSignScreen(m, config, sub, payInfo) {
         '  <h3 class="fp-modal-title">Paiement re\u00e7u \u2014 votre contrat est pr\u00eat</h3>' +
         '  <div class="pay-momo-amount">' + esc(fmt(config.priceFCFA)) + '</div>' +
         '</div>' +
-        '<div class="contract-doc" style="max-height:38vh;overflow:auto;border:1px solid var(--color-border,#ddd);border-radius:8px;padding:14px 16px;margin:10px 0;font-size:0.82rem;line-height:1.55;background:#faf9f7;">' +
-        '  <div style="text-align:center;font-weight:700;color:#15294D;letter-spacing:0.06em;">CONVENTION DE DOMICILIATION & SERVICES</div>' +
-        '  <p style="margin:10px 0 4px;"><strong>Entre les soussignes :</strong></p>' +
-        '  <p style="margin:0 0 4px;">La soci\u00e9t\u00e9 <strong>FEDPAWA CORPORATE SOLUTIONS SARL</strong>, sise a l\u2019Immeuble Pharmacie de Logpom, Douala, Cameroun.</p>' +
-        '  <p style="margin:0;">Et : <strong>' + esc((sub.client_name || window.FP_contractName || 'Client')) + '</strong>.</p>' +
-        '  <p style="margin:8px 0 2px;"><strong>Objet :</strong> ' + esc(config.label || 'Prestation') + '</p>' +
-        '  <p style="margin:0;"><strong>Montant :</strong> ' + esc(fmt(config.priceFCFA)) + ' \u2014 r\u00e8gle par Mobile Money (ref. ' + esc(payInfo.transaction_id || '-') + ').</p>' +
-        '  <p style="margin:8px 0 0;color:#666;">Article 1 \u2014 Objet. Article 2 \u2014 Engagements & Confidentialite. Article 3 \u2014 Conditions Financieres. Le contrat integral est genere en PDF apres signature.</p>' +
+        '<div class="contract-doc" style="max-height:42vh;overflow:hidden;position:relative;border:1px solid var(--color-border,#ddd);border-radius:10px;padding:18px 20px 34px;margin:10px 0;font-size:0.8rem;line-height:1.6;background:#fdfcf9;box-shadow:inset 0 0 0 1px #fff, 0 2px 8px rgba(15,27,48,.06);">' +
+        '  <div style="text-align:center;border-bottom:2px solid #b08d57;padding-bottom:8px;margin-bottom:12px;">' +
+        '    <div style="font-weight:800;font-size:0.92rem;color:#15294D;letter-spacing:.08em;">FEDPAWA CORPORATE SOLUTIONS SARL</div>' +
+        '    <div style="font-size:0.66rem;color:#5a6472;margin-top:3px;">RCCM CM-DLA-01-2026-B13-00767 · NIU M09261890362B · Immeuble Pharmacie de Logpom, Douala — Cameroun</div>' +
+        '  </div>' +
+        '  <div style="text-align:center;font-weight:700;color:#15294D;letter-spacing:0.05em;margin:6px 0 10px;text-transform:uppercase;">Convention de Domiciliation & Services</div>' +
+        '  <p style="margin:0 0 6px;text-align:justify;"><strong>Entre les soussign\u00e9s :</strong> la soci\u00e9t\u00e9 <strong>FEDPAWA CORPORATE SOLUTIONS SARL</strong>, SARL au capital de 1 000 000 FCFA, immatricul\u00e9e au RCCM de Douala sous le n\u00b0 CM-DLA-01-2026-B13-00767, dont le si\u00e8ge est situ\u00e9 \u00e0 l\u2019Immeuble Pharmacie de Logpom, Douala, Cameroun (ci-apr\u00e8s \u00ab Le Domiciliataire \u00bb),</p>' +
+        '  <p style="margin:0 0 8px;text-align:justify;">et : <strong>' + esc((sub.client_name || window.FP_contractName || 'Client')) + '</strong> (ci-apr\u00e8s \u00ab Le Domicili\u00e9 \u00bb).</p>' +
+        '  <p style="margin:0 0 6px;text-align:justify;"><strong>Objet :</strong> mise \u00e0 disposition d\u2019une adresse de si\u00e8ge social r\u00e9elle et identifiable \u00e0 Logpom, Douala, et des services associ\u00e9s, conform\u00e9ment \u00e0 l\u2019article 24 de l\u2019Acte Uniforme OHADA.</p>' +
+        '  <p style="margin:0 0 6px;"><strong>Formule souscrite :</strong> ' + esc(config.label || 'Domiciliation') + '</p>' +
+        '  <p style="margin:0 0 6px;"><strong>Montant :</strong> ' + esc(fmt(config.priceFCFA)) + ' — r\u00e9gl\u00e9 par Mobile Money (r\u00e9f. ' + esc(payInfo.transaction_id || '-') + ').</p>' +
+        '  <p style="margin:0;"><strong>Fait \u00e0 Douala, le :</strong> ' + new Date().toLocaleDateString('fr-FR') + '.</p>' +
+        '  <div style="position:absolute;left:0;right:0;bottom:0;padding:8px 12px;background:linear-gradient(180deg, rgba(253,252,249,0) 0%, #fdfcf9 55%);text-align:center;font-size:0.72rem;color:#8a8474;">— Suite du contrat (Article 1 \u00e0 Article 14) —</div>' +
         '</div>' +
+        '<button type="button" id="viewFullContract" class="btn btn-primary" style="width:100%;margin:0 0 10px;background:linear-gradient(135deg,#15294D,#1d3a6e);">\ud83d\udcc4 Voir le contrat complet</button>' +
         '<div class="pay-momo-note">Pour signer \u00e9lectroniquement ce contrat, saisissez le code \u00e0 6 chiffres qui vous a \u00e9t\u00e9 envoy\u00e9.</div>' +
         '<form id="contractSignForm" class="pay-momo-form">' +
         '  <div class="pay-field"><label for="contractOtp">Code de signature (OTP)</label>' +
@@ -197,6 +203,11 @@ function contractSignScreen(m, config, sub, payInfo) {
 
     const x = body.querySelector('.fp-modal-x');
     if (x) x.addEventListener('click', () => m.close());
+    const viewBtn = body.querySelector('#viewFullContract');
+    if (viewBtn) viewBtn.addEventListener('click', () => {
+        const sid = sub.subscription_id || sub.subscription_id_ || (sub.id) || null;
+        if (sid) window.open('/api/contract/preview?subscription_id=' + encodeURIComponent(sid), '_blank', 'noopener');
+    });
     const err = body.querySelector('#contractErr');
 
     // Mode demo : l'API renvoie l'OTP dans la reponse (aucun SMS/e-mail configure).

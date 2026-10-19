@@ -250,14 +250,14 @@
       "id": "L018",
       "title": "Contrat signature: vraie 1re page structurée dans le modal + bouton 'Voir le contrat complet' (nouvel onglet, route /api/contract/preview)",
       "priority": "P0",
-      "status": "in_progress",
+      "status": "done",
       "created_at": "2026-10-19 13:18:59 UTC",
-      "last_update": "2026-10-19 13:18:59 UTC",
+      "last_update": "2026-10-19 13:55:26 UTC",
       "agent": "inconnu",
       "claimed_at": "2026-10-19 13:18:59 UTC",
       "context_file": "/root/Fedpawa/state/ctx-L018.md",
       "artifacts": [],
-      "summary": null
+      "summary": "Contrat signature: 1re page structurée dans le modal + visionneuse intégrale nouvel onglet (/api/contract/preview, auth propriétaire) — fait par orchestrateur après crash provider"
     }
   ]
 }

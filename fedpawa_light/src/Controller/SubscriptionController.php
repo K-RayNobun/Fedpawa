@@ -176,6 +176,95 @@ class SubscriptionController extends Controller {
             $this->json(['error' => 'Erreur interne lors de la finalisation'], 500);
         }
     }
+    /**
+     * L018 — Aperçu HTML intégral du contrat (avant signature).
+     * GET /api/contract/preview?subscription_id=N
+     * Accessible au client propriétaire ou à un admin. Rend contract_templates.content
+     * avec les données réelles de la souscription, enveloppé dans une page A4 présentable.
+     */
+    public function preview() {
+        try {
+            $subId = (int)($_GET['subscription_id'] ?? 0);
+            if ($subId <= 0) {
+                http_response_code(400);
+                echo "Souscription invalide.";
+                return;
+            }
+
+            $db = Database::getConnection();
+            $stmt = $db->prepare("SELECT a.*, c.nom, c.email, c.entreprise FROM abonnements a JOIN clients c ON c.id = a.client_id WHERE a.id = ?");
+            $stmt->execute([$subId]);
+            $sub = $stmt->fetch();
+            if (!$sub) {
+                http_response_code(404);
+                echo "Souscription introuvable.";
+                return;
+            }
+
+            // Garde : client propriétaire OU admin (les deux sessions admin coexistent)
+            $isAdmin = isset($_SESSION['admin_logged_in'])
+                || (!empty($_SESSION['client_id']) && ($_SESSION['role'] ?? 'client') === 'admin');
+            $isOwner = !empty($_SESSION['client_id']) && (int)$_SESSION['client_id'] === (int)$sub['client_id'];
+            if (!$isAdmin && !$isOwner) {
+                http_response_code(403);
+                echo "Accès refusé à ce contrat.";
+                return;
+            }
+
+            // Source de vérité : le template en base (éditable par l'admin)
+            $tpl = $db->query("SELECT content FROM contract_templates WHERE name = 'contract'")->fetch();
+            $content = $tpl ? $tpl['content'] : file_get_contents(__DIR__ . '/../../templates/contract.html.twig');
+
+            // Données réelles de la souscription
+            $clientName = trim($sub['nom'] ?? '') ?: 'Client';
+            $companyName = trim($sub['entreprise'] ?? '') ?: ($clientName);
+            $price = (int)($sub['prix'] ?? 0);
+            $packLabel = $sub['pack'] ?? '';
+            $today = date('d/m/Y');
+
+            // Placeholders twig → valeurs réelles
+            $content = str_replace(['{{ client_name }}', '{{ company_name|default(\'Entreprise\') }}', '{{ company_name }}', '{{ price }}'], [$clientName, $companyName, $companyName, number_format($price, 0, ',', ' ') . ' FCFA'], $content);
+
+            // Nettoyage des éventuels restes twig (variables inconnues)
+            $content = preg_replace('/\{\{[^}]*\}\}/', '…………', $content);
+
+            $safe = $content; // contenu du template interne (édité par l'admin via TinyMCE)
+            $safe = preg_replace('/<script\b[^>]*>.*?<\/script>/is', '', $safe);
+
+            header('Content-Type: text/html; charset=utf-8');
+            header('X-Content-Type-Options: nosniff');
+            header('Cache-Control: private, no-store');
+
+            echo '<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">';
+            echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
+            echo '<meta name="robots" content="noindex">';
+            echo '<title>Contrat de domiciliation — FEDPAWA CORPORATE SOLUTIONS</title>';
+            echo '<style>';
+            echo 'body{margin:0;background:#1a1a2e;font-family:Georgia,"Times New Roman",serif;color:#1c2333;}';
+            echo '.cv-page{max-width:800px;margin:28px auto;background:#fdfcf9;padding:56px 64px;box-shadow:0 18px 50px rgba(0,0,0,.45);border-top:6px solid #b08d57;}';
+            echo '.cv-head{text-align:center;border-bottom:2px solid #b08d57;padding-bottom:14px;margin-bottom:18px;}';
+            echo '.cv-head .co{font-weight:700;font-size:1.05rem;letter-spacing:.08em;color:#15294D;}';
+            echo '.cv-head .meta{font-size:.78rem;color:#5a6472;margin-top:4px;line-height:1.5;}';
+            echo '.cv-doc h1{font-size:1.35rem;text-align:center;color:#15294D;letter-spacing:.05em;margin:26px 0 10px;text-transform:uppercase;}';
+            echo '.cv-doc h2{font-size:1rem;color:#15294D;border-left:3px solid #b08d57;padding-left:10px;margin:26px 0 8px;}';
+            echo '.cv-doc p{line-height:1.62;margin:8px 0;text-align:justify;}';
+            echo '.cv-foot{margin-top:30px;padding-top:10px;border-top:1px solid #d8d4cc;font-size:.72rem;color:#5a6472;text-align:center;}';
+            echo '@media print{body{background:#fff}.cv-page{box-shadow:none;margin:0;padding:12mm}}';
+            echo '@media(max-width:640px){.cv-page{margin:10px;padding:22px 18px}}';
+            echo '</style></head><body>';
+            echo '<div class="cv-page">';
+            echo '<div class="cv-head"><div class="co">FEDPAWA CORPORATE SOLUTIONS SARL</div>';
+            echo '<div class="meta">Immeuble Pharmacie de Logpom, Douala — Cameroun<br>RCCM CM-DLA-01-2026-B13-00767 · NIU M09261890362B<br>contact@fedpawa.com · +237 678 407 4802</div></div>';
+            echo '<div class="cv-doc">' . $safe . '</div>';
+            echo '<div class="cv-foot">Document généré électroniquement par la plateforme FEDPAWA — Pack ' . htmlspecialchars($packLabel, ENT_QUOTES, 'UTF-8') . ' · ' . $today . '<br>Ce contrat prend effet à sa signature électronique.</div>';
+            echo '</div></body></html>';
+        } catch (\Exception $e) {
+            error_log('Contract preview error: ' . $e->getMessage());
+            http_response_code(500);
+            echo "Erreur interne.";
+        }
+    }
+
     public function verifyPayment() {
         if (!$this->requireClient()) return;
         try {

@@ -16,6 +16,8 @@ if (preg_match('#^/api(/|$)#', $uri)) {
     $router->post('/api/souscription', 'SubscriptionController@process');
     $router->post('/api/signature', 'SubscriptionController@finalize');
     $router->post('/api/paiement/verifier', 'SubscriptionController@verifyPayment');
+    // L018 — aperçu HTML intégral du contrat (client propriétaire ou admin)
+    $router->get('/api/contract/preview', 'SubscriptionController@preview');
     $router->post('/api/login', 'AuthController@login');
     $router->post('/api/logout', 'AuthController@logout');
     $router->post('/api/register', 'AuthController@register');

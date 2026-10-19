@@ -218,9 +218,9 @@
       "id": "L016",
       "title": "SEO continu: JSON-LD Organization+WebSite+LocalBusiness, sitemap complet, metriques perf — objectif 1re page Google 'fedpawa'",
       "priority": "P1",
-      "status": "in_progress",
+      "status": "done",
       "created_at": "2026-10-19 11:32:35 UTC",
-      "last_update": "2026-10-19 13:00:56 UTC",
+      "last_update": "2026-10-19 13:43:40 UTC",
       "agent": "inconnu",
       "claimed_at": "2026-10-19 11:32:47 UTC",
       "context_file": "/root/Fedpawa/state/ctx-L016.md",
@@ -228,7 +228,7 @@
         "/root/Fedpawa/fedpawa_light/templates/pages/home.php",
         "/root/Fedpawa/fedpawa_light/templates/partials/site-header.php"
       ],
-      "summary": null
+      "summary": "SEO: JSON-LD Organization+WebSite global + LocalBusiness home (données réelles Logpom/RCCM/NIU), sitemap complet 20 URLs, 20/20 pages avec JSON-LD valide"
     },
     {
       "id": "L017",

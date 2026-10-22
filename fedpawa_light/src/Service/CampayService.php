@@ -5,12 +5,19 @@ class CampayService {
     private string $baseUrl;
     private string $username;
     private string $password;
+    private ?string $permanentToken;
 
     public function __construct() {
-        // Use demo url
-        $this->baseUrl = 'https://demo.campay.net';
-        $this->username = getenv('CAMPAY_USER') ?: 'test_user';
-        $this->password = getenv('CAMPAY_PASSWORD') ?: 'test_pass';
+        // L023 : mode piloté par env — demo (sandbox) ou live (prod www.campay.net)
+        $mode = fedpawa_env('CAMPAY_MODE', 'demo');
+        $this->baseUrl = ($mode === 'live')
+            ? 'https://www.campay.net'
+            : 'https://demo.campay.net';
+        $this->username = fedpawa_env('CAMPAY_USER', 'test_user');
+        $this->password = fedpawa_env('CAMPAY_PASSWORD', 'test_pass');
+        // L023 : token permanent (APP KEYS du dashboard Campay) — prioritaire sur username/password
+        $tok = fedpawa_env('CAMPAY_TOKEN', '');
+        $this->permanentToken = $tok !== '' ? $tok : null;
     }
 
     private function log(string $message) {
@@ -50,6 +57,8 @@ class CampayService {
     }
 
     public function getToken(): string {
+        // L023 : token permanent fourni (APP KEYS) → pas d'appel /api/token nécessaire
+        if ($this->permanentToken !== null) return $this->permanentToken;
         $data = $this->curl('/api/token', 'POST', [
             'username' => $this->username,
             'password' => $this->password
@@ -59,8 +68,10 @@ class CampayService {
 
     public function collect(float $amount, string $phone, string $reference) {
         $token = $this->getToken();
+        // L023 : conforme doc Campay — amount en entier (string), currency XAF, from = msisdn client
         $response = $this->curl('/api/collect', 'POST', [
-            'amount' => $amount,
+            'amount' => (string)(int)round($amount),
+            'currency' => 'XAF',
             'from' => $phone,
             'description' => 'Paiement ' . $reference,
             'external_reference' => $reference
@@ -73,5 +84,13 @@ class CampayService {
     public function checkStatus(string $transactionId) {
         $token = $this->getToken();
         return $this->curl('/api/transaction/' . $transactionId, 'GET', [], $token);
+    }
+
+    // L023 : numéros marchands de réception (config env, exposition future — jamais codés en dur)
+    public static function merchantNumbers(): array {
+        return [
+            'orange' => fedpawa_env('CAMPAY_ORANGE', '237691704802'),
+            'mtn' => fedpawa_env('CAMPAY_MTN', '237650863195'),
+        ];
     }
 }

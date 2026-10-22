@@ -1,5 +1,5 @@
 {
-  "seq": 22,
+  "seq": 23,
   "lanes": [
     {
       "id": "L001",
@@ -310,6 +310,19 @@
       "context_file": "/root/Fedpawa/state/ctx-L022.md",
       "artifacts": [],
       "summary": "Contrat rempli depuis le formulaire (placeholders substitués partout: preview, download, PDF signé) + téléchargeable AVANT signature + mention lecture attentive — fait par orchestrateur"
+    },
+    {
+      "id": "L023",
+      "title": "Campay: mode demo/live piloté env + token direct CAMPAY_TOKEN + tests sandbox + préparation live",
+      "priority": "P2",
+      "status": "in_progress",
+      "created_at": "2026-10-22 12:21:49 UTC",
+      "last_update": "2026-10-22 13:08:09 UTC",
+      "agent": "inconnu",
+      "claimed_at": "2026-10-22 12:23:55 UTC",
+      "context_file": null,
+      "artifacts": [],
+      "summary": null
     }
   ]
 }

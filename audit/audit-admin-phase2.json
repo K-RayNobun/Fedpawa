@@ -1,0 +1,12 @@
+{
+  "fatal": "Error: Command failed: python3 -c \"\nimport sqlite3\ndb = sqlite3.connect('/root/fedpawa-data/storage/fedpawa.sqlite')\ndb.execute(\\\"INSERT INTO kyc (client_id, type, statut, date_soumission) SELECT 133, 'test-audit', 'en_attente', datetime('now') WHERE NOT EXISTS (SELECT 1 FROM kyc WHERE type='test-audit')\\\")\ndb.commit()\nprint(db.execute(\\\"SELECT id FROM kyc WHERE type='test-audit'\\\").fetchone()[0])\n\"\nTraceback (most recent call last):\n  File \"<string>\", line 4, in <module>\nsqlite3.OperationalError: table kyc has no column named type\n",
+  "score": 2,
+  "findings": [
+    {
+      "sev": 2,
+      "pts": 2,
+      "title": "Toggles « Configuration Système » purement décoratifs",
+      "evidence": "Mode Maintenance cliqué → bascule visuelle mais ZÉRO appel API (aucune persistance serveur). L'admin croit couper le tunnel de souscription."
+    }
+  ]
+}

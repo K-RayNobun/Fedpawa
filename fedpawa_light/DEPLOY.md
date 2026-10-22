@@ -34,8 +34,14 @@ Le dossier `storage/` (base SQLite, logs, uploads, backups, documents) est hors 
 ```env
 APP_DEBUG=false            # true uniquement en développement local
 CRON_SECRET=<chaîne aléatoire longue>
-CAMPAY_USER=<identifiants demo Campay>
-CAMPAY_PASSWORD=<mot de passe demo Campay>
+CAMPAY_ENABLED=1              # active les appels réels Campay (0 = mode démo auto-confirmé)
+CAMPAY_MODE=live              # demo (sandbox demo.campay.net) ou live (www.campay.net)
+CAMPAY_TOKEN=<token permanent APP KEYS du dashboard Campay — OU CAMPAY_USER/CAMPAY_PASSWORD ci-dessous>
+CAMPAY_ORANGE=237691704802    # numéro marchand de réception Orange Money
+CAMPAY_MTN=237650863195      # numéro marchand de réception MTN MoMo
+# Alternatif au token permanent (renouvelable via /api/token) :
+CAMPAY_USER=<identifiants app Campay>
+CAMPAY_PASSWORD=<mot de passe app Campay>
 SMTP_HOST=...
 SMTP_USER=...
 SMTP_PASS=...

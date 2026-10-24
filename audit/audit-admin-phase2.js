@@ -96,9 +96,9 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
   execSync(`python3 -c "
 import sqlite3
 db = sqlite3.connect('/root/fedpawa-data/storage/fedpawa.sqlite')
-db.execute(\\"INSERT INTO kyc (client_id, type, statut, date_soumission) SELECT 133, 'test-audit', 'en_attente', datetime('now') WHERE NOT EXISTS (SELECT 1 FROM kyc WHERE type='test-audit')\\")
+db.execute(\\"INSERT INTO kyc (client_id, statuts, date_soumission) SELECT 133, 'en_attente', datetime('now')\\")
 db.commit()
-print(db.execute(\\"SELECT id FROM kyc WHERE type='test-audit'\\").fetchone()[0])
+print(db.execute(\\"SELECT id FROM kyc WHERE client_id=133 AND statuts='en_attente' ORDER BY id DESC LIMIT 1\\").fetchone()[0])
 "`);
   await page.evaluate(() => switchTab('kyc'));
   await sleep(1200);
@@ -118,14 +118,14 @@ print(db.execute(\\"SELECT id FROM kyc WHERE type='test-audit'\\").fetchone()[0]
       await page.evaluate(() => { const pend = [...document.querySelectorAll('#tab-kyc tbody tr')].filter(tr => /en attente|en_cours/i.test(tr.innerText)); const b = [...pend[0].querySelectorAll('button, a')].find(b => /approuv/i.test(b.innerText)); b && b.click(); });
       await sleep(1500);
       const stillPending = await page.evaluate(() => [...document.querySelectorAll('#tab-kyc tbody tr')].filter(tr => /en attente/i.test(tr.innerText)).length);
-      const dbStatut = execSync(`python3 -c "import sqlite3; db=sqlite3.connect('/root/fedpawa-data/storage/fedpawa.sqlite'); print(db.execute(\\"SELECT statut FROM kyc WHERE type='test-audit'\\").fetchone()[0])"`).toString().trim();
+      const dbStatut = execSync(`python3 -c "import sqlite3; db=sqlite3.connect('/root/fedpawa-data/storage/fedpawa.sqlite'); print(db.execute(\\"SELECT statuts FROM kyc WHERE client_id=133 ORDER BY id DESC LIMIT 1\\").fetchone()[0])"`).toString().trim();
       console.log('après clic Approuver: lignes en_attente restantes=', stillPending, '| statut base=', dbStatut);
-      if (dbStatut !== 'approuvé') add(3, 'Bouton Approuver KYC sans effet en base', `clic réel → statut base reste « ${dbStatut} » (attendu: approuvé)`);
+      if (dbStatut !== 'approuv\u00e9') add(3, 'Bouton Approuver KYC sans effet en base', `clic réel → statut base reste « ${dbStatut} » (attendu: approuvé)`);
       else console.log('approuver KYC fonctionne ✓');
     }
   }
   // purge du dossier test:
-  execSync(`python3 -c "import sqlite3; db=sqlite3.connect('/root/fedpawa-data/storage/fedpawa.sqlite'); db.execute(\\"DELETE FROM kyc WHERE type='test-audit'\\"); db.commit()"`);
+  execSync(`python3 -c "import sqlite3; db=sqlite3.connect('/root/fedpawa-data/storage/fedpawa.sqlite'); db.execute(\\"DELETE FROM kyc WHERE client_id=133 AND piece_identite IS NULL AND description_activite IS NULL AND justificatif_domicile IS NULL AND statuts='approuvé' AND id=(SELECT MAX(id) FROM kyc WHERE client_id=133)\\"); db.commit()"`);
   console.log('purge KYC test ✓');
 
   // ===== 4. TICKETS: bouton Répondre (flux réel admin) =====

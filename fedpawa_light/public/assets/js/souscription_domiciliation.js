@@ -98,55 +98,56 @@
 
   showStep(1);
 
-  /* ---------- Smart-detection: pas encore immatriculé -> proposer la création ---------- */
+  /* ---------- Smart-detection — RÉSERVÉE AU FLUX DOMICILIATION ----------
+     Le modal « besoin de création d'entreprise » n'est actif que sur cette page.
+     Case « pas de RCCM/NIU » cochée => modal affiché ET progression toujours bloquée
+     (étape suivante via domNext + soumission du formulaire). */
   const optNoImmat = document.getElementById('opt-no-immat');
   const smartOverlay = document.getElementById('smart-modal-overlay');
   if (optNoImmat && smartOverlay) {
     const smartText = document.getElementById('smart-modal-text');
     const noBtn = document.getElementById('smart-modal-no');
     const yesBtn = document.getElementById('smart-modal-yes');
+
+    const showSmartModal = () => {
+      smartText.innerText = "Nous avons détecté que votre entreprise n'est pas encore immatriculée (pas de RCCM / NIU). Bonne nouvelle : FEDPAWA prend en charge la création complète — statuts, RCCM, NIU et Kit Corporate — pour que votre domiciliation démarre sur des bases solides.";
+      smartOverlay.style.display = 'flex';
+    };
+
     optNoImmat.addEventListener('change', () => {
       if (optNoImmat.checked) {
-        // Remove the helper text below the checkbox
         const prev = optNoImmat.parentNode.querySelector('small');
         if (prev) prev.remove();
-        // Show the modal immediately
-        smartText.innerText = "Nous avons détecté que votre entreprise n'est pas encore immatriculée (pas de RCCM / NIU). Bonne nouvelle : FEDPAWA prend en charge la création complète — statuts, RCCM, NIU et Kit Corporate — pour que votre domiciliation démarre sur des bases solides.";
-        smartOverlay.style.display = 'flex';
-        // NB: pas de disabled ici — le client peut décocher pour revenir en arrière;
-        // le blocage réel est fait par l'intercepteur de submit (ci-dessous).
+        showSmartModal();
+      } else {
+        smartOverlay.style.display = 'none';
       }
     });
-    // Non button: show loader then block + redirect
-    noBtn.onclick = async () => {
-      noBtn.disabled = true;
-      noBtn.innerHTML = '<span class="loader">⟳</span> Traitement...';
-      // Simulate 333ms loader
-      await new Promise(r => setTimeout(r, 333));
-      noBtn.style.display = 'none';
-      // Show the blocked state text
-      smartText.innerText = "Vous ne pouvez pas poursuivre la souscription sans avoir créé votre entreprise. La création d'entreprise est une étape préalable — FEDPAWA l'assure de A à Z (statuts, RCCM, NIU, Kit Corporate).";
-      // Add CTA button
-      const ctaBtn = document.createElement('button');
-      ctaBtn.type = 'button';
-      ctaBtn.className = 'btn btn-primary';
-      ctaBtn.style.marginTop = '10px';
-      ctaBtn.textContent = 'Compris';
-      ctaBtn.onclick = () => {
-        window.location.href = 'creation_entreprise.php';
-      };
-      // Replace noBtn with CTA
-      noBtn.parentNode.replaceChild(ctaBtn, noBtn);
-      smartOverlay.style.display = 'flex';
-      // Blocage réel: tant que la case "pas encore immatriculé" est cochée, la soumission est interceptée
-      const blockSubmit = (e) => {
-        if (optNoImmat.checked) { e.preventDefault(); return false; }
-      };
-      form.addEventListener('submit', blockSubmit, true);
+
+    // Blocage permanent : tant que la case est cochée, aucune progression
+    const blockProgress = (e) => {
+      if (optNoImmat.checked) {
+        e.preventDefault();
+        e.stopPropagation();
+        showSmartModal();
+        return false;
+      }
     };
+    form.addEventListener('submit', blockProgress, true);
+    const origDomNext = window.domNext;
+    if (typeof origDomNext === 'function') {
+      window.domNext = function () {
+        if (optNoImmat.checked) { showSmartModal(); return; }
+        return origDomNext();
+      };
+    }
+
+    // Bouton « Non merci » : renvoie vers la page du service Domiciliation
+    noBtn.onclick = () => { window.location.href = 'souscription_domiciliation.php'; };
+    // Bouton « Oui » : page Création d'entreprise
     yesBtn.onclick = () => { window.location.href = 'creation_entreprise.php'; };
-    // Modal PERSISTANT (L015): pas de fermeture par clic hors modal, ni par Escape,
-    // uniquement via les boutons d'action.
+
+    // Modal persistant : pas de fermeture par clic hors modal, ni par Escape
     const swallow = (e) => { e.stopPropagation(); e.preventDefault(); };
     smartOverlay.addEventListener('click', (e) => {
       if (e.target === smartOverlay) swallow(e);

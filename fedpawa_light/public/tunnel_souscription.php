@@ -48,12 +48,6 @@ $__testMode = $__isSuperAdmin && !$__isWww;
                     <p>Renseignez les données nécessaires à la constitution de votre dossier juridique.</p>
                   </div>
 
-                  <div id="smart-banner" style="display: none; margin-bottom: 20px; padding: 14px 16px; border-radius: 10px; border: 1px solid var(--color-primary); background: var(--color-bg-alt); font-size: 0.9rem; line-height: 1.5;">
-                    <span id="smart-banner-text"></span>
-                    <a id="smart-banner-link" href="#" style="font-weight: 700; white-space: nowrap;">Découvrir →</a>
-                    <button type="button" onclick="document.getElementById('smart-banner').style.display='none'" style="float: right; background: none; border: none; font-size: 1rem; cursor: pointer; color: var(--color-text-muted); padding: 0 4px;">✕</button>
-                  </div>
-
                   <!-- === CRÉATION === -->
                   <div class="form-block" id="form-creation" style="display: none;">
                     <div class="form-section">
@@ -113,7 +107,7 @@ $__testMode = $__isSuperAdmin && !$__isWww;
                         <div class="form-group"><label>NIU <em class="req">*</em></label><input type="text" class="form-control" required></div>
                       <div class="form-group" style="background: var(--color-bg-alt); padding: 12px 14px; border-radius: 8px; border: 1px dashed var(--color-border);">
                         <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; text-transform: none; letter-spacing: 0; font-weight: 500; cursor: pointer; margin-bottom: 4px;">
-                          <input type="checkbox" id="opt-no-niu-fiscal" data-smart-signal="strong" data-smart-from="fiscalite" style="margin-top: 3px;">
+                          <input type="checkbox" id="opt-no-niu-fiscal" style="margin-top: 3px;">
                           <span>Je n'ai pas encore de NIU — mon entreprise n'est pas encore immatriculée</span>
                         </label>
                       </div>
@@ -125,7 +119,7 @@ $__testMode = $__isSuperAdmin && !$__isWww;
                     <div class="form-section">
                       <h2 class="form-section-title"><span class="form-section-num">2F</span> Sa situation fiscale</h2>
                       <div class="form-row">
-                        <div class="form-group"><label>Régime actuel <em class="req">*</em></label><select class="form-control" required id="regime-fiscal" data-plan-select required><option value="simplifie">Régime Simplifié</option><option value="reel">Régime du Réel</option><option value="simplifie" data-smart-soft="creation">Nouveau / Non attribué</option></select></div>
+                        <div class="form-group"><label>Régime actuel <em class="req">*</em></label><select class="form-control" required id="regime-fiscal" data-plan-select required><option value="simplifie">Régime Simplifié</option><option value="reel">Régime du Réel</option><option value="simplifie">Nouveau / Non attribué</option></select></div>
                         <div class="form-group"><label>Centre des impôts <em class="req">*</em></label><select class="form-control" required><option>CIME</option><option>CDI</option><option>DGE</option></select></div>
                       </div>
                       <div class="form-row">
@@ -136,10 +130,10 @@ $__testMode = $__isSuperAdmin && !$__isWww;
                     <hr class="form-divider">
                     <div class="form-section">
                       <h2 class="form-section-title"><span class="form-section-num">2G</span> Le périmètre souhaité</h2>
-                      <div class="checkbox-line"><input type="checkbox" class="form-check-input" data-smart-soft="fiscalite"> Déclarations mensuelles (TVA, acomptes, retenues, salaires)</div>
-                      <div class="checkbox-line"><input type="checkbox" class="form-check-input" data-smart-soft="fiscalite"> DSF annuelle</div>
-                      <div class="checkbox-line"><input type="checkbox" class="form-check-input" data-smart-soft="fiscalite"> Suivi ACF</div>
-                      <div class="checkbox-line"><input type="checkbox" class="form-check-input" data-smart-soft="fiscalite"> Veille réglementaire</div>
+                      <div class="checkbox-line"><input type="checkbox" class="form-check-input"> Déclarations mensuelles (TVA, acomptes, retenues, salaires)</div>
+                      <div class="checkbox-line"><input type="checkbox" class="form-check-input"> DSF annuelle</div>
+                      <div class="checkbox-line"><input type="checkbox" class="form-check-input"> Suivi ACF</div>
+                      <div class="checkbox-line"><input type="checkbox" class="form-check-input"> Veille réglementaire</div>
                     </div>
                     <hr class="form-divider">
                     <div class="form-section">
@@ -195,7 +189,7 @@ $__testMode = $__isSuperAdmin && !$__isWww;
                   <div class="form-block" id="form-contrats" style="display: none;">
                     <div class="form-section">
                       <h2 class="form-section-title"><span class="form-section-num">2K</span> Le besoin</h2>
-                      <div class="form-group"><label>Catégorie <em class="req">*</em></label><select class="form-control" required id="contrat-type" required><option value="commercial">Commercial / prestation</option><option value="travail">Prestation / travail</option><option value="social">Social</option><option value="NDA">NDA</option><option value="bail" data-smart-soft="domiciliation">Bail / Location</option><option value="statuts" data-smart-soft="creation">Statuts & pactes d'associés</option><option value="audit">Audit d'un contrat existant</option><option value="archivage">Archivage cloud</option></select></div>
+                      <div class="form-group"><label>Catégorie <em class="req">*</em></label><select class="form-control" required id="contrat-type" required><option value="commercial">Commercial / prestation</option><option value="travail">Prestation / travail</option><option value="social">Social</option><option value="NDA">NDA</option><option value="bail">Bail / Location</option><option value="statuts">Statuts & pactes d'associés</option><option value="audit">Audit d'un contrat existant</option><option value="archivage">Archivage cloud</option></select></div>
                       <div class="form-textarea"><label>Situation décrite en synthèse <em class="req">*</em></label><textarea class="form-control" required rows="3" placeholder="Synthèse de la situation ou du contrat à sécuriser"></textarea></div>
                       <div class="form-group"><label>Formule tarifaire <em class="req">*</em></label><select class="form-control" required id="contrat-formule" data-plan-select required>
                         <option value="standard">Standard — 50 000 FCFA HT</option>
@@ -208,10 +202,10 @@ $__testMode = $__isSuperAdmin && !$__isWww;
                       <h2 class="form-section-title"><span class="form-section-num">2L</span> Le document</h2>
                       <div class="form-group"><label>Type précis <em class="req">*</em></label><input type="text" class="form-control" required placeholder="Ex: CDI / Bail / CGV-CGU"></div>
                       <div class="form-group"><label>Langue <em class="req">*</em></label><select class="form-control" required><option value="fr">FR</option><option value="en">EN</option></select></div>
-                      <div class="checkbox-line"><input type="checkbox" class="form-check-input" data-smart-signal="strong" data-smart-from="contrats"> Non concurrence</div>
-                      <div class="checkbox-line"><input type="checkbox" class="form-check-input" data-smart-signal="strong" data-smart-from="contrats"> NDA strict</div>
-                      <div class="checkbox-line"><input type="checkbox" class="form-check-input" data-smart-signal="strong" data-smart-from="contrats"> Dédit formation</div>
-                      <div class="checkbox-line"><input type="checkbox" class="form-check-input" data-smart-signal="strong" data-smart-from="contrats"> Pénalités</div>
+                      <div class="checkbox-line"><input type="checkbox" class="form-check-input"> Non concurrence</div>
+                      <div class="checkbox-line"><input type="checkbox" class="form-check-input"> NDA strict</div>
+                      <div class="checkbox-line"><input type="checkbox" class="form-check-input"> Dédit formation</div>
+                      <div class="checkbox-line"><input type="checkbox" class="form-check-input"> Pénalités</div>
                     </div>
                     <hr class="form-divider">
                     <div class="form-section" id="contrats-audit-conditionnel" style="display: none;">
@@ -498,7 +492,7 @@ $__testMode = $__isSuperAdmin && !$__isWww;
               </div>
             </label>
 
-            <label class="selectable-card option-card" data-name="Assistance à la création / Immatriculation d'entreprise" data-price="0" id="opt-assistance-creation" data-smart-signal="strong" data-smart-from="options">
+            <label class="selectable-card option-card" data-name="Assistance à la création / Immatriculation d'entreprise" data-price="0" id="opt-assistance-creation">
               <input type="checkbox" onchange="toggleOption(this)" style="display: none;">
               <div style="display: flex; justify-content: space-between; align-items: center;">
                 <div>
@@ -622,20 +616,8 @@ $__testMode = $__isSuperAdmin && !$__isWww;
     </div>
   </div>
 
-  <!-- ============ MODAL DÉTECTION SMART — BESOIN DE CRÉATION D'ENTREPRISE ============ -->
-  <div id="smart-modal-overlay" style="display: none; position: fixed; inset: 0; background: rgba(8,12,24,0.55); backdrop-filter: blur(2px); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 20px;">
-    <div id="smart-modal" role="dialog" aria-modal="true" style="background: var(--color-bg-main); border-radius: 14px; max-width: 520px; width: 100%; padding: 28px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); border: 1px solid var(--color-border);">
-      <div style="width: 54px; height: 54px; border-radius: 50%; background: var(--color-primary); display: grid; place-items: center; margin-bottom: 16px;">
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2l2.4 7.2H22l-6 4.8 2.4 7.2-6-4.8-6 4.8L8.8 14 2.8 9.2h7.6z"/></svg>
-      </div>
-      <h3 style="font-size: 1.25rem; margin-bottom: 10px;">Création d'entreprise recommandée 🎯</h3>
-      <p id="smart-modal-text" style="font-size: 0.92rem; color: var(--color-text-muted); line-height: 1.55; margin-bottom: 22px;"></p>
-      <div style="display: flex; flex-direction: column; gap: 10px;">
-        <button type="button" id="smart-modal-yes" class="btn btn-primary" style="width: 100%;">🚀 Oui, découvrir la Création d'Entreprise</button>
-        <button type="button" id="smart-modal-no" class="btn btn-outline" style="width: 100%;">Non merci, continuer ma souscription actuelle</button>
-      </div>
-    </div>
-  </div>
+  <!-- Le modal « détection besoin de création d'entreprise » est volontairement ABSENT de ce tunnel :
+       il n'est actif que sur le flux Domiciliation (souscription_domiciliation.php). -->
 
 <script>
 // Synchroniser le total du tableau Étape 5 avec le total du sidebar

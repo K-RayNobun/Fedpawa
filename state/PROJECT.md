@@ -57,3 +57,67 @@ W-2 hreflang /en/ 404 · W-9 statut abonnement incohérent · W-10 aucune factur
 1. Token GitHub à fournir → pousser `f89e538`.
 2. Feu vert pour corriger S-2/S-3 (le paiement mensonger) — correction proposée, pas encore implémentée.
 3. SEC-S4-1 (OTP exposé) : critique si SMTP réel, à planifier.
+
+
+## 2026-10-29 20:59 UTC — Nouvelle pile applicative : app.fedpawa.com (lane L024, TERMINÉE)
+
+**Rôle** : l'application convertie (frontend Next.js + API Laravel) est servie sur `app.fedpawa.com`, en parallèle du site PHP historique qui reste sur www/api — aucune bascule, l'ancien n'a pas bougé.
+
+- **API Laravel** : conteneur `fedpawa-app-api`, image `php:8.5-cli`, dépôt `/root/fedpawa-api` monté sur `/app`, `php artisan serve` sur `127.0.0.1:8000`.
+  - `.env` modifié (sauvegarde `.env.bak-<date>`) : APP_ENV=production, APP_URL=https://app.fedpawa.com, SANCTUM_STATEFUL_DOMAINS=app.fedpawa.com,localhost,localhost:3000,127.0.0.1:8000, SESSION_SECURE_COOKIE=true.
+  - Piège : php:8.3-cli échoue (`vendor/composer/platform_check.php`) — le vendor est compilé pour PHP 8.5. Utiliser php:8.5-cli.
+  - Limite connue : `artisan serve` est mono-processus (pas de concurrence). À passer en php-fpm/Apache si la charge devient réelle.
+- **Frontend Next.js** : conteneur `fedpawa-next`, image `fedpawa-next:prod` (Dockerfile mono-étage node:22-alpine créé en L024), `127.0.0.1:3000`. `NEXT_PUBLIC_API_URL=https://app.fedpawa.com` **inliné au build** — changer cette valeur exige un rebuild de l'image.
+- **Caddy** : bloc `app.fedpawa.com` — `/api/*`, `/sanctum/*`, `/up` → `127.0.0.1:8000` ; le reste → `127.0.0.1:3000`. Sauvegarde : `/etc/caddy/Caddyfile.bak-20261029-app`.
+  - Tant que le DNS n'existe pas, le bloc est servi en `http://app.fedpawa.com` (port 80) pour permettre la vérification locale ; l'ACME échoue en NXDOMAIN (comportement attendu).
+- **Bascule HTTPS** : `/root/fedpawa-deploy/switch-app-https.sh` — refuse de tourner si `dig +short A app.fedpawa.com` est vide, sinon retire le préfixe `http://`, recharge Caddy, attend le certificat et teste `/up`, `/api/user`, `/`.
+- **Surveillance** : `/root/fedpawa-deploy/health-app.sh` + cron toutes les 5 min → `logs/health-app.log` (api, frontend, URL publique dès qu'elle existe).
+- **Verrou connu** : aucun enregistrement DNS pour `app.fedpawa.com` (zone Cloudflare, pas de jeton sur le VPS). À créer : `A app.fedpawa.com → 206.72.195.234`, proxifié.
+
+
+## 2026-10-29 21:08 UTC — app.fedpawa.com EN LIGNE (HTTPS) + campagne de test lancee
+
+- **DNS cree par l'utilisateur**, puis bascule automatique via `/root/fedpawa-deploy/switch-app-https.sh` : certificat **Let's Encrypt** obtenu (subject CN=app.fedpawa.com, issuer CN=YE2), Caddy recharge.
+- Verifications reelles : `https://app.fedpawa.com/up` 200, `/api/user` 401, `/` 200 ; test navigateur (Playwright) : accueil FR servi, `/authentification` = « Espace Client », **service worker PWA enregistre** (le HTTPS active enfin la PWA), aucune reponse >= 400, trafic passe au travers de Cloudflare sans blocage.
+- Note pour plus tard : le bloc Caddy de prod sert desormais en HTTPS automatique ; le bloc de test `http://app-test.fedpawa.com` reste en HTTP avec base isolee.
+
+### Campagne de test de l'app convertie (workspace `/root/fedpawa-campagne/`)
+- `BRIEF.md` = contrat commun ; `ctx-S1-processus.md` et `ctx-S2-details.md` = mandats des deux superviseurs.
+- Superviseurs lances (lane L025 inventaire des parcours, L026 inventaire des details page par page), delegation `deleg_01acfed1`.
+- **Harnais de navigation humaine teste et fonctionnel** : `/root/fedpawa-campagne/outils/human_browser.py` — profil persistant, cadence humaine, captures, journal horodate, reseau, console, telechargements. Piege resolu : le cache Chromium de Playwright (revisions 1234/1243) ne correspond pas a la version installee (qui reclame 1248) → `executable_path` explicite dans le harnais.
+- Deux surfaces de test :
+  1. `https://app.fedpawa.com` — fidelite maximale (HTTPS, cookies Secure, service worker, Cloudflare), **base de production** : n'y creer que des donnees de test identifiables, purgeables par identifiant exact.
+  2. `http://app-test.fedpawa.com` — base isolee `/root/fedpawa-test/database.sqlite`, pile de test (conteneurs `fedpawa-app-api-test` :8001 et `fedpawa-next-test` :3001) : surface des tests destructifs/bulletproof.
+- Skills ecrits pour ce type de mission (reutilisables sur d'autres sites) : `test-surface-inventory`, `human-simulation-e2e`, `bulletproof-page-audit`.
+
+
+## 2026-10-29 22:16 UTC — Campagne de test de l'app convertie : RESULTATS (lanes L025-L029, toutes terminees)
+
+Livrables : `/root/fedpawa-campagne/rapports/{SYNTHESE-CAMPAGNE.md,SYNTHESE-CAMPAGNE.pdf,BULLET-A-PUBLIC.md,BULLET-B-AUTH.md,PARCOURS-1-DOMICILIATION.md}`, inventaires dans `surface/{PROCESSUS.md,MATRICE-VERIFICATION.md}`, preuves dans `preuves/`.
+
+**Verdict : l'app est solide là où c'est difficile, mais inutilisable par un vrai client aujourd'hui — deux verrous non liés au code.**
+1. `MAIL_MAILER=log` en production : aucun email ne part. Conséquence : les 108 codes OTP sont écrits en clair dans `storage/logs/laravel.log` (vérifié) → signature de contrat impossible pour un client, et signature possible par quiconque lit le serveur. **Réparable immédiatement : brancher le serveur mail déjà en place (contact@ / mme.law@fedpawa.com) et supprimer l'écriture du code dans les logs.**
+2. Paiement non configuré : `POST /api/v1/souscription` → 503 payment_unavailable. Le tunnel va jusqu'à la facture proforma, puis plus rien (ni contrat, ni facture, ni reçu).
+
+**Autres défauts vérifiés** : énumération de comptes sur `otp/verify` (404 « Client introuvable » vs 400) ; aucune limitation de tentatives sur la branche admin du login (10 essais, aucun 429, aucune ligne login_throttle) ; XSS stocké dans le formulaire de contact ; CGU et confirmation de mot de passe non exigées côté serveur ; double soumission non idempotente (contact 2 lignes, souscription 6 abonnements) ; téléphone `abc` accepté en souscription ; upload 11 Mo → 200 text/html avec warning PHP brut ; 2 liens `.php` morts sur les pages légales ; changement d'email → dashboard 401 ; pas de déconnexion visible dans l'espace client.
+
+**Ce qui marche vraiment** : gardes d'accès solides (**15 tentatives d'IDOR, 0 défaut** ; 401 anonyme / 403 client sur les 10 endpoints admin), parcours inscription → connexion → espace client (8 onglets) sans erreur, tunnel 6 étapes avec téléversements réels, facture proforma cohérente, persistance de session, page 404 custom, service worker PWA enregistré sur le domaine réel, continuité d'un second service.
+
+**Erreur d'orchestration corrigée** : l'isolation de la base de test n'a jamais fonctionné (`php artisan serve` ne propage pas les variables du conteneur → écriture dans la base de PRODUCTION). Corrigé par une copie de dépôt dédiée + `.env` propre (vérifié empiriquement). Lignes de campagne purgées par identifiant exact après sauvegarde (`backups/database-prod-*.sqlite`).
+
+**Non testé** : parcours admin (mot de passe admin inconnu), rendu du XSS stocké (même raison), paiement/webhook Campay, réception réelle d'emails, signature OTP, documents finaux.
+
+
+## 2026-10-30 01:24 UTC — Signature électronique des contrats : chaîne opposable implémentée et vérifiée
+
+Décisions de K Ray : **cachet Fedpawa** (notre certificat, pas celui du prestataire) et **relais SMTP authentifié sur le 587** pour la remise des codes (le port 25 sortant est bloqué par l'hébergeur — vérifié : aucune connexion vers un MX public ; le 587 sort, lui). Défauts retenus pour les trois questions non répondues : contrat généré par l'app (+ possibilité de pointer un PDF importé), KYC approuvé + code vérifié + consentement horodaté, horloge serveur + ancrage d'empreinte.
+
+**Ce qui est fait et vérifié** (dans la copie isolée `fedpawa-api-test`, production intacte) :
+- Autorité de certification Fedpawa (`Fedpawa Root CA` + certificat de scellement, usage Digital Signature + Non Repudiation, EKU document signing), outils `pki.sh`, `sceller.py`, `verifier.py`, `tamponner.py`.
+- Chaîne complète : porte d'identité serveur (KYC approuvé + OTP 6 chiffres TTL 10 min + consentement + IP/agent) → composition du contrat → tampon visible → **scellement PAdES Fedpawa** → empreintes SHA-256 → journal en ajout seul (triggers SQLite bloquant UPDATE/DELETE) → dossier de preuve PDF 4 pages.
+- Endpoints : POST /api/v1/signature/dossier, /otp, /signer ; GET /signature/dossier/ID, /contrat.pdf, /preuve.pdf (propriété vérifiée : 403/404 pour autrui, 401 anonyme, admin OK).
+- Preuves réelles : 27/27 assertions, PDF scellé valide/intact/de confiance ENTIRE_FILE, **altération d'un octet détectée**, refus 403 sans KYC, 400 sans/faux OTP, 400 sans consentement, OTP livré par SMTP local et lu par IMAP, 0 code OTP en clair dans les logs. Documents : `signature/{ARCHITECTURE-SIGNATURE,DOCS-CRAFTMYPDF,RAPPORT-IMPL-SIGNATURE}.md`, preuves dans `signature/tests/`.
+
+**CraftMyPDF — verdict honnête** : leur eSignature délègue à Documenso (niveau eIDAS SES), le cachet est au nom de leur instance, le PDF signé et la piste d'audit ne sont pas récupérables par API, et chaque enveloppe coûte 10 crédits sur les 50 du plan gratuit (**5 contrats signés/mois maximum**). Leurs opérations PDF simples (ajout de texte, fusion) coûtent 0,5 crédit (≈100/mois) — c'est le seul usage où l'offre est exploitable. **Compte non créé : l'inscription exige un reCAPTCHA v2 vérifié côté serveur** et il n'existe aucun endpoint de création de compte ; la saisie d'un mot de passe dans un formulaire navigateur m'est interdite. Endpoints confirmés existants par réponses réelles (400 Invalid API Key). Mot de passe préparé en chmod 600, boîte contrats@fedpawa.com opérationnelle (IMAP testé).
+
+**Reste à faire** : UI client de signature (en cours, lane L033), relais SMTP 587 à choisir et brancher, promotion de la chaîne en production (migration + .env + endpoints), PDF de contrat officiel si différent de celui que l'app génère aujourd'hui.

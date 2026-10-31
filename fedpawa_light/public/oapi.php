@@ -5,6 +5,14 @@ $active = 'oapi';
 $extraCss = ['assets/css/pages.css?v=3'];
 
 include __DIR__ . '/../templates/partials/site-header.php';
+
+$serviceSeo = [
+    'name'        => 'Enregistrement de marques, logos, applications et logiciels auprès de l\'OAPI',
+    'description' => $description,
+    'url'         => 'https://www.fedpawa.com/oapi.php',
+    'serviceType' => 'Protection de la propriété intellectuelle (OAPI)',
+];
+include __DIR__ . '/../templates/partials/seo-service-jsonld.php';
 ?>
   <!-- ============== HERO ============== -->
   <section class="page-hero">

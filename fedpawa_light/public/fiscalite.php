@@ -5,6 +5,14 @@ $active = 'fiscalite';
 $extraCss = ['assets/css/pages.css'];
 
 include __DIR__ . '/../templates/partials/site-header.php';
+
+$serviceSeo = [
+    'name'        => 'Conseil et suivi juridique & fiscal des entreprises',
+    'description' => $description,
+    'url'         => 'https://www.fedpawa.com/fiscalite.php',
+    'serviceType' => 'Conseil fiscal',
+];
+include __DIR__ . '/../templates/partials/seo-service-jsonld.php';
 ?>
   <!-- ============== HERO ============== -->
   <section class="page-hero">

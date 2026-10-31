@@ -5,6 +5,14 @@ $active = 'domiciliation';
 $extraCss = ['assets/css/pages.css'];
 
 include __DIR__ . '/../templates/partials/site-header.php';
+
+$serviceSeo = [
+    'name'        => "Domiciliation d'entreprises à Douala (Logpom)",
+    'description' => $description,
+    'url'         => 'https://www.fedpawa.com/domiciliation.php',
+    'serviceType' => "Domiciliation d'entreprises",
+];
+include __DIR__ . '/../templates/partials/seo-service-jsonld.php';
 ?>
   <!-- ============== HERO ============== -->
   <section class="page-hero">

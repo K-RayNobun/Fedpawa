@@ -5,6 +5,14 @@ $active = 'contrats';
 $extraCss = ['assets/css/pages.css'];
 
 include __DIR__ . '/../templates/partials/site-header.php';
+
+$serviceSeo = [
+    'name'        => 'Rédaction de contrats juridiques (sociaux, commerciaux, de travail, NDAs)',
+    'description' => $description,
+    'url'         => 'https://www.fedpawa.com/contrats.php',
+    'serviceType' => 'Rédaction de contrats',
+];
+include __DIR__ . '/../templates/partials/seo-service-jsonld.php';
 ?>
   <!-- ============== HERO ============== -->
   <section class="page-hero">

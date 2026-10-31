@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /cron.php
 Disallow: /espace_client
 Disallow: /admin_dashboard
 Disallow: /admin_document

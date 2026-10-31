@@ -5,6 +5,14 @@ $active = 'creation';
 $extraCss = ['assets/css/pages.css'];
 
 include __DIR__ . '/../templates/partials/site-header.php';
+
+$serviceSeo = [
+    'name'        => "Création, transformation et légalisation d'entreprises au Cameroun",
+    'description' => $description,
+    'url'         => 'https://www.fedpawa.com/creation_entreprise.php',
+    'serviceType' => "Création d'entreprise",
+];
+include __DIR__ . '/../templates/partials/seo-service-jsonld.php';
 ?>
   <!-- ============== HERO ============== -->
   <section class="page-hero">

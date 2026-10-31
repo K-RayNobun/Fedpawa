@@ -128,6 +128,8 @@ if ($uri !== '/' && $uri !== '/index.php') {
 }
 
 $active = 'index';
+$title = "FEDPAWA CORPORATE SOLUTIONS | Infrastructure d'affaires à Douala, Logpom";
+$description = "FEDPAWA CORPORATE SOLUTIONS — Infrastructure d'affaires et hub opérationnel à Douala, Logpom (Cameroun) : domiciliation, création d'entreprise, fiscalité, OAPI, contrats et espace client 100 % en ligne.";
 include __DIR__ . '/../templates/partials/site-header.php';
 include __DIR__ . '/../templates/pages/home.php';
 include __DIR__ . '/../templates/partials/site-footer.php';

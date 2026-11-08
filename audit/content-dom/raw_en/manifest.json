@@ -1,0 +1,278 @@
+{
+  "pages": [
+    {
+      "page": "index",
+      "side": "php",
+      "status": 200,
+      "url": "http://localhost:8791/en/index.php",
+      "final_url": "http://localhost:8791/en/index.php",
+      "bytes": 21038
+    },
+    {
+      "page": "index",
+      "side": "next",
+      "status": 200,
+      "url": "http://localhost:3000/en",
+      "final_url": "http://localhost:3000/en",
+      "bytes": 38789
+    },
+    {
+      "page": "qui-sommes-nous",
+      "side": "php",
+      "status": 200,
+      "url": "http://localhost:8791/en/qui-sommes-nous.php",
+      "final_url": "http://localhost:8791/en/qui-sommes-nous.php",
+      "bytes": 28532
+    },
+    {
+      "page": "qui-sommes-nous",
+      "side": "next",
+      "status": 200,
+      "url": "http://localhost:3000/en/qui-sommes-nous",
+      "final_url": "http://localhost:3000/en/qui-sommes-nous",
+      "bytes": 43005
+    },
+    {
+      "page": "fiscalite",
+      "side": "php",
+      "status": 200,
+      "url": "http://localhost:8791/en/fiscalite.php",
+      "final_url": "http://localhost:8791/en/fiscalite.php",
+      "bytes": 23590
+    },
+    {
+      "page": "fiscalite",
+      "side": "next",
+      "status": 200,
+      "url": "http://localhost:3000/en/fiscalite",
+      "final_url": "http://localhost:3000/en/fiscalite",
+      "bytes": 53752
+    },
+    {
+      "page": "domiciliation",
+      "side": "php",
+      "status": 200,
+      "url": "http://localhost:8791/en/domiciliation.php",
+      "final_url": "http://localhost:8791/en/domiciliation.php",
+      "bytes": 25982
+    },
+    {
+      "page": "domiciliation",
+      "side": "next",
+      "status": 200,
+      "url": "http://localhost:3000/en/domiciliation",
+      "final_url": "http://localhost:3000/en/domiciliation",
+      "bytes": 41643
+    },
+    {
+      "page": "creation-entreprise",
+      "side": "php",
+      "status": 200,
+      "url": "http://localhost:8791/en/creation_entreprise.php",
+      "final_url": "http://localhost:8791/en/creation_entreprise.php",
+      "bytes": 23945
+    },
+    {
+      "page": "creation-entreprise",
+      "side": "next",
+      "status": 200,
+      "url": "http://localhost:3000/en/creation-entreprise",
+      "final_url": "http://localhost:3000/en/creation-entreprise",
+      "bytes": 56245
+    },
+    {
+      "page": "cgu",
+      "side": "php",
+      "status": 200,
+      "url": "http://localhost:8791/en/cgu.php",
+      "final_url": "http://localhost:8791/en/cgu.php",
+      "bytes": 24617
+    },
+    {
+      "page": "cgu",
+      "side": "next",
+      "status": 200,
+      "url": "http://localhost:3000/en/cgu",
+      "final_url": "http://localhost:3000/en/cgu",
+      "bytes": 57053
+    },
+    {
+      "page": "politique-confidentialite",
+      "side": "php",
+      "status": 200,
+      "url": "http://localhost:8791/en/politique-confidentialite.php",
+      "final_url": "http://localhost:8791/en/politique-confidentialite.php",
+      "bytes": 25255
+    },
+    {
+      "page": "politique-confidentialite",
+      "side": "next",
+      "status": 200,
+      "url": "http://localhost:3000/en/politique-confidentialite",
+      "final_url": "http://localhost:3000/en/politique-confidentialite",
+      "bytes": 59825
+    },
+    {
+      "page": "contact",
+      "side": "php",
+      "status": 200,
+      "url": "http://localhost:8791/en/contact.php",
+      "final_url": "http://localhost:8791/en/contact.php",
+      "bytes": 19518
+    },
+    {
+      "page": "contact",
+      "side": "next",
+      "status": 200,
+      "url": "http://localhost:3000/en/contact",
+      "final_url": "http://localhost:3000/en/contact",
+      "bytes": 35700
+    },
+    {
+      "page": "oapi",
+      "side": "php",
+      "status": 200,
+      "url": "http://localhost:8791/en/oapi.php",
+      "final_url": "http://localhost:8791/en/oapi.php",
+      "bytes": 23708
+    },
+    {
+      "page": "oapi",
+      "side": "next",
+      "status": 200,
+      "url": "http://localhost:3000/en/oapi",
+      "final_url": "http://localhost:3000/en/oapi",
+      "bytes": 55428
+    },
+    {
+      "page": "contrats",
+      "side": "php",
+      "status": 200,
+      "url": "http://localhost:8791/en/contrats.php",
+      "final_url": "http://localhost:8791/en/contrats.php",
+      "bytes": 23424
+    },
+    {
+      "page": "contrats",
+      "side": "next",
+      "status": 200,
+      "url": "http://localhost:3000/en/contrats",
+      "final_url": "http://localhost:3000/en/contrats",
+      "bytes": 53925
+    }
+  ],
+  "fr_only": [
+    {
+      "page": "authentification",
+      "side": "en",
+      "status": 200,
+      "url": "http://localhost:3000/en/authentification",
+      "final_url": "http://localhost:3000/en/authentification",
+      "bytes": 36420
+    },
+    {
+      "page": "authentification",
+      "side": "fr",
+      "status": 200,
+      "url": "http://localhost:3000/authentification",
+      "final_url": "http://localhost:3000/authentification",
+      "bytes": 36922
+    },
+    {
+      "page": "mot-de-passe-oublie",
+      "side": "en",
+      "status": 200,
+      "url": "http://localhost:3000/en/mot-de-passe-oublie",
+      "final_url": "http://localhost:3000/en/mot-de-passe-oublie",
+      "bytes": 35836
+    },
+    {
+      "page": "mot-de-passe-oublie",
+      "side": "fr",
+      "status": 200,
+      "url": "http://localhost:3000/mot-de-passe-oublie",
+      "final_url": "http://localhost:3000/mot-de-passe-oublie",
+      "bytes": 36380
+    },
+    {
+      "page": "espace-client",
+      "side": "en",
+      "status": 200,
+      "url": "http://localhost:3000/en/espace-client",
+      "final_url": "http://localhost:3000/en/espace-client",
+      "bytes": 29263
+    },
+    {
+      "page": "espace-client",
+      "side": "fr",
+      "status": 200,
+      "url": "http://localhost:3000/espace-client",
+      "final_url": "http://localhost:3000/espace-client",
+      "bytes": 29965
+    },
+    {
+      "page": "souscription-domiciliation",
+      "side": "en",
+      "status": 200,
+      "url": "http://localhost:3000/en/souscription-domiciliation",
+      "final_url": "http://localhost:3000/en/souscription-domiciliation",
+      "bytes": 55449
+    },
+    {
+      "page": "souscription-domiciliation",
+      "side": "fr",
+      "status": 200,
+      "url": "http://localhost:3000/souscription-domiciliation",
+      "final_url": "http://localhost:3000/souscription-domiciliation",
+      "bytes": 56278
+    },
+    {
+      "page": "tunnel-souscription",
+      "side": "en",
+      "status": 200,
+      "url": "http://localhost:3000/en/tunnel-souscription",
+      "final_url": "http://localhost:3000/en/tunnel-souscription",
+      "bytes": 50628
+    },
+    {
+      "page": "tunnel-souscription",
+      "side": "fr",
+      "status": 200,
+      "url": "http://localhost:3000/tunnel-souscription",
+      "final_url": "http://localhost:3000/tunnel-souscription",
+      "bytes": 51246
+    },
+    {
+      "page": "admin-dashboard",
+      "side": "en",
+      "status": 200,
+      "url": "http://localhost:3000/en/admin-dashboard",
+      "final_url": "http://localhost:3000/en/admin-dashboard",
+      "bytes": 30593
+    },
+    {
+      "page": "admin-dashboard",
+      "side": "fr",
+      "status": 200,
+      "url": "http://localhost:3000/admin-dashboard",
+      "final_url": "http://localhost:3000/admin-dashboard",
+      "bytes": 30905
+    },
+    {
+      "page": "admin-document",
+      "side": "en",
+      "status": 200,
+      "url": "http://localhost:3000/en/admin-document",
+      "final_url": "http://localhost:3000/en/admin-document",
+      "bytes": 30582
+    },
+    {
+      "page": "admin-document",
+      "side": "fr",
+      "status": 200,
+      "url": "http://localhost:3000/admin-document",
+      "final_url": "http://localhost:3000/admin-document",
+      "bytes": 30872
+    }
+  ]
+}

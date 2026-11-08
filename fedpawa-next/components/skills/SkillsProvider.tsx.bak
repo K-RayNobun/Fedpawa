@@ -1,0 +1,346 @@
+// ==========================================================
+// FEDPAWA — Gestion des Skills (vague D/E)
+// Formulaire de modification Skills via /api/skills
+// Selecteur de Lane global en localStorage filtrant les requetes dashboard
+// Mise a jour immediate sans rechargement complet
+// ==========================================================
+
+"use client";
+
+import { useCallback, useEffect, useState } from "react";
+import { apiGet, apiPost } from "@/lib/api";
+import { ToastContext, useToast } from "@/components/dashboard/UI";
+import { fmtDate } from "@/lib/dashboard-format";
+
+// ---------- Types des skills (miroir des champs du bundle) ----------
+export interface Skill {
+  id?: number;
+  name: string;
+  category?: string;
+  description?: string;
+  enabled?: boolean;
+  lane?: string;     // Lane globale (stockee en localStorage)
+  priority?: "low" | "medium" | "high" | "critical";
+  tags?: string[];
+  metadata?: Record<string, unknown>;
+}
+
+// ---------- Interface du contexte Skills ----------
+interface SkillsContextValue {
+  skills: Skill[];
+  loading: boolean;
+  error: string | null;
+  lanes: string[];   // Lanes uniques disponibles
+  selectedLane: string; // Lane actuellement selectionnee en localStorage
+  setSelectedLane: (lane: string) => void;
+  refreshSkills: () => Promise<void>;
+  toggleSkill: (id: number, field: keyof Skill, value: unknown) => Promise<void>;
+  saveSkill: (skill: Skill) => Promise<void>;
+}
+
+// ---------- Contexte Skills ----------
+const SkillsContext = React.createContext<SkillsContextValue | undefined>(undefined);
+
+/** Provider Skills — fetch /api/skills, gestion lane locale, CRUD. */
+export function SkillsProvider({ children }: { children: React.ReactNode }) {
+  const { toast } = useToast();
+
+  // Etat initial : lire la lane stockee en localStorage
+  const [selectedLane, setSelectedLane] = useState(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("dashboardLane") || "all";
+    }
+    return "all";
+  });
+
+  // Competences chargees
+  const [skills, setSkills] = useState<Skill[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [lanes, setLanes] = useState<string[]>(["all"]);
+
+  // Charger les skills depuis l'API (respectant la lane selectionnee)
+  const loadSkills = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const laneParam = selectedLane === "all" ? "" : "?lane=" + selectedLane;
+      const data = await apiGet<Skill[]>("` + "/api/skills" + laneParam + `");
+      setSkills(data || []);
+
+      // Mise a jour de la liste des lanes disponibles
+      const uniqueLanes = ["all", ...new Set(data.map((s) => s.lane).filter(Boolean))];
+      setLanes(uniqueLanes);
+    } catch (err: any) {
+      setError(err instanceof Error ? err.message : "Erreur de chargement des skills");
+      toast("Impossible de charger les skills", "error");
+    } finally {
+      setLoading(false);
+    }
+  }, [selectedLane]);
+
+  // Effectuer fetch initial
+  useEffect(() => {
+    void loadSkills();
+  }, [loadSkills]);
+
+  // Mettre a jour une skill (PATCH partiel)
+  const toggleSkill = useCallback(async (id: number, field: keyof Skill, value: unknown) => {
+    setLoading(true);
+    setError(null);
+    try {
+      await apiPost<Skill>("` + "/api/skills/" + "/` + `{ id }` + `", { [field]: value });
+      await loadSkills(); // Raffraîchissement immédiat
+      toast("Skill mise à jour", "success");
+    } catch (err: any) {
+      setError(err instanceof Error ? err.message : "Échec de la mise à jour");
+      toast("Échec de la mise à jour des skills", "error");
+    } finally {
+      setLoading(false);
+    }
+  }, [loadSkills]);
+
+  // Enregistrer une nouvelle skill ou modifier
+  const saveSkill = useCallback(async (skill: Skill) => {
+    setLoading(true);
+    setError(null);
+    try {
+      if (skill.id) {
+        await apiPost<Skill>("` + "/api/skills/" + "/` + `{ skill.id }` + `", skill);
+      } else {
+        await apiPost<Skill>("` + "/api/skills" + `", skill);
+      }
+      await loadSkills();
+      toast("Skill enregistrée", "success");
+    } catch (err: any) {
+      setError(err instanceof Error ? err.message : "Échec de l'enregistrement");
+      toast("Échec de l'enregistrement de la skill", "error");
+    } finally {
+      setLoading(false);
+    }
+  }, [loadSkills]);
+
+  // Changer la lane globale — stockée en localStorage, effet immédiat
+  const setLane = useCallback((lane: string) => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("dashboardLane", lane);
+    }
+    setSelectedLane(lane);
+    void loadSkills(); // Filtre immédiat sans reload page
+  }, [loadSkills]);
+
+  return (
+    <SkillsContext.Provider value={{
+      skills,
+      loading,
+      error,
+      lanes,
+      selectedLane,
+      setSelectedLane,
+      refreshSkills: loadSkills,
+      toggleSkill,
+      saveSkill,
+      setLane,
+    }}>
+      {children}
+    </SkillsContext.Provider>
+  );
+}
+
+/** Hook d'accès au contexte Skills. */
+export function useSkills(): SkillsContextValue {
+  const ctx = React.useContext(SkillsContext);
+  if (!ctx) throw new Error("useSkills must be used within a SkillsProvider");
+  return ctx;
+}
+
+// --- Composant LaneSelector (selecteur de lane global) ---
+interface LaneSelectorProps {
+  className?: string;
+}
+export function LaneSelector({ className }: LaneSelectorProps) {
+  const {
+    selectedLane,
+    lanes,
+    setSelectedLane,
+  } = useSkills();
+
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const lane = e.target.value;
+    setSelectedLane(lane);
+  };
+
+  return (
+    <div className="fp-settings-row" + (className ? " " + className : "")}>
+      <label className="fp-settings-muted text-xs uppercase tracking-wider mb-1">
+        Filtre de lane
+      </label>
+      <select
+        value={selectedLane}
+        onChange={handleChange}
+        className="w-full bg-zinc-900 border border-zinc-800 rounded px-2 py-1.5 text-sm text-zinc-200 focus:outline-none focus:border-zinc-700"
+        aria-label="Sélecteur de lane global"
+      >
+        {lanes.map((lane) => (
+          <option key={lane} value={lane}>
+            {lane === "all" ? "Toutes lanes" : "Lane " + lane}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
+// --- Composant SkillsForm (formulaire de modification skills) ---
+interface SkillsFormProps {
+  initial?: Skill;
+  onSave: (skill: Skill) => void;
+  onCancel: () => void;
+}
+export function SkillsForm({ initial, onSave, onCancel }: SkillsFormProps) {
+  const {
+    skills,
+    toggleSkill,
+    saveSkill,
+  } = useSkills();
+  const [form, setForm] = useState<Skill>(initial ?? { name: "", category: "", description: "", enabled: true, tags: [] });
+  const [saving, setSaving] = useState(false);
+
+  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value, type, selectedIndex } = e.target;
+    if (type === "checkbox") {
+      setForm({ ...form, [name]: e.target.checked });
+    } else if (type === "number") {
+      setForm({ ...form, [name]: Number(value) });
+    } else {
+      setForm({ ...form, [name]: value });
+    }
+  }, []);
+
+  const handleSubmit = useCallback(async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSaving(true);
+    try {
+      await saveSkill(form);
+      onSave(form);
+    } catch {
+      // Erreurs gérée par saveSkill
+    } finally {
+      setSaving(false);
+    }
+  }, [form, saveSkill]);
+
+  return (
+    <div className="fp-settings-block">
+      <h2 className="fp-settings-h2">Modification Skill</h2>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label className="block text-sm font-medium mb-1">Nom</label>
+          <input
+            type="text"
+            name="name"
+            value={form.name || ""}
+            onChange={handleChange}
+            className="w-full bg-zinc-900 border border-zinc-800 rounded px-2 py-1 text-sm text-zinc-200 focus:outline-none focus:border-zinc-700"
+            required
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium mb-1">Catégorie</label>
+          <input
+            type="text"
+            name="category"
+            value={form.category || ""}
+            onChange={handleChange}
+            className="w-full bg-zinc-900 border border-zinc-800 rounded px-2 py-1 text-sm text-zinc-200 focus:outline-none focus:border-zinc-700"
+            placeholder="Catégorie skill"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium mb-1">Description</label>
+          <textarea
+            name="description"
+            value={form.description || ""}
+            onChange={handleChange}
+            className="w-full bg-zinc-900 border border-zinc-800 rounded px-2 py-1 text-sm text-zinc-200 focus:outline-none focus:border-zinc-700 h-20 resize-none"
+            placeholder="Description de la skill..."
+          ></textarea>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <label className="block text-sm font-medium mb-1">Activée</label>
+            <input
+              type="checkbox"
+              name="enabled"
+              checked={form.enabled !== false}
+              onChange={handleChange}
+              className="fp-switch"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-1">Lane</label>
+            <select
+              name="lane"
+              value={form.lane || selectedLane}
+              onChange={handleChange}
+              className="w-full bg-zinc-900 border border-zinc-800 rounded px-2 py-1 text-sm text-zinc-200 focus:outline-none focus:border-zinc-700"
+            >
+              <option value="all">Toutes</option>
+              {lanes.map((lane) => (
+                <option key={lane} value={lane}>
+                  {lane}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium mb-1">Priorité</label>
+          <select
+            name="priority"
+            value={form.priority ?? "medium"}
+            onChange={handleChange}
+            className="w-full bg-zinc-900 border border-zinc-800 rounded px-2 py-1 text-sm text-zinc-200 focus:outline-none focus:border-zinc-700"
+          >
+            <option value="low">Faible</option>
+            <option value="medium">Moyenne</option>
+            <option value="high">Élevée</option>
+            <option value="critical">Critique</option>
+          </select>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium mb-1">Tags (séparés par virgule)</label>
+          <input
+            type="text"
+            name="tags"
+            value={form.tags ? form.tags.join(", ") : ""}
+            onChange={handleChange}
+            className="w-full bg-zinc-900 border border-zinc-800 rounded px-2 py-1 text-sm text-zinc-200 focus:outline-none focus:border-zinc-700"
+            placeholder="tag1, tag2, tag3"
+          />
+        </div>
+
+        <button
+          type="submit"
+          disabled={saving}
+          className="w-full fp-btn fp-btn-primary mt-3"
+        >
+          {saving ? "Enregistrement…" : "Enregistrer la skill"}
+        </button>
+
+        <button
+          type="button"
+          onClick={onCancel}
+          className="w-full fp-btn fp-btn-secondary mt-2"
+        >
+          Annuler
+        </button>
+      </form>
+    </div>
+  );
+}

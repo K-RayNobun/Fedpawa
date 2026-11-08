@@ -1,0 +1,467 @@
+{
+  "index": {
+    "meta_diff": [],
+    "missing_in_next": [],
+    "added_in_next": [
+      "Our expertise Five services, a single address Service 01 01 Domiciliation for Legal Entities & Companies A prestigious professional address in Logpom, with mail scanning, forwarding and a personalized phone desk."
+    ],
+    "replaced": [
+      {
+        "php": "Logpom Pharmacy Building, Douala Mon–Fri 8:00–18:00 · Sat 9:00–14:00 contact@fedpawa.com FEDPAWA Corporate Solutions Home Services ▾ Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Home Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Sign in FR × FEDPAWA CORPORATE SOLUTIONS SARL Your Business Infrastructure & Operational Hub A first-class business infrastructure in the heart of Douala, Logpom — for companies of every size.",
+        "next": "Logpom Pharmacy Building, Douala Mon–Fri 8:00–18:00 · Sat 9:00–14:00 contact@fedpawa.com FEDPAWA Corporate Solutions Accueil Services ▾ Domiciliation Création d'entreprise Conseils & Suivi Fiscal Protection OAPI Contrats Qui sommes-nous Contact Sign in Home Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Sign in FR × FEDPAWA CORPORATE SOLUTIONS SARL Your Business Infrastructure & Operational Hub A first-class business infrastructure in the heart of Douala, Logpom — for companies of every size."
+      },
+      {
+        "php": "Discover our services → Contact us Our expertise Five services, a single address Service 01 01 Domiciliation for Legal Entities & Companies A prestigious professional address in Logpom, with mail scanning, forwarding and a personalized phone desk.",
+        "next": "Discover our services → Contact us 100 % en ligne 4,9★ avis clients 24/7 espace client Un hub pensé pour vous Adresse, démarches et suivi au même endroit."
+      }
+    ],
+    "counts": {
+      "php_sentences": 20,
+      "next_sentences": 21,
+      "missing": 0,
+      "added": 1,
+      "replaced": 2
+    }
+  },
+  "qui-sommes-nous": {
+    "meta_diff": [
+      {
+        "field": "title",
+        "php": "FEDPAWA CORPORATE SOLUTIONS | About Us",
+        "next": "FEDPAWA CORPORATE SOLUTIONS | The Strategic Partner for Your Business | FEDPAWA CORPORATE SOLUTIONS"
+      },
+      {
+        "field": "description",
+        "php": "About FEDPAWA CORPORATE SOLUTIONS - The strategic partner for your business in Cameroon: domiciliation, company formation, tax advisory, OAPI, contracts.",
+        "next": "Discover FEDPAWA Corporate Solutions, an expert firm in OHADA company formation, OAPI trademark filings and tax advisory in Cameroon."
+      },
+      {
+        "field": "og_title",
+        "php": "FEDPAWA CORPORATE SOLUTIONS | About Us",
+        "next": "FEDPAWA CORPORATE SOLUTIONS | The Strategic Partner for Your Business"
+      },
+      {
+        "field": "og_description",
+        "php": "About FEDPAWA CORPORATE SOLUTIONS - The strategic partner for your business in Cameroon: domiciliation, company formation, tax advisory, OAPI, contracts.",
+        "next": "Discover FEDPAWA Corporate Solutions, an expert firm in OHADA company formation, OAPI trademark filings and tax advisory in Cameroon."
+      },
+      {
+        "field": "twitter_title",
+        "php": "FEDPAWA CORPORATE SOLUTIONS | About Us",
+        "next": "FEDPAWA CORPORATE SOLUTIONS | The Strategic Partner for Your Business"
+      },
+      {
+        "field": "twitter_description",
+        "php": "About FEDPAWA CORPORATE SOLUTIONS - The strategic partner for your business in Cameroon: domiciliation, company formation, tax advisory, OAPI, contracts.",
+        "next": "Discover FEDPAWA Corporate Solutions, an expert firm in OHADA company formation, OAPI trademark filings and tax advisory in Cameroon."
+      }
+    ],
+    "missing_in_next": [],
+    "added_in_next": [],
+    "replaced": [
+      {
+        "php": "Logpom Pharmacy Building, Douala Mon–Fri 8:00–18:00 · Sat 9:00–14:00 contact@fedpawa.com FEDPAWA Corporate Solutions Home Services ▾ Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Home Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Sign in FR × Legal, Tax & Strategic Excellence in Cameroon FEDPAWA Corporate Solutions: The Strategic Partner for Your Business To build legally unassailable foundations, secure intangible assets and catalyse the success of companies across the CEMAC region.",
+        "next": "Logpom Pharmacy Building, Douala Mon–Fri 8:00–18:00 · Sat 9:00–14:00 contact@fedpawa.com FEDPAWA Corporate Solutions Accueil Services ▾ Domiciliation Création d'entreprise Conseils & Suivi Fiscal Protection OAPI Contrats Qui sommes-nous Contact Sign in Home Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Sign in FR × Legal, Tax & Strategic Excellence in Cameroon FEDPAWA Corporate Solutions: The Strategic Partner for Your Business To build legally unassailable foundations, secure intangible assets and catalyse the success of companies across the CEMAC region."
+      },
+      {
+        "php": "Reception & Welcome Executive Private Office Meeting Room Workspace Coffee & Lounge Area Telephone Secretariat Mail Handling Logpom Operational Hub High-End Offices High-Speed Connection Notre Impact Our Key Figures 0 Companies Structured 0 Couverture OAPI 0 Tax Compliance Rate 0 Transparence Tarifaire Nos Valeurs The 4 Pillars of FEDPAWA Excellence A rigorous methodology serving the success of your projects.",
+        "next": "Reception & Welcome Executive Private Office Meeting Room Workspace Coffee & Lounge Area Telephone Secretariat Mail Handling Logpom Operational Hub High-End Offices High-Speed Connection Notre Impact Our Key Figures 0 + Companies Structured 0 Pays Couverture OAPI 0.0 % Tax Compliance Rate 0 % Transparence Tarifaire Nos Valeurs The 4 Pillars of FEDPAWA Excellence A rigorous methodology serving the success of your projects."
+      }
+    ],
+    "counts": {
+      "php_sentences": 47,
+      "next_sentences": 47,
+      "missing": 0,
+      "added": 0,
+      "replaced": 2
+    }
+  },
+  "fiscalite": {
+    "meta_diff": [
+      {
+        "field": "title",
+        "php": "FEDPAWA CORPORATE SOLUTIONS | Legal & Tax Advisory",
+        "next": "FEDPAWA CORPORATE SOLUTIONS | Legal and Tax Advisory for Companies | FEDPAWA CORPORATE SOLUTIONS"
+      },
+      {
+        "field": "description",
+        "php": "Legal and tax advisory and monitoring for companies in Cameroon. DGI e-filings, annual tax return (DSF), Tax Compliance Certificate (ACF) and administrative representation before the DGI.",
+        "next": "Legal and tax advisory and monitoring for companies in Cameroon: DGI e-filings, tax returns, optimisation and representation."
+      },
+      {
+        "field": "og_title",
+        "php": "FEDPAWA CORPORATE SOLUTIONS | Legal &amp; Tax Advisory",
+        "next": "FEDPAWA CORPORATE SOLUTIONS | Legal and Tax Advisory for Companies"
+      },
+      {
+        "field": "og_description",
+        "php": "Legal and tax advisory and monitoring for companies in Cameroon. DGI e-filings, annual tax return (DSF), Tax Compliance Certificate (ACF) and administrative representation before the DGI.",
+        "next": "Legal and tax advisory and monitoring for companies in Cameroon: DGI e-filings, tax returns, optimisation and representation."
+      },
+      {
+        "field": "twitter_title",
+        "php": "FEDPAWA CORPORATE SOLUTIONS | Legal &amp; Tax Advisory",
+        "next": "FEDPAWA CORPORATE SOLUTIONS | Legal and Tax Advisory for Companies"
+      },
+      {
+        "field": "twitter_description",
+        "php": "Legal and tax advisory and monitoring for companies in Cameroon. DGI e-filings, annual tax return (DSF), Tax Compliance Certificate (ACF) and administrative representation before the DGI.",
+        "next": "Legal and tax advisory and monitoring for companies in Cameroon: DGI e-filings, tax returns, optimisation and representation."
+      }
+    ],
+    "missing_in_next": [],
+    "added_in_next": [],
+    "replaced": [
+      {
+        "php": "Logpom Pharmacy Building, Douala Mon–Fri 8:00–18:00 · Sat 9:00–14:00 contact@fedpawa.com FEDPAWA Corporate Solutions Home Services ▾ Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Home Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Sign in FR × Compliance with the General Tax Code & SYSCOHADA Legal and Tax Advisory & Monitoring for Companies Secure Your Growth and Steer Your Obligations Before the DGI with Complete Peace of Mind The sustainability of a company in Cameroon rests on its legal and tax compliance.",
+        "next": "Logpom Pharmacy Building, Douala Mon–Fri 8:00–18:00 · Sat 9:00–14:00 contact@fedpawa.com FEDPAWA Corporate Solutions Accueil Services ▾ Domiciliation Création d'entreprise Conseils & Suivi Fiscal Protection OAPI Contrats Qui sommes-nous Contact Sign in Home Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Sign in FR × Compliance with the General Tax Code & SYSCOHADA Legal and Tax Advisory & Monitoring for Companies Secure Your Growth and Steer Your Obligations Before the DGI with Complete Peace of Mind The sustainability of a company in Cameroon rests on its legal and tax compliance."
+      },
+      {
+        "php": "Our Fields of Intervention and Comprehensive Services Our Fields of Intervention and Comprehensive Services Complete coverage, from monthly e-filing to defence in the event of an audit. 📊 1.",
+        "next": "Our Fields of Intervention and Comprehensive Services Our Fields of Intervention and Comprehensive Services 📊 1."
+      },
+      {
+        "php": "The preparation of the annual Statistical and Tax Declaration (DSF) is billed as a separate year-end closing package depending on the size of the company.",
+        "next": "The preparation of the annual Statistical and Tax Declaration (DSF) is billed as a separate year-end closing package depending on the size FEDPAWA Corporate Solutions A first-class business infrastructure in the heart of Douala, Logpom."
+      },
+      {
+        "php": "FEDPAWA Corporate Solutions A first-class business infrastructure in the heart of Douala, Logpom.",
+        "next": "The preparation of the annual Statistical and Tax Declaration (DSF) is billed as a separate year-end closing package depending on the size FEDPAWA Corporate Solutions A first-class business infrastructure in the heart of Douala, Logpom."
+      }
+    ],
+    "counts": {
+      "php_sentences": 36,
+      "next_sentences": 35,
+      "missing": 0,
+      "added": 0,
+      "replaced": 4
+    }
+  },
+  "domiciliation": {
+    "meta_diff": [
+      {
+        "field": "title",
+        "php": "FEDPAWA CORPORATE SOLUTIONS | Business Domiciliation in Douala",
+        "next": "FEDPAWA CORPORATE SOLUTIONS | Domiciliation for Legal Entities & Companies | FEDPAWA CORPORATE SOLUTIONS"
+      },
+      {
+        "field": "description",
+        "php": "Business domiciliation in Douala Logpom: prestigious business address, mail handling, meeting rooms. From 35,000 FCFA/month.",
+        "next": "First-class business address in Douala Logpom: prestigious registered office, mail handling, meeting rooms. From XAF 35,000/month excl. tax."
+      },
+      {
+        "field": "og_title",
+        "php": "FEDPAWA CORPORATE SOLUTIONS | Business Domiciliation in Douala",
+        "next": "FEDPAWA CORPORATE SOLUTIONS | Domiciliation for Legal Entities &amp; Companies"
+      },
+      {
+        "field": "og_description",
+        "php": "Business domiciliation in Douala Logpom: prestigious business address, mail handling, meeting rooms. From 35,000 FCFA/month.",
+        "next": "First-class business address in Douala Logpom: prestigious registered office, mail handling, meeting rooms. From XAF 35,000/month excl. tax."
+      },
+      {
+        "field": "twitter_title",
+        "php": "FEDPAWA CORPORATE SOLUTIONS | Business Domiciliation in Douala",
+        "next": "FEDPAWA CORPORATE SOLUTIONS | Domiciliation for Legal Entities &amp; Companies"
+      },
+      {
+        "field": "twitter_description",
+        "php": "Business domiciliation in Douala Logpom: prestigious business address, mail handling, meeting rooms. From 35,000 FCFA/month.",
+        "next": "First-class business address in Douala Logpom: prestigious registered office, mail handling, meeting rooms. From XAF 35,000/month excl. tax."
+      }
+    ],
+    "missing_in_next": [],
+    "added_in_next": [
+      "All Reception Private Offices Meeting room Reception & Welcome Reception & Welcome Private Executive Office High-speed workspace Meeting Room & Hub Strategic Meeting Room 🛑 Contractual Framework & Legal Security To guarantee total flexibility for our clients, all of our hosting solutions are governed exclusively by an Infrastructure and Services Provision Agreement ."
+    ],
+    "replaced": [
+      {
+        "php": "Logpom Pharmacy Building, Douala Mon–Fri 8:00–18:00 · Sat 9:00–14:00 contact@fedpawa.com FEDPAWA Corporate Solutions Home Services ▾ Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Home Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Sign in FR × Certified premises in Logpom Domiciliation for Legal Entities & Companies Your Business Infrastructure & Operational Hub in Douala (Logpom) Whether you are a local entrepreneur launching your first business in Cameroon, a fast-growing national SME, or a multinational opening its subsidiary in Central Africa, classic real estate should no longer be a brake on your ambitions.",
+        "next": "Logpom Pharmacy Building, Douala Mon–Fri 8:00–18:00 · Sat 9:00–14:00 contact@fedpawa.com FEDPAWA Corporate Solutions Accueil Services ▾ Domiciliation Création d'entreprise Conseils & Suivi Fiscal Protection OAPI Contrats Qui sommes-nous Contact Sign in Home Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Sign in FR × Certified premises in Logpom Domiciliation for Legal Entities & Companies Your Business Infrastructure & Operational Hub in Douala (Logpom) Whether you are a local entrepreneur launching your first business in Cameroon, a fast-growing national SME, or a multinational opening its subsidiary in Central Africa, classic real estate should no longer be a brake on your ambitions."
+      },
+      {
+        "php": "Discover our plans Visit the premises 🛑 Contractual Framework & Legal Security To guarantee total flexibility for our clients, all of our hosting solutions are governed exclusively by an Infrastructure and Services Provision Agreement .",
+        "next": "Discover our plans Visit the premises Virtual tour Gallery of our spaces Discover the high-end environment we provide you in Logpom."
+      },
+      {
+        "php": "It is a provision of material, logistical and technological services, entirely flexible and revocable, ensuring perfect legal security and total freedom for both parties.",
+        "next": "It is a provision of material, logistical and technological services, entirely flexible and revocable, ensuring perfect legal security and total freedom for both parties. 🇨🇲 National Range Plans for local companies 🔹 ESSENTIAL Plan 25 000 FCFA HT / month Registered office address in Logpom, Douala Mail reception Systematic scanning of every letter Digital archiving (1 month) Email and WhatsApp notification upon each reception 6 hours of private office per month included Subscribe 🔹 BUSINESS Plan 45 000 FCFA HT / month Registered office address in Logpom, Douala Mail reception Systematic scanning of every letter Digital archiving (1 month) Email and WhatsApp notification upon each reception Monthly physical mail forwarding 10 hours of private office per month included (with High-Performance Wi-Fi) Subscribe Popular 👑 PREMIUM Plan 70 000 FCFA HT / month Registered office address in Logpom, Douala Mail reception Systematic scanning of every letter Digital archiving (1 month) Email and WhatsApp notification upon each reception Instant physical mail forwarding 📞 Dedicated bilingual Receptionist (French & English) : answering incoming calls exclusively in your company's name with instant message forwarding Assignment of a local phone number 15 hours of private office per month included (with High-Performance Wi-Fi) Subscribe 🌍 International Range & Diaspora Diaspora & Multinational Plans ✈️ ESSENTIAL DIGITAL 50 000 FCFA HT / month ~88 USD Official registered office address in Logpom Physical reception of mail and parcels at the front desk Instant digitization and scanning of every letter received Immediate sending of scanned documents by email or WhatsApp Physical parcel forwarding service abroad (postage at actual cost) Subscribe 📞 BUSINESS VIRTUAL 110 000 FCFA HT / month ~180 USD Official registered office address in Logpom Physical reception of mail and parcels at the front desk Instant digitization and scanning of every letter received Immediate sending of scanned documents by email or WhatsApp Physical parcel forwarding service abroad (postage at actual cost) Assignment of a dedicated local Cameroonian phone number Personalized telephone answering in your company's name by the bilingual receptionist Message taking and instant call transmission via WhatsApp or email Subscribe Prestige 🌟 PREMIUM EXECUTIVE 175 000 FCFA HT / month ~290 USD Official registered office address in Logpom Physical reception of mail and parcels at the front desk Instant digitization and scanning of every letter received Immediate sending of scanned documents by email or WhatsApp Physical parcel forwarding service abroad (postage at actual cost) Assignment of a dedicated local Cameroonian phone number Personalized telephone answering in your company's name by the bilingual receptionist Message taking and instant call transmission via WhatsApp or email Monthly quota of 20 hours in a high-end air-conditioned private office (by reservation) High-speed Internet connection included during your session hours Prestigious welcome of your business delegations by the receptionist Unlimited coffee included for the whole team during sessions Subscribe 🔒 Compliance Charter & KYC (Know Your Customer) Framework \"In strict compliance with national regulations and international transparency standards, access to all of our infrastructure and document management services is subject to a mandatory identity verification procedure."
+      },
+      {
+        "php": "Virtual tour Gallery of our spaces Discover the high-end environment we provide you in Logpom.",
+        "next": "It is a provision of material, logistical and technological services, entirely flexible and revocable, ensuring perfect legal security and total freedom for both parties. 🇨🇲 National Range Plans for local companies 🔹 ESSENTIAL Plan 25 000 FCFA HT / month Registered office address in Logpom, Douala Mail reception Systematic scanning of every letter Digital archiving (1 month) Email and WhatsApp notification upon each reception 6 hours of private office per month included Subscribe 🔹 BUSINESS Plan 45 000 FCFA HT / month Registered office address in Logpom, Douala Mail reception Systematic scanning of every letter Digital archiving (1 month) Email and WhatsApp notification upon each reception Monthly physical mail forwarding 10 hours of private office per month included (with High-Performance Wi-Fi) Subscribe Popular 👑 PREMIUM Plan 70 000 FCFA HT / month Registered office address in Logpom, Douala Mail reception Systematic scanning of every letter Digital archiving (1 month) Email and WhatsApp notification upon each reception Instant physical mail forwarding 📞 Dedicated bilingual Receptionist (French & English) : answering incoming calls exclusively in your company's name with instant message forwarding Assignment of a local phone number 15 hours of private office per month included (with High-Performance Wi-Fi) Subscribe 🌍 International Range & Diaspora Diaspora & Multinational Plans ✈️ ESSENTIAL DIGITAL 50 000 FCFA HT / month ~88 USD Official registered office address in Logpom Physical reception of mail and parcels at the front desk Instant digitization and scanning of every letter received Immediate sending of scanned documents by email or WhatsApp Physical parcel forwarding service abroad (postage at actual cost) Subscribe 📞 BUSINESS VIRTUAL 110 000 FCFA HT / month ~180 USD Official registered office address in Logpom Physical reception of mail and parcels at the front desk Instant digitization and scanning of every letter received Immediate sending of scanned documents by email or WhatsApp Physical parcel forwarding service abroad (postage at actual cost) Assignment of a dedicated local Cameroonian phone number Personalized telephone answering in your company's name by the bilingual receptionist Message taking and instant call transmission via WhatsApp or email Subscribe Prestige 🌟 PREMIUM EXECUTIVE 175 000 FCFA HT / month ~290 USD Official registered office address in Logpom Physical reception of mail and parcels at the front desk Instant digitization and scanning of every letter received Immediate sending of scanned documents by email or WhatsApp Physical parcel forwarding service abroad (postage at actual cost) Assignment of a dedicated local Cameroonian phone number Personalized telephone answering in your company's name by the bilingual receptionist Message taking and instant call transmission via WhatsApp or email Monthly quota of 20 hours in a high-end air-conditioned private office (by reservation) High-speed Internet connection included during your session hours Prestigious welcome of your business delegations by the receptionist Unlimited coffee included for the whole team during sessions Subscribe 🔒 Compliance Charter & KYC (Know Your Customer) Framework \"In strict compliance with national regulations and international transparency standards, access to all of our infrastructure and document management services is subject to a mandatory identity verification procedure."
+      },
+      {
+        "php": "All Reception Private Offices Meeting room Reception & Welcome Reception & Welcome Private Executive Office High-speed workspace Meeting Room & Hub Strategic Meeting Room 🇨🇲 National Range Plans for local companies 🔹 ESSENTIAL Plan 25 000 FCFA HT / month Registered office address in Logpom, Douala Mail reception Systematic scanning of every letter Digital archiving (1 month) Email and WhatsApp notification upon each reception 6 hours of private office per month included Subscribe 🔹 BUSINESS Plan 45 000 FCFA HT / month Registered office address in Logpom, Douala Mail reception Systematic scanning of every letter Digital archiving (1 month) Email and WhatsApp notification upon each reception Monthly physical mail forwarding 10 hours of private office per month included (with High-Performance Wi-Fi) Subscribe Popular 👑 PREMIUM Plan 70 000 FCFA HT / month Registered office address in Logpom, Douala Mail reception Systematic scanning of every letter Digital archiving (1 month) Email and WhatsApp notification upon each reception Instant physical mail forwarding 📞 Dedicated bilingual Receptionist (French & English) : answering incoming calls exclusively in your company's name with instant message forwarding Assignment of a local phone number 15 hours of private office per month included (with High-Performance Wi-Fi) Subscribe 🌍 International Range & Diaspora Diaspora & Multinational Plans ✈️ ESSENTIAL DIGITAL 50 000 FCFA HT / month ~88 USD Official registered office address in Logpom Physical reception of mail and parcels at the front desk Instant digitization and scanning of every letter received Immediate sending of scanned documents by email or WhatsApp Physical parcel forwarding service abroad (postage at actual cost) Subscribe 📞 BUSINESS VIRTUAL 110 000 FCFA HT / month ~180 USD Official registered office address in Logpom Physical reception of mail and parcels at the front desk Instant digitization and scanning of every letter received Immediate sending of scanned documents by email or WhatsApp Physical parcel forwarding service abroad (postage at actual cost) Assignment of a dedicated local Cameroonian phone number Personalized telephone answering in your company's name by the bilingual receptionist Message taking and instant call transmission via WhatsApp or email Subscribe Prestige 🌟 PREMIUM EXECUTIVE 175 000 FCFA HT / month ~290 USD Official registered office address in Logpom Physical reception of mail and parcels at the front desk Instant digitization and scanning of every letter received Immediate sending of scanned documents by email or WhatsApp Physical parcel forwarding service abroad (postage at actual cost) Assignment of a dedicated local Cameroonian phone number Personalized telephone answering in your company's name by the bilingual receptionist Message taking and instant call transmission via WhatsApp or email Monthly quota of 20 hours in a high-end air-conditioned private office (by reservation) High-speed Internet connection included during your session hours Prestigious welcome of your business delegations by the receptionist Unlimited coffee included for the whole team during sessions Subscribe 🔒 Compliance Charter & KYC (Know Your Customer) Framework \"In strict compliance with national regulations and international transparency standards, access to all of our infrastructure and document management services is subject to a mandatory identity verification procedure.",
+        "next": "It is a provision of material, logistical and technological services, entirely flexible and revocable, ensuring perfect legal security and total freedom for both parties. 🇨🇲 National Range Plans for local companies 🔹 ESSENTIAL Plan 25 000 FCFA HT / month Registered office address in Logpom, Douala Mail reception Systematic scanning of every letter Digital archiving (1 month) Email and WhatsApp notification upon each reception 6 hours of private office per month included Subscribe 🔹 BUSINESS Plan 45 000 FCFA HT / month Registered office address in Logpom, Douala Mail reception Systematic scanning of every letter Digital archiving (1 month) Email and WhatsApp notification upon each reception Monthly physical mail forwarding 10 hours of private office per month included (with High-Performance Wi-Fi) Subscribe Popular 👑 PREMIUM Plan 70 000 FCFA HT / month Registered office address in Logpom, Douala Mail reception Systematic scanning of every letter Digital archiving (1 month) Email and WhatsApp notification upon each reception Instant physical mail forwarding 📞 Dedicated bilingual Receptionist (French & English) : answering incoming calls exclusively in your company's name with instant message forwarding Assignment of a local phone number 15 hours of private office per month included (with High-Performance Wi-Fi) Subscribe 🌍 International Range & Diaspora Diaspora & Multinational Plans ✈️ ESSENTIAL DIGITAL 50 000 FCFA HT / month ~88 USD Official registered office address in Logpom Physical reception of mail and parcels at the front desk Instant digitization and scanning of every letter received Immediate sending of scanned documents by email or WhatsApp Physical parcel forwarding service abroad (postage at actual cost) Subscribe 📞 BUSINESS VIRTUAL 110 000 FCFA HT / month ~180 USD Official registered office address in Logpom Physical reception of mail and parcels at the front desk Instant digitization and scanning of every letter received Immediate sending of scanned documents by email or WhatsApp Physical parcel forwarding service abroad (postage at actual cost) Assignment of a dedicated local Cameroonian phone number Personalized telephone answering in your company's name by the bilingual receptionist Message taking and instant call transmission via WhatsApp or email Subscribe Prestige 🌟 PREMIUM EXECUTIVE 175 000 FCFA HT / month ~290 USD Official registered office address in Logpom Physical reception of mail and parcels at the front desk Instant digitization and scanning of every letter received Immediate sending of scanned documents by email or WhatsApp Physical parcel forwarding service abroad (postage at actual cost) Assignment of a dedicated local Cameroonian phone number Personalized telephone answering in your company's name by the bilingual receptionist Message taking and instant call transmission via WhatsApp or email Monthly quota of 20 hours in a high-end air-conditioned private office (by reservation) High-speed Internet connection included during your session hours Prestigious welcome of your business delegations by the receptionist Unlimited coffee included for the whole team during sessions Subscribe 🔒 Compliance Charter & KYC (Know Your Customer) Framework \"In strict compliance with national regulations and international transparency standards, access to all of our infrastructure and document management services is subject to a mandatory identity verification procedure."
+      }
+    ],
+    "counts": {
+      "php_sentences": 16,
+      "next_sentences": 15,
+      "missing": 0,
+      "added": 1,
+      "replaced": 5
+    }
+  },
+  "creation-entreprise": {
+    "meta_diff": [
+      {
+        "field": "title",
+        "php": "FEDPAWA CORPORATE SOLUTIONS | Company Formation in Cameroon",
+        "next": "FEDPAWA CORPORATE SOLUTIONS | Company Formation, Restructuring & Legalization in Cameroon | FEDPAWA CORPORATE SOLUTIONS"
+      },
+      {
+        "field": "description",
+        "php": "Company formation, transformation, restructuring and legalization in Cameroon with OHADA compliance by experienced legal experts.",
+        "next": "Company formation, conversion and registration in Cameroon: tailor-made OHADA articles, notarial circuit, Registry and CFCE, complete Corporate Kit delivery."
+      },
+      {
+        "field": "og_title",
+        "php": "FEDPAWA CORPORATE SOLUTIONS | Company Formation in Cameroon",
+        "next": "FEDPAWA CORPORATE SOLUTIONS | Company Formation, Restructuring &amp; Legalization in Cameroon"
+      },
+      {
+        "field": "og_description",
+        "php": "Company formation, transformation, restructuring and legalization in Cameroon with OHADA compliance by experienced legal experts.",
+        "next": "Company formation, conversion and registration in Cameroon: tailor-made OHADA articles, notarial circuit, Registry and CFCE, complete Corporate Kit delivery."
+      },
+      {
+        "field": "twitter_title",
+        "php": "FEDPAWA CORPORATE SOLUTIONS | Company Formation in Cameroon",
+        "next": "FEDPAWA CORPORATE SOLUTIONS | Company Formation, Restructuring &amp; Legalization in Cameroon"
+      },
+      {
+        "field": "twitter_description",
+        "php": "Company formation, transformation, restructuring and legalization in Cameroon with OHADA compliance by experienced legal experts.",
+        "next": "Company formation, conversion and registration in Cameroon: tailor-made OHADA articles, notarial circuit, Registry and CFCE, complete Corporate Kit delivery."
+      }
+    ],
+    "missing_in_next": [],
+    "added_in_next": [],
+    "replaced": [
+      {
+        "php": "Logpom Pharmacy Building, Douala Mon–Fri 8:00–18:00 · Sat 9:00–14:00 contact@fedpawa.com FEDPAWA Corporate Solutions Home Services ▾ Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Home Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Sign in FR × 100% Compliant with OHADA Uniform Acts & GUCE/CFCE Company Formation, Transformation, Restructuring & Legalization Give Your Project a Legal and Unassailable Existence in Cameroon Whether you are a local entrepreneur formalising your first business, a foreign investor or a member of the Diaspora structuring your assets, the creation or conversion of your company in Cameroon deserves rigorous legal engineering.",
+        "next": "Logpom Pharmacy Building, Douala Mon–Fri 8:00–18:00 · Sat 9:00–14:00 contact@fedpawa.com FEDPAWA Corporate Solutions Accueil Services ▾ Domiciliation Création d'entreprise Conseils & Suivi Fiscal Protection OAPI Contrats Qui sommes-nous Contact Sign in Home Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Sign in FR × 100% Compliant with OHADA Uniform Acts & GUCE/CFCE Company Formation, Transformation, Restructuring & Legalization Give Your Project a Legal and Unassailable Existence in Cameroon Whether you are a local entrepreneur formalising your first business, a foreign investor or a member of the Diaspora structuring your assets, the creation or conversion of your company in Cameroon deserves rigorous legal engineering."
+      },
+      {
+        "php": "01 🔍 Step 1: Preliminary Audit & Strategic Orientation Before launching any procedure, we analyze your project to validate the fundamental choices: Choice of Legal Form: orientation objective entre l'Sole Proprietorship (Nom propre), la SARL (Société à Responsabilité Limitée), la SAS (Société par Actions Simplifiée) ou la SA (Public Limited Company) selon vos ambitions et le nombre d'associés.",
+        "next": "01 🔍 Step 1: Preliminary Audit & Strategic Orientation Before launching any procedure, we analyze your project to validate the fundamental choices: Selection of the Legal Form: objective guidance between the Sole Proprietorship, the SARL (Limited Liability Company), the SAS (Simplified Joint-Stock Company) or the SA (Public Limited Company) according to your ambitions and the number of partners."
+      },
+      {
+        "php": "Structuration du Capital Social : advice on share allocation, cash or in-kind contributions, and the protection of founding partners.",
+        "next": "Structuring of Share Capital: advice on share allocation, cash or in-kind contributions, and the protection of founding partners."
+      },
+      {
+        "php": "Validation de la Gouvernance : definition of the powers of the manager or president, and of decision-making rules (blocking clauses, required majority).",
+        "next": "Governance Validation: definition of the powers of the manager or president, and of decision-making rules (blocking clauses, required majority)."
+      },
+      {
+        "php": "You have no travel to perform: Interface Notariale : case follow-up with our partner notary offices in Douala and Yaoundé for the execution and certification of the deeds.",
+        "next": "You have no travel to perform: Notarial Interface: case follow-up with our partner notary offices in Douala and Yaoundé for the execution and certification of the deeds."
+      }
+    ],
+    "counts": {
+      "php_sentences": 40,
+      "next_sentences": 40,
+      "missing": 0,
+      "added": 0,
+      "replaced": 5
+    }
+  },
+  "cgu": {
+    "meta_diff": [
+      {
+        "field": "title",
+        "php": "FEDPAWA CORPORATE SOLUTIONS | Terms of Service and Sale",
+        "next": "FEDPAWA CORPORATE SOLUTIONS | Terms of Service and Sale | FEDPAWA CORPORATE SOLUTIONS"
+      },
+      {
+        "field": "description",
+        "php": "FEDPAWA CORPORATE SOLUTIONS SARL Terms of Service and Sale: client accounts, subscriptions, Mobile Money payments, mutual commitments, termination, liability, OHADA and Cameroonian law, Douala courts.",
+        "next": "FEDPAWA Terms of Service and Sale: client accounts, subscriptions, Mobile Money payments, mutual commitments, termination and liability."
+      },
+      {
+        "field": "og_description",
+        "php": "FEDPAWA CORPORATE SOLUTIONS SARL Terms of Service and Sale: client accounts, subscriptions, Mobile Money payments, mutual commitments, termination, liability, OHADA and Cameroonian law, Douala courts.",
+        "next": "FEDPAWA Terms of Service and Sale: client accounts, subscriptions, Mobile Money payments, mutual commitments, termination and liability."
+      },
+      {
+        "field": "twitter_description",
+        "php": "FEDPAWA CORPORATE SOLUTIONS SARL Terms of Service and Sale: client accounts, subscriptions, Mobile Money payments, mutual commitments, termination, liability, OHADA and Cameroonian law, Douala courts.",
+        "next": "FEDPAWA Terms of Service and Sale: client accounts, subscriptions, Mobile Money payments, mutual commitments, termination and liability."
+      }
+    ],
+    "missing_in_next": [],
+    "added_in_next": [],
+    "replaced": [
+      {
+        "php": "Logpom Pharmacy Building, Douala Mon–Fri 8:00–18:00 · Sat 9:00–14:00 contact@fedpawa.com FEDPAWA Corporate Solutions Home Services ▾ Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Home Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Sign in FR × Terms of Service and Sale Terms & Conditions The contractual framework of your FEDPAWA services These Terms of Service and Sale govern access to the fedpawa.com website, the creation of client accounts and the purchase of services from FEDPAWA CORPORATE SOLUTIONS SARL.",
+        "next": "Logpom Pharmacy Building, Douala Mon–Fri 8:00–18:00 · Sat 9:00–14:00 contact@fedpawa.com FEDPAWA Corporate Solutions Accueil Services ▾ Domiciliation Création d'entreprise Conseils & Suivi Fiscal Protection OAPI Contrats Qui sommes-nous Contact Sign in Home Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Sign in FR × Terms of Service and Sale Terms & Conditions The contractual framework of your FEDPAWA services These Terms of Service and Sale govern access to the fedpawa.com website, the creation of client accounts and the purchase of services from FEDPAWA CORPORATE SOLUTIONS SARL."
+      },
+      {
+        "php": "Client accounts Creation, accuracy, security Creating an account requires accurate and up-to-date information: identity, company, e-mail, phone.",
+        "next": "Client accounts Creation, accuracy, security Creating an account requires accurate, up-to-date information: identity, company, e-mail, phone."
+      }
+    ],
+    "counts": {
+      "php_sentences": 62,
+      "next_sentences": 62,
+      "missing": 0,
+      "added": 0,
+      "replaced": 2
+    }
+  },
+  "politique-confidentialite": {
+    "meta_diff": [
+      {
+        "field": "title",
+        "php": "FEDPAWA CORPORATE SOLUTIONS | Privacy Policy",
+        "next": "FEDPAWA CORPORATE SOLUTIONS | Privacy Policy | FEDPAWA CORPORATE SOLUTIONS"
+      },
+      {
+        "field": "description",
+        "php": "FEDPAWA CORPORATE SOLUTIONS SARL Privacy Policy: data collected, purposes, retention periods, your access, rectification and erasure rights, cookies and how to contact us.",
+        "next": "How FEDPAWA collects, uses and protects your personal data: KYC, Mobile Money payments, scanned mail, cookies and your rights."
+      },
+      {
+        "field": "og_description",
+        "php": "FEDPAWA CORPORATE SOLUTIONS SARL Privacy Policy: data collected, purposes, retention periods, your access, rectification and erasure rights, cookies and how to contact us.",
+        "next": "How FEDPAWA collects, uses and protects your personal data: KYC, Mobile Money payments, scanned mail, cookies and your rights."
+      },
+      {
+        "field": "twitter_description",
+        "php": "FEDPAWA CORPORATE SOLUTIONS SARL Privacy Policy: data collected, purposes, retention periods, your access, rectification and erasure rights, cookies and how to contact us.",
+        "next": "How FEDPAWA collects, uses and protects your personal data: KYC, Mobile Money payments, scanned mail, cookies and your rights."
+      }
+    ],
+    "missing_in_next": [],
+    "added_in_next": [],
+    "replaced": [
+      {
+        "php": "Logpom Pharmacy Building, Douala Mon–Fri 8:00–18:00 · Sat 9:00–14:00 contact@fedpawa.com FEDPAWA Corporate Solutions Home Services ▾ Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Home Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Sign in FR × Personal Data Protection Privacy Policy Transparency on how your data is collected, used and protected This policy describes how FEDPAWA CORPORATE SOLUTIONS SARL collects, processes, stores and protects the personal data of its clients, prospects and visitors, in accordance with Law No.",
+        "next": "Logpom Pharmacy Building, Douala Mon–Fri 8:00–18:00 · Sat 9:00–14:00 contact@fedpawa.com FEDPAWA Corporate Solutions Accueil Services ▾ Domiciliation Création d'entreprise Conseils & Suivi Fiscal Protection OAPI Contrats Qui sommes-nous Contact Sign in Home Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Sign in FR × Personal Data Protection Privacy Policy Transparency on how your data is collected, used and protected This policy describes how FEDPAWA CORPORATE SOLUTIONS SARL collects, processes, stores and protects the personal data of its clients, prospects and visitors, in accordance with Law No."
+      },
+      {
+        "php": "Collecting Mobile Money payments and issuing invoices, receipts and certificates.",
+        "next": "Collecting Mobile Money payments, issuing invoices, receipts and quittances."
+      },
+      {
+        "php": "Contact and complaints Reaching us about privacy E-mail: contact@fedpawacorporatesolutions.com (subject: “Personal data”).",
+        "next": "Contact and complaints Reaching us about privacy E-mail: contact@fedpawacorporatesolutions.com (subject: \"Personal data\")."
+      }
+    ],
+    "counts": {
+      "php_sentences": 73,
+      "next_sentences": 73,
+      "missing": 0,
+      "added": 0,
+      "replaced": 3
+    }
+  },
+  "contact": {
+    "meta_diff": [
+      {
+        "field": "title",
+        "php": "FEDPAWA CORPORATE SOLUTIONS | Contact & Appointments in Douala",
+        "next": "FEDPAWA CORPORATE SOLUTIONS | Contact — Douala, Cameroon | FEDPAWA CORPORATE SOLUTIONS"
+      },
+      {
+        "field": "description",
+        "php": "Contact FEDPAWA CORPORATE SOLUTIONS SARL - Logpom, Douala. Domiciliation, company formation, tax advisory, OAPI, contracts.",
+        "next": "Get in touch with FEDPAWA: address, opening hours, phone, WhatsApp, email and online form. Reply within 24 hours."
+      },
+      {
+        "field": "og_title",
+        "php": "FEDPAWA CORPORATE SOLUTIONS | Contact &amp; Appointments in Douala",
+        "next": "FEDPAWA CORPORATE SOLUTIONS | Contact — Douala, Cameroon"
+      },
+      {
+        "field": "og_description",
+        "php": "Contact FEDPAWA CORPORATE SOLUTIONS SARL - Logpom, Douala. Domiciliation, company formation, tax advisory, OAPI, contracts.",
+        "next": "Get in touch with FEDPAWA: address, opening hours, phone, WhatsApp, email and online form. Reply within 24 hours."
+      },
+      {
+        "field": "twitter_title",
+        "php": "FEDPAWA CORPORATE SOLUTIONS | Contact &amp; Appointments in Douala",
+        "next": "FEDPAWA CORPORATE SOLUTIONS | Contact — Douala, Cameroon"
+      },
+      {
+        "field": "twitter_description",
+        "php": "Contact FEDPAWA CORPORATE SOLUTIONS SARL - Logpom, Douala. Domiciliation, company formation, tax advisory, OAPI, contracts.",
+        "next": "Get in touch with FEDPAWA: address, opening hours, phone, WhatsApp, email and online form. Reply within 24 hours."
+      }
+    ],
+    "missing_in_next": [],
+    "added_in_next": [],
+    "replaced": [
+      {
+        "php": "Logpom Pharmacy Building, Douala Mon–Fri 8:00–18:00 · Sat 9:00–14:00 contact@fedpawa.com FEDPAWA Corporate Solutions Home Services ▾ Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Home Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Sign in FR × We are here to listen Contact Us Do you have a question, a project, a specific need?",
+        "next": "Logpom Pharmacy Building, Douala Mon–Fri 8:00–18:00 · Sat 9:00–14:00 contact@fedpawa.com FEDPAWA Corporate Solutions Accueil Services ▾ Domiciliation Création d'entreprise Conseils & Suivi Fiscal Protection OAPI Contrats Qui sommes-nous Contact Sign in Home Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Sign in FR × We are here to listen Contact Us Do you have a question, a project, a specific need?"
+      },
+      {
+        "php": "Adresse physique Immeuble Pharmacie de Logpom, en bordure de route Logpom, Douala, Cameroun Horaires d'ouverture Lundi – Vendredi : 8h00 – 18h00 Samedi : 9h00 – 14h00 Contact direct Phone: +237 691 70 48 02 WhatsApp : +237 691 70 48 02 Email contact@fedpawa.com Send us a message Remplissez le formulaire ci-dessous, nous vous recontactons sous 24h.",
+        "next": "Physical address Pharmacie de Logpom Building, right by the roadside Logpom, Douala, Cameroon Opening hours Monday – Friday: 8:00 – 18:00 Saturday: 9:00 – 14:00 Direct contact Phone: +237 691 70 48 02 WhatsApp: +237 691 70 48 02 Email contact@fedpawa.com Send us a message Fill in the form below, we will get back to you within 24 hours."
+      },
+      {
+        "php": "Registered office (Domiciliation) Company formation Tax & legal advisory OAPI Contracts & legal drafting Other Your message * Send message WhatsApp Chat with us in real time Email Write to Us pour un devis Access Map & Location We are located in the Logpom Pharmacy building, right by the roadside.",
+        "next": "Registered office (Domiciliation) Company formation Tax & legal advisory OAPI Contracts & legal drafting Other Your message * Send message WhatsApp Chat with us in real time Email Write to us for a quote Access Map & Location We are located in the Logpom Pharmacy building, right by the roadside."
+      }
+    ],
+    "counts": {
+      "php_sentences": 12,
+      "next_sentences": 12,
+      "missing": 0,
+      "added": 0,
+      "replaced": 3
+    }
+  },
+  "oapi": {
+    "meta_diff": [
+      {
+        "field": "title",
+        "php": "FEDPAWA CORPORATE SOLUTIONS | Trademarks & Intellectual Property (OAPI)",
+        "next": "FEDPAWA CORPORATE SOLUTIONS | Trademarks & Intellectual Property (OAPI) | FEDPAWA CORPORATE SOLUTIONS"
+      }
+    ],
+    "missing_in_next": [],
+    "added_in_next": [],
+    "replaced": [
+      {
+        "php": "Logpom Pharmacy Building, Douala Mon–Fri 8:00–18:00 · Sat 9:00–14:00 contact@fedpawa.com FEDPAWA Corporate Solutions Home Services ▾ Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Home Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Sign in FR × Intellectual Property Protection • Bangui Agreement Registration of Trademarks, Logos, Applications, Software and other Intellectual Property Rights with OAPI Secure Your Innovations, Protect Your Trademarks and Grow Your Tech Assets Votre nom commercial, votre logo, votre logiciel ou votre application mobile constituent la signature unique de votre réussite.",
+        "next": "Logpom Pharmacy Building, Douala Mon–Fri 8:00–18:00 · Sat 9:00–14:00 contact@fedpawa.com FEDPAWA Corporate Solutions Accueil Services ▾ Domiciliation Création d'entreprise Conseils & Suivi Fiscal Protection OAPI Contrats Qui sommes-nous Contact Sign in Home Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Sign in FR × Intellectual Property Protection • Bangui Agreement Registration of Trademarks, Logos, Applications, Software and other Intellectual Property Rights with OAPI Secure Your Innovations, Protect Your Trademarks and Grow Your Tech Assets Votre nom commercial, votre logo, votre logiciel ou votre application mobile constituent la signature unique de votre réussite."
+      }
+    ],
+    "counts": {
+      "php_sentences": 32,
+      "next_sentences": 32,
+      "missing": 0,
+      "added": 0,
+      "replaced": 1
+    }
+  },
+  "contrats": {
+    "meta_diff": [
+      {
+        "field": "title",
+        "php": "FEDPAWA CORPORATE SOLUTIONS | Legal Contract Drafting",
+        "next": "FEDPAWA CORPORATE SOLUTIONS | Legal Contract Drafting | FEDPAWA CORPORATE SOLUTIONS"
+      }
+    ],
+    "missing_in_next": [],
+    "added_in_next": [],
+    "replaced": [
+      {
+        "php": "Logpom Pharmacy Building, Douala Mon–Fri 8:00–18:00 · Sat 9:00–14:00 contact@fedpawa.com FEDPAWA Corporate Solutions Home Services ▾ Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Home Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Sign in FR × Contractual Engineering & OHADA Compliance Drafting of All Types of Contracts (Corporate, Commercial, Employment, Service, Confidentiality, Etc.) Lock In Your Partnerships, Protect Your Transactions and Eliminate Your Legal Risks Every signature commits your company's future, cash flow and liability.",
+        "next": "Logpom Pharmacy Building, Douala Mon–Fri 8:00–18:00 · Sat 9:00–14:00 contact@fedpawa.com FEDPAWA Corporate Solutions Accueil Services ▾ Domiciliation Création d'entreprise Conseils & Suivi Fiscal Protection OAPI Contrats Qui sommes-nous Contact Sign in Home Domiciliation Company Formation Tax & Legal Advisory OAPI Protection Contracts About Us Contact Sign in FR × Contractual Engineering & OHADA Compliance Drafting of All Types of Contracts (Corporate, Commercial, Employment, Service, Confidentiality, Etc.) Lock In Your Partnerships, Protect Your Transactions and Eliminate Your Legal Risks Every signature commits your company's future, cash flow and liability."
+      }
+    ],
+    "counts": {
+      "php_sentences": 29,
+      "next_sentences": 29,
+      "missing": 0,
+      "added": 0,
+      "replaced": 1
+    }
+  }
+}

@@ -1,0 +1,119 @@
+// ==========================================================
+// FEDPAWA — client API REST Laravel (frontend pur, zéro accès DB)
+// Base : NEXT_PUBLIC_API_URL. Helper fetch typé + gestion erreurs unifiée.
+// ==========================================================
+
+export const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
+
+/** Erreur API unifiée : status HTTP + message serveur ou réseau. */
+export class ApiError extends Error {
+  status: number;
+  /** Corps brut de la réponse d'erreur (utile pour validation Laravel). */
+  body: unknown;
+
+  constructor(status: number, message: string, body?: unknown) {
+    super(message);
+    this.name = "ApiError";
+    this.status = status;
+    this.body = body;
+  }
+}
+
+export interface ApiErrorBody {
+  message?: string;
+  errors?: Record<string, string[]>;
+}
+
+export type ApiInit = Omit<RequestInit, "body"> & {
+  body?: unknown;
+};
+
+function buildUrl(path: string): string {
+  if (/^https?:\/\//i.test(path)) return path;
+  const base = API_BASE_URL.replace(/\/+$/, "");
+  const suffix = path.startsWith("/") ? path : `/${path}`;
+  return `${base}${suffix}`;
+}
+
+function buildHeaders(init: ApiInit): HeadersInit {
+  const headers = new Headers(init.headers);
+  if (init.body !== undefined && !headers.has("Content-Type")) {
+    headers.set("Content-Type", "application/json");
+  }
+  return headers;
+}
+
+async function parseBody(response: Response): Promise<unknown> {
+  const text = await response.text();
+  if (!text) return null;
+  try {
+    return JSON.parse(text);
+  } catch {
+    return text;
+  }
+}
+
+/**
+ * Helper fetch typé vers l'API Laravel.
+ * - Préfixe NEXT_PUBLIC_API_URL automatiquement (sauf URL absolue).
+ * - Sérialise `body` en JSON + Content-Type automatiques.
+ * - Rejette ApiError pour toute réponse non-2xx (message serveur si présent).
+ * - Rejette ApiError status 0 en cas d'erreur réseau.
+ */
+export async function apiFetch<T = unknown>(
+  path: string,
+  init: ApiInit = {},
+): Promise<T> {
+  const { body, ...rest } = init;
+  let response: Response;
+  try {
+    response = await fetch(buildUrl(path), {
+      credentials: 'include',
+      ...rest,
+      headers: buildHeaders(init),
+      body: body !== undefined ? JSON.stringify(body) : undefined,
+    });
+  } catch {
+    throw new ApiError(0, "Erreur réseau : API inaccessible.");
+  }
+
+  if (!response.ok) {
+    const parsed = (await parseBody(response).catch(() => null)) as
+      | ApiErrorBody
+      | null;
+    const message =
+      parsed?.message ?? `Erreur API (${response.status} ${response.statusText}).`;
+    throw new ApiError(response.status, message, parsed ?? null);
+  }
+
+  return (await parseBody(response)) as T;
+}
+
+/** GET typé. */
+export function apiGet<T = unknown>(path: string, init?: ApiInit): Promise<T> {
+  return apiFetch<T>(path, { ...init, method: "GET" });
+}
+
+/** POST typé (body sérialisé en JSON). */
+export function apiPost<T = unknown>(
+  path: string,
+  body?: unknown,
+  init?: ApiInit,
+): Promise<T> {
+  return apiFetch<T>(path, { ...init, method: "POST", body });
+}
+
+/** PUT typé. */
+export function apiPut<T = unknown>(
+  path: string,
+  body?: unknown,
+  init?: ApiInit,
+): Promise<T> {
+  return apiFetch<T>(path, { ...init, method: "PUT", body });
+}
+
+/** DELETE typé. */
+export function apiDelete<T = unknown>(path: string, init?: ApiInit): Promise<T> {
+  return apiFetch<T>(path, { ...init, method: "DELETE" });
+}

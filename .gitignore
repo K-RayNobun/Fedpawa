@@ -15,6 +15,7 @@ composer.phar
 # === Environnement & secrets ===
 .env
 .env.*
+fedpawa-api/backups-deploy-*/env
 
 # === Données runtime (SQLite, logs, uploads, documents générés) ===
 fedpawa_light/storage/**

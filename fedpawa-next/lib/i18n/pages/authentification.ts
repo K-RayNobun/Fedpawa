@@ -1,0 +1,108 @@
+// ==========================================================
+// FEDPAWA — dictionnaires page authentification FR/EN
+// Repris des translations inline de auth.js (source exacte).
+// ==========================================================
+
+import type { PageDict } from "../../i18n/types";
+
+export const authFr: PageDict = {
+  heroTitle: "Gérez votre entreprise en <span>toute sérénité</span>.",
+  heroDesc:
+    "Accédez à votre tableau de bord pour suivre vos abonnements, téléverser vos documents KYC, consulter vos courriers scannés et gérer votre fiscalité.",
+  feat1: "Suivi des démarches en temps réel",
+  feat2: "Archivage cloud sécurisé (Contrats & Courriers)",
+  feat3: "Factures et attestations fiscales à portée de clic",
+  authHeader: "Espace Client",
+  authSubheader: "Connectez-vous ou créez un compte pour continuer.",
+  tabLogin: "Connexion",
+  tabSignup: "Inscription",
+  lblEmail: "Adresse e-mail",
+  lblPassword: "Mot de passe",
+  remember: "Se souvenir de moi",
+  forgot: "Mot de passe oublié ?",
+  btnLogin: "Se connecter",
+  noAccount: "Pas encore de compte ?",
+  gotoSignup: "Créer un compte",
+  lblCivility: "Civilité",
+  selSelect: "Sélectionner",
+  selMr: "Monsieur",
+  selMme: "Madame",
+  lblFullname: "Nom complet",
+  lblCompany: "Nom de l'entreprise",
+  lblLegal: "Forme juridique",
+  lblPhone: "Téléphone",
+  lblConfirm: "Confirmer",
+  pwdHint: "Min. 8 caractères, 1 majuscule, 1 chiffre.",
+  cguLabel:
+    "J'accepte les <a href=\"cgu.php\" target=\"_blank\" rel=\"noopener\">Conditions Générales d'Utilisation (CGU)</a> et la <a href=\"politique-confidentialite.php\" target=\"_blank\" rel=\"noopener\">politique de confidentialité</a> de FEDPAWA.",
+  legalCgu: "CGU / CGV",
+  legalPrivacy: "Politique de Confidentialité",
+  btnSignup: "Créer mon compte",
+  hasAccount: "Déjà un compte ?",
+  gotoLogin: "Se connecter",
+  addrLine: "Immeuble Pharmacie de Logpom, Douala · Cameroun",
+  copyright: "© FEDPAWA Corporate Solutions",
+  // toasts
+  toastFillAll: "Veuillez remplir tous les champs.",
+  toastLoginOk: "Connexion réussie ! Redirection...",
+  toastLoginKo: "Identifiants invalides.",
+  toastSignupOk: "Compte créé avec succès ! Connectez-vous.",
+  toastSignupKo: "Impossible de créer le compte.",
+  toastCguMissing: "Vous devez accepter les CGU.",
+  toastPwdMismatch: "Les mots de passe ne correspondent pas.",
+  toastPwdWeak:
+    "Le mot de passe doit contenir au moins 8 caractères, une majuscule et un chiffre.",
+  toastServerKo: "Votre tentative n'a pas pu aboutir. Vérifiez votre connexion internet et réessayez. Si le problème persiste, contactez notre support.",
+  showPwd: "Afficher le mot de passe",
+};
+
+export const authEn: PageDict = {
+  heroTitle: "Manage your business with <span>complete peace of mind</span>.",
+  heroDesc:
+    "Access your dashboard to track subscriptions, upload KYC documents, view scanned mail, and manage taxes.",
+  feat1: "Real-time procedure tracking",
+  feat2: "Secure cloud archiving (Contracts & Mail)",
+  feat3: "Invoices and tax certificates at your fingertips",
+  authHeader: "Client Portal",
+  authSubheader: "Log in or create an account to continue.",
+  tabLogin: "Login",
+  tabSignup: "Sign Up",
+  lblEmail: "Email address",
+  lblPassword: "Password",
+  remember: "Remember me",
+  forgot: "Forgot password?",
+  btnLogin: "Log In",
+  noAccount: "Don't have an account?",
+  gotoSignup: "Create an account",
+  lblCivility: "Civility",
+  selSelect: "Select",
+  selMr: "Mr.",
+  selMme: "Mrs.",
+  lblFullname: "Full Name",
+  lblCompany: "Company Name",
+  lblLegal: "Legal Form",
+  lblPhone: "Phone",
+  lblConfirm: "Confirm Password",
+  pwdHint: "Min. 8 chars, 1 uppercase, 1 number.",
+  cguLabel:
+    "I accept the <a href=\"cgu.php\" target=\"_blank\" rel=\"noopener\">Terms of Service</a> and <a href=\"politique-confidentialite.php\" target=\"_blank\" rel=\"noopener\">Privacy Policy</a> of FEDPAWA.",
+  legalCgu: "Terms & Conditions",
+  legalPrivacy: "Privacy Policy",
+  btnSignup: "Create Account",
+  hasAccount: "Already have an account?",
+  gotoLogin: "Log In",
+  addrLine: "Pharmacie de Logpom Building, Douala · Cameroon",
+  copyright: "© FEDPAWA Corporate Solutions",
+  // toasts
+  toastFillAll: "Please fill in all fields.",
+  toastLoginOk: "Login successful! Redirecting...",
+  toastLoginKo: "Invalid credentials.",
+  toastSignupOk: "Account created successfully! Please log in.",
+  toastSignupKo: "Could not create the account.",
+  toastCguMissing: "You must accept the Terms of Service.",
+  toastPwdMismatch: "Passwords do not match.",
+  toastPwdWeak:
+    "The password must contain at least 8 characters, one uppercase letter and one number.",
+  toastServerKo: "Your request could not be completed. Check your internet connection and try again. If the problem persists, contact our support team.",
+  showPwd: "Show password",
+};

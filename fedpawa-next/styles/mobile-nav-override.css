@@ -1,0 +1,32 @@
+/* Prioritaire : Style du menu mobile pour FEDPAWA */
+.mobile-nav nav a,
+.mobile-nav nav button {
+    text-transform: uppercase !important;
+    font-size: 0.85rem !important;
+    font-weight: bold !important;
+    display: block !important;
+    padding: 10px 0 !important;
+    text-decoration: none !important;
+    color: inherit !important;
+    width: 100% !important;
+    text-align: left !important;
+    background: none !important;
+    border: none !important;
+    cursor: pointer !important;
+}
+
+.mobile-nav nav .services-dropdown-list a {
+    padding: 5px 0 5px 20px !important; /* Indentation */
+    font-size: 0.8rem !important;
+}
+
+.mobile-nav nav .logout-button {
+    background-color: red !important;
+    color: white !important;
+    width: 100% !important;
+    padding: 15px !important;
+    border-radius: 5px !important;
+    margin-top: 10px !important;
+    text-align: center !important;
+    font-weight: bold !important;
+}

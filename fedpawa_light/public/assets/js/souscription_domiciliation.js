@@ -444,15 +444,12 @@
   });
 
   // ============ ÉTAPE 6 – FACTURATION ============
-  // Facture proforma en bonne et due forme : émetteur, client, désignation, HT, TVA, TTC
-  const TVA_RATE = 0.1925; // TVA Cameroun 19,25 %
+  // Facture proforma en bonne et due forme : émetteur (mentions légales), client, désignation, total
   function buildInvoice() {
     const box = document.getElementById('invoiceBox');
     if (!box || !invoiceCtx) return;
     const { data, pack, months, total, name, phone } = invoiceCtx;
 
-    const baseHT = Math.round(total / (1 + TVA_RATE));
-    const tva = total - baseHT;
     const now = new Date();
     const dateStr = now.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' });
     const num = 'F-' + now.getFullYear() + '-' + String(now.getTime()).slice(-6);
@@ -463,7 +460,7 @@
     box.innerHTML =
       '<div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; border-bottom:2px solid var(--color-primary); padding-bottom:16px; margin-bottom:20px;">' +
       '  <div><strong style="font-size:1.15rem; color:var(--color-heading);">FEDPAWA CORPORATE SOLUTIONS SARL</strong>' +
-      '    <div style="font-size:0.8rem; color:var(--color-text-muted);">Douala · Logpom · Cameroun<br>+237 691 70 48 02 · contact@fedpawa.com</div></div>' +
+      '    <div style="font-size:0.8rem; color:var(--color-text-muted);">NIU : M09261890362B<br>RCCM : CM-DLA-01-2026-B13-00767<br>Siège Social : Douala - Logpom (Immeuble Pharmacie de Logpom), Cameroun<br>+237 691 70 48 02 · contact@fedpawa.com</div></div>' +
       '  <div style="text-align:right;"><div style="font-weight:700; font-size:1rem;">FACTURE PROFORMA</div>' +
       '    <div style="font-size:0.85rem;">N° ' + num + '</div>' +
       '    <div style="font-size:0.85rem;">Date : ' + dateStr + '</div></div>' +
@@ -475,12 +472,11 @@
       '<table style="width:100%; border-collapse:collapse; font-size:0.9rem; margin-bottom:8px;">' +
       '  <thead><tr style="background:var(--color-bg-alt);"><th style="text-align:left; padding:10px; border-bottom:1px solid var(--color-border);">Désignation</th><th style="text-align:right; padding:10px; border-bottom:1px solid var(--color-border);">Montant</th></tr></thead>' +
       '  <tbody>' +
-      '    <tr><td style="padding:10px; border-bottom:1px solid var(--color-border);">' + esc(packLabel) + ' — Domiciliation (' + periodLabel + ')</td><td style="text-align:right; padding:10px; border-bottom:1px solid var(--color-border);">' + fmt2(baseHT) + '</td></tr>' +
-      '    <tr><td style="padding:10px; border-bottom:1px solid var(--color-border);">TVA (19,25 %)</td><td style="text-align:right; padding:10px; border-bottom:1px solid var(--color-border);">' + fmt2(tva) + '</td></tr>' +
-      '    <tr style="background:var(--color-bg-alt); font-weight:700;"><td style="padding:12px 10px;">TOTAL TTC À REGLER</td><td style="text-align:right; padding:12px 10px;">' + fmt2(total) + '</td></tr>' +
+      '    <tr><td style="padding:10px; border-bottom:1px solid var(--color-border);">' + esc(packLabel) + ' — Domiciliation (' + periodLabel + ')</td><td style="text-align:right; padding:10px; border-bottom:1px solid var(--color-border);">' + fmt2(total) + '</td></tr>' +
+      '    <tr style="background:var(--color-bg-alt); font-weight:700;"><td style="padding:12px 10px;">TOTAL À RÉGLER</td><td style="text-align:right; padding:12px 10px;">' + fmt2(total) + '</td></tr>' +
       '  </tbody>' +
       '</table>' +
-      '<p style="font-size:0.78rem; color:var(--color-text-muted); margin-top:10px;">Arrêtée la présente facture à la somme de ' + total.toLocaleString('fr-FR') + ' francs CFA TTC. Règlement par Mobile Money (Orange / MTN).</p>';
+      '<p style="font-size:0.78rem; color:var(--color-text-muted); margin-top:10px;">Arrêtée la présente facture à la somme de ' + total.toLocaleString('fr-FR') + ' francs CFA. Règlement par Mobile Money (Orange / MTN).</p>';
 
     const payBtn = document.getElementById('invoicePayBtn');
     if (payBtn) payBtn.textContent = '🔒 Procéder au paiement sécurisé (' + total.toLocaleString('fr-FR') + ' FCFA)';
